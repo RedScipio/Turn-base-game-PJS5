@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://nsulihfe46rh"]
+
+[ext_resource type="PackedScene" uid="uid://bi874shsj265s" path="res://Scenes/Weapon/IWeapon.tscn" id="1_3rli4"]
+[ext_resource type="Script" path="res://Scenes/Weapon/Thermal/ThermalWeapon.cs" id="2_sgtbc"]
+
+[node name="IWeapon" instance=ExtResource("1_3rli4")]
+script = ExtResource("2_sgtbc")
