@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cewtbymfxhxea"]
+
+[ext_resource type="PackedScene" uid="uid://dpb1iq6ghfxr0" path="res://Scenes/Pilot/IPilot.tscn" id="1_jt3sd"]
+
+[node name="Pilot" instance=ExtResource("1_jt3sd")]

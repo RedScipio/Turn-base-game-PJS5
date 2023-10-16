@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://byhg0svenogpm"]
+
+[ext_resource type="Script" path="res://Scenes/BattleScene/Scripts/Battle.cs" id="1_y4u11"]
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y4u11")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PilotEnnemyContainer" type="Container" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EnnemyContainer" type="Container" parent="PilotEnnemyContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PilotEnnemyContainer/EnnemyContainer"]
+layout_mode = 2
+
+[node name="SpritesContainer" type="Container" parent="PilotEnnemyContainer/EnnemyContainer"]
+layout_mode = 2
+
+[node name="LeftLegs" type="TextureRect" parent="PilotEnnemyContainer/EnnemyContainer/SpritesContainer"]
+layout_mode = 2
+
+[node name="Legs" type="TextureRect" parent="PilotEnnemyContainer/EnnemyContainer/SpritesContainer"]
+layout_mode = 2
+
+[node name="LeftWeapons" type="TextureRect" parent="PilotEnnemyContainer/EnnemyContainer/SpritesContainer"]
+layout_mode = 2
+
+[node name="RightWeapons" type="TextureRect" parent="PilotEnnemyContainer/EnnemyContainer/SpritesContainer"]
+layout_mode = 2
+
+[node name="Furnace" type="TextureRect" parent="PilotEnnemyContainer/EnnemyContainer/SpritesContainer"]
+layout_mode = 2
