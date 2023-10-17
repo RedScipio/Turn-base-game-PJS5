@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PJS5"
-run/main_scene="res://Scenes/BattleScene/Battle.tscn"
+run/main_scene="res://Scenes/Battle/Battle.tscn"
 config/features=PackedStringArray("4.0", "C#", "GL Compatibility")
 config/icon="res://Ressources/icon.svg"
 
