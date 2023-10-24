@@ -5,7 +5,7 @@
 - Groupe : 305
 - Rôle :
   - Responsable de l'architecture du projet
-  - Développeur principal
+  - Développeur v0
   - UX - UI designer
 
 ## Mehdi WAHADA :
@@ -23,7 +23,7 @@
 ## Danis TRAVANCIC :
 - Pseudo GitHub : dan133-1
 - Groupe : 305
-- Rôle : ???
+- Rôle : Dev principal
 
 ## Marion CHARIER :
 - Pseudo GitHub : marionchrr
