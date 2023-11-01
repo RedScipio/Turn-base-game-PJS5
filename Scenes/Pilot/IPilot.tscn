@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpb1iq6ghfxr0"]
-
-[ext_resource type="Script" path="res://Scenes/Pilot/IPilot.cs" id="1_wvc5m"]
-
-[node name="Pilot" type="Node"]
-script = ExtResource("1_wvc5m")
