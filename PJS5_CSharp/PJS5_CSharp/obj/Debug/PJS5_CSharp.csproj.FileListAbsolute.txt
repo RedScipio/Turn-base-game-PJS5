@@ -1,0 +1,7 @@
+D:\Projects\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.AssemblyReference.cache
+D:\Projects\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.CoreCompileInputs.cache
+D:\Projects\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.exe.config
+D:\Projects\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.exe
+D:\Projects\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.pdb
+D:\Projects\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.exe
+D:\Projects\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.pdb
