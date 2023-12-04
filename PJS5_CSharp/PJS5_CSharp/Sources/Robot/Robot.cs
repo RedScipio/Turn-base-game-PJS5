@@ -4,6 +4,14 @@ using WEAPON;
 
 namespace PJS5_CSharp.Sources.Robot
 {
+    public enum PARTS_TYPE
+    {
+        LEFT_WEAPON,
+        RIGHT_WEAPON,
+        FURNACE,
+        LEGS
+    }
+
     public class Robot
     {
         private FURNACE _pFurnace;
@@ -80,13 +88,31 @@ namespace PJS5_CSharp.Sources.Robot
             switch (iTargetChoice)
             {
                 case 1:
-                    return pEnnemiRobot._pLeftWeapon.TakeDamage(pWeapon.GetDamage());
+                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.LEFT_WEAPON);
                 case 2:
-                    return pEnnemiRobot._pRightWeapon.TakeDamage(pWeapon.GetDamage());
+                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.RIGHT_WEAPON);
                 case 3:
-                    return pEnnemiRobot._pLegs.TakeDamage(pWeapon.GetDamage());
+                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.LEGS);
                 case 4:
-                    return pEnnemiRobot._pFurnace.TakeDamage(pWeapon.GetDamage());
+                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage()  , PARTS_TYPE.FURNACE);
+                default:
+                    return 0;
+            }
+        }
+
+
+        private int TakeDamage(int iDamage, PARTS_TYPE eType)
+        {
+            switch (eType)
+            {
+                case PARTS_TYPE.LEFT_WEAPON:
+                    return _pLeftWeapon.TakeDamage(iDamage);
+                case PARTS_TYPE.RIGHT_WEAPON:
+                    return _pRightWeapon.TakeDamage(iDamage);
+                case PARTS_TYPE.LEGS:
+                    return _pLegs.TakeDamage(iDamage);
+                case PARTS_TYPE.FURNACE:
+                    return _pFurnace.TakeDamage(iDamage);
                 default:
                     return 0;
             }
