@@ -21,16 +21,16 @@ namespace PJS5_CSharp.Sources.Pilot.Player
             _pRobot = pRobot;
             _vFuelsReserve = vFuelsReserve ?? new List<int> { 0, 0, 0, 0 };
             _vRepairKitsReserve = vRepairKitsReserve ?? new List<int> { 0, 0, 0, 0 };
-            _ResultsInputs = new List<int> { }; //To stock and serialize the inputs results
-
+            //
+            _ResultsInputs = new List<int> { };
         }
 
-        override public void PlayTurn(Robot.Robot pEnnemiRobot, int iChoice = -1, int iRes = -1)
+        override public void PlayTurn(Robot.Robot pEnnemiRobot, int iChoice = -1, int iRes = -1, int iParts = -1)
         {
             MainMenu(pEnnemiRobot, iChoice, iRes);
         }
 
-        private void MainMenu(Robot.Robot pEnnemiRobot, int iChoice = -1, int iChoiceInMenu = -1, int iChoiceTarget = -1)
+        private void MainMenu(Robot.Robot pEnnemiRobot, int iChoice = -1, int iChoiceRes = -1)
         {
             if (iChoice == -1)
             {
@@ -40,7 +40,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
             {
                 case 1:
                     {
-                        AttackMenu(pEnnemiRobot, iChoiceInMenu, iChoiceTarget);
+                        AttackMenu(pEnnemiRobot, iChoiceRes);
                         return;
                     }
                 case 2:
