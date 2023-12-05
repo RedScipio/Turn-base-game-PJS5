@@ -14,20 +14,19 @@ namespace PJS5_CSharp.Sources.Pilot.Bot
         {
         }
 
-        public List<int> GetFuelsReserve()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<int> GetRepairKitsReserve()
-        {
-            throw new NotImplementedException();
-        }
-
         override
         public void PlayTurn(Robot.Robot ennemiRobot)
         {
-            Console.WriteLine("BotPilot.cs PlayTurn()");
+            if (_pRobot.WeaponIsUsable(0))
+            {
+                ennemiRobot.DealDamage(ennemiRobot, 0, Robot.PARTS_TYPE.FURNACE);
+            }
+            else if (_pRobot.WeaponIsUsable(1))
+            {
+
+            }
+            //ennemiRobot.DealDamage(ennemiRobot, null, Robot.FURNACE);
+            Console.WriteLine("Play bot");
         }
     }
 }
