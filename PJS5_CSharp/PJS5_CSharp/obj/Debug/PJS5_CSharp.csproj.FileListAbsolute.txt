@@ -12,3 +12,10 @@ T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.cs
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.CoreCompileInputs.cache
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.exe
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.pdb
+c:\Users\Wahad\Documents\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.exe.config
+c:\Users\Wahad\Documents\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.exe
+c:\Users\Wahad\Documents\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.pdb
+c:\Users\Wahad\Documents\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.AssemblyReference.cache
+c:\Users\Wahad\Documents\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.CoreCompileInputs.cache
+c:\Users\Wahad\Documents\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.exe
+c:\Users\Wahad\Documents\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.pdb

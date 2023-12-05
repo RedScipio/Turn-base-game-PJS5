@@ -46,24 +46,27 @@ namespace GUI
             Console.WriteLine("|====================--====================|");
         }
 
-        public static int MainMenu()
+        public static int MainMenu(int res = -1)
         {
-            int iResult;
+            int iResult = 0;
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|                Main  Menu                |");
             Console.WriteLine("|===================-<>-===================|");
             Console.WriteLine("|  1-Attack  ||  2-Repairs  ||  3-Furnace  |");
             Console.WriteLine("|===================-<>-===================|");
             Console.Write("| Tap the number of the desired action : ");
-            iResult = Utils.GetInt();
+            if(res == 0)
+            {
+                iResult = Utils.GetInt();
+            }
             Console.WriteLine(" |");
             Console.WriteLine("|====================--====================|");
             return iResult;
         }
 
-        public static int TargetMenu()
+        public static int TargetMenu(int res = -1)
         {
-            int iResult;
+            int iResult = 0;
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|              Target  Menu                |");
             Console.WriteLine("|===================-<>-===================|");
@@ -74,13 +77,20 @@ namespace GUI
             Console.WriteLine("|                    ||       0-Back       |");
             Console.WriteLine("|===================-<>-===================|");
             Console.Write("| Select the target part : ");
-            iResult = Utils.GetInt();
+            if (res == -1)
+            {
+                iResult = Utils.GetInt();
+            }
+            else
+            {
+                iResult = res;
+            }
             Console.WriteLine("               |");
             Console.WriteLine("|====================--====================|");
             return iResult;
         }
 
-        public static int RepairMenu(PILOT.IPILOT pPilot)
+        public static int RepairMenu(PILOT.IPILOT pPilot, int res)
         {
             int iResult;
             Console.WriteLine("|====================--====================|");
@@ -120,13 +130,20 @@ namespace GUI
             Console.WriteLine("|                    ||       0-Back       |");
             Console.WriteLine("|===================-<>-===================|");
             Console.Write("| Select your kit type : ");
-            iResult = Utils.GetInt();
+            if (res == -1)
+            {
+                iResult = Utils.GetInt();
+            }
+            else
+            {
+                iResult = res;
+            }
             Console.WriteLine("                 |");
             Console.WriteLine("|====================--====================|");
             return iResult;
         }
 
-        public static int FuelMenu(PILOT.IPILOT pPilot)
+        public static int FuelMenu(PILOT.IPILOT pPilot, int res = -1)
         {
             int iResult;
             Console.WriteLine("|====================--====================|");
@@ -166,13 +183,20 @@ namespace GUI
             Console.WriteLine("|                    ||       0-Back       |");
             Console.WriteLine("|===================-<>-===================|");
             Console.Write("| Select your fuel type : ");
-            iResult = Utils.GetInt();
+            if (res == -1)
+            {
+                iResult = Utils.GetInt();
+            }
+            else
+            {
+                iResult = res;
+            }
             Console.WriteLine("                |");
             Console.WriteLine("|====================--====================|");
             return iResult;
         }
 
-        public static int WeaponMenu(Robot pPlayer)
+        public static int WeaponMenu(Robot pPlayer, int res = -1)
         {
             int iResult;
             Console.WriteLine("|====================--====================|");
@@ -289,7 +313,14 @@ namespace GUI
             Console.WriteLine("|                    ||       0-Back       |");
             Console.WriteLine("|===================-<>-===================|");
             Console.Write("| Select your weapon : ");
-            iResult = Utils.GetInt();
+            if(res == -1)
+            {
+                iResult = Utils.GetInt();
+            }
+            else
+            {
+                iResult = res;
+            }
             Console.WriteLine("                   |");
             Console.WriteLine("|====================--====================|");
             return iResult;
