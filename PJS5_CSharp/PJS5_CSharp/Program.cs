@@ -34,9 +34,9 @@ namespace PJS5_CSharp
             Console.WriteLine(pPlayer.GetRightWeaponHitChance());
             Console.WriteLine(pPlayer.GetLeftWeaponHitChance());
 
-            pPlayer.DealDamage(pPlayer, 2, Sources.Robot.PARTS_TYPE.FURNACE);
-            pPlayer.DealDamage(pPlayer, 2, Sources.Robot.PARTS_TYPE.FURNACE);
-            pPlayer.DealDamage(pPlayer, 2, Sources.Robot.PARTS_TYPE.FURNACE);
+            pPlayer.DealDamage(pPlayer, ARMED_ARM_TYPE.RIGHT_WEAPON, Sources.Robot.PARTS_TYPE.FURNACE);
+            pPlayer.DealDamage(pPlayer, ARMED_ARM_TYPE.RIGHT_WEAPON, Sources.Robot.PARTS_TYPE.FURNACE);
+            pPlayer.DealDamage(pPlayer, ARMED_ARM_TYPE.RIGHT_WEAPON, Sources.Robot.PARTS_TYPE.FURNACE);
 
             Console.WriteLine(pPlayer.GetRightWeaponHitChance());
             Console.WriteLine(pPlayer.GetLeftWeaponHitChance());

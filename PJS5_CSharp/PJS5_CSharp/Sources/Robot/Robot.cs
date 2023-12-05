@@ -6,10 +6,16 @@ namespace PJS5_CSharp.Sources.Robot
 {
     public enum PARTS_TYPE
     {
-        LEFT_WEAPON,
-        RIGHT_WEAPON,
+        LEFT_WEAPON = ARMED_ARM_TYPE.LEFT_WEAPON,
+        RIGHT_WEAPON = ARMED_ARM_TYPE.RIGHT_WEAPON,
         FURNACE,
         LEGS
+    }
+
+    public enum ARMED_ARM_TYPE
+    {
+        LEFT_WEAPON,
+        RIGHT_WEAPON
     }
 
     public class Robot
@@ -42,10 +48,10 @@ namespace PJS5_CSharp.Sources.Robot
             return _pFurnace.IsBroken();
         }
 
-        public bool WeaponIsUsable(int iChoice)
+        public bool WeaponIsUsable(ARMED_ARM_TYPE iChoice)
         {
             IWeapon pWeapon = _pLeftWeapon;
-            if (iChoice == 2)
+            if (iChoice == ARMED_ARM_TYPE.RIGHT_WEAPON)
             {
                 pWeapon = _pRightWeapon;
             }
@@ -74,10 +80,10 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public int DealDamage(Robot pEnnemiRobot, int iChoiceWeapon, Sources.Robot.PARTS_TYPE iTargetChoice)
+        public int DealDamage(Robot pEnnemiRobot, ARMED_ARM_TYPE iChoiceWeapon, Sources.Robot.PARTS_TYPE iTargetChoice)
         {
             IWeapon pWeapon = _pLeftWeapon;
-            if (iChoiceWeapon == 2)
+            if (iChoiceWeapon == ARMED_ARM_TYPE.RIGHT_WEAPON)
             {
                 pWeapon = _pRightWeapon;
             }

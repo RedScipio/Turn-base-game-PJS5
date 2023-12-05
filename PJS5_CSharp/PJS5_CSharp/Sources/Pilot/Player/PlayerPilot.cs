@@ -80,7 +80,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     }
                 case 1:
                     {
-                        if (_pRobot.WeaponIsUsable(iChoice))
+                        if (_pRobot.WeaponIsUsable(ARMED_ARM_TYPE.LEFT_WEAPON))
                         {
                             Sources.Robot.PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
                             if (pEnnemiRobot.AttackTargetIsValid(iTargetChoice))
@@ -94,7 +94,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                                 }
                                 else
                                 {
-                                    _pRobot.DealDamage(pEnnemiRobot, iChoice, iTargetChoice);
+                                    _pRobot.DealDamage(pEnnemiRobot, ARMED_ARM_TYPE.LEFT_WEAPON, iTargetChoice);
                                     return;
                                 }
                             }
@@ -114,7 +114,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     }
                 case 2:
                     {
-                        if (_pRobot.WeaponIsUsable(iChoice))
+                        if (_pRobot.WeaponIsUsable(ARMED_ARM_TYPE.RIGHT_WEAPON))
                         {
                             Sources.Robot.PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
                             if (pEnnemiRobot.AttackTargetIsValid(iTargetChoice))
@@ -128,7 +128,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                                 }
                                 else
                                 {
-                                    _pRobot.DealDamage(pEnnemiRobot, iChoice, iTargetChoice);
+                                    _pRobot.DealDamage(pEnnemiRobot, ARMED_ARM_TYPE.RIGHT_WEAPON, iTargetChoice);
                                     return;
                                 }
                             }
