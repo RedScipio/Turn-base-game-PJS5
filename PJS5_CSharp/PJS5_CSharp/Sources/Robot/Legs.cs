@@ -15,6 +15,6 @@ namespace PJS5_CSharp.Sources.Robot
             ~LEGS()
             {
             }
-        }
+    }
     }
 

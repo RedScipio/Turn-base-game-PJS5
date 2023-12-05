@@ -61,7 +61,7 @@ namespace GUI
             return iResult;
         }
 
-        public static int TargetMenu()
+        public static PARTS_TYPE TargetMenu()
         {
             int iResult;
             Console.WriteLine("|====================--====================|");
@@ -77,7 +77,21 @@ namespace GUI
             iResult = Utils.GetInt();
             Console.WriteLine("               |");
             Console.WriteLine("|====================--====================|");
-            return iResult;
+
+            switch (iResult)
+            {
+                case 1:
+                    return PARTS_TYPE.LEFT_WEAPON;
+                case 2:
+                    return PARTS_TYPE.RIGHT_WEAPON;
+                case 3:
+                    return PARTS_TYPE.LEGS;
+                case 4:
+                    return PARTS_TYPE.FURNACE;
+                //!!!
+                default:
+                    return PARTS_TYPE.FURNACE;
+            }
         }
 
         public static int RepairMenu(PILOT.IPILOT pPilot)

@@ -82,7 +82,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_pRobot.WeaponIsUsable(iChoice))
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            Sources.Robot.PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
                             if (pEnnemiRobot.AttackTargetIsValid(iTargetChoice))
                             {
                                 int iRandomizer = new Random().Next(1, 101);
@@ -116,7 +116,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_pRobot.WeaponIsUsable(iChoice))
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            Sources.Robot.PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
                             if (pEnnemiRobot.AttackTargetIsValid(iTargetChoice))
                             {
                                 int iRandomizer = new Random().Next(1, 101);
@@ -172,7 +172,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
                             if (_pRobot.RepairArmorTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotArmor(1, iTargetChoice);
@@ -196,7 +196,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
                             if (_pRobot.RepairArmorTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotArmor(3, iTargetChoice);
@@ -220,7 +220,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
                             if (_pRobot.RepairLifeTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotLifePoint(1, iTargetChoice);
@@ -244,7 +244,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
                             if (_pRobot.RepairLifeTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotLifePoint(3, iTargetChoice);

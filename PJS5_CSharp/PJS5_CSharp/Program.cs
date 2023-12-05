@@ -30,8 +30,21 @@ namespace PJS5_CSharp
             Robot pBot = new Robot(pBasicFurnaceBot, pBasicLegsBot, pBasicNormalWeaponBot, pBasicMeleeWeaponBot);
             PILOT.IPILOT pPlayerPilot = new PLAYER_PILOT(pPlayer, new List<int> { 10, 5, 2, 1 }, new List<int> { 3, 2, 3, 1 });
             PILOT.IPILOT pBotPilot = new BOT_PILOT(pBot, new List<int> { 10, 5, 2, 1 }, new List<int> { 3, 2, 3, 1 });
-            Battle pBattle = new Battle(pPlayerPilot, pBotPilot);
-            pBattle.BattleWithConsoleGui();
+            
+            Console.WriteLine(pPlayer.GetRightWeaponHitChance());
+            Console.WriteLine(pPlayer.GetLeftWeaponHitChance());
+
+            pPlayer.DealDamage(pPlayer, 2, Sources.Robot.PARTS_TYPE.FURNACE);
+            pPlayer.DealDamage(pPlayer, 2, Sources.Robot.PARTS_TYPE.FURNACE);
+            pPlayer.DealDamage(pPlayer, 2, Sources.Robot.PARTS_TYPE.FURNACE);
+
+            Console.WriteLine(pPlayer.GetRightWeaponHitChance());
+            Console.WriteLine(pPlayer.GetLeftWeaponHitChance());
+
+
+            Sources.Utils.GetInt();
+            //Battle pBattle = new Battle(pPlayerPilot, pBotPilot);
+            //pBattle.BattleWithConsoleGui();
         }
     }
 }
