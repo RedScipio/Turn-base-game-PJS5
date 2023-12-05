@@ -1,2 +1,10 @@
 /.vs
 /PJS5_CSharp/PJS5_CSharp/obj
+PJS5_CSharp/.vs/PJS5_CSharp/v16
+/PJS5_CSharp/PJS5_CSharp/bin/*
+/PJS5_CSharp/PJS5_CSharp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/PJS5_CSharp/PJS5_CSharp/obj/Debug/PJS5_CSharp.csproj.AssemblyReference.cache
+/PJS5_CSharp/PJS5_CSharp/obj/Debug/PJS5_CSharp.csproj.CoreCompileInputs.cache
+/PJS5_CSharp/PJS5_CSharp/obj/Debug/PJS5_CSharp.csproj.FileListAbsolute.txt
+/PJS5_CSharp/PJS5_CSharp/obj/Debug/PJS5_CSharp.exe
+/PJS5_CSharp/PJS5_CSharp/obj/Debug/PJS5_CSharp.pdb
