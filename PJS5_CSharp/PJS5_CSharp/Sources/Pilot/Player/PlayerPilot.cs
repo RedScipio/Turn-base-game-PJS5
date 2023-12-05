@@ -14,21 +14,23 @@ namespace PJS5_CSharp.Sources.Pilot.Player
         private Robot.Robot _pRobot;
         private List<int> _vFuelsReserve;
         private List<int> _vRepairKitsReserve;
+        private List<int> _ResultsInputs;
 
         public PLAYER_PILOT(Robot.Robot pRobot, List<int> vFuelsReserve, List<int> vRepairKitsReserve) : base(pRobot, vFuelsReserve, vRepairKitsReserve)
         {
             _pRobot = pRobot;
             _vFuelsReserve = vFuelsReserve ?? new List<int> { 0, 0, 0, 0 };
             _vRepairKitsReserve = vRepairKitsReserve ?? new List<int> { 0, 0, 0, 0 };
+            _ResultsInputs = new List<int> { }; //To stock and serialize the inputs results
+
         }
 
-        override
-        public void PlayTurn(Robot.Robot pEnnemiRobot)
+        override public void PlayTurn(Robot.Robot pEnnemiRobot, int iChoice = -1, int iRes = -1)
         {
-            MainMenu(pEnnemiRobot);
+            MainMenu(pEnnemiRobot, iChoice, iRes);
         }
 
-        private void MainMenu(Robot.Robot pEnnemiRobot, int iChoice = -1)
+        private void MainMenu(Robot.Robot pEnnemiRobot, int iChoice = -1, int iChoiceInMenu = -1, int iChoiceTarget = -1)
         {
             if (iChoice == -1)
             {
@@ -38,28 +40,28 @@ namespace PJS5_CSharp.Sources.Pilot.Player
             {
                 case 1:
                     {
-                        AttackMenu(pEnnemiRobot);
+                        AttackMenu(pEnnemiRobot, iChoiceInMenu, iChoiceTarget);
                         return;
                     }
                 case 2:
                     {
-                        RepairsMenu(pEnnemiRobot);
+                        RepairsMenu(pEnnemiRobot, iChoiceRes);
                         return;
                     }
                 case 3:
                     {
-                        FurnaceMenu(pEnnemiRobot);
+                        FurnaceMenu(pEnnemiRobot, iChoiceRes);
                         return;
                     }
                 default:
                     {
-                        MainMenu(pEnnemiRobot);
+                        MainMenu(pEnnemiRobot, iChoiceRes);
                         return;
                     }
             }
         }
 
-        private void AttackMenu(Robot.Robot pEnnemiRobot, int iChoice = -1)
+        private void AttackMenu(Robot.Robot pEnnemiRobot, int iChoice = -1, int iChoiceRes = -1)
         {
             if (iChoice == -1)
             {
@@ -82,9 +84,10 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_pRobot.WeaponIsUsable(iChoice))
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu(iChoiceRes);
                             if (pEnnemiRobot.AttackTargetIsValid(iTargetChoice))
                             {
+                                //get the value in a json file for example or a list (serialize)
                                 int iRandomizer = new Random().Next(1, 101);
                                 _pRobot.WeaponFired(iChoice);
                                 if (_pRobot.GetLeftWeaponHitChance() < iRandomizer)
@@ -116,7 +119,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_pRobot.WeaponIsUsable(iChoice))
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu(iChoiceRes);
                             if (pEnnemiRobot.AttackTargetIsValid(iTargetChoice))
                             {
                                 int iRandomizer = new Random().Next(1, 101);
@@ -155,11 +158,11 @@ namespace PJS5_CSharp.Sources.Pilot.Player
             }
         }
 
-        private void RepairsMenu(Robot.Robot pEnnemiRobot, int iChoice = -1)
+        private void RepairsMenu(Robot.Robot pEnnemiRobot, int iChoice = -1, int iChoiceRes = -1)
         {
             if (iChoice == -1)
             {
-                iChoice = GUI.Gui.RepairMenu(this);
+                iChoice = GUI.Gui.RepairMenu(this, iChoiceRes);
             }
             switch (iChoice)
             {
@@ -172,7 +175,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu(iChoiceRes);
                             if (_pRobot.RepairArmorTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotArmor(1, iTargetChoice);
@@ -181,7 +184,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                             else
                             {
                                 GUI.Gui.PerfectlyFine();
-                                RepairsMenu(pEnnemiRobot);
+                                RepairsMenu(pEnnemiRobot, iChoice, iChoiceRes);
                                 return;
                             }
                         }
@@ -196,7 +199,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu(iChoiceRes);
                             if (_pRobot.RepairArmorTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotArmor(3, iTargetChoice);
@@ -205,14 +208,14 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                             else
                             {
                                 GUI.Gui.PerfectlyFine();
-                                RepairsMenu(pEnnemiRobot);
+                                RepairsMenu(pEnnemiRobot, iChoice, iChoiceRes);
                                 return;
                             }
                         }
                         else
                         {
                             GUI.Gui.NoStockKit();
-                            RepairsMenu(pEnnemiRobot);
+                            RepairsMenu(pEnnemiRobot, iChoice, iChoiceRes);
                             return;
                         }
                     }
@@ -220,7 +223,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu(iChoiceRes);
                             if (_pRobot.RepairLifeTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotLifePoint(1, iTargetChoice);
@@ -229,14 +232,14 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                             else
                             {
                                 GUI.Gui.PerfectlyFine();
-                                RepairsMenu(pEnnemiRobot);
+                                RepairsMenu(pEnnemiRobot, iChoice, iChoiceRes);
                                 return;
                             }
                         }
                         else
                         {
                             GUI.Gui.NoStockKit();
-                            RepairsMenu(pEnnemiRobot);
+                            RepairsMenu(pEnnemiRobot, iChoice, iChoiceRes);
                             return;
                         }
                     }
@@ -244,7 +247,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu(iChoiceRes);
                             if (_pRobot.RepairLifeTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotLifePoint(3, iTargetChoice);
@@ -253,31 +256,31 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                             else
                             {
                                 GUI.Gui.PerfectlyFine();
-                                RepairsMenu(pEnnemiRobot);
+                                RepairsMenu(pEnnemiRobot, iChoice, iChoiceRes);
                                 return;
                             }
                         }
                         else
                         {
                             GUI.Gui.NoStockKit();
-                            RepairsMenu(pEnnemiRobot);
+                            RepairsMenu(pEnnemiRobot, iChoice, iChoiceRes);
                             return;
                         }
                     }
                 default:
                     {
                         GUI.Gui.WrongEntry();
-                        RepairsMenu(pEnnemiRobot);
+                        RepairsMenu(pEnnemiRobot, iChoice, iChoiceRes);
                         return;
                     }
             }
         }
 
-        private void FurnaceMenu(Robot.Robot pEnnemiRobot, int iChoice = -1)
+        private void FurnaceMenu(Robot.Robot pEnnemiRobot, int iChoice = -1, int iChoiceRes = -1)
         {
             if (iChoice == -1)
             {
-                iChoice = GUI.Gui.FuelMenu(this);
+                iChoice = GUI.Gui.FuelMenu(this, iChoiceRes);
             }
             switch (iChoice)
             {
@@ -298,7 +301,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                         else
                         {
                             GUI.Gui.NoStockFuel();
-                            FurnaceMenu(pEnnemiRobot);
+                            FurnaceMenu(pEnnemiRobot, iChoiceRes);
                             return;
                         }
                     }
@@ -314,7 +317,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                         else
                         {
                             GUI.Gui.NoStockFuel();
-                            FurnaceMenu(pEnnemiRobot);
+                            FurnaceMenu(pEnnemiRobot, iChoice, iChoiceRes);
                             return;
                         }
                     }
@@ -330,7 +333,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                         else
                         {
                             GUI.Gui.NoStockFuel();
-                            FurnaceMenu(pEnnemiRobot);
+                            FurnaceMenu(pEnnemiRobot, iChoice, iChoiceRes);
                             return;
                         }
                     }
@@ -346,7 +349,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                         else
                         {
                             GUI.Gui.NoStockFuel();
-                            FurnaceMenu(pEnnemiRobot);
+                            FurnaceMenu(pEnnemiRobot, iChoice, iChoiceRes);
                             return;
                         }
                     }

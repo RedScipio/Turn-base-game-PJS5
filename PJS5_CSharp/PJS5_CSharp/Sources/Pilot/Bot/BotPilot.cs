@@ -25,7 +25,7 @@ namespace PJS5_CSharp.Sources.Pilot.Bot
         }
 
         override
-        public void PlayTurn(Robot.Robot ennemiRobot)
+        public void PlayTurn(Robot.Robot ennemiRobot, int iChoice = -1, int iRes = -1)
         {
         }
     }
