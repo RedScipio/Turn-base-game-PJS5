@@ -52,6 +52,7 @@ namespace PJS5_CSharp.Sources.Robot
 
             public int TakeDamage(int iDamage)
             {
+                
                 int iResult = 0;
                 int iRemainingDamage = iDamage;
                 if (_iArmor > 0)
@@ -69,6 +70,7 @@ namespace PJS5_CSharp.Sources.Robot
                         _iArmor = _iMaxArmor;
                     }
                 }
+            Console.WriteLine("Delt damage to " + _iId +", " + _sName);
                 return iResult;
             }
 

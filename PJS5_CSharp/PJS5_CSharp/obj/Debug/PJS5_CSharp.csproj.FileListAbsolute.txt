@@ -5,6 +5,7 @@ D:\Projects\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.exe
 D:\Projects\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.pdb
 D:\Projects\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.exe
 D:\Projects\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.pdb
+<<<<<<< HEAD
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.exe.config
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.exe
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.pdb
@@ -19,3 +20,19 @@ c:\Users\Wahad\Documents\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\P
 c:\Users\Wahad\Documents\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.CoreCompileInputs.cache
 c:\Users\Wahad\Documents\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.exe
 c:\Users\Wahad\Documents\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.pdb
+=======
+Z:\QDev 3A Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.exe.config
+Z:\QDev 3A Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.exe
+Z:\QDev 3A Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.pdb
+Z:\QDev 3A Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.AssemblyReference.cache
+Z:\QDev 3A Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.CoreCompileInputs.cache
+Z:\QDev 3A Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.exe
+Z:\QDev 3A Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.pdb
+Z:\Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.exe.config
+Z:\Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.exe
+Z:\Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.pdb
+Z:\Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.AssemblyReference.cache
+Z:\Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.CoreCompileInputs.cache
+Z:\Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.exe
+Z:\Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.pdb
+>>>>>>> origin/dan133-1-patch-1
