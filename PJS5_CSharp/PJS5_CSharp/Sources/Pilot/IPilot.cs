@@ -1,6 +1,7 @@
 ﻿
 using PJS5_CSharp.Sources.Robot;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace PILOT
 {
@@ -11,6 +12,8 @@ namespace PILOT
         protected Robot _pRobot;
         protected List<int> _vFuelsReserve;
         protected List<int> _vRepairKitsReserve;
+        [JsonInclude]
+        protected List<int> _ResultsInputs;
 
         public IPILOT(Robot pRobot, List<int> vFuelsReserve, List<int> vRepairKitsReserve)
         {
@@ -19,7 +22,7 @@ namespace PILOT
             _vRepairKitsReserve = vRepairKitsReserve;
         }
 
-        public abstract void PlayTurn(Robot ennemiRobot, int iChoice = -1, int iRes = -1);
+        public abstract void PlayTurn(Robot ennemiRobot, int iChoice = -1, int iRes = -1, int iChoiceTarget = -1);
 
         public bool RobotIsDestroy()
         {
@@ -39,6 +42,11 @@ namespace PILOT
         public List<int> GetRepairKitsReserve()
         {
             return _vRepairKitsReserve;
+        }
+
+        public List<int> GetInputsResults()
+        {
+            return _ResultsInputs;
         }
     }
 }

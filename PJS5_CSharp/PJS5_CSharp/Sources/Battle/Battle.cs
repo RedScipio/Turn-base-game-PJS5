@@ -1,11 +1,13 @@
 ﻿
 using PILOT;
 using PJS5_CSharp.Sources.Pilot;
+using System.Text.Json.Serialization;
 
 namespace PJS5_CSharp.Sources.Battle
 {
     public class Battle
     {
+        [JsonInclude]
         private IPILOT[] _tPilot;
 
         public Battle(IPILOT pPlayer, IPILOT pBot)
@@ -15,6 +17,8 @@ namespace PJS5_CSharp.Sources.Battle
 
         public void BattleWithConsoleGui()
         {
+            int iTurn = 0;
+            //trying to make a dictionary for getting your structure.
             while (!BattleIsOver())
             {
                 for (int iPilot = 0; iPilot < 2; iPilot++)

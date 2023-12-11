@@ -36,3 +36,5 @@ Z:\Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\obj\Debug\
 Z:\Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.exe
 Z:\Danis\PJS5CSharp\Turn-base-game-PJS5-Danis\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.pdb
 >>>>>>> origin/dan133-1-patch-1
+T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.SuggestedBindingRedirects.cache
+T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.exe.config
