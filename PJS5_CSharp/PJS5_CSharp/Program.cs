@@ -4,11 +4,7 @@ using PJS5_CSharp.Sources.Pilot.Player;
 using PJS5_CSharp.Sources.Robot;
 using PJS5_CSharp.Sources.Weapon.MeleeWeapon;
 using PJS5_CSharp.Sources.Weapon.NormalWeapon;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PJS5_CSharp
 {
@@ -31,7 +27,7 @@ namespace PJS5_CSharp
             PILOT.IPILOT pPlayerPilot = new PLAYER_PILOT(pPlayer, new List<int> { 10, 5, 2, 1 }, new List<int> { 3, 2, 3, 1 });
             PILOT.IPILOT pBotPilot = new BOT_PILOT(pBot, new List<int> { 10, 5, 2, 1 }, new List<int> { 3, 2, 3, 1 });
             
-            Console.WriteLine(pPlayer.GetRightWeaponHitChance());
+            /*Console.WriteLine(pPlayer.GetRightWeaponHitChance());
             Console.WriteLine(pPlayer.GetLeftWeaponHitChance());
 
             pPlayer.DealDamage(pPlayer, ARMED_ARM_TYPE.RIGHT_WEAPON, Sources.Robot.PARTS_TYPE.FURNACE);
@@ -39,12 +35,12 @@ namespace PJS5_CSharp
             pPlayer.DealDamage(pPlayer, ARMED_ARM_TYPE.RIGHT_WEAPON, Sources.Robot.PARTS_TYPE.FURNACE);
 
             Console.WriteLine(pPlayer.GetRightWeaponHitChance());
-            Console.WriteLine(pPlayer.GetLeftWeaponHitChance());
+            Console.WriteLine(pPlayer.GetLeftWeaponHitChance());*/
 
 
             Sources.Utils.GetInt();
-            //Battle pBattle = new Battle(pPlayerPilot, pBotPilot);
-            //pBattle.BattleWithConsoleGui();
+            Battle pBattle = new Battle(pPlayerPilot, pBotPilot);
+            pBattle.BattleWithConsoleGui();
         }
     }
 }
