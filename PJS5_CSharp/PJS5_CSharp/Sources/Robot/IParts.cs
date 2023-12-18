@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PJS5_CSharp.Sources.Robot
 {
@@ -59,12 +55,12 @@ namespace PJS5_CSharp.Sources.Robot
                 {
                     iRemainingDamage = iDamage - _iArmor;
                     iResult = _iArmor - iDamage;
-                    _iArmor = _iArmor - iDamage;
+                    _iArmor -= iDamage;
                 }
                 if (_iLifePoint > 0 && iRemainingDamage > 0)
                 {
                     _iLifePoint--;
-                    iResult = iResult + 100;
+                    iResult += 100;
                     if (_iLifePoint > 0)
                     {
                         _iArmor = _iMaxArmor;
@@ -78,7 +74,7 @@ namespace PJS5_CSharp.Sources.Robot
             {
                 if (_iArmor < _iMaxArmor)
                 {
-                    _iArmor = _iArmor + iRepair;
+                    _iArmor += iRepair;
                     if (_iArmor > _iMaxArmor)
                     {
                         _iArmor = _iMaxArmor;
@@ -90,7 +86,7 @@ namespace PJS5_CSharp.Sources.Robot
             {
                 if (_iLifePoint < _iMaxLifePoint)
                 {
-                    _iLifePoint = _iLifePoint + iRepair;
+                    _iLifePoint += iRepair;
                     if (_iLifePoint > _iMaxLifePoint)
                     {
                         _iLifePoint = _iMaxLifePoint;

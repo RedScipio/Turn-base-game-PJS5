@@ -1,19 +1,12 @@
 ﻿using PILOT;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using PJS5_CSharp.Sources.Robot;
 
 namespace PJS5_CSharp.Sources.Pilot.Player
 {
     public class PLAYER_PILOT : IPILOT
     {
-        private Robot.Robot _pRobot;
-        private List<int> _vFuelsReserve;
-        private List<int> _vRepairKitsReserve;
 
         public PLAYER_PILOT(Robot.Robot pRobot, List<int> vFuelsReserve, List<int> vRepairKitsReserve) : base(pRobot, vFuelsReserve, vRepairKitsReserve)
         {
@@ -22,8 +15,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
             _vRepairKitsReserve = vRepairKitsReserve ?? new List<int> { 0, 0, 0, 0 };
         }
 
-        override
-        public void PlayTurn(Robot.Robot pEnnemiRobot)
+        public override void PlayTurn(Robot.Robot pEnnemiRobot)
         {
             MainMenu(pEnnemiRobot);
         }
@@ -80,9 +72,9 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     }
                 case 1:
                     {
-                        if (_pRobot.WeaponIsUsable(ARMED_ARM_TYPE.LEFT_WEAPON))
+                        if (_pRobot.WeaponIsUsable(WEAPON_SIDE.LEFT_WEAPON))
                         {
-                            Sources.Robot.PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu();
                             if (pEnnemiRobot.AttackTargetIsValid(iTargetChoice))
                             {
                                 int iRandomizer = new Random().Next(1, 101);
@@ -94,7 +86,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                                 }
                                 else
                                 {
-                                    _pRobot.DealDamage(pEnnemiRobot, ARMED_ARM_TYPE.LEFT_WEAPON, iTargetChoice);
+                                    _pRobot.DealDamage(pEnnemiRobot, WEAPON_SIDE.LEFT_WEAPON, iTargetChoice);
                                     return;
                                 }
                             }
@@ -114,9 +106,9 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     }
                 case 2:
                     {
-                        if (_pRobot.WeaponIsUsable(ARMED_ARM_TYPE.RIGHT_WEAPON))
+                        if (_pRobot.WeaponIsUsable(WEAPON_SIDE.RIGHT_WEAPON))
                         {
-                            Sources.Robot.PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu();
                             if (pEnnemiRobot.AttackTargetIsValid(iTargetChoice))
                             {
                                 int iRandomizer = new Random().Next(1, 101);
@@ -128,7 +120,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                                 }
                                 else
                                 {
-                                    _pRobot.DealDamage(pEnnemiRobot, ARMED_ARM_TYPE.RIGHT_WEAPON, iTargetChoice);
+                                    _pRobot.DealDamage(pEnnemiRobot, WEAPON_SIDE.RIGHT_WEAPON, iTargetChoice);
                                     return;
                                 }
                             }
@@ -172,10 +164,10 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
-                            PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu();
                             if (_pRobot.RepairArmorTargetIsValid(iTargetChoice))
                             {
-                                _pRobot.RepairRobotArmor(1, iTargetChoice);
+                                _pRobot.RepairRobotArmor(1, (PARTS_TYPE) iTargetChoice);
                                 return;
                             }
                             else
@@ -196,10 +188,10 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
-                            PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu();
                             if (_pRobot.RepairArmorTargetIsValid(iTargetChoice))
                             {
-                                _pRobot.RepairRobotArmor(3, iTargetChoice);
+                                _pRobot.RepairRobotArmor(3, (PARTS_TYPE) iTargetChoice);
                                 return;
                             }
                             else
@@ -220,10 +212,10 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
-                            PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu();
                             if (_pRobot.RepairLifeTargetIsValid(iTargetChoice))
                             {
-                                _pRobot.RepairRobotLifePoint(1, iTargetChoice);
+                                _pRobot.RepairRobotLifePoint(1, (PARTS_TYPE) iTargetChoice);
                                 return;
                             }
                             else
@@ -244,10 +236,10 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     {
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
-                            PARTS_TYPE iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu();
                             if (_pRobot.RepairLifeTargetIsValid(iTargetChoice))
                             {
-                                _pRobot.RepairRobotLifePoint(3, iTargetChoice);
+                                _pRobot.RepairRobotLifePoint(3,(PARTS_TYPE) iTargetChoice);
                                 return;
                             }
                             else
@@ -357,27 +349,6 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                         return;
                     }
             }
-        }
-
-
-        public bool RobotIsDestroy()
-        {
-            return _pRobot.IsDestroy();
-        }
-
-        public Robot.Robot GetRobot()
-        {
-            return _pRobot;
-        }
-
-        public List<int> GetFuelsReserve()
-        {
-            return _vFuelsReserve;
-        }
-
-        public List<int> GetRepairKitsReserve()
-        {
-            return _vRepairKitsReserve;
         }
     }
 }

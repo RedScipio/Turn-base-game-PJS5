@@ -1,18 +1,20 @@
-﻿using PJS5_CSharp.Sources.Robot;
-using PJS5_CSharp.Sources.Weapon.ProjectileWeapon;
+﻿using PJS5_CSharp.Sources.Weapon.ProjectileWeapon;
 using WEAPON;
+
+using System;
+using System.Collections.Generic;
 
 namespace PJS5_CSharp.Sources.Robot
 {
     public enum PARTS_TYPE
     {
-        LEFT_WEAPON = ARMED_ARM_TYPE.LEFT_WEAPON,
-        RIGHT_WEAPON = ARMED_ARM_TYPE.RIGHT_WEAPON,
-        FURNACE,
-        LEGS
+        LEFT_WEAPON = WEAPON_SIDE.LEFT_WEAPON,
+        RIGHT_WEAPON = WEAPON_SIDE.RIGHT_WEAPON,
+        LEGS = 2,
+        FURNACE = 3,
     }
 
-    public enum ARMED_ARM_TYPE
+    public enum WEAPON_SIDE
     {
         LEFT_WEAPON,
         RIGHT_WEAPON
@@ -48,10 +50,10 @@ namespace PJS5_CSharp.Sources.Robot
             return _pFurnace.IsBroken();
         }
 
-        public bool WeaponIsUsable(ARMED_ARM_TYPE iChoice)
+        public bool WeaponIsUsable(WEAPON_SIDE iChoice)
         {
             IWeapon pWeapon = _pLeftWeapon;
-            if (iChoice == ARMED_ARM_TYPE.RIGHT_WEAPON)
+            if (iChoice == WEAPON_SIDE.RIGHT_WEAPON)
             {
                 pWeapon = _pRightWeapon;
             }
@@ -80,10 +82,10 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public int DealDamage(Robot pEnnemiRobot, ARMED_ARM_TYPE iChoiceWeapon, Sources.Robot.PARTS_TYPE iTargetChoice)
+        public int DealDamage(Robot pEnnemiRobot, WEAPON_SIDE iChoiceWeapon, int iTargetChoice)
         {
             IWeapon pWeapon = _pLeftWeapon;
-            if (iChoiceWeapon == ARMED_ARM_TYPE.RIGHT_WEAPON)
+            if (iChoiceWeapon == WEAPON_SIDE.RIGHT_WEAPON)
             {
                 pWeapon = _pRightWeapon;
             }
@@ -91,16 +93,19 @@ namespace PJS5_CSharp.Sources.Robot
             {
                 pEnnemiRobot.RemoveFuel(pWeapon.GetSpecificity());
             }
-            switch (iTargetChoice)
+
+            PARTS_TYPE eTargetChoice = (PARTS_TYPE) iTargetChoice;
+
+            switch (eTargetChoice)
             {
-                case Sources.Robot.PARTS_TYPE.LEFT_WEAPON:
+                case PARTS_TYPE.LEFT_WEAPON:
                     return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.LEFT_WEAPON);
-                case Sources.Robot.PARTS_TYPE.RIGHT_WEAPON:
+                case PARTS_TYPE.RIGHT_WEAPON:
                     return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.RIGHT_WEAPON);
-                case Sources.Robot.PARTS_TYPE.LEGS:
+                case PARTS_TYPE.LEGS:
                     return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.LEGS);
-                case Sources.Robot.PARTS_TYPE.FURNACE:
-                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage()  , PARTS_TYPE.FURNACE);
+                case PARTS_TYPE.FURNACE:
+                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.FURNACE);
                 default:
                     return 0;
             }
@@ -167,29 +172,32 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public bool AttackTargetIsValid(Sources.Robot.PARTS_TYPE iChoice)
+        public bool AttackTargetIsValid(int iChoice)
         {
-            switch (iChoice)
+            PARTS_TYPE eChoice = (PARTS_TYPE) iChoice;
+            Console.WriteLine(eChoice);
+            switch (eChoice)
             {
-                case Sources.Robot.PARTS_TYPE.LEFT_WEAPON:
+                case PARTS_TYPE.LEFT_WEAPON:
                     if (_pLeftWeapon.GetLife() > 0)
                     {
                         return true;
                     }
                     return false;
-                case Sources.Robot.PARTS_TYPE.RIGHT_WEAPON:
+                case PARTS_TYPE.RIGHT_WEAPON:
                     if (_pRightWeapon.GetLife() > 0)
                     {
                         return true;
                     }
                     return false;
-                case Sources.Robot.PARTS_TYPE.LEGS:
+                case PARTS_TYPE.LEGS:
                     if (_pLegs.GetLife() > 0)
                     {
                         return true;
                     }
                     return false;
-                case Sources.Robot.PARTS_TYPE.FURNACE:
+                case PARTS_TYPE.FURNACE:
+                    Console.WriteLine("Relese");
                     if (_pFurnace.GetLife() > 0)
                     {
                         return true;
@@ -200,9 +208,12 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public bool RepairLifeTargetIsValid(PARTS_TYPE iChoice)
+        public bool RepairLifeTargetIsValid(int iChoice)
         {
-            switch (iChoice)
+
+            PARTS_TYPE eChoice = (PARTS_TYPE) iChoice;
+
+            switch (eChoice)
             {
                 case PARTS_TYPE.LEFT_WEAPON:
                     if (_pLeftWeapon.GetLife() < _pLeftWeapon.GetMaxLife())
@@ -233,9 +244,11 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public bool RepairArmorTargetIsValid(PARTS_TYPE iChoice)
+        public bool RepairArmorTargetIsValid(int iChoice)
         {
-            switch (iChoice)
+            PARTS_TYPE eChoice = (PARTS_TYPE) iChoice;
+
+            switch (eChoice)
             {
                 case PARTS_TYPE.LEFT_WEAPON:
                     if (_pLeftWeapon.GetArmor() < _pLeftWeapon.GetMaxArmor())
@@ -288,7 +301,7 @@ namespace PJS5_CSharp.Sources.Robot
 
         public void RemoveFuel(int iFuel)
         {
-            _iFuel = _iFuel - iFuel;
+            _iFuel -= iFuel;
             if (_iFuel <= 0)
             {
                 _iFuel = 0;
@@ -298,7 +311,7 @@ namespace PJS5_CSharp.Sources.Robot
 
         public void Refuel(int iFuel)
         {
-            _iFuel = _iFuel + iFuel;
+            _iFuel += iFuel;
             if (_iFuel > 100)
             {
                 _iFuel = 100;
@@ -381,7 +394,7 @@ namespace PJS5_CSharp.Sources.Robot
 
         public int GetLeftWeaponType()
         {
-            return _pLeftWeapon.GetType();
+            return _pLeftWeapon.GetWeaponType();
         }
 
         public int GetLeftWeaponDamage()
@@ -436,7 +449,7 @@ namespace PJS5_CSharp.Sources.Robot
 
         public int GetRightWeaponType()
         {
-            return _pRightWeapon.GetType();
+            return _pRightWeapon.GetWeaponType();
         }
 
         public int GetRightWeaponDamage()

@@ -1,11 +1,7 @@
 ﻿using PJS5_CSharp.Sources;
-using PJS5_CSharp.Sources.Pilot;
 using PJS5_CSharp.Sources.Robot;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GUI
 {
@@ -61,7 +57,7 @@ namespace GUI
             return iResult;
         }
 
-        public static PARTS_TYPE TargetMenu()
+        public static int TargetMenu()
         {
             int iResult;
             Console.WriteLine("|====================--====================|");
@@ -80,17 +76,19 @@ namespace GUI
 
             switch (iResult)
             {
+                case 0:
+                    return 4;
                 case 1:
-                    return PARTS_TYPE.LEFT_WEAPON;
+                    return 0;
                 case 2:
-                    return PARTS_TYPE.RIGHT_WEAPON;
+                    return 1;
                 case 3:
-                    return PARTS_TYPE.LEGS;
+                    return 2;
                 case 4:
-                    return PARTS_TYPE.FURNACE;
+                    return 3;
                 //!!!
                 default:
-                    return PARTS_TYPE.FURNACE;
+                    return -1;
             }
         }
 

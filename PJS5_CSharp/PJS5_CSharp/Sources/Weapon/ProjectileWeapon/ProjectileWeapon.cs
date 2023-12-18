@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WEAPON;
+﻿using WEAPON;
 
 namespace PJS5_CSharp.Sources.Weapon.ProjectileWeapon
 {
@@ -17,7 +12,7 @@ namespace PJS5_CSharp.Sources.Weapon.ProjectileWeapon
             _iAmmo = iAmmo;
         }
 
-        public int GetSpecificity()
+        public override int GetSpecificity()
         {
             return _iAmmo;
         }
