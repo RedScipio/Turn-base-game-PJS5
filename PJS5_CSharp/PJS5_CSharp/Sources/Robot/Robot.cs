@@ -1,8 +1,6 @@
 ﻿using PJS5_CSharp.Sources.Weapon.ProjectileWeapon;
 using WEAPON;
-
 using System;
-using System.Collections.Generic;
 
 namespace PJS5_CSharp.Sources.Robot
 {
@@ -179,30 +177,17 @@ namespace PJS5_CSharp.Sources.Robot
             switch (eChoice)
             {
                 case PARTS_TYPE.LEFT_WEAPON:
-                    if (_pLeftWeapon.GetLife() > 0)
-                    {
-                        return true;
-                    }
-                    return false;
+                    return _pLeftWeapon.GetLife() > 0;
+
                 case PARTS_TYPE.RIGHT_WEAPON:
-                    if (_pRightWeapon.GetLife() > 0)
-                    {
-                        return true;
-                    }
-                    return false;
+                    return _pRightWeapon.GetLife() > 0;
+
                 case PARTS_TYPE.LEGS:
-                    if (_pLegs.GetLife() > 0)
-                    {
-                        return true;
-                    }
-                    return false;
+                    return _pLegs.GetLife() > 0;
+
                 case PARTS_TYPE.FURNACE:
-                    Console.WriteLine("Relese");
-                    if (_pFurnace.GetLife() > 0)
-                    {
-                        return true;
-                    }
-                    return false;
+                    return _pFurnace.GetLife() > 0;
+
                 default:
                     return false;
             }
@@ -216,29 +201,17 @@ namespace PJS5_CSharp.Sources.Robot
             switch (eChoice)
             {
                 case PARTS_TYPE.LEFT_WEAPON:
-                    if (_pLeftWeapon.GetLife() < _pLeftWeapon.GetMaxLife())
-                    {
-                        return true;
-                    }
-                    return false;
+                    return _pLeftWeapon.GetLife() < _pLeftWeapon.GetMaxLife();
+
                 case PARTS_TYPE.RIGHT_WEAPON:
-                    if (_pRightWeapon.GetLife() < _pRightWeapon.GetMaxLife())
-                    {
-                        return true;
-                    }
-                    return false;
+                    return _pRightWeapon.GetLife() < _pRightWeapon.GetMaxLife();
+
                 case PARTS_TYPE.LEGS:
-                    if (_pLegs.GetLife() < _pLegs.GetMaxLife())
-                    {
-                        return true;
-                    }
-                    return false;
+                    return _pLegs.GetLife() < _pLegs.GetMaxLife();
+
                 case PARTS_TYPE.FURNACE:
-                    if (_pFurnace.GetLife() < _pLegs.GetMaxLife())
-                    {
-                        return true;
-                    }
-                    return false;
+                    return _pFurnace.GetLife() < _pLegs.GetMaxLife();
+
                 default:
                     return false;
             }
@@ -251,29 +224,17 @@ namespace PJS5_CSharp.Sources.Robot
             switch (eChoice)
             {
                 case PARTS_TYPE.LEFT_WEAPON:
-                    if (_pLeftWeapon.GetArmor() < _pLeftWeapon.GetMaxArmor())
-                    {
-                        return true;
-                    }
-                    return false;
+                    return _pLeftWeapon.GetArmor() < _pLeftWeapon.GetMaxArmor();
+
                 case PARTS_TYPE.RIGHT_WEAPON:
-                    if (_pRightWeapon.GetArmor() < _pRightWeapon.GetMaxArmor())
-                    {
-                        return true;
-                    }
-                    return false;
+                    return _pRightWeapon.GetArmor() < _pRightWeapon.GetMaxArmor();
+
                 case PARTS_TYPE.LEGS:
-                    if (_pLegs.GetArmor() < _pLegs.GetMaxArmor())
-                    {
-                        return true;
-                    }
-                    return false;
+                    return _pLegs.GetArmor() < _pLegs.GetMaxArmor();
+
                 case PARTS_TYPE.FURNACE:
-                    if (_pFurnace.GetArmor() < _pLegs.GetMaxArmor())
-                    {
-                        return true;
-                    }
-                    return false;
+                    return _pFurnace.GetArmor() < _pLegs.GetMaxArmor();
+
                 default:
                     return false;
             }
@@ -290,9 +251,11 @@ namespace PJS5_CSharp.Sources.Robot
             {
                 case WEAPON_TYPE.ABSTRACT_WEAPON:
                     return;
+
                 case WEAPON_TYPE.PROJECTILE_WEAPON:
                     ((PROJECTILE_WEAPON)pWeapon).RemoveAmmo();
                     return;
+
                 default:
                     RemoveFuel(pWeapon.GetPowerConsumption());
                     return;
