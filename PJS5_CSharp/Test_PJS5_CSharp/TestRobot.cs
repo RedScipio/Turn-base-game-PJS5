@@ -53,16 +53,6 @@ namespace Test_PJS5_CSharp
             Assert.True(robotPlayer.IsDestroy());
 
         }
-
-        [Fact]
-        public void TestWeapon()
-        {
-            
-            //leftWeap = new MELEE_WEAPON(1, "Melee Weapon", 3, 1, 2, 15, 100, 0);
-            //Assert.Equal(leftWeap.getType(), Weapon_Type.);   
-            //rightWeap = new NormalWeapon(1, "Basic Normal Weapon", 3, 1, 1, 15, 80, 40);
-            
-        }
     }
 }
 

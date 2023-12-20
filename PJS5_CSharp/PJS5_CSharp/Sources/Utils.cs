@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PILOT;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,9 +19,9 @@ namespace PJS5_CSharp.Sources
             return iInt;
         }
 
-        public static String SerializeInJson(object obj, String fileName)
+        public static String SerializeInJson(Dictionary<int, IPILOT[]> map, String fileName)
         {
-            String jsonText = JsonSerializer.Serialize<object>(obj);
+            String jsonText = JsonSerializer.Serialize(map);
 
             File.WriteAllText(fileName, jsonText);
 

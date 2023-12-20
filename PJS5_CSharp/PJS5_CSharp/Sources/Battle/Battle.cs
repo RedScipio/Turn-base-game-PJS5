@@ -1,8 +1,14 @@
 ﻿
+using Newtonsoft.Json;
 using PILOT;
-using PJS5_CSharp.Sources.Pilot;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json;
 using System.Text.Json.Serialization;
+using JsonSerializer = System.Text.Json.JsonSerializer;
+
 
 namespace PJS5_CSharp.Sources.Battle
 {
@@ -20,11 +26,14 @@ namespace PJS5_CSharp.Sources.Battle
         {
             int iTurn = 0;
             //trying to make a dictionary for getting your structure.
-            var turn = new Dictionary<int, IPILOT[]>();
-            
+
+            var turn = new Dictionary<int, Dictionary<IPILOT, List<int>>>();
+
+            String sSavefile = Console.ReadLine();
             while (!BattleIsOver())
             {
                 iTurn++;
+                Dictionary<IPILOT, List<int>> dict = new Dictionary<IPILOT, List<int>>();
                 for (int iPilot = 0; iPilot < 2; iPilot++)
                 {
                     
@@ -34,13 +43,13 @@ namespace PJS5_CSharp.Sources.Battle
                     {
                         // Handle robot destruction
                     }
+                    dict.Add(_tPilot[1 - iPilot], _tPilot[1 - iPilot].GetInputsResults());
                 }
-                turn.Add(iTurn, _tPilot);
-                _tPilot[0].GetInputsResults().Clear();
-                _tPilot[1].GetInputsResults().Clear();
-
+                turn.Add(iTurn, dict);
             }
-            Utils.SerializeInJson(turn, "./battleResults.json");
+            Console.WriteLine(JsonConvert.SerializeObject(turn));
+            Console.ReadLine();
+            
         }
 
         public bool BattleIsOver()

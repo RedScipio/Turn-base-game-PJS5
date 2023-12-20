@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using PJS5_CSharp.Sources.Robot;
+using System.Text.Json.Serialization;
 
 namespace PJS5_CSharp.Sources.Pilot.Player
 {
@@ -14,22 +15,22 @@ namespace PJS5_CSharp.Sources.Pilot.Player
         private Robot.Robot _pRobot;
         private List<int> _vFuelsReserve;
         private List<int> _vRepairKitsReserve;
+        private List<int> _vActionResults;
 
         public PLAYER_PILOT(Robot.Robot pRobot, List<int> vFuelsReserve, List<int> vRepairKitsReserve) : base(pRobot, vFuelsReserve, vRepairKitsReserve)
         {
             _pRobot = pRobot;
             _vFuelsReserve = vFuelsReserve ?? new List<int> { 0, 0, 0, 0 };
             _vRepairKitsReserve = vRepairKitsReserve ?? new List<int> { 0, 0, 0, 0 };
-            _ResultsInputs = new List<int> { }; //To stock and serialize the inputs results
-
+            _vActionResults = new List<int> { };
         }
 
-        override public void PlayTurn(Robot.Robot pEnnemiRobot, int iChoice = -1, int iRes = -1, int iChoiceTarget = -1)
+        override public void PlayTurn(Robot.Robot pEnnemiRobot, int iChoice = -1, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1)
         {
             MainMenu(pEnnemiRobot, iChoice, iRes, iChoiceTarget);
         }
 
-        private void MainMenu(Robot.Robot pEnnemiRobot, int iChoice = -1, int iChoiceInMenu = -1, int iChoiceTarget = -1)
+        private void MainMenu(Robot.Robot pEnnemiRobot, int iChoice = -1, int iChoiceInMenu = -1, int iChoiceTarget = -1, int iHitRate = -1)
         {
             if (iChoice == -1)
             {
@@ -39,19 +40,19 @@ namespace PJS5_CSharp.Sources.Pilot.Player
             {
                 case 1:
                     {
-                        this.GetInputsResults().Add(iChoice);
-                        AttackMenu(pEnnemiRobot, iChoiceInMenu, iChoiceTarget);
+                        this.GetActionResults().Add(iChoice);
+                        AttackMenu(pEnnemiRobot, iChoiceInMenu, iChoiceTarget, iHitRate);
                         return;
                     }
                 case 2:
                     {
-                        this.GetInputsResults().Add(iChoice);
+                        this.GetActionResults().Add(iChoice);
                         RepairsMenu(pEnnemiRobot, iChoiceInMenu, iChoiceTarget);
                         return;
                     }
                 case 3:
                     {
-                        this.GetInputsResults().Add(iChoice);
+                        this.GetActionResults().Add(iChoice);
                         FurnaceMenu(pEnnemiRobot, iChoiceInMenu, iChoiceTarget);
                         return;
                     }
@@ -63,7 +64,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
             }
         }
 
-        private void AttackMenu(Robot.Robot pEnnemiRobot, int iChoice = -1, int iChoiceRes = -1)
+        private void AttackMenu(Robot.Robot pEnnemiRobot, int iChoice = -1, int iChoiceRes = -1, int iHitRate = -1)
         {
             if (iChoice == -1)
             {
@@ -84,15 +85,16 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     }
                 case 1:
                     {
+                        this.GetActionResults().Add(iChoice);
                         if (_pRobot.WeaponIsUsable(iChoice))
                         {
                             int iTargetChoice = GUI.Gui.TargetMenu(iChoiceRes);
-                            this.GetInputsResults().Add(iTargetChoice);
+                            this.GetActionResults().Add(iTargetChoice);
                             if (pEnnemiRobot.AttackTargetIsValid(iTargetChoice))
                             {
                                 //get the value in a json file for example or a list (serialize)
                                 int iRandomizer = new Random().Next(1, 101);
-                                this.GetInputsResults().Add(iRandomizer);
+                                this.GetActionResults().Add(iRandomizer);
                                 _pRobot.WeaponFired(iChoice);
                                 if (_pRobot.GetLeftWeaponHitChance() < iRandomizer)
                                 {
@@ -102,7 +104,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                                 else
                                 {
                                     int damage = _pRobot.DealDamage(pEnnemiRobot, iChoice, iTargetChoice);
-                                    this.GetInputsResults().Add(damage);
+                                    this.GetActionResults().Add(damage);
                                     return;
                                 }
                             }
@@ -122,14 +124,15 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     }
                 case 2:
                     {
+                        this.GetActionResults().Add(iChoice);
                         if (_pRobot.WeaponIsUsable(iChoice))
                         {
                             int iTargetChoice = GUI.Gui.TargetMenu(iChoiceRes);
-                            this.GetInputsResults().Add(iTargetChoice);
+                            this.GetActionResults().Add(iTargetChoice);
                             if (pEnnemiRobot.AttackTargetIsValid(iTargetChoice))
                             {
                                 int iRandomizer = new Random().Next(1, 101);
-                                this.GetInputsResults().Add(iRandomizer);
+                                this.GetActionResults().Add(iRandomizer);
                                 _pRobot.WeaponFired(iChoice);
                                 if (_pRobot.GetRightWeaponHitChance() < iRandomizer)
                                 {
@@ -139,7 +142,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                                 else
                                 {
                                     int damage = _pRobot.DealDamage(pEnnemiRobot, iChoice, iTargetChoice);
-                                    this.GetInputsResults().Add(damage);
+                                    this.GetActionResults().Add(damage);
                                     return;
                                 }
                             }
@@ -184,7 +187,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
                             int iTargetChoice = GUI.Gui.TargetMenu(iChoiceRes);
-                            this.GetInputsResults().Add(iTargetChoice);
+                            this.GetActionResults().Add(iTargetChoice);
                             if (_pRobot.RepairArmorTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotArmor(1, iTargetChoice);
@@ -209,7 +212,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
                             int iTargetChoice = GUI.Gui.TargetMenu(iChoiceRes);
-                            this.GetInputsResults().Add(iTargetChoice);
+                            this.GetActionResults().Add(iTargetChoice);
                             if (_pRobot.RepairArmorTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotArmor(3, iTargetChoice);
@@ -234,7 +237,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
                             int iTargetChoice = GUI.Gui.TargetMenu(iChoiceRes);
-                            this.GetInputsResults().Add(iTargetChoice);
+                            this.GetActionResults().Add(iTargetChoice);
                             if (_pRobot.RepairLifeTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotLifePoint(1, iTargetChoice);
@@ -259,7 +262,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                         if (_vRepairKitsReserve[iChoice - 1] > 0)
                         {
                             int iTargetChoice = GUI.Gui.TargetMenu(iChoiceRes);
-                            this.GetInputsResults().Add(iTargetChoice);
+                            this.GetActionResults().Add(iTargetChoice);
                             if (_pRobot.RepairLifeTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotLifePoint(3, iTargetChoice);
@@ -393,6 +396,11 @@ namespace PJS5_CSharp.Sources.Pilot.Player
         public List<int> GetRepairKitsReserve()
         {
             return _vRepairKitsReserve;
+        }
+
+        public List<int> GetActionResults()
+        {
+            return _vActionResults;
         }
     }
 }

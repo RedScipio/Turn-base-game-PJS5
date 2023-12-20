@@ -55,7 +55,7 @@ namespace GUI
             Console.WriteLine("|  1-Attack  ||  2-Repairs  ||  3-Furnace  |");
             Console.WriteLine("|===================-<>-===================|");
             Console.Write("| Tap the number of the desired action : ");
-            if(res == 0)
+            if(res == -1)
             {
                 iResult = Utils.GetInt();
             }

@@ -6,14 +6,17 @@ using System.Text.Json.Serialization;
 namespace PILOT
 {
 
-
-    public abstract class IPILOT
+    [System.AttributeUsage(System.AttributeTargets.Field | System.AttributeTargets.Property, AllowMultiple = false)]
+    public abstract class IPILOT : System.Attribute
     {
+        [JsonIgnore]
         protected Robot _pRobot;
+        [JsonIgnore]
         protected List<int> _vFuelsReserve;
+        [JsonIgnore]
         protected List<int> _vRepairKitsReserve;
         [JsonInclude]
-        protected List<int> _ResultsInputs;
+        protected List<int> _vResultsInputs;
 
         public IPILOT(Robot pRobot, List<int> vFuelsReserve, List<int> vRepairKitsReserve)
         {
@@ -22,7 +25,7 @@ namespace PILOT
             _vRepairKitsReserve = vRepairKitsReserve;
         }
 
-        public abstract void PlayTurn(Robot ennemiRobot, int iChoice = -1, int iRes = -1, int iChoiceTarget = -1);
+        public abstract void PlayTurn(Robot ennemiRobot, int iChoice = -1, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);
 
         public bool RobotIsDestroy()
         {
@@ -46,7 +49,7 @@ namespace PILOT
 
         public List<int> GetInputsResults()
         {
-            return _ResultsInputs;
+            return _vResultsInputs;
         }
     }
 }
