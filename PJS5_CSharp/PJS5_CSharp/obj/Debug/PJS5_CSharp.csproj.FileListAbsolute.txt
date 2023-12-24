@@ -71,3 +71,11 @@ T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\System.Buffers
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\Newtonsoft.Json.xml
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.CopyComplete
+>>>>>>> 52951ba0019d446c36fb62bf8bf5ec202eceef3b
+T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\FluentAssertions.dll
+T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\FluentAssertions.pdb
+T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\FluentAssertions.xml
+T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\xunit.abstractions.dll
+T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\xunit.assert.dll
+T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\xunit.core.dll
+T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\xunit.execution.desktop.dll

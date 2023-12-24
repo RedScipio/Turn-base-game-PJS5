@@ -306,6 +306,7 @@ C:\Users\Wahad\Source\Repos\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\obj
 C:\Users\Wahad\Source\Repos\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\obj\Debug\net6.0\Test_PJS5_CSharp.pdb
 C:\Users\Wahad\Source\Repos\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\obj\Debug\net6.0\Test_PJS5_CSharp.genruntimeconfig.cache
 C:\Users\Wahad\Source\Repos\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\obj\Debug\net6.0\ref\Test_PJS5_CSharp.dll
+<<<<<<< HEAD
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\bin\Debug\net6.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\bin\Debug\net6.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
@@ -322,3 +323,6 @@ T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\bin\Debug\net6.0\zh
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\bin\Debug\net6.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+=======
+>>>>>>> 52951ba0019d446c36fb62bf8bf5ec202eceef3b
+T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\bin\Debug\net6.0\CoverletSourceRootsMapping

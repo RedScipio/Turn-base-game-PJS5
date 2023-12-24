@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "dgSpecHash": "nLXJGNed0/5Ysfmg/SKA+IV9vWOhJVI2wO3pyqxUYNzy/h0ZdLH7L3a8qy4BJIOCb/w/qvFhQo0GlS21ITlrcA==",
+  "success": true,
+  "projectFilePath": "T:\\App\\Dèv\\Turn-base-game-PJS5\\PJS5_CSharp\\PJS5_CSharp\\PJS5_CSharp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mehdi\\.nuget\\packages\\fluentassertions\\6.12.0\\fluentassertions.6.12.0.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\xunit\\2.6.4\\xunit.2.6.4.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\xunit.analyzers\\1.8.0\\xunit.analyzers.1.8.0.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\xunit.assert\\2.6.4\\xunit.assert.2.6.4.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\xunit.core\\2.6.4\\xunit.core.2.6.4.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\xunit.extensibility.core\\2.6.4\\xunit.extensibility.core.2.6.4.nupkg.sha512",
+    "C:\\Users\\Mehdi\\.nuget\\packages\\xunit.extensibility.execution\\2.6.4\\xunit.extensibility.execution.2.6.4.nupkg.sha512"
+  ],
+  "logs": []
+}
