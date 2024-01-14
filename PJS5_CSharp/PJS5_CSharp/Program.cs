@@ -22,10 +22,10 @@ namespace PJS5_CSharp
             FURNACE pBasicFurnaceBot = new FURNACE(1, "Basic Furnace", 3, 1, 80);
             LEGS pBasicLegsBot = new LEGS(1, "Basic Legs", 3, 2);
 
-            Robot pPlayer = new Robot(pBasicFurnacePlayer, pBasicLegsPlayer, pBasicNormalWeaponPlayer, pBasicMeleeWeaponPlayer);
-            Robot pBot = new Robot(pBasicFurnaceBot, pBasicLegsBot, pBasicNormalWeaponBot, pBasicMeleeWeaponBot);
+            Sources.Robot.Robot pPlayer = new Sources.Robot.Robot(pBasicFurnacePlayer, pBasicLegsPlayer, pBasicNormalWeaponPlayer, pBasicMeleeWeaponPlayer);
+            Sources.Robot.Robot pBot = new Sources.Robot.Robot(pBasicFurnaceBot, pBasicLegsBot, pBasicNormalWeaponBot, pBasicMeleeWeaponBot);
             PILOT.IPILOT pPlayerPilot = new PLAYER_PILOT(pPlayer, new List<int> { 10, 5, 2, 1 }, new List<int> { 3, 2, 3, 1 });
-            PILOT.IPILOT pBotPilot = new BOT_PILOT(pBot, new List<int> { 10, 5, 2, 1 }, new List<int> { 3, 2, 3, 1 });
+            PILOT.IPILOT pBotPilot = new BOT_PILOT(pBot, new List<int> { 10, 5, 2, 1 }, new List<int> { 3, 2, 3, 1 }, new DumbyComportment());
             
             /*Console.WriteLine(pPlayer.GetRightWeaponHitChance());
             Console.WriteLine(pPlayer.GetLeftWeaponHitChance());
