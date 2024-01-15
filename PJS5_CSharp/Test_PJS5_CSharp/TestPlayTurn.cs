@@ -67,11 +67,13 @@ namespace Test_PJS5_CSharp
         void TestPlayTurn_repair()
         {
             pBotPilot.PlayTurn(playerRobot, 1, 1, 1, 50);
-            Assert.True(leftPlayerWeap.IsBroken());
-            //leftPlayerWeap.GetArmor().Should().NotBe(-1);
+            leftPlayerWeap.IsBroken().Should().BeTrue();
+            leftPlayerWeap.GetArmor().Should().Be(0);
 
+            pPlayerPilot.PlayTurn(playerRobot, 2, 2, 3);
+            leftPlayerWeap.IsBroken().Should().BeFalse();
             pPlayerPilot.PlayTurn(playerRobot, 2, 2, 1);
-
+            
             //Tests non fonctionnels
             //
             //leftPlayerWeap.Should().NotBe(2);
@@ -88,7 +90,9 @@ namespace Test_PJS5_CSharp
             pPlayerPilot.PlayTurn(botRobot, 1, 2, 2, 70);
             playerRobot.NeedToRestart().Should().BeTrue();
 
+            //rechargement en fuel du robot
             pPlayerPilot.PlayTurn(botRobot, 3, 3);
+            pPlayerPilot.PlayTurn(botRobot, 3, 4);
             playerRobot.NeedToRestart().Should().BeFalse();
 
 

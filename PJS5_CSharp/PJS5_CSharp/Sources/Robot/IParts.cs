@@ -69,6 +69,10 @@ namespace PJS5_CSharp.Sources.Robot
                     {
                         _iArmor = _iMaxArmor;
                     }
+                    else
+                    {
+                        _iArmor = 0;
+                    }
                 }
             Console.WriteLine("Delt damage to " + _iId +", " + _sName);
                 return iResult;
