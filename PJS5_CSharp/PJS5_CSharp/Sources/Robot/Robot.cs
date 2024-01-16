@@ -461,5 +461,17 @@ namespace PJS5_CSharp.Sources.Robot
         {
             return GetRightWeaponMinAccuracy() + GetRightWeaponAccuracy() - GetRightWeaponMinAccuracy() / GetLegsMaxLife() * GetLegsLife();
         }
+
+        public void SetWeapon(int iWeaponPart, IWeapon pWeapon)
+        {
+            if(iWeaponPart == 1)
+            {
+                _pLeftWeapon = pWeapon;
+            }
+            else
+            {
+                _pRightWeapon = pWeapon;
+            }
+        }
     }
 }

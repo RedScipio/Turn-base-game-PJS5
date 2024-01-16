@@ -27,7 +27,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
 
         override public void PlayTurn(Robot.Robot pEnnemiRobot, int iActionChoice = -1, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
         {
-            MainMenu(pEnnemiRobot, iActionChoice, iUsed, iTargetPart);
+            MainMenu(pEnnemiRobot, iActionChoice, iUsed, iTargetPart, iHitChance);
         }
 
         private void MainMenu(Robot.Robot pEnnemiRobot, int iActionChoice = -1, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)

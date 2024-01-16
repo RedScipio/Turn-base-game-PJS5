@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<TestSequence>
-  <Test Name="Test_PJS5_CSharp.TestRobot.TestBattle" DisplayName="Test_PJS5_CSharp.TestRobot.TestBattle" Source="T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\bin\Debug\fine-code-coverage-net6.0\Test_PJS5_CSharp.dll" Completed="True" />
-  <Test Name="Test_PJS5_CSharp.TestPlayTurn.TestPlayTurn_repair" DisplayName="Test_PJS5_CSharp.TestPlayTurn.TestPlayTurn_repair" Source="T:\App\Dèv\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\bin\Debug\fine-code-coverage-net6.0\Test_PJS5_CSharp.dll" Completed="False" />
-</TestSequence>
