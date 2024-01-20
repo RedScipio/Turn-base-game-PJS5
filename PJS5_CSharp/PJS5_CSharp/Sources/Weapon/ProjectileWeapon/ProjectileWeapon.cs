@@ -17,7 +17,7 @@ namespace PJS5_CSharp.Sources.Weapon.ProjectileWeapon
             _iAmmo = iAmmo;
         }
 
-        public int GetSpecificity()
+        public override int GetSpecificity()
         {
             return _iAmmo;
         }

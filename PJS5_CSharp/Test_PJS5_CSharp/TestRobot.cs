@@ -5,6 +5,7 @@ using PJS5_CSharp.Sources.Robot;
 using PJS5_CSharp.Sources.Weapon.MeleeWeapon;
 using PJS5_CSharp.Sources.Weapon.ProjectileWeapon;
 using PJS5_CSharp.Sources.Weapon.ThermalWeapon;
+using System.Diagnostics;
 
 namespace Test_PJS5_CSharp
 {
@@ -53,6 +54,7 @@ namespace Test_PJS5_CSharp
         [Fact] 
         public void TestDealingDamage()
         {
+
             int iEnemyActualLegsArmorValue = robotPlayer.DealDamage(robotBot, 1, 3);
             iEnemyActualLegsArmorValue.Should().Be(1);
             Assert.Equal(robotBot.GetLegsArmor(), iEnemyActualLegsArmorValue);
@@ -62,17 +64,17 @@ namespace Test_PJS5_CSharp
             iNonExistantPart.Should().Be(0);
 
             //Inflicting damage on a robot with a thermal weapon
-            //rightPlayerWeap = new THERMAL_WEAPON(1, "Basic Thermal Weapon", 3, 1, 1, 25, 60, 40, 25);
+
             robotPlayer.SetWeapon(2, new THERMAL_WEAPON(1, "Basic Thermal Weapon", 3, 1, 1, 25, 60, 40, 25));
             robotPlayer.GetRightWeaponType().Should().Be(4);
-            robotPlayer.GetRightWeaponSpecificity().Should().Be(-1);
-            pPlayerPilot.PlayTurn(robotBot, 1, 2, 1, 50);
-            robotBot.GetLeftWeaponArmor().Should().Be(2);
-            //Failing test, as even if I have changed weapons for a thermal one (which has 25 of iFuelBurn), it takes the GetSpecificity of a normal weapon.
-            //robotBot.GetFuel().Should().Be(75);
+            robotPlayer.GetRightWeaponSpecificity().Should().Be(25);
 
-            rightPlayerWeap = new PROJECTILE_WEAPON(1, "Basic Projectile Weapon", 3, 1, 1, 25, 60, 40, 5);
-            //pPlayerPilot.PlayTurn(robotBot);
+            //pPlayerPilot.PlayTurn(robotBot, 1, 2, 1, 50);
+            //robotBot.GetLeftWeaponArmor().Should().Be(2);
+            robotPlayer.SetWeapon(2, new PROJECTILE_WEAPON(1, "Basic Projectile Weapon", 3, 1, 4, 25, 60, 40, 5));
+            robotPlayer.GetRightWeaponType().Should().Be(3);
+            robotPlayer.GetRightWeaponSpecificity().Should().Be(5);   
+            //pPlayerPilot.PlayTurn(robotBot, 1, 2, 1, 50);
         }
 
         [Fact]

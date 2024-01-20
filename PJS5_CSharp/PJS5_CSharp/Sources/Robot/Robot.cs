@@ -281,6 +281,9 @@ namespace PJS5_CSharp.Sources.Robot
 
         public void RemoveFuel(int iFuel)
         {
+            if (iFuel < 0)
+                return;
+
             _iFuel = _iFuel - iFuel;
             if (_iFuel <= 0)
             {

@@ -70,11 +70,9 @@ namespace Test_PJS5_CSharp
             leftPlayerWeap.IsBroken().Should().BeTrue();
             leftPlayerWeap.GetArmor().Should().Be(0);
 
-            pPlayerPilot.PlayTurn(playerRobot, 2, 3, 1);   
+            pPlayerPilot.PlayTurn(playerRobot, 2, 3, 1);
             leftPlayerWeap.IsBroken().Should().BeFalse();
-            pPlayerPilot.PlayTurn(playerRobot, 2, 2, 1);
-            
-            
+            pPlayerPilot.PlayTurn(playerRobot, 2, 2, 1);          
         }
 
         
