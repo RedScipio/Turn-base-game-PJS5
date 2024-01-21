@@ -70,9 +70,8 @@ namespace PJS5_CSharp.Sources.Robot
                 return iResult;
             }
 
-            public delegate void RepairDelegate(ref int currentValue, int repairAmount, int maxValue);
-
-            public void Repair(int repairAmount, int maxValue, ref int currentValue)
+        
+            private void Repair(int repairAmount, int maxValue, ref int currentValue)
             {
                 if (currentValue < maxValue)
                 {
@@ -93,7 +92,7 @@ namespace PJS5_CSharp.Sources.Robot
             {
                 Repair(iRepair, _iMaxLifePoint, ref _iLifePoint);
             }
-    }
+        }
     }
 
 

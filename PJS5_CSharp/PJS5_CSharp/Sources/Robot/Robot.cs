@@ -1,6 +1,7 @@
 ﻿using PJS5_CSharp.Sources.Weapon.ProjectileWeapon;
 using WEAPON;
 using System;
+using static PJS5_CSharp.Sources.Robot.IPARTS;
 
 namespace PJS5_CSharp.Sources.Robot
 {
@@ -127,6 +128,48 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
+
+
+        public delegate void RepairRobotDelegate(int iRepair);
+
+        private void RepairRobot(PARTS_TYPE eChoice, int repairPoint, RepairRobotDelegate R)
+        {
+            switch (eChoice)
+            {
+                case PARTS_TYPE.LEFT_WEAPON:
+                    R.Invoke(repairPoint);
+                    return;
+
+                case PARTS_TYPE.RIGHT_WEAPON:
+                    R.Invoke(repairPoint);
+                    return;
+
+                case PARTS_TYPE.LEGS:
+                    R.Invoke(repairPoint);
+                    return;
+
+                case PARTS_TYPE.FURNACE:
+                    R.Invoke(repairPoint);
+                    return;
+
+                default:
+                    return;
+            }
+        }
+
+        /*
+         * Comprendre les délégués avant tirage
+        public void NewRepairRobotLifePoint(PARTS_TYPE iTargetChoice, int damage)
+        {
+            RepairRobot(iTargetChoice, damage, IPARTS.RepairLife);
+        }
+
+        public void NewRepairRobotArmor(PARTS_TYPE iTargetChoice, int damage)
+        {
+            RepairRobot(iTargetChoice, damage, IPARTS.RepairArmor);
+        }
+        */
+
         public void RepairRobotArmor(int iRepairPoints, PARTS_TYPE iTargetChoice)
         {
             switch (iTargetChoice)
@@ -193,51 +236,37 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public bool RepairLifeTargetIsValid(int iChoice)
+        private bool RepairTargetIsValid(int iChoice, Func<IPARTS, int> getValue, Func<IPARTS, int> getMaxValue)
         {
-
-            PARTS_TYPE eChoice = (PARTS_TYPE) iChoice;
+            PARTS_TYPE eChoice = (PARTS_TYPE)iChoice;
 
             switch (eChoice)
             {
                 case PARTS_TYPE.LEFT_WEAPON:
-                    return _pLeftWeapon.GetLife() < _pLeftWeapon.GetMaxLife();
+                    return getValue(_pLeftWeapon) < getMaxValue(_pLeftWeapon);
 
                 case PARTS_TYPE.RIGHT_WEAPON:
-                    return _pRightWeapon.GetLife() < _pRightWeapon.GetMaxLife();
+                    return getValue(_pRightWeapon) < getMaxValue(_pRightWeapon);
 
                 case PARTS_TYPE.LEGS:
-                    return _pLegs.GetLife() < _pLegs.GetMaxLife();
+                    return getValue(_pLegs) < getMaxValue(_pLegs);
 
                 case PARTS_TYPE.FURNACE:
-                    return _pFurnace.GetLife() < _pLegs.GetMaxLife();
+                    return getValue(_pFurnace) < getMaxValue(_pFurnace);
 
                 default:
                     return false;
             }
         }
 
+        public bool RepairLifeTargetIsValid(int iChoice)
+        {
+            return RepairTargetIsValid(iChoice, part => part.GetLife(), part => part.GetMaxLife());
+        }
+
         public bool RepairArmorTargetIsValid(int iChoice)
         {
-            PARTS_TYPE eChoice = (PARTS_TYPE) iChoice;
-
-            switch (eChoice)
-            {
-                case PARTS_TYPE.LEFT_WEAPON:
-                    return _pLeftWeapon.GetArmor() < _pLeftWeapon.GetMaxArmor();
-
-                case PARTS_TYPE.RIGHT_WEAPON:
-                    return _pRightWeapon.GetArmor() < _pRightWeapon.GetMaxArmor();
-
-                case PARTS_TYPE.LEGS:
-                    return _pLegs.GetArmor() < _pLegs.GetMaxArmor();
-
-                case PARTS_TYPE.FURNACE:
-                    return _pFurnace.GetArmor() < _pLegs.GetMaxArmor();
-
-                default:
-                    return false;
-            }
+            return RepairTargetIsValid(iChoice, part => part.GetArmor(), part => part.GetMaxArmor());
         }
 
         public void WeaponFired(int iWeapon)
@@ -387,7 +416,7 @@ namespace PJS5_CSharp.Sources.Robot
 
         public int GetLeftWeaponHitChance()
         {
-            return GetLeftWeaponMinAccuracy() + GetLeftWeaponAccuracy() - GetLeftWeaponMinAccuracy() / GetLegsMaxLife() * GetLegsLife();
+            return CalculateWeaponHitChance(GetLeftWeaponMinAccuracy(), GetLeftWeaponAccuracy(), GetLegsMaxLife(), GetLegsLife());
         }
 
         public int GetRightWeaponLife()
@@ -442,7 +471,12 @@ namespace PJS5_CSharp.Sources.Robot
 
         public int GetRightWeaponHitChance()
         {
-            return GetRightWeaponMinAccuracy() + GetRightWeaponAccuracy() - GetRightWeaponMinAccuracy() / GetLegsMaxLife() * GetLegsLife();
+            return CalculateWeaponHitChance(GetRightWeaponMinAccuracy(), GetRightWeaponAccuracy(), GetLegsMaxLife(), GetLegsLife());
+        }
+
+        private int CalculateWeaponHitChance(int minAccuracy, int accuracy, int maxLife, int life)
+        {
+            return minAccuracy + accuracy - minAccuracy / maxLife * life;
         }
     }
 }
