@@ -70,30 +70,30 @@ namespace PJS5_CSharp.Sources.Robot
                 return iResult;
             }
 
-            public void RepairArmor(int iRepair)
+            public delegate void RepairDelegate(ref int currentValue, int repairAmount, int maxValue);
+
+            public void Repair(int repairAmount, int maxValue, ref int currentValue)
             {
-                if (_iArmor < _iMaxArmor)
+                if (currentValue < maxValue)
                 {
-                    _iArmor += iRepair;
-                    if (_iArmor > _iMaxArmor)
+                    currentValue += repairAmount;
+                    if (currentValue > maxValue)
                     {
-                        _iArmor = _iMaxArmor;
+                        currentValue = maxValue;
                     }
                 }
             }
 
+            public void RepairArmor(int iRepair)
+            {
+                Repair(iRepair, _iMaxArmor, ref _iArmor);
+            }
+
             public void RepairLife(int iRepair)
             {
-                if (_iLifePoint < _iMaxLifePoint)
-                {
-                    _iLifePoint += iRepair;
-                    if (_iLifePoint > _iMaxLifePoint)
-                    {
-                        _iLifePoint = _iMaxLifePoint;
-                    }
-                }
+                Repair(iRepair, _iMaxLifePoint, ref _iLifePoint);
             }
-        }
+    }
     }
 
 
