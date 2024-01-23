@@ -12,13 +12,13 @@ namespace Test_PJS5_CSharp
     public class TestPlayTurn
     {
         
-        FURNACE furnPlayer = new FURNACE(1, "Normal Furnace", 2, 1, 50);
+        FURNACE furnPlayer = new FURNACE(1, "Normal Furnace", 2, 4, 50);
         FURNACE furnBot = new FURNACE(1, "Normal Furnace", 2, 1, 50);
         LEGS legsPlayer = new LEGS(1, "Basic Legs", 3, 2);
         LEGS legsBot = new LEGS(1, "Basic Legs", 3, 2);
 
         WEAPON.IWeapon leftBotWeap = new MELEE_WEAPON(1, "Melee Weapon", 3, 1, 4, 15, 100, 0);
-        WEAPON.IWeapon rightBotWeap = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 2, 25, 60, 30);
+        WEAPON.IWeapon rightBotWeap = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 3, 0, 60, 30);
         WEAPON.IWeapon leftPlayerWeap = new MELEE_WEAPON(1, "Melee Weapon", 3, 1, 2, 15, 100, 0);
         WEAPON.IWeapon rightPlayerWeap = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 1, 25, 80, 40);
 
@@ -72,7 +72,17 @@ namespace Test_PJS5_CSharp
 
             pPlayerPilot.PlayTurn(playerRobot, 2, 3, 1);
             leftPlayerWeap.IsBroken().Should().BeFalse();
-            pPlayerPilot.PlayTurn(playerRobot, 2, 2, 1);          
+            pPlayerPilot.PlayTurn(playerRobot, 2, 2, 1);    
+            playerRobot.GetLeftWeaponArmor().Should().Be(3);
+            playerRobot.GetLeftWeaponLife().Should().Be(1);
+
+            for (int i = 0; i <= 2; i++)
+            {
+                pBotPilot.PlayTurn(playerRobot, 1, 2, 4, 45);
+            }
+            playerRobot.GetFurnaceLife().Should().Be(1);
+            pPlayerPilot.PlayTurn(playerRobot, 2, 4, 4);
+            pPlayerPilot.GetRobot().GetFurnaceLife().Should().Be(4);
         }
 
         
@@ -88,14 +98,15 @@ namespace Test_PJS5_CSharp
             playerRobot.NeedToRestart().Should().BeTrue();
 
             //rechargement en fuel du robot
+            pPlayerPilot.PlayTurn(botRobot, 3, 1);
+            playerRobot.GetFuel().Should().Be(15);
+            pPlayerPilot.PlayTurn(botRobot, 3, 2);
+            playerRobot.GetFuel().Should().Be(35);
             pPlayerPilot.PlayTurn(botRobot, 3, 3);
-            playerRobot.GetFuel().Should().Be(25);
-            pPlayerPilot.PlayTurn(botRobot, 3, 4);
             playerRobot.GetFuel().Should().Be(60);
             playerRobot.NeedToRestart().Should().BeFalse();
-            //pPlayerPilot.
-
-
+            pPlayerPilot.PlayTurn(botRobot, 3, 4);
+            playerRobot.GetFuel().Should().Be(95);
         }
     }
 }

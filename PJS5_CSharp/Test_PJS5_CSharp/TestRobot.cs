@@ -69,8 +69,6 @@ namespace Test_PJS5_CSharp
             robotPlayer.GetRightWeaponType().Should().Be(4);
             robotPlayer.GetRightWeaponSpecificity().Should().Be(25);
 
-            //pPlayerPilot.PlayTurn(robotBot, 1, 2, 1, 50);
-            //robotBot.GetLeftWeaponArmor().Should().Be(2);
             robotPlayer.SetWeapon(2, new PROJECTILE_WEAPON(1, "Basic Projectile Weapon", 3, 1, 4, 25, 60, 40, 5));
             robotPlayer.GetRightWeaponType().Should().Be(3);
             robotPlayer.GetRightWeaponSpecificity().Should().Be(5);   
