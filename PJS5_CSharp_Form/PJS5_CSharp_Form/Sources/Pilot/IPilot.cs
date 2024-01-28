@@ -20,6 +20,7 @@ namespace PILOT
         }
 
         public abstract void PlayTurn(Robot ennemiRobot);
+        
 
         public bool RobotIsDestroy()
         {

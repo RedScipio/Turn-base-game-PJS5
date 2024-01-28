@@ -29,5 +29,7 @@ namespace PJS5_CSharp.Sources.Pilot.Bot
         {
             Console.WriteLine("BotPilot.cs PlayTurn()");
         }
+
+
     }
 }

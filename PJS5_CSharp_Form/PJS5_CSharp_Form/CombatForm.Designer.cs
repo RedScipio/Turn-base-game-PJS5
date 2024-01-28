@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.guiPlayerFurnaceArmor = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,11 +51,17 @@
             this.guiEnnemiWeaponLArmor = new System.Windows.Forms.ProgressBar();
             this.guiEnnemiLegsArmor = new System.Windows.Forms.ProgressBar();
             this.guiEnnemiFurnaceArmor = new System.Windows.Forms.ProgressBar();
+            this.IntUpdater = new System.Windows.Forms.Timer(this.components);
+            this.guiAttackButton = new System.Windows.Forms.Button();
+            this.guiRepairsButton = new System.Windows.Forms.Button();
+            this.guiFurnaceButton = new System.Windows.Forms.Button();
+            this.guiBackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // guiPlayerFurnaceArmor
             // 
             this.guiPlayerFurnaceArmor.Location = new System.Drawing.Point(22, 347);
+            this.guiPlayerFurnaceArmor.Maximum = 3;
             this.guiPlayerFurnaceArmor.Name = "guiPlayerFurnaceArmor";
             this.guiPlayerFurnaceArmor.Size = new System.Drawing.Size(287, 23);
             this.guiPlayerFurnaceArmor.TabIndex = 0;
@@ -80,6 +87,7 @@
             // guiPlayerLegsArmor
             // 
             this.guiPlayerLegsArmor.Location = new System.Drawing.Point(22, 376);
+            this.guiPlayerLegsArmor.Maximum = 3;
             this.guiPlayerLegsArmor.Name = "guiPlayerLegsArmor";
             this.guiPlayerLegsArmor.Size = new System.Drawing.Size(287, 23);
             this.guiPlayerLegsArmor.TabIndex = 4;
@@ -87,6 +95,7 @@
             // guiPlayerWeaponLArmor
             // 
             this.guiPlayerWeaponLArmor.Location = new System.Drawing.Point(22, 405);
+            this.guiPlayerWeaponLArmor.Maximum = 3;
             this.guiPlayerWeaponLArmor.Name = "guiPlayerWeaponLArmor";
             this.guiPlayerWeaponLArmor.Size = new System.Drawing.Size(143, 23);
             this.guiPlayerWeaponLArmor.TabIndex = 5;
@@ -94,6 +103,7 @@
             // guiPlayerWeaponRArmor
             // 
             this.guiPlayerWeaponRArmor.Location = new System.Drawing.Point(166, 405);
+            this.guiPlayerWeaponRArmor.Maximum = 3;
             this.guiPlayerWeaponRArmor.Name = "guiPlayerWeaponRArmor";
             this.guiPlayerWeaponRArmor.Size = new System.Drawing.Size(143, 23);
             this.guiPlayerWeaponRArmor.TabIndex = 6;
@@ -205,6 +215,7 @@
             // guiEnnemiWeaponRArmor
             // 
             this.guiEnnemiWeaponRArmor.Location = new System.Drawing.Point(875, 405);
+            this.guiEnnemiWeaponRArmor.Maximum = 3;
             this.guiEnnemiWeaponRArmor.Name = "guiEnnemiWeaponRArmor";
             this.guiEnnemiWeaponRArmor.Size = new System.Drawing.Size(143, 23);
             this.guiEnnemiWeaponRArmor.TabIndex = 16;
@@ -212,6 +223,7 @@
             // guiEnnemiWeaponLArmor
             // 
             this.guiEnnemiWeaponLArmor.Location = new System.Drawing.Point(731, 405);
+            this.guiEnnemiWeaponLArmor.Maximum = 3;
             this.guiEnnemiWeaponLArmor.Name = "guiEnnemiWeaponLArmor";
             this.guiEnnemiWeaponLArmor.Size = new System.Drawing.Size(143, 23);
             this.guiEnnemiWeaponLArmor.TabIndex = 15;
@@ -219,6 +231,7 @@
             // guiEnnemiLegsArmor
             // 
             this.guiEnnemiLegsArmor.Location = new System.Drawing.Point(731, 376);
+            this.guiEnnemiLegsArmor.Maximum = 3;
             this.guiEnnemiLegsArmor.Name = "guiEnnemiLegsArmor";
             this.guiEnnemiLegsArmor.Size = new System.Drawing.Size(287, 23);
             this.guiEnnemiLegsArmor.TabIndex = 14;
@@ -226,15 +239,63 @@
             // guiEnnemiFurnaceArmor
             // 
             this.guiEnnemiFurnaceArmor.Location = new System.Drawing.Point(731, 347);
+            this.guiEnnemiFurnaceArmor.Maximum = 3;
             this.guiEnnemiFurnaceArmor.Name = "guiEnnemiFurnaceArmor";
             this.guiEnnemiFurnaceArmor.Size = new System.Drawing.Size(287, 23);
             this.guiEnnemiFurnaceArmor.TabIndex = 13;
+            // 
+            // IntUpdater
+            // 
+            this.IntUpdater.Tick += new System.EventHandler(this.IntUpdater_Tick);
+            // 
+            // guiAttackButton
+            // 
+            this.guiAttackButton.Location = new System.Drawing.Point(374, 275);
+            this.guiAttackButton.Name = "guiAttackButton";
+            this.guiAttackButton.Size = new System.Drawing.Size(75, 23);
+            this.guiAttackButton.TabIndex = 24;
+            this.guiAttackButton.Text = "Attack";
+            this.guiAttackButton.UseVisualStyleBackColor = true;
+            this.guiAttackButton.Click += new System.EventHandler(this.guiAttackButton_Click);
+            // 
+            // guiRepairsButton
+            // 
+            this.guiRepairsButton.Location = new System.Drawing.Point(494, 275);
+            this.guiRepairsButton.Name = "guiRepairsButton";
+            this.guiRepairsButton.Size = new System.Drawing.Size(75, 23);
+            this.guiRepairsButton.TabIndex = 25;
+            this.guiRepairsButton.Text = "Repairs";
+            this.guiRepairsButton.UseVisualStyleBackColor = true;
+            this.guiRepairsButton.Click += new System.EventHandler(this.guiRepairsButton_Click);
+            // 
+            // guiFurnaceButton
+            // 
+            this.guiFurnaceButton.Location = new System.Drawing.Point(605, 275);
+            this.guiFurnaceButton.Name = "guiFurnaceButton";
+            this.guiFurnaceButton.Size = new System.Drawing.Size(75, 23);
+            this.guiFurnaceButton.TabIndex = 26;
+            this.guiFurnaceButton.Text = "Furnace";
+            this.guiFurnaceButton.UseVisualStyleBackColor = true;
+            // 
+            // guiBackButton
+            // 
+            this.guiBackButton.Location = new System.Drawing.Point(494, 342);
+            this.guiBackButton.Name = "guiBackButton";
+            this.guiBackButton.Size = new System.Drawing.Size(75, 23);
+            this.guiBackButton.TabIndex = 27;
+            this.guiBackButton.Text = "Back";
+            this.guiBackButton.UseVisualStyleBackColor = true;
+            this.guiBackButton.Click += new System.EventHandler(this.guiBackButton_Click);
             // 
             // CombatForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 598);
+            this.Controls.Add(this.guiBackButton);
+            this.Controls.Add(this.guiFurnaceButton);
+            this.Controls.Add(this.guiRepairsButton);
+            this.Controls.Add(this.guiAttackButton);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
@@ -288,6 +349,11 @@
         private System.Windows.Forms.ProgressBar guiEnnemiWeaponLArmor;
         private System.Windows.Forms.ProgressBar guiEnnemiLegsArmor;
         private System.Windows.Forms.ProgressBar guiEnnemiFurnaceArmor;
+        private System.Windows.Forms.Timer IntUpdater;
+        private System.Windows.Forms.Button guiAttackButton;
+        private System.Windows.Forms.Button guiRepairsButton;
+        private System.Windows.Forms.Button guiFurnaceButton;
+        private System.Windows.Forms.Button guiBackButton;
     }
 }
 

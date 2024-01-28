@@ -8,13 +8,13 @@ namespace PJS5_CSharp.Sources.Battle
 {
     public class Battle
     {
-        private IPILOT[] _tPilot;
+        public IPILOT[] _tPilot;
 
         public Battle(IPILOT pPlayer, IPILOT pBot)
         {
             _tPilot = new IPILOT[] { pPlayer, pBot };
         }
-        public void BattleWithConsoleGui()
+/*        public void BattleWithConsoleGui()
         {
             CombatForm combatForm = new CombatForm();
             while (!BattleIsOver())
@@ -29,7 +29,7 @@ namespace PJS5_CSharp.Sources.Battle
                     }
                 }
             }
-        }
+        }*/
 
         public bool BattleIsOver()
         {

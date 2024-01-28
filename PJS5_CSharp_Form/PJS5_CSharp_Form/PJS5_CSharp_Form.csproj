@@ -55,7 +55,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sources\Battle\Battle.cs" />
-    <Compile Include="Sources\GUI\GUI.cs" />
     <Compile Include="Sources\Pilot\Bot\BotPilot.cs" />
     <Compile Include="Sources\Pilot\IPilot.cs" />
     <Compile Include="Sources\Pilot\Player\PlayerPilot.cs" />
@@ -63,7 +62,6 @@
     <Compile Include="Sources\Robot\IParts.cs" />
     <Compile Include="Sources\Robot\Legs.cs" />
     <Compile Include="Sources\Robot\Robot.cs" />
-    <Compile Include="Sources\Utils.cs" />
     <Compile Include="Sources\Weapon\IWeapon.cs" />
     <Compile Include="Sources\Weapon\MeleeWeapon\MeleeWeapon.cs" />
     <Compile Include="Sources\Weapon\NormalWeapon\NormalWeapon.cs" />
@@ -93,6 +91,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sources\GUI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
