@@ -1,0 +1,127 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\Test_PJS5_CSharp\\Test_PJS5_CSharp.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\PJS5_CSharp\\PJS5_CSharp.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\PJS5_CSharp\\PJS5_CSharp.csproj",
+        "projectName": "PJS5_CSharp",
+        "projectPath": "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\PJS5_CSharp\\PJS5_CSharp.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    },
+    "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\Test_PJS5_CSharp\\Test_PJS5_CSharp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\Test_PJS5_CSharp\\Test_PJS5_CSharp.csproj",
+        "projectName": "Test_PJS5_CSharp",
+        "projectPath": "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\Test_PJS5_CSharp\\Test_PJS5_CSharp.csproj",
+        "packagesPath": "C:\\Users\\Wahad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\Test_PJS5_CSharp\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Users\\Wahad\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Wahad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Wahad\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\PJS5_CSharp\\PJS5_CSharp.csproj": {
+                "projectPath": "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\PJS5_CSharp\\PJS5_CSharp.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.12.0, )"
+            },
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.6.6, )"
+            },
+            "xunit.core": {
+              "target": "Package",
+              "version": "[2.6.6, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.5.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

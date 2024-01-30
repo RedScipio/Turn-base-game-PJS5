@@ -17,7 +17,7 @@ namespace PJS5_CSharp.Sources.Weapon.ThermalWeapon
             _iFuelBurn = iFuelBurn;
         }
 
-        public int GetSpecificity()
+        public override int GetSpecificity()
         {
             return _iFuelBurn;
         }

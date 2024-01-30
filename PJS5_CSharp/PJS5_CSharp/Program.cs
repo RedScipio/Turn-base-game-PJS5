@@ -6,9 +6,6 @@ using PJS5_CSharp.Sources.Weapon.MeleeWeapon;
 using PJS5_CSharp.Sources.Weapon.NormalWeapon;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PJS5_CSharp
 {

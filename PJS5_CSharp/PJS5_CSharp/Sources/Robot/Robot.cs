@@ -281,6 +281,9 @@ namespace PJS5_CSharp.Sources.Robot
 
         public void RemoveFuel(int iFuel)
         {
+            if (iFuel < 0)
+                return;
+
             _iFuel = _iFuel - iFuel;
             if (_iFuel <= 0)
             {
@@ -460,6 +463,18 @@ namespace PJS5_CSharp.Sources.Robot
         public int GetRightWeaponHitChance()
         {
             return GetRightWeaponMinAccuracy() + GetRightWeaponAccuracy() - GetRightWeaponMinAccuracy() / GetLegsMaxLife() * GetLegsLife();
+        }
+
+        public void SetWeapon(int iWeaponPart, IWeapon pWeapon)
+        {
+            if(iWeaponPart == 1)
+            {
+                _pLeftWeapon = pWeapon;
+            }
+            else
+            {
+                _pRightWeapon = pWeapon;
+            }
         }
     }
 }

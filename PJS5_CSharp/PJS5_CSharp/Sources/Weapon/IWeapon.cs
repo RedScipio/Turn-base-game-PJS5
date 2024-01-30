@@ -1,5 +1,6 @@
 ﻿using PJS5_CSharp.Sources.Robot;
 using System;
+using System.Diagnostics;
 
 namespace WEAPON
 {
@@ -44,7 +45,7 @@ namespace WEAPON
             return _eWeaponType;
         }
 
-        public int GetType()
+        public new int GetType()
         {
             return (int)_eWeaponType;
         }
@@ -69,7 +70,7 @@ namespace WEAPON
             return _iMinAccuracy;
         }
 
-        public int GetSpecificity()
+        public virtual int GetSpecificity()
         {
             return -1;
         }

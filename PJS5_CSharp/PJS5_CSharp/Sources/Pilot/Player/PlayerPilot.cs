@@ -14,56 +14,60 @@ namespace PJS5_CSharp.Sources.Pilot.Player
         private Robot.Robot _pRobot;
         private List<int> _vFuelsReserve;
         private List<int> _vRepairKitsReserve;
+        private List<int> _vActionResults;
 
         public PLAYER_PILOT(Robot.Robot pRobot, List<int> vFuelsReserve, List<int> vRepairKitsReserve) : base(pRobot, vFuelsReserve, vRepairKitsReserve)
         {
             _pRobot = pRobot;
             _vFuelsReserve = vFuelsReserve ?? new List<int> { 0, 0, 0, 0 };
             _vRepairKitsReserve = vRepairKitsReserve ?? new List<int> { 0, 0, 0, 0 };
+            _vActionResults = new List<int> { };
         }
 
-        override
-        public void PlayTurn(Robot.Robot pEnnemiRobot)
+        override public void PlayTurn(Robot.Robot pEnnemiRobot, int iActionChoice = -1, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
         {
-            MainMenu(pEnnemiRobot);
+            MainMenu(pEnnemiRobot, iActionChoice, iUsed, iTargetPart, iHitChance);
         }
 
-        private void MainMenu(Robot.Robot pEnnemiRobot, int iChoice = -1)
+        private void MainMenu(Robot.Robot pEnnemiRobot, int iActionChoice = -1, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
         {
-            if (iChoice == -1)
+            if (iActionChoice == -1)
             {
-                iChoice = GUI.Gui.MainMenu();
+                iActionChoice = GUI.Gui.MainMenu();
             }
-            switch (iChoice)
+            switch (iActionChoice)
             {
                 case 1:
                     {
-                        AttackMenu(pEnnemiRobot);
+                        this.GetActionResults().Add(iActionChoice);
+                        AttackMenu(pEnnemiRobot, iUsed, iTargetPart, iHitChance);
                         return;
                     }
                 case 2:
                     {
-                        RepairsMenu(pEnnemiRobot);
+                        this.GetActionResults().Add(iActionChoice);
+                        RepairsMenu(pEnnemiRobot, iUsed, iTargetPart);
                         return;
                     }
                 case 3:
                     {
-                        FurnaceMenu(pEnnemiRobot);
+                        this.GetActionResults().Add(iActionChoice);
+                        FurnaceMenu(pEnnemiRobot, iUsed, iTargetPart);
                         return;
                     }
                 default:
                     {
-                        MainMenu(pEnnemiRobot);
+                        MainMenu(pEnnemiRobot, iUsed, iTargetPart);
                         return;
                     }
             }
         }
 
-        private void AttackMenu(Robot.Robot pEnnemiRobot, int iChoice = -1)
+        private void AttackMenu(Robot.Robot pEnnemiRobot, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
         {
-            if (iChoice == -1)
+            if (iUsed == -1)
             {
-                iChoice = GUI.Gui.WeaponMenu(this.GetRobot());
+                iUsed = GUI.Gui.WeaponMenu(this.GetRobot());
             }
             if (_pRobot.NeedToRestart())
             {
@@ -71,7 +75,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                 MainMenu(pEnnemiRobot);
                 return;
             }
-            switch (iChoice)
+            switch (iUsed)
             {
                 case 0:
                     {
@@ -80,13 +84,19 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     }
                 case 1:
                     {
-                        if (_pRobot.WeaponIsUsable(iChoice))
+                        this.GetActionResults().Add(iUsed);
+                        if (_pRobot.WeaponIsUsable(iUsed))
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu(iTargetPart);
+                            this.GetActionResults().Add(iTargetChoice);
                             if (pEnnemiRobot.AttackTargetIsValid(iTargetChoice))
                             {
-                                int iRandomizer = new Random().Next(1, 101);
-                                _pRobot.WeaponFired(iChoice);
+                                int iRandomizer;
+                                if(iHitChance <= -1) iRandomizer = new Random().Next(1, 101);
+                                else iRandomizer = iHitChance;
+
+                                this.GetActionResults().Add(iRandomizer);
+                                _pRobot.WeaponFired(iUsed);
                                 if (_pRobot.GetLeftWeaponHitChance() < iRandomizer)
                                 {
                                     GUI.Gui.MissedFire();
@@ -94,7 +104,8 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                                 }
                                 else
                                 {
-                                    _pRobot.DealDamage(pEnnemiRobot, iChoice, iTargetChoice);
+                                    int damage = _pRobot.DealDamage(pEnnemiRobot, iUsed, iTargetChoice);
+                                    this.GetActionResults().Add(damage);
                                     return;
                                 }
                             }
@@ -114,13 +125,19 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     }
                 case 2:
                     {
-                        if (_pRobot.WeaponIsUsable(iChoice))
+                        this.GetActionResults().Add(iUsed);
+                        if (_pRobot.WeaponIsUsable(iUsed))
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu(iTargetPart);
+                            this.GetActionResults().Add(iTargetChoice);
                             if (pEnnemiRobot.AttackTargetIsValid(iTargetChoice))
                             {
-                                int iRandomizer = new Random().Next(1, 101);
-                                _pRobot.WeaponFired(iChoice);
+                                int iRandomizer;
+                                if (iHitChance <= -1) iRandomizer = new Random().Next(1, 101);
+                                else iRandomizer = iHitChance;
+
+                                this.GetActionResults().Add(iRandomizer);
+                                _pRobot.WeaponFired(iUsed);
                                 if (_pRobot.GetRightWeaponHitChance() < iRandomizer)
                                 {
                                     GUI.Gui.MissedFire();
@@ -128,7 +145,8 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                                 }
                                 else
                                 {
-                                    _pRobot.DealDamage(pEnnemiRobot, iChoice, iTargetChoice);
+                                    int damage = _pRobot.DealDamage(pEnnemiRobot, iUsed, iTargetChoice);
+                                    this.GetActionResults().Add(damage);
                                     return;
                                 }
                             }
@@ -155,13 +173,13 @@ namespace PJS5_CSharp.Sources.Pilot.Player
             }
         }
 
-        private void RepairsMenu(Robot.Robot pEnnemiRobot, int iChoice = -1)
+        private void RepairsMenu(Robot.Robot pEnnemiRobot, int iActionChoice = -1, int iUsed = -1)
         {
-            if (iChoice == -1)
+            if (iActionChoice == -1)
             {
-                iChoice = GUI.Gui.RepairMenu(this);
+                iActionChoice = GUI.Gui.RepairMenu(this, iUsed);
             }
-            switch (iChoice)
+            switch (iActionChoice)
             {
                 case 0:
                     {
@@ -170,9 +188,10 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     }
                 case 1:
                     {
-                        if (_vRepairKitsReserve[iChoice - 1] > 0)
+                        if (_vRepairKitsReserve[iActionChoice - 1] > 0)
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu(iUsed);
+                            this.GetActionResults().Add(iTargetChoice);
                             if (_pRobot.RepairArmorTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotArmor(1, iTargetChoice);
@@ -181,7 +200,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                             else
                             {
                                 GUI.Gui.PerfectlyFine();
-                                RepairsMenu(pEnnemiRobot);
+                                RepairsMenu(pEnnemiRobot, iActionChoice, iUsed);
                                 return;
                             }
                         }
@@ -194,9 +213,10 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     }
                 case 2:
                     {
-                        if (_vRepairKitsReserve[iChoice - 1] > 0)
+                        if (_vRepairKitsReserve[iActionChoice - 1] > 0)
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu(iUsed);
+                            this.GetActionResults().Add(iTargetChoice);
                             if (_pRobot.RepairArmorTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotArmor(3, iTargetChoice);
@@ -205,22 +225,23 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                             else
                             {
                                 GUI.Gui.PerfectlyFine();
-                                RepairsMenu(pEnnemiRobot);
+                                RepairsMenu(pEnnemiRobot, iActionChoice, iUsed);
                                 return;
                             }
                         }
                         else
                         {
                             GUI.Gui.NoStockKit();
-                            RepairsMenu(pEnnemiRobot);
+                            RepairsMenu(pEnnemiRobot, iActionChoice, iUsed);
                             return;
                         }
                     }
                 case 3:
                     {
-                        if (_vRepairKitsReserve[iChoice - 1] > 0)
+                        if (_vRepairKitsReserve[iActionChoice - 1] > 0)
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu(iUsed);
+                            this.GetActionResults().Add(iTargetChoice);
                             if (_pRobot.RepairLifeTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotLifePoint(1, iTargetChoice);
@@ -229,22 +250,23 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                             else
                             {
                                 GUI.Gui.PerfectlyFine();
-                                RepairsMenu(pEnnemiRobot);
+                                RepairsMenu(pEnnemiRobot, iActionChoice, iUsed);
                                 return;
                             }
                         }
                         else
                         {
                             GUI.Gui.NoStockKit();
-                            RepairsMenu(pEnnemiRobot);
+                            RepairsMenu(pEnnemiRobot, iActionChoice, iUsed);
                             return;
                         }
                     }
                 case 4:
                     {
-                        if (_vRepairKitsReserve[iChoice - 1] > 0)
+                        if (_vRepairKitsReserve[iActionChoice - 1] > 0)
                         {
-                            int iTargetChoice = GUI.Gui.TargetMenu();
+                            int iTargetChoice = GUI.Gui.TargetMenu(iUsed);
+                            this.GetActionResults().Add(iTargetChoice);
                             if (_pRobot.RepairLifeTargetIsValid(iTargetChoice))
                             {
                                 _pRobot.RepairRobotLifePoint(3, iTargetChoice);
@@ -253,33 +275,33 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                             else
                             {
                                 GUI.Gui.PerfectlyFine();
-                                RepairsMenu(pEnnemiRobot);
+                                RepairsMenu(pEnnemiRobot, iActionChoice, iUsed);
                                 return;
                             }
                         }
                         else
                         {
                             GUI.Gui.NoStockKit();
-                            RepairsMenu(pEnnemiRobot);
+                            RepairsMenu(pEnnemiRobot, iActionChoice, iUsed);
                             return;
                         }
                     }
                 default:
                     {
                         GUI.Gui.WrongEntry();
-                        RepairsMenu(pEnnemiRobot);
+                        RepairsMenu(pEnnemiRobot, iActionChoice, iUsed);
                         return;
                     }
             }
         }
 
-        private void FurnaceMenu(Robot.Robot pEnnemiRobot, int iChoice = -1)
+        private void FurnaceMenu(Robot.Robot pEnnemiRobot, int iActionChoice = -1, int iUsed = -1)
         {
-            if (iChoice == -1)
+            if (iActionChoice == -1)
             {
-                iChoice = GUI.Gui.FuelMenu(this);
+                iActionChoice = GUI.Gui.FuelMenu(this, iUsed);
             }
-            switch (iChoice)
+            switch (iActionChoice)
             {
                 case 0:
                     {
@@ -288,65 +310,65 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                     }
                 case 1:
                     {
-                        int iStock = _vFuelsReserve[iChoice - 1];
+                        int iStock = _vFuelsReserve[iActionChoice - 1];
                         if (iStock > 0)
                         {
                             _pRobot.Refuel(15);
-                            _vFuelsReserve[iChoice - 1] = iStock - 1;
+                            _vFuelsReserve[iActionChoice - 1] = iStock - 1;
                             return;
                         }
                         else
                         {
                             GUI.Gui.NoStockFuel();
-                            FurnaceMenu(pEnnemiRobot);
+                            FurnaceMenu(pEnnemiRobot, iUsed);
                             return;
                         }
                     }
                 case 2:
                     {
-                        int iStock = _vFuelsReserve[iChoice - 1];
-                        if (_vFuelsReserve[iChoice - 1] > 0)
+                        int iStock = _vFuelsReserve[iActionChoice - 1];
+                        if (_vFuelsReserve[iActionChoice - 1] > 0)
                         {
                             _pRobot.Refuel(20);
-                            _vFuelsReserve[iChoice - 1] = iStock - 1;
+                            _vFuelsReserve[iActionChoice - 1] = iStock - 1;
                             return;
                         }
                         else
                         {
                             GUI.Gui.NoStockFuel();
-                            FurnaceMenu(pEnnemiRobot);
+                            FurnaceMenu(pEnnemiRobot, iActionChoice, iUsed);
                             return;
                         }
                     }
                 case 3:
                     {
-                        int iStock = _vFuelsReserve[iChoice - 1];
-                        if (_vFuelsReserve[iChoice - 1] > 0)
+                        int iStock = _vFuelsReserve[iActionChoice - 1];
+                        if (_vFuelsReserve[iActionChoice - 1] > 0)
                         {
                             _pRobot.Refuel(25);
-                            _vFuelsReserve[iChoice - 1] = iStock - 1;
+                            _vFuelsReserve[iActionChoice - 1] = iStock - 1;
                             return;
                         }
                         else
                         {
                             GUI.Gui.NoStockFuel();
-                            FurnaceMenu(pEnnemiRobot);
+                            FurnaceMenu(pEnnemiRobot, iActionChoice, iUsed);
                             return;
                         }
                     }
                 case 4:
                     {
-                        int iStock = _vFuelsReserve[iChoice - 1];
-                        if (_vFuelsReserve[iChoice - 1] > 0)
+                        int iStock = _vFuelsReserve[iActionChoice - 1];
+                        if (_vFuelsReserve[iActionChoice - 1] > 0)
                         {
                             _pRobot.Refuel(35);
-                            _vFuelsReserve[iChoice - 1] = iStock - 1;
+                            _vFuelsReserve[iActionChoice - 1] = iStock - 1;
                             return;
                         }
                         else
                         {
                             GUI.Gui.NoStockFuel();
-                            FurnaceMenu(pEnnemiRobot);
+                            FurnaceMenu(pEnnemiRobot, iActionChoice, iUsed);
                             return;
                         }
                     }
@@ -378,6 +400,11 @@ namespace PJS5_CSharp.Sources.Pilot.Player
         public List<int> GetRepairKitsReserve()
         {
             return _vRepairKitsReserve;
+        }
+
+        public List<int> GetActionResults()
+        {
+            return _vActionResults;
         }
     }
 }

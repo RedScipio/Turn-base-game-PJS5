@@ -5,12 +5,17 @@ using System.Collections.Generic;
 namespace PILOT
 {
 
-
-    public abstract class IPILOT
+    [System.AttributeUsage(System.AttributeTargets.Field | System.AttributeTargets.Property, AllowMultiple = false)]
+    public abstract class IPILOT : System.Attribute
     {
+        
         protected Robot _pRobot;
+        
         protected List<int> _vFuelsReserve;
+        
         protected List<int> _vRepairKitsReserve;
+        
+        protected List<int> _vResultsInputs;
 
         public IPILOT(Robot pRobot, List<int> vFuelsReserve, List<int> vRepairKitsReserve)
         {
@@ -19,7 +24,7 @@ namespace PILOT
             _vRepairKitsReserve = vRepairKitsReserve;
         }
 
-        public abstract void PlayTurn(Robot ennemiRobot);
+        public abstract void PlayTurn(Robot ennemiRobot, int iChoice = -1, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);
 
         public bool RobotIsDestroy()
         {
@@ -39,6 +44,11 @@ namespace PILOT
         public List<int> GetRepairKitsReserve()
         {
             return _vRepairKitsReserve;
+        }
+
+        public List<int> GetInputsResults()
+        {
+            return _vResultsInputs;
         }
     }
 }
