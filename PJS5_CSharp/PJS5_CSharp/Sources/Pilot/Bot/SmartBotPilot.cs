@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PJS5_CSharp.Sources.Pilot.Bot
 {
@@ -56,13 +54,11 @@ namespace PJS5_CSharp.Sources.Pilot.Bot
 
             if (averageLeftWeapon > averageRightWeapon)
             {
-                //!!! Nombre magique
-                GetRobot().DealDamage(ennemy, Robot.WEAPON_SIDE.LEFT_WEAPON, 2);
+                GetRobot().DealDamage(ennemy, Robot.WEAPON_SIDE.LEFT_WEAPON, Robot.PARTS_TYPE.FURNACE);
                 return;
             }
 
-            //!!! Nombre magique
-            GetRobot().DealDamage(ennemy, Robot.WEAPON_SIDE.RIGHT_WEAPON, 2);
+            GetRobot().DealDamage(ennemy, Robot.WEAPON_SIDE.RIGHT_WEAPON, Robot.PARTS_TYPE.FURNACE);
             return;
         }
 

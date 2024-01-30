@@ -81,7 +81,7 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public int DealDamage(Robot pEnnemiRobot, WEAPON_SIDE iChoiceWeapon, int iTargetChoice)
+        public int DealDamage(Robot pEnnemiRobot, WEAPON_SIDE iChoiceWeapon, PARTS_TYPE eTargetChoice)
         {
             IWeapon pWeapon = _pLeftWeapon;
             if (iChoiceWeapon == WEAPON_SIDE.RIGHT_WEAPON)
@@ -92,8 +92,6 @@ namespace PJS5_CSharp.Sources.Robot
             {
                 pEnnemiRobot.RemoveFuel(pWeapon.GetSpecificity());
             }
-
-            PARTS_TYPE eTargetChoice = (PARTS_TYPE) iTargetChoice;
 
             switch (eTargetChoice)
             {

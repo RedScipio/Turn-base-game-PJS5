@@ -16,12 +16,12 @@ namespace PJS5_CSharp.Sources.Pilot.Bot
         {
             if (this.GetRobot().WeaponIsUsable(Robot.WEAPON_SIDE.LEFT_WEAPON))
             {
-                this.GetRobot().DealDamage(ennemiRobot, Robot.WEAPON_SIDE.LEFT_WEAPON, 2);
+                this.GetRobot().DealDamage(ennemiRobot, Robot.WEAPON_SIDE.LEFT_WEAPON, Robot.PARTS_TYPE.FURNACE);
             }
 
             else if (this.GetRobot().WeaponIsUsable(Robot.WEAPON_SIDE.RIGHT_WEAPON))
             {
-                this.GetRobot().DealDamage(ennemiRobot, Robot.WEAPON_SIDE.RIGHT_WEAPON, 2);
+                this.GetRobot().DealDamage(ennemiRobot, Robot.WEAPON_SIDE.RIGHT_WEAPON, Robot.PARTS_TYPE.FURNACE);
             }
         }
     }

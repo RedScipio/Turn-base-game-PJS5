@@ -86,7 +86,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                                 }
                                 else
                                 {
-                                    _pRobot.DealDamage(pEnnemiRobot, WEAPON_SIDE.LEFT_WEAPON, iTargetChoice);
+                                    _pRobot.DealDamage(pEnnemiRobot, WEAPON_SIDE.LEFT_WEAPON, (PARTS_TYPE) iTargetChoice);
                                     return;
                                 }
                             }
@@ -120,7 +120,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                                 }
                                 else
                                 {
-                                    _pRobot.DealDamage(pEnnemiRobot, WEAPON_SIDE.RIGHT_WEAPON, iTargetChoice);
+                                    _pRobot.DealDamage(pEnnemiRobot, WEAPON_SIDE.RIGHT_WEAPON, (PARTS_TYPE) iTargetChoice);
                                     return;
                                 }
                             }
