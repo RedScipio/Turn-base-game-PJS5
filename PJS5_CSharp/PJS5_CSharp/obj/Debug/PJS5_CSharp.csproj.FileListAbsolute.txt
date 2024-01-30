@@ -5,3 +5,10 @@ C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debu
 C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.CoreCompileInputs.cache
 C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.exe
 C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.pdb
+C:\Users\Wahad\source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.exe.config
+C:\Users\Wahad\source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.exe
+C:\Users\Wahad\source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\bin\Debug\PJS5_CSharp.pdb
+C:\Users\Wahad\source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.AssemblyReference.cache
+C:\Users\Wahad\source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.csproj.CoreCompileInputs.cache
+C:\Users\Wahad\source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.exe
+C:\Users\Wahad\source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\obj\Debug\PJS5_CSharp.pdb

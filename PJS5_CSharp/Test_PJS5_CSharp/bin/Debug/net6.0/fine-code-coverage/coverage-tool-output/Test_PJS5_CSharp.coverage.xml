@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<coverage line-rate="0.5125" branch-rate="0.4921" version="1.9" timestamp="1706086638" lines-covered="632" lines-valid="1233" branches-covered="126" branches-valid="256">
+<coverage line-rate="0.5125" branch-rate="0.4921" version="1.9" timestamp="1706611254" lines-covered="632" lines-valid="1233" branches-covered="126" branches-valid="256">
   <sources>
-    <source>C:\Users\Mehdi\</source>
+    <source>C:\Users\Wahad\</source>
   </sources>
   <packages>
     <package name="PJS5_CSharp" line-rate="0.451" branch-rate="0.4841" complexity="342">
       <classes>
-        <class name="WEAPON.IWeapon" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\IWeapon.cs" line-rate="0.9117000000000001" branch-rate="1" complexity="8">
+        <class name="WEAPON.IWeapon" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\IWeapon.cs" line-rate="0.9117000000000001" branch-rate="1" complexity="8">
           <methods>
             <method name="TypeIs" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -112,7 +112,7 @@
             <line number="41" hits="27" branch="False" />
           </lines>
         </class>
-        <class name="PILOT.IPILOT" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Pilot\IPilot.cs" line-rate="0.4285" branch-rate="1" complexity="6">
+        <class name="PILOT.IPILOT" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Pilot\IPilot.cs" line-rate="0.4285" branch-rate="1" complexity="6">
           <methods>
             <method name="RobotIsDestroy" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -184,7 +184,7 @@
             <line number="25" hits="10" branch="False" />
           </lines>
         </class>
-        <class name="GUI.Gui" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\GUI\GUI.cs" line-rate="0.0801" branch-rate="0.0192" complexity="60">
+        <class name="GUI.Gui" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\GUI\GUI.cs" line-rate="0.0801" branch-rate="0.0192" complexity="60">
           <methods>
             <method name="ShowStatus" signature="(PJS5_CSharp.Sources.Robot.Robot,PJS5_CSharp.Sources.Robot.Robot)" line-rate="0" branch-rate="0" complexity="4">
               <lines>
@@ -1054,7 +1054,7 @@
             <line number="383" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Program" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Program.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="PJS5_CSharp.Program" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Program.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name="Main" signature="(System.String[])" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -1096,7 +1096,7 @@
             <line number="32" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Sources.Utils" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Utils.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="PJS5_CSharp.Sources.Utils" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Utils.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name="GetInt" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -1116,7 +1116,7 @@
             <line number="19" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Sources.Weapon.ThermalWeapon.THERMAL_WEAPON" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\ThermalWeapon\ThermalWeapon.cs" line-rate="1" branch-rate="1" complexity="2">
+        <class name="PJS5_CSharp.Sources.Weapon.ThermalWeapon.THERMAL_WEAPON" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\ThermalWeapon\ThermalWeapon.cs" line-rate="1" branch-rate="1" complexity="2">
           <methods>
             <method name="GetSpecificity" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1146,7 +1146,7 @@
             <line number="18" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Sources.Weapon.ProjectileWeapon.PROJECTILE_WEAPON" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\ProjectileWeapon\ProjectileWeapon.cs" line-rate="1" branch-rate="1" complexity="3">
+        <class name="PJS5_CSharp.Sources.Weapon.ProjectileWeapon.PROJECTILE_WEAPON" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\ProjectileWeapon\ProjectileWeapon.cs" line-rate="1" branch-rate="1" complexity="3">
           <methods>
             <method name="GetSpecificity" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1186,7 +1186,7 @@
             <line number="18" hits="2" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Sources.Weapon.NormalWeapon.NORMAL_WEAPON" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\NormalWeapon\NormalWeapon.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="PJS5_CSharp.Sources.Weapon.NormalWeapon.NORMAL_WEAPON" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\NormalWeapon\NormalWeapon.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1202,7 +1202,7 @@
             <line number="15" hits="11" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Sources.Weapon.MeleeWeapon.MELEE_WEAPON" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\MeleeWeapon\MeleeWeapon.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="PJS5_CSharp.Sources.Weapon.MeleeWeapon.MELEE_WEAPON" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\MeleeWeapon\MeleeWeapon.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1218,7 +1218,7 @@
             <line number="15" hits="11" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Sources.Robot.FURNACE" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Robot\Furnace.cs" line-rate="1" branch-rate="1" complexity="2">
+        <class name="PJS5_CSharp.Sources.Robot.FURNACE" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Robot\Furnace.cs" line-rate="1" branch-rate="1" complexity="2">
           <methods>
             <method name="GetRestartLimit" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1248,7 +1248,7 @@
             <line number="17" hits="10" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Sources.Robot.IPARTS" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Robot\IParts.cs" line-rate="0.9142" branch-rate="0.8125" complexity="22">
+        <class name="PJS5_CSharp.Sources.Robot.IPARTS" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Robot\IParts.cs" line-rate="0.9142" branch-rate="0.8125" complexity="22">
           <methods>
             <method name="IsBroken" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1488,7 +1488,7 @@
             <line number="26" hits="47" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Sources.Robot.LEGS" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Robot\Legs.cs" line-rate="0.6" branch-rate="1" complexity="2">
+        <class name="PJS5_CSharp.Sources.Robot.LEGS" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Robot\Legs.cs" line-rate="0.6" branch-rate="1" complexity="2">
           <methods>
             <method name="Finalize" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -1512,7 +1512,7 @@
             <line number="13" hits="10" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Sources.Robot.Robot" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Robot\Robot.cs" line-rate="0.6655" branch-rate="0.6764" complexity="137">
+        <class name="PJS5_CSharp.Sources.Robot.Robot" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Robot\Robot.cs" line-rate="0.6655" branch-rate="0.6764" complexity="137">
           <methods>
             <method name="Finalize" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2556,7 +2556,7 @@
             <line number="30" hits="10" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Sources.Pilot.Player.PLAYER_PILOT" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Pilot\Player\PlayerPilot.cs" line-rate="0.5114" branch-rate="0.527" complexity="80">
+        <class name="PJS5_CSharp.Sources.Pilot.Player.PLAYER_PILOT" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Pilot\Player\PlayerPilot.cs" line-rate="0.5114" branch-rate="0.527" complexity="80">
           <methods>
             <method name="PlayTurn" signature="(PJS5_CSharp.Sources.Robot.Robot,System.Int32,System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3378,7 +3378,7 @@
             <line number="25" hits="8" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Sources.Pilot.Bot.BOT_PILOT" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Pilot\Bot\BotPilot.cs" line-rate="0.3" branch-rate="1" complexity="4">
+        <class name="PJS5_CSharp.Sources.Pilot.Bot.BOT_PILOT" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Pilot\Bot\BotPilot.cs" line-rate="0.3" branch-rate="1" complexity="4">
           <methods>
             <method name="GetFuelsReserve" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3420,7 +3420,7 @@
             <line number="15" hits="2" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Sources.Battle.Battle" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Battle\Battle.cs" line-rate="0" branch-rate="0" complexity="11">
+        <class name="PJS5_CSharp.Sources.Battle.Battle" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Battle\Battle.cs" line-rate="0" branch-rate="0" complexity="11">
           <methods>
             <method name="BattleWithConsoleGui" signature="()" line-rate="0" branch-rate="0" complexity="6">
               <lines>
@@ -3546,7 +3546,7 @@
             <line number="19" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="PJS5_CSharp.Sources.Battle.ReplayMode" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Battle\ReplayMode.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="PJS5_CSharp.Sources.Battle.ReplayMode" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Battle\ReplayMode.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(PILOT.IPILOT,PILOT.IPILOT)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3580,7 +3580,7 @@
             <line number="4" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="Test_PJS5_CSharp.TestPlayTurn" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\TestPlayTurn.cs" line-rate="1" branch-rate="1" complexity="5">
+        <class name="Test_PJS5_CSharp.TestPlayTurn" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\TestPlayTurn.cs" line-rate="1" branch-rate="1" complexity="5">
           <methods>
             <method name="TestPlayTurn_attack" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3752,7 +3752,7 @@
             <line number="45" hits="3" branch="False" />
           </lines>
         </class>
-        <class name="Test_PJS5_CSharp.TestRobot" filename="source\repos\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\TestRobot.cs" line-rate="1" branch-rate="1" complexity="4">
+        <class name="Test_PJS5_CSharp.TestRobot" filename="source\repos\RedScipio\Turn-base-game-PJS5\PJS5_CSharp\Test_PJS5_CSharp\TestRobot.cs" line-rate="1" branch-rate="1" complexity="4">
           <methods>
             <method name="TestDealingDamageWithDifferentWeapons" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>

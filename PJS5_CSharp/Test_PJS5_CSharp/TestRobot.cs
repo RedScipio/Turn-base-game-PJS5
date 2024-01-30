@@ -86,7 +86,7 @@ namespace Test_PJS5_CSharp
         public void TestDifferentsWeaponIsUsable()
         {
             IWeapon pNonWorkingWeapon = new IWeapon(1, "Basic Nonworking Weapon", 3, 1, 4, 25, 60, 40, WEAPON_TYPE.ABSTRACT_WEAPON);
-            IWeapon pProjectileWeapon = new PROJECTILE_WEAPON(1, "Basic Projectile Weapon", 3, 1, 1, 25, 60, 40, 1);
+            IWeapon pProjectileWeapon = new PROJECTILE_WEAPON(1, "Basic Projectile Weapon", 3, 1, 1, 25, 60, 50, 1);
             IWeapon pMeleeWeapon = new MELEE_WEAPON(1, "Basic Melee Weapon", 3, 1, 1, 25, 100, 0);
             IWeapon pNormalWeapon = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 1, 100, 80, 40);
 
@@ -110,6 +110,12 @@ namespace Test_PJS5_CSharp
             robotPlayer.SetWeapon(1, pNormalWeapon);
             pPlayerPilot.PlayTurn(robotBot, 1, 1, 1);
             robotPlayer.WeaponIsUsable(1).Should().BeFalse();
+        }
+
+        [Fact]
+        public void TestWeaponHitChance()
+        {
+            //Checking the calculation of the hit chance
         }
     }
 }

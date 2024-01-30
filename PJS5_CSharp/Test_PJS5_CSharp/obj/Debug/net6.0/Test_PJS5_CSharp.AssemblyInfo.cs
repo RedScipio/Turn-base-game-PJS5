@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Test_PJS5_CSharp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3080b2788ac7056889e42b3ae1a79df15ddaa6c4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a281435907193a237fcf36c820526398c98ad7dd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Test_PJS5_CSharp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Test_PJS5_CSharp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
