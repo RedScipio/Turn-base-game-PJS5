@@ -12,7 +12,6 @@ namespace PJS5_CSharp.Sources.Pilot.Bot
 
         /**
          *  ennemyRobot : Ennei du bot, robot du joueur
-         *
          */
         public override void PlayTurn(Sources.Robot.Robot ennemiRobot)
         {

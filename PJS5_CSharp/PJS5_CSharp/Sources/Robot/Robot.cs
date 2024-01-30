@@ -93,19 +93,7 @@ namespace PJS5_CSharp.Sources.Robot
                 pEnnemiRobot.RemoveFuel(pWeapon.GetSpecificity());
             }
 
-            switch (eTargetChoice)
-            {
-                case PARTS_TYPE.LEFT_WEAPON:
-                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.LEFT_WEAPON);
-                case PARTS_TYPE.RIGHT_WEAPON:
-                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.RIGHT_WEAPON);
-                case PARTS_TYPE.LEGS:
-                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.LEGS);
-                case PARTS_TYPE.FURNACE:
-                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.FURNACE);
-                default:
-                    return 0;
-            }
+            return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), eTargetChoice);
         }
 
 
@@ -128,7 +116,7 @@ namespace PJS5_CSharp.Sources.Robot
 
 
 
-        public delegate void RepairRobotDelegate(int iRepair);
+        private delegate void RepairRobotDelegate(int iRepair);
 
         private void RepairRobot(PARTS_TYPE eChoice, int repairPoint, RepairRobotDelegate R)
         {
