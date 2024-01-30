@@ -1,7 +1,3 @@
-﻿################################################################################
-# Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
-################################################################################
-
 /PJS5_CSharp/.vs
 /.vs
 /PJS5_CSharp/PJS5_CSharp/obj
