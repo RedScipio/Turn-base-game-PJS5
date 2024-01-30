@@ -4,9 +4,7 @@ using System.Collections.Generic;
 
 namespace PILOT
 {
-
-    [System.AttributeUsage(System.AttributeTargets.Field | System.AttributeTargets.Property, AllowMultiple = false)]
-    public abstract class IPILOT : System.Attribute
+    public abstract class IPILOT
     {
         
         protected Robot _pRobot;

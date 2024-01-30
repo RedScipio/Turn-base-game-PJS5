@@ -113,9 +113,29 @@ namespace Test_PJS5_CSharp
         }
 
         [Fact]
-        public void TestWeaponHitChance()
+        public void TestDifferentWeaponsHitChance()
         {
+            IWeapon pProjectileWeapon = new PROJECTILE_WEAPON(1, "Basic Projectile Weapon", 3, 1, 1, 25, 60, 50, 1);
+            IWeapon pMeleeWeapon = new MELEE_WEAPON(1, "Basic Melee Weapon", 3, 1, 1, 25, 100, 0);
+            IWeapon pNormalWeapon = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 1, 100, 80, 40);
             //Checking the calculation of the hit chance
+
+            //Checking Melee Weapon Hit chance
+            robotPlayer.SetWeapon(1, pMeleeWeapon);
+            robotPlayer.GetLeftWeaponHitChance().Should().Be(100);
+
+            robotBot.DealDamage(robotPlayer, 1, 3);
+            robotPlayer.GetLeftWeaponHitChance().Should().Be(50);
+
+            //Checking hit chance on another weapon
+            pPlayerPilot.PlayTurn(robotPlayer, 2, 3, 3);
+            pPlayerPilot.PlayTurn(robotPlayer, 2, 2, 3);
+            robotPlayer.SetWeapon(1, pNormalWeapon);
+            robotPlayer.GetLeftWeaponHitChance().Should().Be(60);
+
+            //After one leg broken
+            robotBot.DealDamage(robotPlayer, 1, 3);
+            robotPlayer.GetLeftWeaponHitChance().Should().Be(55);
         }
     }
 }

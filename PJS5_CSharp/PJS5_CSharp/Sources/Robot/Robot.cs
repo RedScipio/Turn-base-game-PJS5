@@ -407,7 +407,7 @@ namespace PJS5_CSharp.Sources.Robot
 
         public int GetLeftWeaponHitChance()
         {
-            return GetLeftWeaponMinAccuracy() + GetLeftWeaponAccuracy() - GetLeftWeaponMinAccuracy() / GetLegsMaxLife() * GetLegsLife();
+            return GetLeftWeaponMinAccuracy() + (GetLeftWeaponAccuracy() - GetLeftWeaponMinAccuracy()) / GetLegsMaxLife() * GetLegsLife();
         }
 
         public int GetRightWeaponLife()
@@ -462,7 +462,7 @@ namespace PJS5_CSharp.Sources.Robot
 
         public int GetRightWeaponHitChance()
         {
-            return GetRightWeaponMinAccuracy() + GetRightWeaponAccuracy() - GetRightWeaponMinAccuracy() / GetLegsMaxLife() * GetLegsLife();
+            return GetRightWeaponMinAccuracy() + (GetRightWeaponAccuracy() - GetRightWeaponMinAccuracy()) / GetLegsMaxLife() * GetLegsLife();
         }
 
         public void SetWeapon(int iWeaponPart, IWeapon pWeapon)
