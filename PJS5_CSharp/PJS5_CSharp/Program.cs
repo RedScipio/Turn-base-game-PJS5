@@ -26,7 +26,7 @@ namespace PJS5_CSharp
             Robot pPlayer = new Robot(pBasicFurnacePlayer, pBasicLegsPlayer, pBasicNormalWeaponPlayer, pBasicMeleeWeaponPlayer);
             Robot pBot = new Robot(pBasicFurnaceBot, pBasicLegsBot, pBasicNormalWeaponBot, pBasicMeleeWeaponBot);
             PILOT.IPILOT pPlayerPilot = new PLAYER_PILOT(pPlayer, new List<int> { 10, 5, 2, 1 }, new List<int> { 3, 2, 3, 1 });
-            PILOT.IPILOT pBotPilot = new BOT_PILOT(pBot, new List<int> { 10, 5, 2, 1 }, new List<int> { 3, 2, 3, 1 });
+            PILOT.IPILOT pBotPilot = FactoryBot.Build(pBot, new List<int> { 10, 5, 2, 1 }, new List<int> { 3, 2, 3, 1 }, FactoryBot.TypeBot.Dumb);
             Battle pBattle = new Battle(pPlayerPilot, pBotPilot);
             pBattle.BattleWithConsoleGui();
         }

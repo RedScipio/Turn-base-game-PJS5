@@ -41,6 +41,9 @@
     <Compile Include="Sources\Battle\ReplayMode.cs" />
     <Compile Include="Sources\GUI\GUI.cs" />
     <Compile Include="Sources\Pilot\Bot\BotPilot.cs" />
+    <Compile Include="Sources\Pilot\Bot\DumbBotPilot.cs" />
+    <Compile Include="Sources\Pilot\Bot\FactoryBot.cs" />
+    <Compile Include="Sources\Pilot\Bot\SmartBotPilot.cs" />
     <Compile Include="Sources\Pilot\IPilot.cs" />
     <Compile Include="Sources\Pilot\Player\PlayerPilot.cs" />
     <Compile Include="Sources\Robot\Furnace.cs" />

@@ -14,7 +14,6 @@ namespace PJS5_CSharp.Sources
         {
             int iInt;
             iInt = Console.ReadKey().KeyChar - '0';
-            Console.WriteLine(iInt);
             return iInt;
         }
 
