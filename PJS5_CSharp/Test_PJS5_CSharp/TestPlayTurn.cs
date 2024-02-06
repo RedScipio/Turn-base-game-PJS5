@@ -35,6 +35,7 @@ namespace Test_PJS5_CSharp
         PILOT.IPILOT pPlayerPilot = null;
         PILOT.IPILOT pBotPilot = null;
 
+
         public TestPlayTurn()
         {
             playerRobot = new Robot(furnPlayer, legsPlayer, leftPlayerWeap, rightPlayerWeap);
