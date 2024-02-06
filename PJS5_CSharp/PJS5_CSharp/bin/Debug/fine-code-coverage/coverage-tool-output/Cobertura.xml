@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage line-rate="0" branch-rate="0" lines-covered="0" lines-valid="1093" branches-covered="0" branches-valid="252" complexity="278" version="0" timestamp="1707222200">
+  <sources />
+  <packages>
+    <package name="PJS5_CSharp" line-rate="0" branch-rate="0" complexity="278">
+      <classes>
+        <class name="GUI.Gui" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\GUI\GUI.cs" line-rate="1" branch-rate="1" complexity="8">
+          <methods>
+            <method name="ShowStatus" signature="(PJS5_CSharp.Sources.Robot.Robot,PJS5_CSharp.Sources.Robot.Robot)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="MainMenu" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="TargetMenu" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="RepairMenu" signature="(PILOT.IPILOT,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="FuelMenu" signature="(PILOT.IPILOT,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="WeaponMenu" signature="(PJS5_CSharp.Sources.Robot.Robot,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="RobotRestart" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="WeaponIsUnusable" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="AlreadyDestroy" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="MissedFire" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="NoStockKit" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="PerfectlyFine" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="NoStockFuel" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="WrongEntry" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PILOT.IPILOT" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Pilot\IPilot.cs" line-rate="1" branch-rate="1" complexity="5">
+          <methods>
+            <method name=".ctor" signature="(PJS5_CSharp.Sources.Robot.Robot,System.Collections.Generic.List`1&lt;System.Int32&gt;,System.Collections.Generic.List`1&lt;System.Int32&gt;)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="RobotIsDestroy" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRobot" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetFuelsReserve" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRepairKitsReserve" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetInputsResults" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Program" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Program.cs" line-rate="1" branch-rate="1" complexity="NaN">
+          <methods>
+            <method name="Main" signature="(System.String[])" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Sources.Battle.Battle" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Battle\Battle.cs" line-rate="1" branch-rate="1" complexity="8">
+          <methods>
+            <method name=".ctor" signature="(PILOT.IPILOT,PILOT.IPILOT)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="BattleWithConsoleGui" signature="()" line-rate="1" branch-rate="1" complexity="4">
+              <lines />
+            </method>
+            <method name="BattleIsOver" signature="()" line-rate="1" branch-rate="1" complexity="2">
+              <lines />
+            </method>
+            <method name="GetPlayerPilot" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetBotPilot" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Sources.Battle.ReplayMode" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Battle\ReplayMode.cs" line-rate="1" branch-rate="1" complexity="NaN">
+          <methods>
+            <method name=".ctor" signature="(PILOT.IPILOT,PILOT.IPILOT)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Sources.Pilot.Bot.BOT_PILOT" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Pilot\Bot\BotPilot.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name=".ctor" signature="(PJS5_CSharp.Sources.Robot.Robot,System.Collections.Generic.List`1&lt;System.Int32&gt;,System.Collections.Generic.List`1&lt;System.Int32&gt;)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="GetFuelsReserve" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRepairKitsReserve" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="PlayTurn" signature="(PJS5_CSharp.Sources.Robot.Robot,System.Int32,System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Sources.Pilot.Player.PLAYER_PILOT" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Pilot\Player\PlayerPilot.cs" line-rate="1" branch-rate="1" complexity="5">
+          <methods>
+            <method name=".ctor" signature="(PJS5_CSharp.Sources.Robot.Robot,System.Collections.Generic.List`1&lt;System.Int32&gt;,System.Collections.Generic.List`1&lt;System.Int32&gt;)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="PlayTurn" signature="(PJS5_CSharp.Sources.Robot.Robot,System.Int32,System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="MainMenu" signature="(PJS5_CSharp.Sources.Robot.Robot,System.Int32,System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="AttackMenu" signature="(PJS5_CSharp.Sources.Robot.Robot,System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="RepairsMenu" signature="(PJS5_CSharp.Sources.Robot.Robot,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="FurnaceMenu" signature="(PJS5_CSharp.Sources.Robot.Robot,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="RobotIsDestroy" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRobot" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetFuelsReserve" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRepairKitsReserve" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetActionResults" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Sources.Robot.FURNACE" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Robot\Furnace.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(System.Int32,System.String,System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="GetRestartLimit" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Sources.Robot.IPARTS" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Robot\IParts.cs" line-rate="1" branch-rate="1" complexity="5">
+          <methods>
+            <method name=".ctor" signature="(System.Int32,System.String,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="IsBroken" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLife" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetArmor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetMaxLife" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetMaxArmor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="TakeDamage" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="RepairArmor" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="RepairLife" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Sources.Robot.LEGS" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Robot\Legs.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(System.Int32,System.String,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="Finalize" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Sources.Robot.Robot" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Robot\Robot.cs" line-rate="1" branch-rate="1" complexity="34">
+          <methods>
+            <method name=".ctor" signature="(PJS5_CSharp.Sources.Robot.FURNACE,PJS5_CSharp.Sources.Robot.LEGS,WEAPON.IWeapon,WEAPON.IWeapon)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="Finalize" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="IsDestroy" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="WeaponIsUsable" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="DealDamage" signature="(PJS5_CSharp.Sources.Robot.Robot,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="TakeDamage" signature="(System.Int32,PJS5_CSharp.Sources.Robot.PARTS_TYPE)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="RepairRobotArmor" signature="(System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="RepairRobotLifePoint" signature="(System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="AttackTargetIsValid" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="RepairLifeTargetIsValid" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="RepairArmorTargetIsValid" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="WeaponFired" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="RemoveFuel" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="Refuel" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="GetFuel" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="NeedToRestart" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetFurnaceLife" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetFurnaceArmor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetFurnaceMaxLife" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetFurnaceMaxArmor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLegsLife" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLegsArmor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLegsMaxLife" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLegsMaxArmor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLeftWeaponLife" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLeftWeaponArmor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLeftWeaponMaxLife" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLeftWeaponMaxArmor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLeftWeaponType" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLeftWeaponDamage" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLeftWeaponPowerConsumption" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLeftWeaponAccuracy" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLeftWeaponMinAccuracy" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLeftWeaponSpecificity" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetLeftWeaponHitChance" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRightWeaponLife" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRightWeaponArmor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRightWeaponMaxLife" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRightWeaponMaxArmor" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRightWeaponType" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRightWeaponDamage" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRightWeaponPowerConsumption" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRightWeaponAccuracy" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRightWeaponMinAccuracy" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRightWeaponSpecificity" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetRightWeaponHitChance" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="SetWeapon" signature="(System.Int32,WEAPON.IWeapon)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Sources.Utils" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Utils.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="GetInt" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Sources.Weapon.MeleeWeapon.MELEE_WEAPON" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\MeleeWeapon\MeleeWeapon.cs" line-rate="1" branch-rate="1" complexity="NaN">
+          <methods>
+            <method name=".ctor" signature="(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Sources.Weapon.NormalWeapon.NORMAL_WEAPON" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\NormalWeapon\NormalWeapon.cs" line-rate="1" branch-rate="1" complexity="NaN">
+          <methods>
+            <method name=".ctor" signature="(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Sources.Weapon.ProjectileWeapon.PROJECTILE_WEAPON" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\ProjectileWeapon\ProjectileWeapon.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name=".ctor" signature="(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="GetSpecificity" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="RemoveAmmo" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="PJS5_CSharp.Sources.Weapon.ThermalWeapon.THERMAL_WEAPON" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\ThermalWeapon\ThermalWeapon.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="GetSpecificity" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+        <class name="WEAPON.IWeapon" filename="C:\Users\Mehdi\source\repos\Turn-base-game-PJS5\PJS5_CSharp\PJS5_CSharp\Sources\Weapon\IWeapon.cs" line-rate="1" branch-rate="1" complexity="7">
+          <methods>
+            <method name=".ctor" signature="(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,WEAPON.WEAPON_TYPE)" line-rate="1" branch-rate="1" complexity="NaN">
+              <lines />
+            </method>
+            <method name="TypeIs" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetType" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetDamage" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetPowerConsumption" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetAccuracy" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetMinAccuracy" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+            <method name="GetSpecificity" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines />
+            </method>
+          </methods>
+          <lines />
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>
