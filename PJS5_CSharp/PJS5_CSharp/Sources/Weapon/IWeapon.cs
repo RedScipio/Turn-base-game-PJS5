@@ -23,11 +23,11 @@ namespace WEAPON
 
     public abstract class IWeapon : IPARTS, IWEAPON
     {
-        private int _iDamage = -1;
-        private int _iPowerConsumption = -1;
-        private int _iAccuracy = -1;
-        private int _iMinAccuracy = -1;
-        private WEAPON_TYPE _eWeaponType;
+        private readonly int _iDamage = -1;
+        private readonly int _iPowerConsumption = -1;
+        private readonly int _iAccuracy = -1;
+        private readonly int _iMinAccuracy = -1;
+        private readonly WEAPON_TYPE _eWeaponType;
 
         public IWeapon(int iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, WEAPON_TYPE eWeaponType)
             : base(iId, sName, iArmor, iLifePoint)

@@ -13,27 +13,27 @@ namespace Test_PJS5_CSharp
     public class TestPlayTurn
     {
         
-        FURNACE furnPlayer = new FURNACE(1, "Normal Furnace", 2, 4, 50);
-        FURNACE furnBot = new FURNACE(1, "Normal Furnace", 2, 1, 50);
-        LEGS legsPlayer = new LEGS(1, "Basic Legs", 3, 2);
-        LEGS legsBot = new LEGS(1, "Basic Legs", 3, 2);
+        private static readonly FURNACE furnPlayer = new FURNACE(1, "Normal Furnace", 2, 4, 50);
+        private static readonly FURNACE furnBot = new FURNACE(1, "Normal Furnace", 2, 1, 50);
+        private static readonly LEGS legsPlayer = new LEGS(1, "Basic Legs", 3, 2);
+        private static readonly LEGS legsBot = new LEGS(1, "Basic Legs", 3, 2);
 
-        WEAPON.IWeapon leftBotWeap = new MELEE_WEAPON(1, "Melee Weapon", 3, 1, 4, 15, 100, 0);
-        WEAPON.IWeapon rightBotWeap = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 3, 0, 60, 30);
-        WEAPON.IWeapon leftPlayerWeap = new MELEE_WEAPON(1, "Melee Weapon", 3, 1, 2, 15, 100, 0);
-        WEAPON.IWeapon rightPlayerWeap = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 1, 25, 80, 40);
+        private static readonly WEAPON.IWeapon leftBotWeap = new MELEE_WEAPON(1, "Melee Weapon", 3, 1, 4, 15, 100, 0);
+        private static readonly WEAPON.IWeapon rightBotWeap = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 3, 0, 60, 30);
+        private static readonly WEAPON.IWeapon leftPlayerWeap = new MELEE_WEAPON(1, "Melee Weapon", 3, 1, 2, 15, 100, 0);
+        private static readonly WEAPON.IWeapon rightPlayerWeap = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 1, 25, 80, 40);
 
-        List<int> playerFuelsReserve = new List<int> { 10, 10, 10, 10 };
-        List<int> playerRepairKits = new List<int> { 10, 10, 10, 10 };
+        private static readonly List<int> playerFuelsReserve = new List<int> { 10, 10, 10, 10 };
+        private static readonly List<int> playerRepairKits = new List<int> { 10, 10, 10, 10 };
 
-        List<int> botFuelsReserve = new List<int> { 10, 10, 10, 10 };
-        List<int> botRepairKits = new List<int> { 10, 10, 10, 10 };
+        private static readonly List<int> botFuelsReserve = new List<int> { 10, 10, 10, 10 };
+        private static readonly List<int> botRepairKits = new List<int> { 10, 10, 10, 10 };
 
-        Robot playerRobot = null;
-        Robot botRobot = null;
+        private static Robot playerRobot = null;
+        private static Robot botRobot = null;
 
-        PILOT.IPILOT pPlayerPilot = null;
-        PILOT.IPILOT pBotPilot = null;
+        private static PILOT.IPILOT pPlayerPilot = null;
+        private static PILOT.IPILOT pBotPilot = null;
 
 
         public TestPlayTurn()
@@ -46,7 +46,7 @@ namespace Test_PJS5_CSharp
         }
 
         [Fact]
-        void TestPlayTurn_attack()
+        public void TestPlayTurn_attack()
         {
             Assert.NotNull(playerRobot);
             Assert.NotNull(botRobot);
@@ -66,7 +66,7 @@ namespace Test_PJS5_CSharp
         }
 
         [Fact]
-        void TestPlayTurn_repair()
+        public void TestPlayTurn_repair()
         {
             pBotPilot.PlayTurn(playerRobot, 1, 1, 1, 50);
             leftPlayerWeap.IsBroken().Should().BeTrue();
@@ -89,7 +89,7 @@ namespace Test_PJS5_CSharp
 
         
         [Fact]
-        void TestPlayTurn_refuel()
+        public void TestPlayTurn_refuel()
         {
             pPlayerPilot.PlayTurn(botRobot, 1, 2, 1, 47);
             playerRobot.GetFuel().Should().Be(75);
