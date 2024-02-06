@@ -29,7 +29,7 @@ namespace Test_PJS5_CSharp
 
         List<int> playerFuelsReserve = new List<int> { 10, 10, 10, 10 };
         List<int> playerRepairKits = new List<int> { 10, 10, 10, 10 };
-
+        //les mettre
         List<int> botFuelsReserve = new List<int> { 10, 10, 10, 10 };
         List<int> botRepairKits = new List<int> { 10, 10, 10, 10 };
 
@@ -63,12 +63,14 @@ namespace Test_PJS5_CSharp
             iEnemyActualLegsArmorValue.Should().Be(robotBot.GetLegsMaxArmor() - 2);
             Assert.Equal(robotBot.GetLegsArmor(), iEnemyActualLegsArmorValue);
 
+            //note : peut-être lever une exception
             //Inflicting damage on a non-existent robot part
             int iNonExistantPart = robotPlayer.DealDamage(robotBot, 2, 5);
             iNonExistantPart.Should().Be(0);
 
             //Inflicting damage on a robot with a thermal weapon and checking if fuel has been removed from the enemy
             robotPlayer.SetWeapon(2, new THERMAL_WEAPON(1, "Basic Thermal Weapon", 3, 1, 1, 25, 60, 40, 25));
+            //pull 
             robotPlayer.GetRightWeaponType().Should().Be(4);
             robotPlayer.GetRightWeaponSpecificity().Should().Be(25);
             pPlayerPilot.PlayTurn(robotBot, 1, 2, 1, 1);
@@ -127,16 +129,16 @@ namespace Test_PJS5_CSharp
             robotBot.DealDamage(robotPlayer, 1, 3);
             robotPlayer.GetLeftWeaponHitChance().Should().Be(50);
 
-            //Checking hit chance on another weapon
+            //Repairing legs and checking hit chance on another weapon
             pPlayerPilot.PlayTurn(robotPlayer, 2, 3, 3);
-            pPlayerPilot.PlayTurn(robotPlayer, 2, 2, 3);
             robotPlayer.SetWeapon(1, pNormalWeapon);
-            robotPlayer.GetLeftWeaponHitChance().Should().Be(60);
+            robotPlayer.GetLeftWeaponHitChance().Should().Be(80);
 
-            //After one leg broken
+            //Switching to projectile weapon and after one leg broken 
+            robotPlayer.SetWeapon(1,pProjectileWeapon);
             robotBot.DealDamage(robotPlayer, 1, 3);
             robotPlayer.GetLeftWeaponHitChance().Should().Be(55);
         }
     }
 }
-
+//déterminer ce qui présente la classe prenant le plus de risques et 

@@ -47,6 +47,7 @@ namespace Test_PJS5_CSharp
         [Fact]
         void TestPlayTurn_attack()
         {
+            //Tester le Skip turn du jeu
             Assert.NotNull(playerRobot);
             Assert.NotNull(botRobot);
             
