@@ -58,8 +58,6 @@ namespace PJS5_CSharp.Sources.Robot
             }
             switch (pWeapon.TypeIs())
             {
-                case WEAPON_TYPE.ABSTRACT_WEAPON:
-                    return false;
                 case WEAPON_TYPE.MELEE_WEAPON:
                     if (_pLegs.GetLife() > 0 && pWeapon.GetLife() > 0 && pWeapon.GetPowerConsumption() <= _iFuel)
                     {
@@ -288,8 +286,6 @@ namespace PJS5_CSharp.Sources.Robot
             }
             switch (pWeapon.TypeIs())
             {
-                case WEAPON_TYPE.ABSTRACT_WEAPON:
-                    return;
                 case WEAPON_TYPE.PROJECTILE_WEAPON:
                     ((PROJECTILE_WEAPON)pWeapon).RemoveAmmo();
                     return;

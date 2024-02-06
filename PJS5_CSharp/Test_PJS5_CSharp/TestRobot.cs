@@ -55,11 +55,8 @@ namespace Test_PJS5_CSharp
         [Fact] 
         public void TestDealingDamageWithDifferentWeapons()
         {
-            //Check if a weapon really inherit from IPARTS class and implement the IWEAPON interface
-            IWeapon weapon = new IWeapon(1, "Basic Nonworking Weapon", 3, 1, 4, 25, 60, 40, WEAPON_TYPE.ABSTRACT_WEAPON);
-            weapon.Should().BeAssignableTo<IPARTS>().And.BeAssignableTo<IWEAPON>();
-
             int iEnemyActualLegsArmorValue = robotPlayer.DealDamage(robotBot, WEAPON_SIDE.LEFT_WEAPON, PARTS_TYPE.LEGS);
+
             iEnemyActualLegsArmorValue.Should().Be(robotBot.GetLegsMaxArmor() - 2);
             Assert.Equal(robotBot.GetLegsArmor(), iEnemyActualLegsArmorValue);
 
@@ -85,14 +82,9 @@ namespace Test_PJS5_CSharp
         [Fact]
         public void TestDifferentsWeaponIsUsable()
         {
-            IWeapon pNonWorkingWeapon = new IWeapon(1, "Basic Nonworking Weapon", 3, 1, 4, 25, 60, 40, WEAPON_TYPE.ABSTRACT_WEAPON);
             IWeapon pProjectileWeapon = new PROJECTILE_WEAPON(1, "Basic Projectile Weapon", 3, 1, 1, 25, 60, 50, 1);
             IWeapon pMeleeWeapon = new MELEE_WEAPON(1, "Basic Melee Weapon", 3, 1, 1, 25, 100, 0);
             IWeapon pNormalWeapon = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 1, 100, 80, 40);
-
-            //Checking if an abstract weapon is not usable
-            robotPlayer.SetWeapon(WEAPON_SIDE.LEFT_WEAPON, pNonWorkingWeapon);
-            robotPlayer.WeaponIsUsable(WEAPON_SIDE.LEFT_WEAPON).Should().BeFalse();
 
             //Projectile weapon testing
             robotPlayer.SetWeapon(WEAPON_SIDE.LEFT_WEAPON, pProjectileWeapon);
