@@ -72,14 +72,14 @@ namespace Test_PJS5_CSharp
             //Inflicting damage on a robot with a thermal weapon and checking if fuel has been removed from the enemy
             robotPlayer.SetWeapon(WEAPON_SIDE.RIGHT_WEAPON, new THERMAL_WEAPON(1, "Basic Thermal Weapon", 3, 1, 1, 25, 60, 40, 25));
             //pull 
-            robotPlayer.GetRightWeaponType().Should().Be(4);
+            robotPlayer.GetRightWeaponType().Should().Be((int) WEAPON_TYPE.THERMAL_WEAPON);
             robotPlayer.GetRightWeaponSpecificity().Should().Be(25);
             pPlayerPilot.PlayTurn(robotBot, 1, 2, 1, 1);
             robotBot.GetFuel().Should().Be(75);
 
             //Dealing damage to a robot with a projectile weapon and checking if ammo has been removed from it.
             robotPlayer.SetWeapon(WEAPON_SIDE.RIGHT_WEAPON, new PROJECTILE_WEAPON(1, "Basic Projectile Weapon", 3, 1, 4, 25, 60, 40, 5));
-            robotPlayer.GetRightWeaponType().Should().Be(3);
+            robotPlayer.GetRightWeaponType().Should().Be((int)WEAPON_TYPE.PROJECTILE_WEAPON);
             robotPlayer.GetRightWeaponSpecificity().Should().Be(5);   
             pPlayerPilot.PlayTurn(robotBot, 1, 2, 1, 50);
             robotPlayer.GetRightWeaponSpecificity().Should().Be(4);

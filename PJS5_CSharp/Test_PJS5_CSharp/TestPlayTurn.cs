@@ -51,17 +51,17 @@ namespace Test_PJS5_CSharp
             Assert.NotNull(playerRobot);
             Assert.NotNull(botRobot);
             
-            pPlayerPilot.PlayTurn(botRobot, 1, 1, 1, 47);
-            Assert.Equal(1, botRobot.GetLeftWeaponArmor());
+            pPlayerPilot.PlayTurn(botRobot, 1, (int) WEAPON_SIDE.LEFT_WEAPON, 1, 47);
+            Assert.Equal(2, botRobot.GetLeftWeaponArmor());
             Assert.Equal(85, playerRobot.GetFuel());
 
-            pBotPilot.PlayTurn(playerRobot, 1, 2, 4, 90);
+            pBotPilot.PlayTurn(playerRobot, 1, (int)WEAPON_SIDE.RIGHT_WEAPON, (int)PARTS_TYPE.FURNACE, 90);
             Assert.Equal(2, playerRobot.GetFurnaceArmor());
 
-            pPlayerPilot.PlayTurn(botRobot, 1, 2, 4, 20);
+            pPlayerPilot.PlayTurn(botRobot, 1, (int)WEAPON_SIDE.RIGHT_WEAPON, (int)PARTS_TYPE.FURNACE, 20);
             Assert.Equal(1, botRobot.GetFurnaceArmor());
 
-            pPlayerPilot.PlayTurn(botRobot, 1, 1, 4, 30);
+            pPlayerPilot.PlayTurn(botRobot, 1, (int)WEAPON_SIDE.LEFT_WEAPON, (int)PARTS_TYPE.FURNACE, 30);
             Assert.True(botRobot.IsDestroy());
         }
 
