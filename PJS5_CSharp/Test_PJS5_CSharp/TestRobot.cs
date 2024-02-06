@@ -55,7 +55,8 @@ namespace Test_PJS5_CSharp
         [Fact] 
         public void TestDealingDamageWithDifferentWeapons()
         {
-int iEnemyActualLegsArmorValue = robotPlayer.DealDamage(robotBot, WEAPON_SIDE.LEFT_WEAPON, PARTS_TYPE.LEGS);
+            int iEnemyActualLegsArmorValue = robotPlayer.DealDamage(robotBot, WEAPON_SIDE.LEFT_WEAPON, PARTS_TYPE.LEGS);
+
             iEnemyActualLegsArmorValue.Should().Be(robotBot.GetLegsMaxArmor() - 2);
             Assert.Equal(robotBot.GetLegsArmor(), iEnemyActualLegsArmorValue);
 
