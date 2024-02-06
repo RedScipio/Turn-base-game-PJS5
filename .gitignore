@@ -2,3 +2,7 @@
 /.vs
 /PJS5_CSharp/PJS5_CSharp/obj
 /PJS5_CSharp/Test_PJS5_CSharp/obj/Release/net6.0
+/PJS5_CSharp/Test_PJS5_CSharp/obj/Debug/net6.0/Test_PJS5_CSharp.AssemblyInfo.cs
+/PJS5_CSharp/Test_PJS5_CSharp/obj/Debug/net6.0/Test_PJS5_CSharp.AssemblyInfoInputs.cache
+/PJS5_CSharp/Test_PJS5_CSharp/obj/Debug/net6.0/Test_PJS5_CSharp.csproj.AssemblyReference.cache
+/PJS5_CSharp/Test_PJS5_CSharp/obj/Debug/net6.0/Test_PJS5_CSharp.GeneratedMSBuildEditorConfig.editorconfig
