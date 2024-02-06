@@ -2177,27 +2177,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Wahad\\.nuget\\packages\\": {},
-    "C:\\Users\\Wahad\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Mehdi\\.nuget\\packages\\": {},
+    "C:\\Users\\Mehdi\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\Test_PJS5_CSharp\\Test_PJS5_CSharp.csproj",
+      "projectUniqueName": "C:\\Users\\Mehdi\\source\\repos\\Turn-base-game-PJS5\\PJS5_CSharp\\Test_PJS5_CSharp\\Test_PJS5_CSharp.csproj",
       "projectName": "Test_PJS5_CSharp",
-      "projectPath": "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\Test_PJS5_CSharp\\Test_PJS5_CSharp.csproj",
-      "packagesPath": "C:\\Users\\Wahad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\Test_PJS5_CSharp\\obj\\",
+      "projectPath": "C:\\Users\\Mehdi\\source\\repos\\Turn-base-game-PJS5\\PJS5_CSharp\\Test_PJS5_CSharp\\Test_PJS5_CSharp.csproj",
+      "packagesPath": "C:\\Users\\Mehdi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mehdi\\source\\repos\\Turn-base-game-PJS5\\PJS5_CSharp\\Test_PJS5_CSharp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Users\\Wahad\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Users\\Mehdi\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Wahad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Users\\Wahad\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Mehdi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mehdi\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2205,15 +2202,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\PJS5_CSharp\\PJS5_CSharp.csproj": {
-              "projectPath": "C:\\Users\\Wahad\\source\\repos\\RedScipio\\Turn-base-game-PJS5\\PJS5_CSharp\\PJS5_CSharp\\PJS5_CSharp.csproj"
+            "C:\\Users\\Mehdi\\source\\repos\\Turn-base-game-PJS5\\PJS5_CSharp\\PJS5_CSharp\\PJS5_CSharp.csproj": {
+              "projectPath": "C:\\Users\\Mehdi\\source\\repos\\Turn-base-game-PJS5\\PJS5_CSharp\\PJS5_CSharp\\PJS5_CSharp.csproj"
             }
           }
         }
@@ -2281,7 +2277,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
