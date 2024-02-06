@@ -1,5 +1,6 @@
 ﻿using PJS5_CSharp.Sources.Robot;
 using System;
+using System.Diagnostics;
 
 namespace WEAPON
 {
@@ -14,20 +15,19 @@ namespace WEAPON
 
     public enum WEAPON_TYPE
     {
-        ABSTRACT_WEAPON,
         NORMAL_WEAPON,
         MELEE_WEAPON,
         PROJECTILE_WEAPON,
         THERMAL_WEAPON
     }
 
-    public class IWeapon : IPARTS, IWEAPON
+    public abstract class IWeapon : IPARTS, IWEAPON
     {
-        private int _iDamage = -1;
-        private int _iPowerConsumption = -1;
-        private int _iAccuracy = -1;
-        private int _iMinAccuracy = -1;
-        private WEAPON_TYPE _eWeaponType = WEAPON_TYPE.ABSTRACT_WEAPON;
+        private readonly int _iDamage = -1;
+        private readonly int _iPowerConsumption = -1;
+        private readonly int _iAccuracy = -1;
+        private readonly int _iMinAccuracy = -1;
+        private readonly WEAPON_TYPE _eWeaponType;
 
         public IWeapon(int iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, WEAPON_TYPE eWeaponType)
             : base(iId, sName, iArmor, iLifePoint)
@@ -44,7 +44,7 @@ namespace WEAPON
             return _eWeaponType;
         }
 
-        public int GetType()
+        public new int GetType()
         {
             return (int)_eWeaponType;
         }
@@ -69,7 +69,7 @@ namespace WEAPON
             return _iMinAccuracy;
         }
 
-        public int GetSpecificity()
+        public virtual int GetSpecificity()
         {
             return -1;
         }

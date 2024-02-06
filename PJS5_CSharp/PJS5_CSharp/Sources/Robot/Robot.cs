@@ -1,15 +1,22 @@
 ﻿using PJS5_CSharp.Sources.Robot;
 using PJS5_CSharp.Sources.Weapon.ProjectileWeapon;
+using System;
 using WEAPON;
 
 namespace PJS5_CSharp.Sources.Robot
 {
     public enum PARTS_TYPE
     {
-        LEFT_WEAPON,
-        RIGHT_WEAPON,
+        LEFT_WEAPON = WEAPON_SIDE.LEFT_WEAPON,
+        RIGHT_WEAPON = WEAPON_SIDE.RIGHT_WEAPON,
         FURNACE,
         LEGS
+    }
+
+    public enum WEAPON_SIDE
+    {
+        LEFT_WEAPON,
+        RIGHT_WEAPON,
     }
 
     public class Robot
@@ -42,17 +49,15 @@ namespace PJS5_CSharp.Sources.Robot
             return _pFurnace.IsBroken();
         }
 
-        public bool WeaponIsUsable(int iChoice)
+        public bool WeaponIsUsable(WEAPON_SIDE eChoice)
         {
             IWeapon pWeapon = _pLeftWeapon;
-            if (iChoice == 2)
+            if (eChoice == WEAPON_SIDE.RIGHT_WEAPON)
             {
                 pWeapon = _pRightWeapon;
             }
             switch (pWeapon.TypeIs())
             {
-                case WEAPON_TYPE.ABSTRACT_WEAPON:
-                    return false;
                 case WEAPON_TYPE.MELEE_WEAPON:
                     if (_pLegs.GetLife() > 0 && pWeapon.GetLife() > 0 && pWeapon.GetPowerConsumption() <= _iFuel)
                     {
@@ -74,10 +79,10 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public int DealDamage(Robot pEnnemiRobot, int iChoiceWeapon, int iTargetChoice)
+        public int DealDamage(Robot pEnnemiRobot, WEAPON_SIDE eChoiceWeapon, PARTS_TYPE eTargetChoice)
         {
             IWeapon pWeapon = _pLeftWeapon;
-            if (iChoiceWeapon == 2)
+            if (eChoiceWeapon == WEAPON_SIDE.RIGHT_WEAPON)
             {
                 pWeapon = _pRightWeapon;
             }
@@ -85,20 +90,33 @@ namespace PJS5_CSharp.Sources.Robot
             {
                 pEnnemiRobot.RemoveFuel(pWeapon.GetSpecificity());
             }
-            switch (iTargetChoice)
+
+
+            return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), eTargetChoice);
+        }
+
+        /*
+         * 
+        private delegate void Rep(int d);
+
+        private void ReparationMachin(int iRepairPoints, PARTS_TYPE eType, Rep R)
+        {
+            switch (eType)
             {
-                case 1:
-                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.LEFT_WEAPON);
-                case 2:
-                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.RIGHT_WEAPON);
-                case 3:
-                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), PARTS_TYPE.LEGS);
-                case 4:
-                    return pEnnemiRobot.TakeDamage(pWeapon.GetDamage()  , PARTS_TYPE.FURNACE);
+                case PARTS_TYPE.LEFT_WEAPON:
+                    return _pLeftWeapon.R(iRepairPoints);
+                case PARTS_TYPE.RIGHT_WEAPON:
+                    return _pRightWeapon.R(iRepairPoints);
+                case PARTS_TYPE.LEGS:
+                    return _pLegs.R(iRepairPoints);
+                case PARTS_TYPE.FURNACE:
+                    return _pFurnace.R(iRepairPoints);
                 default:
-                    return 0;
+                    return;
             }
         }
+        */
+
 
 
         private int TakeDamage(int iDamage, PARTS_TYPE eType)
@@ -118,20 +136,20 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public void RepairRobotArmor(int iRepairPoints, int iTargetChoice)
+        public void RepairRobotArmor(int iRepairPoints, PARTS_TYPE iTargetChoice)
         {
             switch (iTargetChoice)
             {
-                case 1:
+                case PARTS_TYPE.LEFT_WEAPON:
                     _pLeftWeapon.RepairArmor(iRepairPoints);
                     return;
-                case 2:
+                case PARTS_TYPE.RIGHT_WEAPON:
                     _pRightWeapon.RepairArmor(iRepairPoints);
                     return;
-                case 3:
+                case PARTS_TYPE.LEGS:
                     _pLegs.RepairArmor(iRepairPoints);
                     return;
-                case 4:
+                case PARTS_TYPE.FURNACE:
                     _pFurnace.RepairArmor(iRepairPoints);
                     return;
                 default:
@@ -139,20 +157,20 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public void RepairRobotLifePoint(int iRepairPoints, int iTargetChoice)
+        public void RepairRobotLifePoint(int iRepairPoints, PARTS_TYPE eTargetChoice)
         {
-            switch (iTargetChoice)
+            switch (eTargetChoice)
             {
-                case 1:
+                case PARTS_TYPE.LEFT_WEAPON:
                     _pLeftWeapon.RepairLife(iRepairPoints);
                     return;
-                case 2:
+                case PARTS_TYPE.RIGHT_WEAPON:
                     _pRightWeapon.RepairLife(iRepairPoints);
                     return;
-                case 3:
+                case PARTS_TYPE.LEGS:
                     _pLegs.RepairLife(iRepairPoints);
                     return;
-                case 4:
+                case PARTS_TYPE.FURNACE:
                     _pFurnace.RepairLife(iRepairPoints);
                     return;
                 default:
@@ -160,29 +178,29 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public bool AttackTargetIsValid(int iChoice)
+        public bool AttackTargetIsValid(PARTS_TYPE eChoice)
         {
-            switch (iChoice)
+            switch (eChoice)
             {
-                case 1:
+                case PARTS_TYPE.LEFT_WEAPON:
                     if (_pLeftWeapon.GetLife() > 0)
                     {
                         return true;
                     }
                     return false;
-                case 2:
+                case PARTS_TYPE.RIGHT_WEAPON:
                     if (_pRightWeapon.GetLife() > 0)
                     {
                         return true;
                     }
                     return false;
-                case 3:
+                case PARTS_TYPE.LEGS:
                     if (_pLegs.GetLife() > 0)
                     {
                         return true;
                     }
                     return false;
-                case 4:
+                case PARTS_TYPE.FURNACE:
                     if (_pFurnace.GetLife() > 0)
                     {
                         return true;
@@ -193,29 +211,29 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public bool RepairLifeTargetIsValid(int iChoice)
+        public bool RepairLifeTargetIsValid(PARTS_TYPE eChoice)
         {
-            switch (iChoice)
+            switch (eChoice)
             {
-                case 1:
+                case PARTS_TYPE.LEFT_WEAPON:
                     if (_pLeftWeapon.GetLife() < _pLeftWeapon.GetMaxLife())
                     {
                         return true;
                     }
                     return false;
-                case 2:
+                case PARTS_TYPE.RIGHT_WEAPON:
                     if (_pRightWeapon.GetLife() < _pRightWeapon.GetMaxLife())
                     {
                         return true;
                     }
                     return false;
-                case 3:
+                case PARTS_TYPE.LEGS:
                     if (_pLegs.GetLife() < _pLegs.GetMaxLife())
                     {
                         return true;
                     }
                     return false;
-                case 4:
+                case PARTS_TYPE.FURNACE:
                     if (_pFurnace.GetLife() < _pLegs.GetMaxLife())
                     {
                         return true;
@@ -226,29 +244,29 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public bool RepairArmorTargetIsValid(int iChoice)
+        public bool RepairArmorTargetIsValid(PARTS_TYPE eChoice)
         {
-            switch (iChoice)
+            switch (eChoice)
             {
-                case 1:
+                case PARTS_TYPE.LEFT_WEAPON:
                     if (_pLeftWeapon.GetArmor() < _pLeftWeapon.GetMaxArmor())
                     {
                         return true;
                     }
                     return false;
-                case 2:
+                case PARTS_TYPE.RIGHT_WEAPON:
                     if (_pRightWeapon.GetArmor() < _pRightWeapon.GetMaxArmor())
                     {
                         return true;
                     }
                     return false;
-                case 3:
+                case PARTS_TYPE.LEGS:
                     if (_pLegs.GetArmor() < _pLegs.GetMaxArmor())
                     {
                         return true;
                     }
                     return false;
-                case 4:
+                case PARTS_TYPE.FURNACE:
                     if (_pFurnace.GetArmor() < _pLegs.GetMaxArmor())
                     {
                         return true;
@@ -259,17 +277,15 @@ namespace PJS5_CSharp.Sources.Robot
             }
         }
 
-        public void WeaponFired(int iWeapon)
+        public void WeaponFired(WEAPON_SIDE eWeapon)
         {
             IWeapon pWeapon = _pLeftWeapon;
-            if (iWeapon == 2)
+            if (eWeapon == WEAPON_SIDE.RIGHT_WEAPON)
             {
                 pWeapon = _pRightWeapon;
             }
             switch (pWeapon.TypeIs())
             {
-                case WEAPON_TYPE.ABSTRACT_WEAPON:
-                    return;
                 case WEAPON_TYPE.PROJECTILE_WEAPON:
                     ((PROJECTILE_WEAPON)pWeapon).RemoveAmmo();
                     return;
@@ -281,6 +297,9 @@ namespace PJS5_CSharp.Sources.Robot
 
         public void RemoveFuel(int iFuel)
         {
+            if (iFuel < 0)
+                return;
+
             _iFuel = _iFuel - iFuel;
             if (_iFuel <= 0)
             {
@@ -461,5 +480,18 @@ namespace PJS5_CSharp.Sources.Robot
         {
             return GetRightWeaponMinAccuracy() + GetRightWeaponAccuracy() - GetRightWeaponMinAccuracy() / GetLegsMaxLife() * GetLegsLife();
         }
+
+        public void SetWeapon(WEAPON_SIDE eWeaponPart, IWeapon pWeapon)
+        {
+            if(eWeaponPart == WEAPON_SIDE.LEFT_WEAPON)
+            {
+                _pLeftWeapon = pWeapon;
+            }
+            else
+            {
+                _pRightWeapon = pWeapon;
+            }
+        }
     }
+
 }
