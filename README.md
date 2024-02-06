@@ -8,3 +8,5 @@
 - Enfin, il faudra rendre les noms de variables un peu plus clair (ce n'est pas un problème majeur, mais cela aide à la compréhension).
 ![coverage](https://github.com/RedScipio/Turn-base-game-PJS5/assets/73909294/1e9f3a71-4604-46be-9fab-3cef2f02b833)
 Ici, les branches qui semblent non couvertes sont soit des getters, soit des messages affichés avec l'équivalent du Syso en java (sur GUI.cs), soit un oubli qui va être corrigé dès maintenant.
+
+Il faudra aussi choisir une classe plus critique que les autres et la tester de façon plus systématique, au moins pour ses méthodes principales.
