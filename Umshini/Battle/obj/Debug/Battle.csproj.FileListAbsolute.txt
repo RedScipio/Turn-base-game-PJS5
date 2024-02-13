@@ -1,0 +1,5 @@
+C:\Users\bilbo\Documents\IUT\A3\Refacto-PJS5\Umshini\Battle\bin\Debug\Battle.dll
+C:\Users\bilbo\Documents\IUT\A3\Refacto-PJS5\Umshini\Battle\bin\Debug\Battle.pdb
+C:\Users\bilbo\Documents\IUT\A3\Refacto-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
+C:\Users\bilbo\Documents\IUT\A3\Refacto-PJS5\Umshini\Battle\obj\Debug\Battle.dll
+C:\Users\bilbo\Documents\IUT\A3\Refacto-PJS5\Umshini\Battle\obj\Debug\Battle.pdb
