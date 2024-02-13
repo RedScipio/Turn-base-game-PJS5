@@ -1,15 +1,15 @@
 ﻿
 namespace Robot
 {
-    enum PARTS_TYPES
+    public enum PARTS_TYPES
     {
-        LeftWeapon,
-        RightWeapon,
-        Furnace,
-        Leg
+        LEFT_WEAPON,
+        RIGHT_WEAPON,
+        FURNACE,
+        LEG
     }
 
-    enum WEAPONS_TYPES
+    public enum WEAPONS_TYPES
     {
         NORMAL,
         MELEE,
