@@ -3,8 +3,12 @@ namespace Robot
 {
     public interface IWEAPON : IPART
     {
-        int GetSpecificity();
-        int GetAccuracy();
-        int GetMinAccuracy();
+        WEAPONS_TYPES TypeIs();
+
+        int GetPowerConsumption();
+        int GetDamage();
+        int GetAmmo();
+        bool RemoveAmmo();
+        int GetHeatEffect();
     }
 }
