@@ -14,7 +14,7 @@ namespace Robot
         private int _iFuel = 100;
 
         /// <summary>
-        /// ROBOT represant a robot use by a pilot during a Battle
+        /// ROBOT represent a robot used by a pilot during a Battle
         /// </summary>
         /// <developer>MBI</developer>
         /// <param name="furnace"></param>
@@ -29,7 +29,7 @@ namespace Robot
         }
 
         /// <summary>
-        /// Check if the Furnace is destroy
+        /// Check if the Furnace is destroyed
         /// </summary>
         /// <developer>MBI</developer>
         /// <returns> bool </returns>
@@ -39,7 +39,7 @@ namespace Robot
         }
 
         /// <summary>
-        /// Check if the select weapon is usable
+        /// Check if the selected weapon is usable
         /// </summary>
         /// <developer>MBI</developer>
         /// <param name="iWeaponChoice"></param>

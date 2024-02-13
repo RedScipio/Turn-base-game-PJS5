@@ -14,6 +14,7 @@ namespace Weapon
         private readonly int _iPowerConsumption = -1;
         private readonly int _iAccuracy = -1;
         private readonly int _iMinAccuracy = -1;
+        private WEAPONS_TYPES _eWeaponType;
 
         /// <summary>
         /// represents a weapon equipable by the robot
@@ -24,7 +25,7 @@ namespace Weapon
         /// <param name="iLifePoint"></param>
         /// <param name="iMaxArmor"></param>
         /// <param name="iMaxLifePoint"></param>
-        protected AWEAPON(int iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, WEAPON_TYPE eWeaponType) : base(iId, sName, iArmor, iLifePoint)
+        protected AWEAPON(int iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, WEAPONS_TYPES eWeaponType) : base(iId, sName, iArmor, iLifePoint)
         {
             _iDamage = iDamage;
             _iPowerConsumption = iPowerConsumption;
@@ -37,10 +38,27 @@ namespace Weapon
         {
             return _iAccuracy;
         }
+
+        public abstract int GetAmmo();
+        public int GetDamage()
+        {
+            return _iDamage;
+        }
+        public abstract int GetHeatEffect();
+
         public int GetMinAccuracy()
         {
             return _iMinAccuracy;
         }
-        public abstract int GetSpecificity();
+
+        public int GetPowerConsumption()
+        {
+            return _iPowerConsumption;
+        }
+        public abstract bool RemoveAmmo();
+        public WEAPONS_TYPES TypeIs()
+        {
+            return _eWeaponType;
+        }
     }
 }

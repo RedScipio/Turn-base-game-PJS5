@@ -6,7 +6,8 @@ namespace Part
 {
     /// <summary>
     /// Author : Beowulf-0 (Mehdi)
-    /// 
+    /// Version : 0.1
+    /// Date : 13/02/2024
     /// </summary>
     public abstract class APART : IPART
     {
@@ -107,6 +108,42 @@ namespace Part
                     _iLifePoint = _iMaxLifePoint;
                 }
             }
+        }
+
+        /// <summary>
+        /// The actual life points of a robot part
+        /// </summary>
+        /// <returns></returns>
+        public int GetLife()
+        {
+            return _iLifePoint;
+        }
+
+        /// <summary>
+        /// The maximum lifepoints of a robot part
+        /// </summary>
+        /// <returns></returns>
+        public int GetMaxLife()
+        {
+            return _iMaxLifePoint;
+        }
+
+        /// <summary>
+        /// The actual armor points of a robot part
+        /// </summary>
+        /// <returns></returns>
+        public int GetArmor()
+        {
+            return _iArmor;
+        }
+
+        /// <summary>
+        /// The maximum armor points of a robot part
+        /// </summary>
+        /// <returns></returns>
+        public int GetMaxArmor()
+        {
+            return _iMaxArmor;
         }
     }
 }

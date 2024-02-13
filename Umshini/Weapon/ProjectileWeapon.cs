@@ -27,20 +27,37 @@ namespace Weapon
         }
 
         /// <summary>
-        /// Remove one ammo after each attack with this weapon
+        /// Check the actual number of ammo 
         /// </summary>
-        public void RemoveAmmo()
-        {
-            this._iAmmo--;
-        }
-
-        /// <summary>
-        /// Represents the actual number of ammunition contained in the weapon.
-        /// </summary>
-        /// <returns></returns>
-        public override int GetSpecificity()
+        /// <returns>int</returns>
+        public override int GetAmmo()
         {
             return _iAmmo;
         }
+
+        public override int GetHeatEffect()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Checking if the weapon has any ammunition and remove 1 ammo per use if true.
+        /// </summary>
+        /// <returns>True if there's ammunition in the weapon, else false</returns>
+        public override bool RemoveAmmo()
+        {
+            if(_iAmmo > 1)
+            {
+                _iAmmo--;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Remove one ammo after each attack with this weapon
+        /// </summary>
+
+
     }
 }
