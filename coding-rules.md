@@ -13,3 +13,4 @@
 | Vector  | vMoves  |
 | List  | lParts  |
 | iterator  | itElement  |
+| private member  | _privateMumber  |
