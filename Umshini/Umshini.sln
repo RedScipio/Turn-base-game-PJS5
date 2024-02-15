@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.34114.132
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battle", "Battle\Battle.csproj", "{3BA5891C-F6C3-4EF3-9C78-6D79E7974396}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -24,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Part", "Part\Part.csproj", "{461BDC44-5CC4-4CC0-8CF2-45AC1CDB361C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weapon", "Weapon\Weapon.csproj", "{E658EF0D-E930-4D67-BC80-A75E0A384E1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umshini_Test", "Umshini_Test\Umshini_Test.csproj", "{69AD59CB-A5EC-41CF-97D1-857B71D9D625}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{E658EF0D-E930-4D67-BC80-A75E0A384E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E658EF0D-E930-4D67-BC80-A75E0A384E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E658EF0D-E930-4D67-BC80-A75E0A384E1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69AD59CB-A5EC-41CF-97D1-857B71D9D625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69AD59CB-A5EC-41CF-97D1-857B71D9D625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69AD59CB-A5EC-41CF-97D1-857B71D9D625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69AD59CB-A5EC-41CF-97D1-857B71D9D625}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -48,7 +48,8 @@ namespace Robot
         {
             IWEAPON pWeapon = _lWeapon[iWeaponChoice];
 
-            if (pWeapon.IsBroken() || pWeapon.GetPowerConsumption() <= _iFuel)
+            //Former line : if (pWeapon.IsBroken() || pWeapon.GetPowerConsumption() <= _iFuel)
+            if (pWeapon.IsBroken() || pWeapon.GetPowerConsumption() > _iFuel)
             {
                 return false;
             }

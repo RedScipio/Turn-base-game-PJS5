@@ -21,7 +21,7 @@ namespace Weapon
         /// <param name="iAccuracy"></param>
         /// <param name="iMinAccuracy"></param>
         /// <param name="eWeaponType"></param>
-        public PROJECTILE_WEAPON(int iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, int iAmmo) : base(iId, sName, iArmor, iLifePoint, iDamage, iPowerConsumption, iAccuracy, iMinAccuracy)
+        public PROJECTILE_WEAPON(int iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, int iAmmo) : base(iId, sName, iArmor, iLifePoint, iDamage, iPowerConsumption, iAccuracy, iMinAccuracy, Robot.WEAPONS_TYPES.PROJECTILE)
         {
             _iAmmo = iAmmo;
         }
@@ -46,7 +46,7 @@ namespace Weapon
         /// <returns>True if there's ammunition in the weapon, else false</returns>
         public override bool RemoveAmmo()
         {
-            if(_iAmmo > 1)
+            if(_iAmmo >= 1)
             {
                 _iAmmo--;
                 return true;
