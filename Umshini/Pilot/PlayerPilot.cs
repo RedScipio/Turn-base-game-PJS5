@@ -6,6 +6,11 @@ namespace Pilot
 {
     public class PLAYER_PILOT : APILOT
     {
+        public const int ENERGY_WOOD = 15;
+        public const int ENERGY_CHARCOAL = 20;
+        public const int ENERGY_COAL = 25;
+        public const int ENERGY_COMPACT_COAL = 35;
+
         private List<int> _vActionResults;
 
         public PLAYER_PILOT(IROBOT pRobot, List<ICONSUMABLE> vFuelsReserve, List<ICONSUMABLE> vRepairKitsReserve) : base(pRobot, vFuelsReserve, vRepairKitsReserve)
@@ -322,7 +327,7 @@ namespace Pilot
                         ICONSUMABLE iStock = _vFuelsReserve[iActionChoice - 1];
                         if (iStock.GetNumberItems() > 0)
                         {
-                            _pRobot.Refuel(15);
+                            _pRobot.Refuel(ENERGY_WOOD);
                             _vFuelsReserve[iActionChoice - 1].RemoveOneItem();
                             return;
                         }
@@ -336,9 +341,9 @@ namespace Pilot
                 case 2:
                     {
                         ICONSUMABLE iStock = _vFuelsReserve[iActionChoice - 1];
-                        if (_vFuelsReserve[iActionChoice - 1].GetValue() > 0)
+                        if (_vFuelsReserve[iActionChoice - 1].GetNumberItems() > 0)
                         {
-                            _pRobot.Refuel(20);
+                            _pRobot.Refuel(ENERGY_CHARCOAL);
                             _vFuelsReserve[iActionChoice - 1].RemoveOneItem();
                             return;
                         }
@@ -352,9 +357,9 @@ namespace Pilot
                 case 3:
                     {
                         ICONSUMABLE iStock = _vFuelsReserve[iActionChoice - 1];
-                        if (_vFuelsReserve[iActionChoice - 1].GetValue() > 0)
+                        if (_vFuelsReserve[iActionChoice - 1].GetNumberItems() > 0)
                         {
-                            _pRobot.Refuel(25);
+                            _pRobot.Refuel(ENERGY_COAL);
                             _vFuelsReserve[iActionChoice - 1].RemoveOneItem();
                             return;
                         }
@@ -368,9 +373,9 @@ namespace Pilot
                 case 4:
                     {
                         ICONSUMABLE iStock = _vFuelsReserve[iActionChoice - 1];
-                        if (_vFuelsReserve[iActionChoice - 1].GetValue() > 0)
+                        if (_vFuelsReserve[iActionChoice - 1].GetNumberItems() > 0)
                         {
-                            _pRobot.Refuel(35);
+                            _pRobot.Refuel(ENERGY_COMPACT_COAL);
                             _vFuelsReserve[iActionChoice - 1].RemoveOneItem();
                             return;
                         }
@@ -394,6 +399,18 @@ namespace Pilot
         {
             return _vActionResults;
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
         private class GUI
         {

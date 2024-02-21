@@ -15,6 +15,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pilot", "Pilot\Pilot.csproj", "{57856C53-F2E4-4E73-96B0-0F6F420197C1}"
 	ProjectSection(ProjectDependencies) = postProject
 		{3BA5891C-F6C3-4EF3-9C78-6D79E7974396} = {3BA5891C-F6C3-4EF3-9C78-6D79E7974396}
+		{99151BEB-EC07-4897-9C91-63C7F920BA84} = {99151BEB-EC07-4897-9C91-63C7F920BA84}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robot", "Robot\Robot.csproj", "{7FF93513-7E8A-4902-94D6-610CEBC90DD2}"
@@ -25,7 +26,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Part", "Part\Part.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weapon", "Weapon\Weapon.csproj", "{E658EF0D-E930-4D67-BC80-A75E0A384E1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umshini_Test", "Umshini_Test\Umshini_Test.csproj", "{69AD59CB-A5EC-41CF-97D1-857B71D9D625}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umshini_Test", "Umshini_Test\Umshini_Test.csproj", "{69AD59CB-A5EC-41CF-97D1-857B71D9D625}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
