@@ -6,5 +6,6 @@ namespace Pilot
         int GetNumberItems();
         int GetValue();
         void RemoveOneItem();
+        void Stacking(ICONSUMABLE consumable);
     }
 }

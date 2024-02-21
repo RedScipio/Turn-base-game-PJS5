@@ -52,7 +52,6 @@ namespace Umshini_Test
             projWeap.RemoveAmmo().Should().BeTrue();
 
             playerRobot.WeaponIsUsable(WEAPON_SIDE.RIGHT_WEAPON).Should().BeFalse();
-
         }
     }
 }
