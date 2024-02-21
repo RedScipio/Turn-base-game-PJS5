@@ -69,7 +69,7 @@ namespace Pilot
         {
             listKits.Sort();
 
-            List<ICONSUMABLE> listKitsOptmum = listKits.Where(n => n > 30).ToList();
+            List<ICONSUMABLE> listKitsOptmum = listKits.Where(n => n.GetValue() > 30).ToList();
 
             ICONSUMABLE kitUtilise;
 
