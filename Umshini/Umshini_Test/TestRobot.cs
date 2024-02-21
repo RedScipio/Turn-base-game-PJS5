@@ -4,12 +4,12 @@ namespace Umshini_Test
 {
     public class TestRobot
     {
-        private static ROBOT playerRobot = null;
-        private static ROBOT botRobot = null;
-        private static FURNACE playerFurn = null;
-        private static FURNACE botFurn = null;
-        private static LEG playerLegs = null;
-        private static LEG botLegs = null;
+        private static IROBOT playerRobot = null;
+        private static IROBOT botRobot = null;
+        private static IFURNACE playerFurn = null;
+        private static IFURNACE botFurn = null;
+        private static ILEG playerLegs = null;
+        private static ILEG botLegs = null;
 
         private static IWEAPON botLeftWeap = null;
         private static IWEAPON botRightWeap = null;
@@ -48,11 +48,11 @@ namespace Umshini_Test
 
             //Checking if projectile weapon can shoot, with and without ammo
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, projWeap);
-            playerRobot.WeaponIsUsable((int)PARTS_TYPES.RIGHT_WEAPON).Should().BeTrue();
+            playerRobot.WeaponIsUsable((int) PARTS_TYPES.RIGHT_WEAPON).Should().BeTrue();
             projWeap.GetAmmo().Should().Be(1);
             projWeap.RemoveAmmo().Should().BeTrue();
 
-            playerRobot.WeaponIsUsable((int)PARTS_TYPES.RIGHT_WEAPON).Should().BeFalse();
+            playerRobot.WeaponIsUsable((int) PARTS_TYPES.RIGHT_WEAPON).Should().BeFalse();
 
         }
     }
