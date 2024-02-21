@@ -42,10 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APilot.cs" />
+    <Compile Include="BotPilot.cs" />
+    <Compile Include="PartsType.cs" />
+    <Compile Include="SmartBotPilot.cs" />
+    <Compile Include="DumbBotPilot.cs" />
     <Compile Include="IConsumable.cs" />
     <Compile Include="IRobot.cs" />
     <Compile Include="PlayerPilot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeaponSide.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Battle\Battle.csproj">
