@@ -37,7 +37,6 @@ namespace Umshini_Test
             //pBotPilot = new PLAYER_PILOT(botRobot);
         }
 
-
         [Fact]
         public void TestIsWeaponUsable() 
         {
@@ -48,11 +47,11 @@ namespace Umshini_Test
 
             //Checking if projectile weapon can shoot, with and without ammo
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, projWeap);
-            playerRobot.WeaponIsUsable((int) PARTS_TYPES.RIGHT_WEAPON).Should().BeTrue();
+            playerRobot.WeaponIsUsable(WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
             projWeap.GetAmmo().Should().Be(1);
             projWeap.RemoveAmmo().Should().BeTrue();
 
-            playerRobot.WeaponIsUsable((int) PARTS_TYPES.RIGHT_WEAPON).Should().BeFalse();
+            playerRobot.WeaponIsUsable(WEAPON_SIDE.RIGHT_WEAPON).Should().BeFalse();
 
         }
     }
