@@ -363,5 +363,70 @@ namespace Robot
         {
             return _bNeedRestart;
         }
+
+        public int GetFurnaceLife()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public int GetLeftWeaponDamage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public int GetLeftWeaponHitChance()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public sbyte GetRightWeaponDamage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public sbyte GetRightWeaponHitChance()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public int DealDamage(IROBOT robot, WEAPON_SIDE eWeaponChoice, PARTS_TYPE eChoice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void RepairRobotLifePoint(int kitUsed, PARTS_TYPE eChoice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool AttackTargetIsValid(PARTS_TYPE eTargetChoice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void WeaponFired(WEAPON_SIDE eUsed)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool WeaponIsUsable(WEAPON_SIDE eWeaponChoice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool RepairLifeTargetIsValid(PARTS_TYPE eTargetChoice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void RepairRobotArmor(int v, PARTS_TYPE eTargetChoice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool RepairArmorTargetIsValid(PARTS_TYPE eTargetChoice)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

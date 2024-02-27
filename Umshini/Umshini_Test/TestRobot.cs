@@ -38,12 +38,10 @@ namespace Umshini_Test
         }
 
         [Fact]
-        public void TestIsWeaponUsable() 
+        public void TestIsProjectileWeaponUsable() 
         {
             //Initializing test weapons
             IWEAPON projWeap = new PROJECTILE_WEAPON(1, "normal projectile weapon", 1, 1, 5, 0, 100, 95, 1);
-            IWEAPON melWeap = new MELEE_WEAPON(1, "normal melee weap", 1, 1, 5, 0, 100, 0);
-            IWEAPON normWeap = new NORMAL_WEAPON(1, "normal melee weap", 1, 1, 5, 0, 100, 0);
 
             //Checking if projectile weapon can shoot, with and without ammo
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, projWeap);
@@ -52,6 +50,34 @@ namespace Umshini_Test
             projWeap.RemoveAmmo().Should().BeTrue();
 
             playerRobot.WeaponIsUsable(WEAPON_SIDE.RIGHT_WEAPON).Should().BeFalse();
+        }
+
+        [Fact]
+        public void TestIsMeleeWeaponUsable()
+        {
+            IWEAPON melWeap = new MELEE_WEAPON(1, "normal melee weap", 1, 1, 5, 0, 100, 0);
+
+            //Checking if melee weapon can attack, with and without legs
+            playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, melWeap);
+            playerRobot.WeaponIsUsable(WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
+
+            playerRobot.DealDamage(playerRobot, WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPE.LEGS);
+            playerRobot.DealDamage(playerRobot, WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPE.LEGS);
+
+            playerRobot.WeaponIsUsable(WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
+        }
+
+        [Fact]
+        public void TestIsNormalWeaponUsable()
+        {
+            IWEAPON normWeap = new NORMAL_WEAPON(1, "normal melee weap", 1, 1, 5, 0, 60, 40);
+        }
+
+        [Fact]
+        public void TestDamageWithDifferentWeapons()
+        {
+
+
         }
     }
 }

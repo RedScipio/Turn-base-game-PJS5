@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System;
+using Battle;
 
 namespace GUI
 {
