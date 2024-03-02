@@ -1,0 +1,2 @@
+C:\Users\bilbo\Documents\Travaille\IUT\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\obj\Debug\Robot.csproj.AssemblyReference.cache
+C:\Users\bilbo\Documents\Travaille\IUT\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\obj\Debug\Robot.csproj.CoreCompileInputs.cache

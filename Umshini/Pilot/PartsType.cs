@@ -1,10 +1,10 @@
 ﻿namespace Pilot
 {
-    public enum PARTS_TYPE
+    public enum PARTS_TYPES
     {
-        LEFT_WEAPON = (int)WEAPON_SIDE.LEFT_WEAPON,
-        RIGHT_WEAPON = (int)WEAPON_SIDE.RIGHT_WEAPON,
+        LEFT_WEAPON,
+        RIGHT_WEAPON,
         FURNACE,
-        LEGS
+        LEG
     }
 }

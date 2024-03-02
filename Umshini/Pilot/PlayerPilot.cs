@@ -77,7 +77,9 @@ namespace Pilot
                 MainMenu(pEnemyRobot);
                 return;
             }
-            WEAPON_SIDE eUsed = (WEAPON_SIDE)(iUsed - 1);
+
+            iUsed = iUsed - 1;
+
             switch ((WEAPON_MENU)iUsed)
             {
                 case WEAPON_MENU.Back:
@@ -88,19 +90,31 @@ namespace Pilot
                 case WEAPON_MENU.Left_Weapon:
                     {
                         this.GetActionResults().Add(iUsed);
+
                         if (_pRobot.WeaponIsUsable((int)WEAPON_MENU.Left_Weapon))
                         {
                             int iTargetChoice = GUI.TargetMenu(iTargetPart);
-                            PARTS_TYPE eTargetChoice = (PARTS_TYPE)(iTargetChoice);
+                            PARTS_TYPES eTargetChoice = (PARTS_TYPES)(iTargetChoice);
+                            
                             this.GetActionResults().Add(iTargetChoice);
+
                             if (pEnemyRobot.AttackTargetIsValid(eTargetChoice))
                             {
                                 int iRandomizer;
-                                if (iHitChance <= -1) iRandomizer = new Random().Next(1, 101);
-                                else iRandomizer = iHitChance;
+
+                                if (iHitChance <= -1)
+                                {
+                                    iRandomizer = new Random().Next(1, 101);
+                                }
+                                else
+                                {
+                                    iRandomizer = iHitChance;
+                                }
 
                                 this.GetActionResults().Add(iRandomizer);
-                                _pRobot.WeaponFired(eUsed);
+                                
+                                _pRobot.WeaponFired(iUsed);
+
                                 if (_pRobot.GetLeftWeaponHitChance() < iRandomizer)
                                 {
                                     GUI.MissedFire();

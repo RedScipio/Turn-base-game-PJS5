@@ -48,7 +48,6 @@ namespace Robot
         {
             IWEAPON pWeapon = _lWeapon[iWeaponChoice];
 
-            //Former line : if (pWeapon.IsBroken() || pWeapon.GetPowerConsumption() <= _iFuel)
             if (pWeapon.IsBroken() || pWeapon.GetPowerConsumption() > _iFuel)
             {
                 return false;
@@ -80,7 +79,7 @@ namespace Robot
         /// <param name="iDamage"></param>
         /// <param name="eType"></param>
         /// <returns></returns>
-        public int TakeDamage(int iDamage, PARTS_TYPE eType)
+        public int TakeDamage(int iDamage, PARTS_TYPES eType)
         {
             switch (eType)
             {
@@ -125,20 +124,14 @@ namespace Robot
         /// <param name="iWeaponChoice"></param>
         /// <param name="eTargetChoice"></param>
         /// <returns> int </returns>
-        public int DealDamage(IROBOT pEnnemiRobot, int iWeaponChoice, PARTS_TYPE eTargetChoice)
+        public int DealDamage(IROBOT pEnnemiRobot, int iWeaponChoice, PARTS_TYPES eTargetChoice)
         {
             IWEAPON pWeapon = _lWeapon[iWeaponChoice];
 
-            
-
-            if(pEnnemiRobot is ROBOT)
+            if (pWeapon.TypeIs() == WEAPONS_TYPES.THERMAL)
             {
-                if (pWeapon.TypeIs() == WEAPONS_TYPES.THERMAL)
-                {
-                    pEnnemiRobot.RemoveFuel(pWeapon.GetHeatEffect());
-                }
+                pEnnemiRobot.RemoveFuel(pWeapon.GetHeatEffect());
             }
-
 
             return pEnnemiRobot.TakeDamage(pWeapon.GetDamage(), eTargetChoice);
         }
@@ -165,13 +158,15 @@ namespace Robot
         /// </summary>
         /// <developer>MBI</developer>
         /// <param name="iFuel"></param>
-        public void Refuel(int iFuel)
+        public void Refuel(int iFuel) 
         {
             _iFuel = _iFuel + iFuel;
+
             if (_iFuel > 100)
             {
                 _iFuel = 100;
             }
+
             if (_iFuel >= _pFurnace.GetRestartLimit())
             {
                 _bNeedRestart = false;
@@ -184,9 +179,9 @@ namespace Robot
         /// <developer>MBI</developer>
         /// <param name="iRepairPoints"></param>
         /// <param name="iTargetChoice"></param>
-        public void RepairRobotArmor(int iRepairPoints, PARTS_TYPES iTargetChoice)
+        public void RepairRobotArmor(int iRepairPoints, PARTS_TYPES eTargetChoice)
         {
-            switch (iTargetChoice)
+            switch (eTargetChoice)
             {
                 case PARTS_TYPES.LEFT_WEAPON:
                     _lWeapon[0].RepairArmor(iRepairPoints);
@@ -278,9 +273,9 @@ namespace Robot
         /// <developer>MBI</developer>
         /// <param name="eChoice"></param>
         /// <returns></returns>
-        public bool RepairLifeTargetIsValid(PARTS_TYPES eChoice)
+        public bool RepairLifeTargetIsValid(PARTS_TYPES eTargetChoice)
         {
-            switch (eChoice)
+            switch (eTargetChoice)
             {
                 case PARTS_TYPES.LEFT_WEAPON:
                     if (_lWeapon[0].GetLife() < _lWeapon[0].GetMaxLife())
@@ -317,9 +312,9 @@ namespace Robot
         /// <developer>MBI</developer>
         /// <param name="eChoice"></param>
         /// <returns></returns>
-        public bool RepairArmorTargetIsValid(PARTS_TYPES eChoice)
+        public bool RepairArmorTargetIsValid(PARTS_TYPES eTargetChoice)
         {
-            switch (eChoice)
+            switch (eTargetChoice)
             {
                 case PARTS_TYPES.LEFT_WEAPON:
                     if (_lWeapon[0].GetArmor() < _lWeapon[0].GetMaxArmor())
@@ -361,72 +356,13 @@ namespace Robot
         }
 
         /// <summary>
-        /// return true if the robot need to restart
+        /// Return true if the robot need to restart
         /// </summary>
+        /// <developer>CME</developer>
         /// <returns> bool </returns>
         public bool NeedToRestart()
         {
             return _bNeedRestart;
-        }
-
-        public int GetFurnaceLife()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public int GetLeftWeaponDamage()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public int GetLeftWeaponHitChance()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public sbyte GetRightWeaponDamage()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public sbyte GetRightWeaponHitChance()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void RepairRobotLifePoint(int kitUsed, PARTS_TYPE eChoice)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool AttackTargetIsValid(PARTS_TYPE eTargetChoice)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void WeaponFired(WEAPON_SIDE eUsed)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool WeaponIsUsable(WEAPON_SIDE eWeaponChoice)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool RepairLifeTargetIsValid(PARTS_TYPE eTargetChoice)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void RepairRobotArmor(int v, PARTS_TYPE eTargetChoice)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool RepairArmorTargetIsValid(PARTS_TYPE eTargetChoice)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

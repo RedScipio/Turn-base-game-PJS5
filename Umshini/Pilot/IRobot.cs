@@ -3,23 +3,18 @@ namespace Pilot
 {
     public interface IROBOT
     {
-        int GetFurnaceLife();
-        int GetLeftWeaponDamage();
-        int GetLeftWeaponHitChance();
-        sbyte GetRightWeaponDamage();
-        sbyte GetRightWeaponHitChance();
         bool IsDestroy();
         bool NeedToRestart();
-        int DealDamage(IROBOT pEnnemiRobot, int iWeaponChoice, PARTS_TYPE eTargetChoice);
-        int TakeDamage(int iDamage, PARTS_TYPE eType);
-        void RepairRobotLifePoint(int kitUsed, PARTS_TYPE eChoice);
-        bool AttackTargetIsValid(PARTS_TYPE eTargetChoice);
-        void WeaponFired(WEAPON_SIDE eUsed);
+        int DealDamage(IROBOT pEnnemiRobot, int iWeaponChoice, PARTS_TYPES eTargetChoice);
+        int TakeDamage(int iDamage, PARTS_TYPES eType);
+        void RepairRobotLifePoint(int kitUsed, PARTS_TYPES eChoice);
+        bool AttackTargetIsValid(PARTS_TYPES eTargetChoice);
+        void WeaponFired(int iWeaponChoice);
         bool WeaponIsUsable(int iWeaponChoice);
-        void Refuel(int v);
-        bool RepairLifeTargetIsValid(PARTS_TYPE eTargetChoice);
-        void RepairRobotArmor(int v, PARTS_TYPE eTargetChoice);
-        bool RepairArmorTargetIsValid(PARTS_TYPE eTargetChoice);
+        void Refuel(int iFuel);
+        bool RepairLifeTargetIsValid(PARTS_TYPES eTargetChoice);
+        void RepairRobotArmor(int iRepairPoints, PARTS_TYPES eTargetChoice);
+        bool RepairArmorTargetIsValid(PARTS_TYPES eTargetChoice);
         void RemoveFuel(int iFuel);
     }
 }
