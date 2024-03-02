@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Battle;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,11 +58,11 @@ namespace Pilot
 
             if (averageLeftWeapon > averageRightWeapon)
             {
-                GetRobot().DealDamage(ennemy, WEAPON_SIDE.LEFT_WEAPON, PARTS_TYPE.FURNACE);
+                GetRobot().DealDamage(ennemy, (int)WEAPON_SIDE.LEFT_WEAPON, PARTS_TYPE.FURNACE);
                 return;
             }
 
-            GetRobot().DealDamage(ennemy, WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPE.FURNACE);
+            GetRobot().DealDamage(ennemy, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPE.FURNACE);
             return;
         }
 

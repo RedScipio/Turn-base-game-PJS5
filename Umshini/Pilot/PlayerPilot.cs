@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System;
+using Battle;
 
 namespace Pilot
 {
@@ -87,7 +88,7 @@ namespace Pilot
                 case WEAPON_MENU.Left_Weapon:
                     {
                         this.GetActionResults().Add(iUsed);
-                        if (_pRobot.WeaponIsUsable(eUsed))
+                        if (_pRobot.WeaponIsUsable((int)WEAPON_MENU.Left_Weapon))
                         {
                             int iTargetChoice = GUI.TargetMenu(iTargetPart);
                             PARTS_TYPE eTargetChoice = (PARTS_TYPE)(iTargetChoice);
@@ -107,7 +108,7 @@ namespace Pilot
                                 }
                                 else
                                 {
-                                    int damage = _pRobot.DealDamage(pEnemyRobot, (WEAPON_SIDE)iUsed, (PARTS_TYPE)iTargetChoice);
+                                    int damage = _pRobot.DealDamage(pEnemyRobot, iUsed, (PARTS_TYPE)iTargetChoice);
                                     this.GetActionResults().Add(damage);
                                     return;
                                 }
@@ -129,7 +130,7 @@ namespace Pilot
                 case WEAPON_MENU.Right_Weapon:
                     {
                         this.GetActionResults().Add(iUsed);
-                        if (_pRobot.WeaponIsUsable(eUsed))
+                        if (_pRobot.WeaponIsUsable((int)eUsed))
                         {
                             int iTargetChoice = GUI.TargetMenu(iTargetPart);
                             PARTS_TYPE eTargetChoice = (PARTS_TYPE)iTargetChoice;
@@ -149,7 +150,7 @@ namespace Pilot
                                 }
                                 else
                                 {
-                                    int damage = _pRobot.DealDamage(pEnemyRobot, eUsed, eTargetChoice);
+                                    int damage = _pRobot.DealDamage(pEnemyRobot, iUsed, eTargetChoice);
                                     this.GetActionResults().Add(damage);
                                     return;
                                 }

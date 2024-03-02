@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BasicBattle.cs" />
     <Compile Include="ABattle.cs" />
+    <Compile Include="IConsumable.cs" />
     <Compile Include="IPilot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

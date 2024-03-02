@@ -45,11 +45,11 @@ namespace Umshini_Test
 
             //Checking if projectile weapon can shoot, with and without ammo
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, projWeap);
-            playerRobot.WeaponIsUsable(WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
+            playerRobot.WeaponIsUsable(1).Should().BeTrue();
             projWeap.GetAmmo().Should().Be(1);
             projWeap.RemoveAmmo().Should().BeTrue();
 
-            playerRobot.WeaponIsUsable(WEAPON_SIDE.RIGHT_WEAPON).Should().BeFalse();
+            playerRobot.WeaponIsUsable(1).Should().BeFalse();
         }
 
         [Fact]
@@ -59,12 +59,12 @@ namespace Umshini_Test
 
             //Checking if melee weapon can attack, with and without legs
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, melWeap);
-            playerRobot.WeaponIsUsable(WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
+            playerRobot.WeaponIsUsable(1).Should().BeTrue();
 
-            playerRobot.DealDamage(playerRobot, WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPE.LEGS);
-            playerRobot.DealDamage(playerRobot, WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPE.LEGS);
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPE.LEGS);
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPE.LEGS);
 
-            playerRobot.WeaponIsUsable(WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
+            playerRobot.WeaponIsUsable((int)(int)WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
         }
 
         [Fact]

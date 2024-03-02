@@ -80,7 +80,7 @@ namespace Robot
         /// <param name="iDamage"></param>
         /// <param name="eType"></param>
         /// <returns></returns>
-        private int TakeDamage(int iDamage, PARTS_TYPES eType)
+        public int TakeDamage(int iDamage, PARTS_TYPE eType)
         {
             switch (eType)
             {
@@ -102,7 +102,7 @@ namespace Robot
         /// </summary>
         /// <developer>MBI</developer>
         /// <param name="iFuel"></param>
-        private void RemoveFuel(int iFuel)
+        public void RemoveFuel(int iFuel)
         {
             if (_iFuel < 1 && iFuel < 1)
             {
@@ -125,13 +125,18 @@ namespace Robot
         /// <param name="iWeaponChoice"></param>
         /// <param name="eTargetChoice"></param>
         /// <returns> int </returns>
-        public int DealDamage(ROBOT pEnnemiRobot, int iWeaponChoice, PARTS_TYPES eTargetChoice)
+        public int DealDamage(IROBOT pEnnemiRobot, int iWeaponChoice, PARTS_TYPE eTargetChoice)
         {
             IWEAPON pWeapon = _lWeapon[iWeaponChoice];
 
-            if (pWeapon.TypeIs() == WEAPONS_TYPES.THERMAL)
+            
+
+            if(pEnnemiRobot is ROBOT)
             {
-                pEnnemiRobot.RemoveFuel(pWeapon.GetHeatEffect());
+                if (pWeapon.TypeIs() == WEAPONS_TYPES.THERMAL)
+                {
+                    pEnnemiRobot.RemoveFuel(pWeapon.GetHeatEffect());
+                }
             }
 
 
@@ -385,11 +390,6 @@ namespace Robot
         }
 
         public sbyte GetRightWeaponHitChance()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public int DealDamage(IROBOT robot, WEAPON_SIDE eWeaponChoice, PARTS_TYPE eChoice)
         {
             throw new System.NotImplementedException();
         }

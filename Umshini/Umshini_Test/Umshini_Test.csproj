@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -26,7 +26,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Battle\Battle.csproj" />
     <ProjectReference Include="..\Consumable\Consumable.csproj" />
-    <ProjectReference Include="..\GUI\GUI.csproj" />
     <ProjectReference Include="..\Part\Part.csproj" />
     <ProjectReference Include="..\Pilot\Pilot.csproj" />
     <ProjectReference Include="..\Robot\Robot.csproj" />
