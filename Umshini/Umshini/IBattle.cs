@@ -4,6 +4,7 @@ namespace Umshini
 {
     public interface IBATTLE
     {
-        List<int> PlayTurn();
+        List<int> PlayRound();
+        List<int> PlayTurn(int iPilot);
     }
 }

@@ -20,7 +20,7 @@ namespace Pilot
             _vRepairKitsReserve = vRepairKitsReserve;
         }
 
-        public abstract void PlayTurn(IROBOT ennemiRobot, int iChoice = -1, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);
+        public abstract void PlayTurn(IROBOT ennemiRobot, IGUI gui, int iChoice = -1, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);
 
         public bool RobotIsDestroy()
         {

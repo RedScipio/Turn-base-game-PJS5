@@ -5,8 +5,8 @@ namespace Robot
 {
     public class ROBOT : IROBOT
     {
-        private IFURNACE _pFurnace;
-        private ILEG _pLeg;
+        private readonly IFURNACE _pFurnace;
+        private readonly ILEG _pLeg;
 
         private readonly List<IWEAPON> _lWeapon;
 
@@ -108,7 +108,7 @@ namespace Robot
                 return;
             }
 
-            _iFuel = _iFuel - iFuel;
+            _iFuel -= iFuel;
             if (_iFuel < 1)
             {
                 _iFuel = 0;
@@ -160,7 +160,7 @@ namespace Robot
         /// <param name="iFuel"></param>
         public void Refuel(int iFuel) 
         {
-            _iFuel = _iFuel + iFuel;
+            _iFuel += iFuel;
 
             if (_iFuel > 100)
             {
@@ -363,6 +363,21 @@ namespace Robot
         public bool NeedToRestart()
         {
             return _bNeedRestart;
+        }
+
+        public int GetFurnaceLife()
+        {
+            return this._pFurnace.GetLife();
+        }
+
+        public int GetWeaponDamage(int iWeapon)
+        {
+            return this._lWeapon[iWeapon].GetDamage();
+        }
+
+        public int GetWeaponHitChance(int iWeapon)
+        {
+            return 100;
         }
     }
 }

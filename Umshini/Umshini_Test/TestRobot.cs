@@ -61,8 +61,8 @@ namespace Umshini_Test
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, melWeap);
             playerRobot.WeaponIsUsable(1).Should().BeTrue();
 
-            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPE.LEGS);
-            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPE.LEGS);
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEGS);
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEGS);
 
             playerRobot.WeaponIsUsable((int)(int)WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
         }

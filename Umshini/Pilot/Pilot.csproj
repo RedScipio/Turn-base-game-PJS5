@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="APilot.cs" />
     <Compile Include="BotPilot.cs" />
+    <Compile Include="IGUI.cs" />
     <Compile Include="PartsType.cs" />
     <Compile Include="SmartBotPilot.cs" />
     <Compile Include="DumbBotPilot.cs" />

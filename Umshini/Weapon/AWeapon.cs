@@ -14,7 +14,7 @@ namespace Weapon
         private readonly int _iPowerConsumption = -1;
         private readonly int _iAccuracy = -1;
         private readonly int _iMinAccuracy = -1;
-        private WEAPONS_TYPES _eWeaponType;
+        private readonly WEAPONS_TYPES _eWeaponType;
 
         /// <summary>
         /// represents a weapon equipable by the robot

@@ -16,5 +16,8 @@ namespace Pilot
         void RepairRobotArmor(int iRepairPoints, PARTS_TYPES eTargetChoice);
         bool RepairArmorTargetIsValid(PARTS_TYPES eTargetChoice);
         void RemoveFuel(int iFuel);
+        int GetFurnaceLife();
+        int GetWeaponDamage(int iWeapon);
+        int GetWeaponHitChance(int iWeapon);
     }
 }
