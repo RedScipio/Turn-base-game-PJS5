@@ -15,5 +15,10 @@ namespace Battle
         bool Repair(int iChoice);
         bool Attack(int iChoice);
         bool TargetPart(int iChoice);
+        bool IsWeaponUsable(int iChoice);
+        bool UseWeapon(int iChoice);
+        bool IsFurnaceBroken();
+        bool IsLegsBroken();
+        bool IsWeaponBroken(int iWeapon);
     }
 }

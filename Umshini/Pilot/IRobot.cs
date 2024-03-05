@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Pilot
 {
     public interface IROBOT
@@ -19,5 +21,8 @@ namespace Pilot
         int GetFurnaceLife();
         int GetWeaponDamage(int iWeapon);
         int GetWeaponHitChance(int iWeapon);
+        bool IsFurnaceBroken();
+        bool IsLegsBroken();
+        bool IsWeaponBroken(int iWeapon);
     }
 }

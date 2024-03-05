@@ -46,5 +46,10 @@ namespace Pilot
         {
             return _vResultsInputs;
         }
+
+        public bool TargetPart(int iChoice)
+        {
+
+        }
     }
 }
