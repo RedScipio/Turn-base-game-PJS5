@@ -47,9 +47,11 @@ namespace Pilot
             return _vResultsInputs;
         }
 
-        public bool TargetPart(int iChoice)
+        /*public bool TargetPart(int iChoice)
         {
+            
+        }*/
 
-        }
+        public abstract bool IsBotPilot();
     }
 }

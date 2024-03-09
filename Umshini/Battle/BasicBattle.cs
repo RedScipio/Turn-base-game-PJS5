@@ -37,6 +37,7 @@ namespace Battle
             int iChoice;
             bool bLoop = true;
             IPILOT currentPilot = this._lPilots[iPilot];
+            List<int> actions = new List<int>();
 
             if (currentPilot.IsBotPilot()) 
             {
@@ -73,6 +74,8 @@ namespace Battle
                 }
             } 
             while (!currentPilot.FirstChoice(iChoice) && bLoop);
+
+            return actions;
         }
 
         private bool Attack(IPILOT currentPilot, IPILOT ennemyPilot)
@@ -119,7 +122,8 @@ namespace Battle
         private bool TargetPartIsBroken(IPILOT pilot)
         {
             int iChoice = GUI.TargetPartMenu();
-            bool bLoop;
+            bool bLoop = true;
+            bool result = true; //obligation d'initialiser
 
             do
             {
@@ -131,24 +135,28 @@ namespace Battle
                 switch (iChoice)
                 {
                     case 0:
-                        bLoop = pilot.IsLegsBroken();
+                        result = pilot.IsLegsBroken();
+                        bLoop = false;
                         break;
                     case 1:
-                        bLoop = pilot.IsFurnaceBroken();
+                        result = pilot.IsFurnaceBroken();
+                        bLoop = false;
                         break;
                     default:
                         try
                         {
-                            bLoop = pilot.IsWeaponBroken(iChoice);
+                            result = pilot.IsWeaponBroken(iChoice);
+                            bLoop = false;
                         }
                         catch (ArgumentOutOfRangeException e)
                         {
                             GUI.WeaponOutOfRange();
-                            bLoop = true;
                         }
                         break;
                 }
-            } while (!bLoop);
+            } while (bLoop);
+
+            return result;
         }
     }
 

@@ -293,7 +293,12 @@ namespace Pilot
         public List<int> GetActionResults()
         {
             return _vActionResults;
-        } 
+        }
+
+        public override bool IsBotPilot()
+        {
+            return false;
+        }
     }
 
     

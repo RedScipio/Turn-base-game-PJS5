@@ -13,5 +13,10 @@ namespace Pilot
         {
 
         }
+
+        public override bool IsBotPilot()
+        {
+            return true;
+        }
     }
 }

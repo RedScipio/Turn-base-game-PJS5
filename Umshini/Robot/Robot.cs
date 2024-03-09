@@ -83,16 +83,13 @@ namespace Robot
         {
             switch (eType)
             {
-                case PARTS_TYPES.LEFT_WEAPON:
-                    return _lWeapon[0].TakeDamage(iDamage);
-                case PARTS_TYPES.RIGHT_WEAPON:
-                    return _lWeapon[1].TakeDamage(iDamage);
                 case PARTS_TYPES.FURNACE:
                     return _pFurnace.TakeDamage(iDamage);
                 case PARTS_TYPES.LEG:
                     return _pLeg.TakeDamage(iDamage);
                 default:
-                    return 0;
+                    int iWeapon = (int)eType - (int)PARTS_TYPES.WEAPON;
+                    return _lWeapon[iWeapon].TakeDamage(iDamage);
             }
         }
 
@@ -183,12 +180,6 @@ namespace Robot
         {
             switch (eTargetChoice)
             {
-                case PARTS_TYPES.LEFT_WEAPON:
-                    _lWeapon[0].RepairArmor(iRepairPoints);
-                    return;
-                case PARTS_TYPES.RIGHT_WEAPON:
-                    _lWeapon[1].RepairArmor(iRepairPoints);
-                    return;
                 case PARTS_TYPES.FURNACE:
                     _pFurnace.RepairArmor(iRepairPoints);
                     return;
@@ -196,7 +187,8 @@ namespace Robot
                     _pLeg.RepairArmor(iRepairPoints);
                     return;
                 default:
-                    // TO-DO: return custom error
+                    int iWeapon = (int)eTargetChoice - (int)PARTS_TYPES.WEAPON;
+                    _lWeapon[iWeapon].RepairArmor(iRepairPoints);
                     return;
             }
         }
@@ -211,12 +203,6 @@ namespace Robot
         {
             switch (eTargetChoice)
             {
-                case PARTS_TYPES.LEFT_WEAPON:
-                    _lWeapon[0].RepairLife(iRepairPoints);
-                    return;
-                case PARTS_TYPES.RIGHT_WEAPON:
-                    _lWeapon[1].RepairLife(iRepairPoints);
-                    return;
                 case PARTS_TYPES.FURNACE:
                     _pFurnace.RepairLife(iRepairPoints);
                     return;
@@ -224,6 +210,7 @@ namespace Robot
                     _pLeg.RepairLife(iRepairPoints);
                     return;
                 default:
+                    _lWeapon[(int)eTargetChoice - (int)PARTS_TYPES.WEAPON].RepairLife(iRepairPoints);
                     return;
             }
         }
@@ -238,18 +225,6 @@ namespace Robot
         {
             switch (eChoice)
             {
-                case PARTS_TYPES.LEFT_WEAPON:
-                    if (_lWeapon[0].GetLife() > 0)
-                    {
-                        return true;
-                    }
-                    return false;
-                case PARTS_TYPES.RIGHT_WEAPON:
-                    if (_lWeapon[1].GetLife() > 0)
-                    {
-                        return true;
-                    }
-                    return false;
                 case PARTS_TYPES.FURNACE:
                     if (_pFurnace.GetLife() > 0)
                     {
@@ -263,6 +238,11 @@ namespace Robot
                     }
                     return false;
                 default:
+                    int iWeapon = (int)eChoice - (int)PARTS_TYPES.WEAPON;
+                    if (_lWeapon[iWeapon].GetLife() > 0)
+                    {
+                        return true;
+                    }
                     return false;
             }
         }
@@ -277,18 +257,6 @@ namespace Robot
         {
             switch (eTargetChoice)
             {
-                case PARTS_TYPES.LEFT_WEAPON:
-                    if (_lWeapon[0].GetLife() < _lWeapon[0].GetMaxLife())
-                    {
-                        return true;
-                    }
-                    return false;
-                case PARTS_TYPES.RIGHT_WEAPON:
-                    if (_lWeapon[1].GetLife() < _lWeapon[1].GetMaxLife())
-                    {
-                        return true;
-                    }
-                    return false;
                 case PARTS_TYPES.FURNACE:
                     if (_pFurnace.GetLife() < _pFurnace.GetMaxLife())
                     {
@@ -302,6 +270,11 @@ namespace Robot
                     }
                     return false;
                 default:
+                    int iWeapon = (int)eTargetChoice - (int)PARTS_TYPES.WEAPON;
+                    if (_lWeapon[iWeapon].GetLife() < _lWeapon[iWeapon].GetMaxLife())
+                    {
+                        return true;
+                    }
                     return false;
             }
         }
@@ -316,18 +289,6 @@ namespace Robot
         {
             switch (eTargetChoice)
             {
-                case PARTS_TYPES.LEFT_WEAPON:
-                    if (_lWeapon[0].GetArmor() < _lWeapon[0].GetMaxArmor())
-                    {
-                        return true;
-                    }
-                    return false;
-                case PARTS_TYPES.RIGHT_WEAPON:
-                    if (_lWeapon[1].GetArmor() < _lWeapon[1].GetMaxArmor())
-                    {
-                        return true;
-                    }
-                    return false;
                 case PARTS_TYPES.FURNACE:
                     if (_pFurnace.GetArmor() < _pFurnace.GetMaxArmor())
                     {
@@ -341,6 +302,11 @@ namespace Robot
                     }
                     return false;
                 default:
+                    int iWeapon = (int)eTargetChoice - (int)PARTS_TYPES.WEAPON;
+                    if (_lWeapon[iWeapon].GetMaxArmor() < _lWeapon[iWeapon].GetMaxArmor())
+                    {
+                        return true;
+                    }
                     return false;
             }
         }
@@ -378,6 +344,21 @@ namespace Robot
         public int GetWeaponHitChance(int iWeapon)
         {
             return 100;
+        }
+
+        public bool IsFurnaceBroken()
+        {
+            return this._pFurnace.IsBroken();
+        }
+
+        public bool IsLegsBroken()
+        {
+            return this._pLeg.IsBroken();
+        }
+
+        public bool IsWeaponBroken(int iWeapon)
+        {
+            return _lWeapon[iWeapon].IsBroken();
         }
     }
 }
