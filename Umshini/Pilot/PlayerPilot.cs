@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using Battle;
+using Umshini;
 
 namespace Pilot
 {
@@ -15,40 +16,40 @@ namespace Pilot
             _vActionResults = new List<int> { };
         }
 
-        override public void PlayTurn(IROBOT pEnnemiRobot, IGUI gui, int iActionChoice = -1, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
+        override public void PlayTurn(IROBOT pEnnemiRobot, int iActionChoice = -1, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
         {
-            MainMenu(pEnnemiRobot, gui, iActionChoice, iUsed, iTargetPart, iHitChance);
+            MainMenu(pEnnemiRobot, iActionChoice, iUsed, iTargetPart, iHitChance);
         }
 
-        private void MainMenu(IROBOT pEnnemiRobot, IGUI gui, int iActionChoice = -1, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
+        private void MainMenu(IROBOT pEnnemiRobot, int iActionChoice = -1, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
         {
             if (iActionChoice == -1)
             {
-                iActionChoice = gui.MainMenu();
+                iActionChoice = GUI.MainMenu();
             }
             switch ((MAIN_MENU)iActionChoice)
             {
                 case MAIN_MENU.Attack:
                     {
                         this.GetActionResults().Add(iActionChoice);
-                        AttackMenu(pEnnemiRobot, gui, iUsed, iTargetPart, iHitChance);
+                        AttackMenu(pEnnemiRobot, iUsed, iTargetPart, iHitChance);
                         return;
                     }
                 case MAIN_MENU.Repairs:
                     {
                         this.GetActionResults().Add(iActionChoice);
-                        RepairsMenu(pEnnemiRobot, gui, iUsed, iTargetPart);
+                        RepairsMenu(pEnnemiRobot, iUsed, iTargetPart);
                         return;
                     }
                 case MAIN_MENU.Furnace:
                     {
                         this.GetActionResults().Add(iActionChoice);
-                        FurnaceMenu(pEnnemiRobot, gui, iUsed, iTargetPart);
+                        FurnaceMenu(pEnnemiRobot, iUsed, iTargetPart);
                         return;
                     }
                 default:
                     {
-                        MainMenu(pEnnemiRobot, gui, iUsed, iTargetPart);
+                        MainMenu(pEnnemiRobot, iUsed, iTargetPart);
                         return;
                     }
             }
@@ -61,16 +62,16 @@ namespace Pilot
         /// <param name="iUsed"></param>
         /// <param name="iTargetPart"></param>
         /// <param name="iHitChance"></param>
-        private void AttackMenu(IROBOT pEnemyRobot, IGUI gui, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
+        private void AttackMenu(IROBOT pEnemyRobot, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
         {
             if (iUsed == -1)
             {
-                iUsed = gui.WeaponMenu(this.GetRobot());
+                iUsed = GUI.WeaponMenu();
             }
             if (_pRobot.NeedToRestart())
             {
-                gui.RobotRestart();
-                MainMenu(pEnemyRobot, gui);
+                GUI.RobotRestart();
+                MainMenu(pEnemyRobot);
                 return;
             }
 
@@ -80,7 +81,7 @@ namespace Pilot
             {
                 case 0:
                     {
-                        MainMenu(pEnemyRobot, gui);
+                        MainMenu(pEnemyRobot);
                         return;
                     }
                 case 1:
@@ -92,7 +93,7 @@ namespace Pilot
 
                         if (_pRobot.WeaponIsUsable(iWeapon))
                         {
-                            int iTargetChoice = gui.TargetMenu(iTargetPart);
+                            int iTargetChoice = GUI.TargetMenu(iTargetPart);
                             PARTS_TYPES eTargetChoice = (PARTS_TYPES)(iTargetChoice);
                             
                             this.GetActionResults().Add(iTargetChoice);
@@ -115,7 +116,7 @@ namespace Pilot
 
                                 if (_pRobot.GetWeaponHitChance(iWeapon) < iRandomizer)
                                 {
-                                    gui.MissedFire();
+                                    GUI.MissedFire();
                                     return;
                                 }
                                 else
@@ -127,22 +128,22 @@ namespace Pilot
                             }
                             else
                             {
-                                gui.AlreadyDestroy();
-                                AttackMenu(pEnemyRobot, gui);
+                                GUI.AlreadyDestroy();
+                                AttackMenu(pEnemyRobot);
                                 return;
                             }
                         }
                         else
                         {
-                            gui.WeaponIsUnusable();
-                            AttackMenu(pEnemyRobot, gui);
+                            GUI.WeaponIsUnusable();
+                            AttackMenu(pEnemyRobot);
                             return;
                         }
                     }
                 default:
                     {
-                        gui.WrongEntry();
-                        AttackMenu(pEnemyRobot, gui);
+                        GUI.WrongEntry();
+                        AttackMenu(pEnemyRobot);
                         return;
                     }
             }
@@ -154,24 +155,24 @@ namespace Pilot
         /// <param name="pEnemyRobot">Enemy Robot</param>
         /// <param name="iActionChoice">Choice of Repair's Menu</param>
         /// <param name="iUsed"></param>
-        private void RepairsMenu(IROBOT pEnemyRobot, IGUI gui, int iActionChoice = -1, int iUsed = -1)
+        private void RepairsMenu(IROBOT pEnemyRobot, int iActionChoice = -1, int iUsed = -1)
         {
             if (iActionChoice == -1)
             {
-                iActionChoice = gui.RepairMenu(this, iUsed);
+                iActionChoice = GUI.RepairMenu(this, iUsed);
             }
             switch ((REPAIRS_MENU)iActionChoice)
             {
                 case REPAIRS_MENU.Back:
                     {
-                        MainMenu(pEnemyRobot, gui);
+                        MainMenu(pEnemyRobot);
                         return;
                     }
                 case REPAIRS_MENU.Light_Armor:
                     {
                         if (_vRepairKitsReserve[iActionChoice - 1].GetNumberItems() > 0)
                         {
-                            int iTargetChoice = gui.TargetMenu(iUsed);
+                            int iTargetChoice = GUI.TargetMenu(iUsed);
                             PARTS_TYPES eTargetChoice = (PARTS_TYPES)iTargetChoice;
                             this.GetActionResults().Add(iTargetChoice);
                             if (_pRobot.RepairArmorTargetIsValid(eTargetChoice))
@@ -181,15 +182,15 @@ namespace Pilot
                             }
                             else
                             {
-                                gui.PerfectlyFine();
-                                RepairsMenu(pEnemyRobot, gui, iActionChoice, iUsed);
+                                GUI.PerfectlyFine();
+                                RepairsMenu(pEnemyRobot, iActionChoice, iUsed);
                                 return;
                             }
                         }
                         else
                         {
-                            gui.NoStockKit();
-                            RepairsMenu(pEnemyRobot, gui);
+                            GUI.NoStockKit();
+                            RepairsMenu(pEnemyRobot);
                             return;
                         }
                     }
@@ -197,7 +198,7 @@ namespace Pilot
                     {
                         if (_vRepairKitsReserve[iActionChoice - 1].GetNumberItems() > 0)
                         {
-                            int iTargetChoice = gui.TargetMenu(iUsed);
+                            int iTargetChoice = GUI.TargetMenu(iUsed);
                             PARTS_TYPES eTargetChoice = (PARTS_TYPES)iTargetChoice;
                             this.GetActionResults().Add(iTargetChoice);
                             if (_pRobot.RepairArmorTargetIsValid(eTargetChoice))
@@ -207,15 +208,15 @@ namespace Pilot
                             }
                             else
                             {
-                                gui.PerfectlyFine();
-                                RepairsMenu(pEnemyRobot, gui, iActionChoice, iUsed);
+                                GUI.PerfectlyFine();
+                                RepairsMenu(pEnemyRobot, iActionChoice, iUsed);
                                 return;
                             }
                         }
                         else
                         {
-                            gui.NoStockKit();
-                            RepairsMenu(pEnemyRobot, gui, iActionChoice, iUsed);
+                            GUI.NoStockKit();
+                            RepairsMenu(pEnemyRobot, iActionChoice, iUsed);
                             return;
                         }
                     }
@@ -223,7 +224,7 @@ namespace Pilot
                     {
                         if (_vRepairKitsReserve[iActionChoice - 1].GetNumberItems() > 0)
                         {
-                            PARTS_TYPES eTargetChoice = (PARTS_TYPES)gui.TargetMenu(iUsed);
+                            PARTS_TYPES eTargetChoice = (PARTS_TYPES)GUI.TargetMenu(iUsed);
 
                             if (_pRobot.RepairLifeTargetIsValid(eTargetChoice))
                             {
@@ -232,15 +233,15 @@ namespace Pilot
                             }
                             else
                             {
-                                gui.PerfectlyFine();
-                                RepairsMenu(pEnemyRobot, gui, iActionChoice, iUsed);
+                                GUI.PerfectlyFine();
+                                RepairsMenu(pEnemyRobot, iActionChoice, iUsed);
                                 return;
                             }
                         }
                         else
                         {
-                            gui.NoStockKit();
-                            RepairsMenu(pEnemyRobot, gui, iActionChoice, iUsed);
+                            GUI.NoStockKit();
+                            RepairsMenu(pEnemyRobot, iActionChoice, iUsed);
                             return;
                         }
                     }
@@ -248,7 +249,7 @@ namespace Pilot
                     {
                         if (_vRepairKitsReserve[iActionChoice - 1].GetNumberItems() > 0)
                         {
-                            int iTargetChoice = gui.TargetMenu(iUsed);
+                            int iTargetChoice = GUI.TargetMenu(iUsed);
                             PARTS_TYPES eTargetChoice = (PARTS_TYPES)iTargetChoice;
 
                             this.GetActionResults().Add(iTargetChoice);
@@ -259,32 +260,32 @@ namespace Pilot
                             }
                             else
                             {
-                                gui.PerfectlyFine();
-                                RepairsMenu(pEnemyRobot, gui, iActionChoice, iUsed);
+                                GUI.PerfectlyFine();
+                                RepairsMenu(pEnemyRobot, iActionChoice, iUsed);
                                 return;
                             }
                         }
                         else
                         {
-                            gui.NoStockKit();
-                            RepairsMenu(pEnemyRobot, gui, iActionChoice, iUsed);
+                            GUI.NoStockKit();
+                            RepairsMenu(pEnemyRobot, iActionChoice, iUsed);
                             return;
                         }
                     }
                 default:
                     {
-                        gui.WrongEntry();
-                        RepairsMenu(pEnemyRobot, gui, iActionChoice, iUsed);
+                        GUI.WrongEntry();
+                        RepairsMenu(pEnemyRobot, iActionChoice, iUsed);
                         return;
                     }
             }
         }
 
-        private void FurnaceMenu(IROBOT pEnnemiRobot, IGUI gui, int iActionChoice = -1, int iUsed = -1)
+        private void FurnaceMenu(IROBOT pEnnemiRobot, int iActionChoice = -1, int iUsed = -1)
         {
             if (iActionChoice == -1)
             {
-                iActionChoice = gui.FuelMenu(this, iUsed);
+                iActionChoice = GUI.FuelMenu(this, iUsed);
             }
             
 

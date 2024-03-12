@@ -41,14 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Battle\Battle.csproj">
-      <Project>{3ba5891c-f6c3-4ef3-9c78-6d79e7974396}</Project>
-      <Name>Battle</Name>
+    <ProjectReference Include="..\Pilot\Pilot.csproj">
+      <Project>{57856c53-f2e4-4e73-96b0-0f6f420197c1}</Project>
+      <Name>Pilot</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Umshini\Umshini.csproj">
+      <Project>{f3302d16-6ba4-4076-9067-75c99239c668}</Project>
+      <Name>Umshini</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

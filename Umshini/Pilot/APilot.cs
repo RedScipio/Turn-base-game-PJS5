@@ -1,4 +1,5 @@
-﻿using Battle;
+﻿using Umshini;
+using Battle;
 using System.Collections.Generic;
 
 namespace Pilot
@@ -20,7 +21,7 @@ namespace Pilot
             _vRepairKitsReserve = vRepairKitsReserve;
         }
 
-        public abstract void PlayTurn(IROBOT ennemiRobot, IGUI gui, int iChoice = -1, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);
+        public abstract void PlayTurn(IROBOT ennemiRobot, int iChoice = -1, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);
 
         public bool RobotIsDestroy()
         {
@@ -53,5 +54,60 @@ namespace Pilot
         }*/
 
         public abstract bool IsBotPilot();
+
+        List<int> IPILOT.PlayTurnAuto()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        bool IPILOT.FirstChoice(int iChoice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        bool IPILOT.Refuel(int iChoice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        bool IPILOT.Repair(int iChoice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        bool IPILOT.Attack(int iChoice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        bool IPILOT.TargetPart(int iChoice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        bool IPILOT.IsWeaponUsable(int iChoice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        bool IPILOT.UseWeapon(int iChoice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        bool IPILOT.IsFurnaceBroken()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        bool IPILOT.IsLegsBroken()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        bool IPILOT.IsWeaponBroken(int iWeapon)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

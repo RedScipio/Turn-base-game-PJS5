@@ -3,7 +3,7 @@ using Umshini;
 
 namespace Battle
 {
-    public abstract class ABATTLE : IBATTLE
+    public abstract class ABATTLE //: IBATTLE
     {
         protected List<IPILOT> _lPilots;
 

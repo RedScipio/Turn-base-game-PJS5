@@ -43,9 +43,12 @@
   <ItemGroup>
     <Compile Include="BasicBattle.cs" />
     <Compile Include="ABattle.cs" />
-    <Compile Include="IConsumable.cs" />
+    <Compile Include="GUI.cs" />
     <Compile Include="IPilot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Umshini\Umshini.csproj">

@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="APilot.cs" />
     <Compile Include="BotPilot.cs" />
-    <Compile Include="IGUI.cs" />
     <Compile Include="PartsType.cs" />
     <Compile Include="SmartBotPilot.cs" />
     <Compile Include="DumbBotPilot.cs" />
@@ -53,9 +52,17 @@
     <Compile Include="WeaponSide.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Battle\Battle.csproj">
-      <Project>{3BA5891C-F6C3-4EF3-9C78-6D79E7974396}</Project>
+      <Project>{3ba5891c-f6c3-4ef3-9c78-6d79e7974396}</Project>
       <Name>Battle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Umshini\Umshini.csproj">
+      <Project>{f3302d16-6ba4-4076-9067-75c99239c668}</Project>
+      <Name>Umshini</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

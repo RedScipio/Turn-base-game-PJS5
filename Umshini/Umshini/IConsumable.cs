@@ -1,5 +1,5 @@
 ﻿
-namespace Battle
+namespace Umshini
 {
     public interface ICONSUMABLE
     {

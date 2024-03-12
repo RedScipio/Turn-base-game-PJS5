@@ -104,7 +104,7 @@ namespace Battle
             int iChoice;
             do
             {
-                iChoice = GUI.RepairkMenu();
+                iChoice = GUI.RepairMenu();
             }
             while (!currentPilot.Repair(iChoice));
         }
