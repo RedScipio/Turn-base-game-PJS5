@@ -64,7 +64,7 @@ namespace Umshini_Test
             playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
             playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
 
-            playerRobot.WeaponIsUsable((int)(int)WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
+            playerRobot.WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
         }
 
         [Fact]
