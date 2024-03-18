@@ -29,31 +29,23 @@
         private void InitializeComponent()
         {
             this.guiKnob = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.guiKnob)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // guiKnob
             // 
             this.guiKnob.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(0)))), ((int)(((byte)(27)))));
+            this.guiKnob.Image = global::PJS5_CSharp_Form.Properties.Resources.lever;
             this.guiKnob.Location = new System.Drawing.Point(15, 27);
             this.guiKnob.Name = "guiKnob";
             this.guiKnob.Size = new System.Drawing.Size(118, 19);
             this.guiKnob.TabIndex = 0;
             this.guiKnob.TabStop = false;
             this.guiKnob.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Black;
-            this.pictureBox2.Location = new System.Drawing.Point(26, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(16, 238);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -63,6 +55,15 @@
             this.pictureBox3.Size = new System.Drawing.Size(16, 238);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Black;
+            this.pictureBox2.Location = new System.Drawing.Point(26, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(16, 238);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
             // SelectionSwitch2
             // 
@@ -76,8 +77,8 @@
             this.Size = new System.Drawing.Size(226, 231);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SelectionSwitch2_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.guiKnob)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

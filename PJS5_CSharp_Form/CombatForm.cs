@@ -482,7 +482,7 @@ namespace PJS5_CSharp_Form
             {
                 var original = pictureBoxEnnemiBot.Location; //(pictureBoxEnnemiBot/pictureBoxPlayerBot)
                 var rnd = new Random(1337);
-                const int shake_amplitude = 2;
+                const int shake_amplitude = 4;
                 for (int i = 0; i < 10; i++)
                 {
                     pictureBoxEnnemiBot.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));

@@ -56,13 +56,15 @@
             this.eLabelLeftLife = new System.Windows.Forms.Label();
             this.eLabelLeftArmor = new System.Windows.Forms.Label();
             this.eLabelFuel = new System.Windows.Forms.Label();
-            this.pictureBoxEnnemiBot = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxEnnemiBot = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.selectionSwitch31 = new PJS5_CSharp_Form.SelectionSwitch3();
             this.selectionSwitch21 = new PJS5_CSharp_Form.SelectionSwitch2();
             this.selectionSwitch1 = new PJS5_CSharp_Form.SelectionSwitch();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEnnemiBot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEnnemiBot)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // IntUpdater
@@ -73,7 +75,7 @@
             // 
             this.pLabelFuel.AutoSize = true;
             this.pLabelFuel.Font = new System.Drawing.Font("Yu Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pLabelFuel.Location = new System.Drawing.Point(107, 602);
+            this.pLabelFuel.Location = new System.Drawing.Point(94, 227);
             this.pLabelFuel.Name = "pLabelFuel";
             this.pLabelFuel.Size = new System.Drawing.Size(107, 35);
             this.pLabelFuel.TabIndex = 28;
@@ -83,7 +85,7 @@
             // 
             this.pLabelLeftArmor.AutoSize = true;
             this.pLabelLeftArmor.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.pLabelLeftArmor.Location = new System.Drawing.Point(38, 457);
+            this.pLabelLeftArmor.Location = new System.Drawing.Point(25, 82);
             this.pLabelLeftArmor.Name = "pLabelLeftArmor";
             this.pLabelLeftArmor.Size = new System.Drawing.Size(69, 14);
             this.pLabelLeftArmor.TabIndex = 29;
@@ -93,7 +95,7 @@
             // 
             this.pLabelLeftLife.AutoSize = true;
             this.pLabelLeftLife.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pLabelLeftLife.Location = new System.Drawing.Point(38, 475);
+            this.pLabelLeftLife.Location = new System.Drawing.Point(25, 100);
             this.pLabelLeftLife.Name = "pLabelLeftLife";
             this.pLabelLeftLife.Size = new System.Drawing.Size(54, 14);
             this.pLabelLeftLife.TabIndex = 30;
@@ -103,7 +105,7 @@
             // 
             this.pLabelRightArmor.AutoSize = true;
             this.pLabelRightArmor.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.pLabelRightArmor.Location = new System.Drawing.Point(258, 457);
+            this.pLabelRightArmor.Location = new System.Drawing.Point(245, 82);
             this.pLabelRightArmor.Name = "pLabelRightArmor";
             this.pLabelRightArmor.Size = new System.Drawing.Size(69, 14);
             this.pLabelRightArmor.TabIndex = 31;
@@ -113,7 +115,7 @@
             // 
             this.pLabelRightLife.AutoSize = true;
             this.pLabelRightLife.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.pLabelRightLife.Location = new System.Drawing.Point(258, 475);
+            this.pLabelRightLife.Location = new System.Drawing.Point(245, 100);
             this.pLabelRightLife.Name = "pLabelRightLife";
             this.pLabelRightLife.Size = new System.Drawing.Size(54, 14);
             this.pLabelRightLife.TabIndex = 32;
@@ -123,7 +125,7 @@
             // 
             this.pLabelLegsLife.AutoSize = true;
             this.pLabelLegsLife.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.pLabelLegsLife.Location = new System.Drawing.Point(258, 559);
+            this.pLabelLegsLife.Location = new System.Drawing.Point(245, 184);
             this.pLabelLegsLife.Name = "pLabelLegsLife";
             this.pLabelLegsLife.Size = new System.Drawing.Size(54, 14);
             this.pLabelLegsLife.TabIndex = 34;
@@ -133,7 +135,7 @@
             // 
             this.pLabelLegsArmor.AutoSize = true;
             this.pLabelLegsArmor.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.pLabelLegsArmor.Location = new System.Drawing.Point(258, 541);
+            this.pLabelLegsArmor.Location = new System.Drawing.Point(245, 166);
             this.pLabelLegsArmor.Name = "pLabelLegsArmor";
             this.pLabelLegsArmor.Size = new System.Drawing.Size(69, 14);
             this.pLabelLegsArmor.TabIndex = 33;
@@ -143,7 +145,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(250, 418);
+            this.label1.Location = new System.Drawing.Point(237, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 17);
             this.label1.TabIndex = 35;
@@ -154,7 +156,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(36, 418);
+            this.label2.Location = new System.Drawing.Point(23, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 17);
             this.label2.TabIndex = 36;
@@ -164,7 +166,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(269, 512);
+            this.label3.Location = new System.Drawing.Point(256, 137);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 37;
@@ -174,7 +176,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(148, 418);
+            this.label4.Location = new System.Drawing.Point(135, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 17);
             this.label4.TabIndex = 38;
@@ -184,7 +186,7 @@
             // 
             this.pLabelFurnaceLife.AutoSize = true;
             this.pLabelFurnaceLife.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.pLabelFurnaceLife.Location = new System.Drawing.Point(152, 475);
+            this.pLabelFurnaceLife.Location = new System.Drawing.Point(139, 100);
             this.pLabelFurnaceLife.Name = "pLabelFurnaceLife";
             this.pLabelFurnaceLife.Size = new System.Drawing.Size(54, 14);
             this.pLabelFurnaceLife.TabIndex = 40;
@@ -194,7 +196,7 @@
             // 
             this.pLabelFurnaceArmor.AutoSize = true;
             this.pLabelFurnaceArmor.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.pLabelFurnaceArmor.Location = new System.Drawing.Point(152, 457);
+            this.pLabelFurnaceArmor.Location = new System.Drawing.Point(139, 82);
             this.pLabelFurnaceArmor.Name = "pLabelFurnaceArmor";
             this.pLabelFurnaceArmor.Size = new System.Drawing.Size(69, 14);
             this.pLabelFurnaceArmor.TabIndex = 39;
@@ -204,7 +206,7 @@
             // 
             this.eLabelFurnaceLife.AutoSize = true;
             this.eLabelFurnaceLife.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.eLabelFurnaceLife.Location = new System.Drawing.Point(1713, 475);
+            this.eLabelFurnaceLife.Location = new System.Drawing.Point(1700, 100);
             this.eLabelFurnaceLife.Name = "eLabelFurnaceLife";
             this.eLabelFurnaceLife.Size = new System.Drawing.Size(54, 14);
             this.eLabelFurnaceLife.TabIndex = 53;
@@ -214,7 +216,7 @@
             // 
             this.eLabelFurnaceArmor.AutoSize = true;
             this.eLabelFurnaceArmor.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.eLabelFurnaceArmor.Location = new System.Drawing.Point(1713, 457);
+            this.eLabelFurnaceArmor.Location = new System.Drawing.Point(1700, 82);
             this.eLabelFurnaceArmor.Name = "eLabelFurnaceArmor";
             this.eLabelFurnaceArmor.Size = new System.Drawing.Size(69, 14);
             this.eLabelFurnaceArmor.TabIndex = 52;
@@ -224,7 +226,7 @@
             // 
             this.labelFurnace.AutoSize = true;
             this.labelFurnace.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFurnace.Location = new System.Drawing.Point(1709, 418);
+            this.labelFurnace.Location = new System.Drawing.Point(1697, 15);
             this.labelFurnace.Name = "labelFurnace";
             this.labelFurnace.Size = new System.Drawing.Size(71, 17);
             this.labelFurnace.TabIndex = 51;
@@ -234,7 +236,7 @@
             // 
             this.labelLegs.AutoSize = true;
             this.labelLegs.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLegs.Location = new System.Drawing.Point(1830, 512);
+            this.labelLegs.Location = new System.Drawing.Point(1817, 137);
             this.labelLegs.Name = "labelLegs";
             this.labelLegs.Size = new System.Drawing.Size(43, 17);
             this.labelLegs.TabIndex = 50;
@@ -245,7 +247,7 @@
             this.labelLeftArm.AutoSize = true;
             this.labelLeftArm.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLeftArm.ForeColor = System.Drawing.Color.Black;
-            this.labelLeftArm.Location = new System.Drawing.Point(1597, 418);
+            this.labelLeftArm.Location = new System.Drawing.Point(1585, 15);
             this.labelLeftArm.Name = "labelLeftArm";
             this.labelLeftArm.Size = new System.Drawing.Size(75, 17);
             this.labelLeftArm.TabIndex = 49;
@@ -255,7 +257,7 @@
             // 
             this.labelRightArm.AutoSize = true;
             this.labelRightArm.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRightArm.Location = new System.Drawing.Point(1811, 418);
+            this.labelRightArm.Location = new System.Drawing.Point(1799, 15);
             this.labelRightArm.Name = "labelRightArm";
             this.labelRightArm.Size = new System.Drawing.Size(84, 17);
             this.labelRightArm.TabIndex = 48;
@@ -265,7 +267,7 @@
             // 
             this.eLabelLegsLife.AutoSize = true;
             this.eLabelLegsLife.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.eLabelLegsLife.Location = new System.Drawing.Point(1819, 559);
+            this.eLabelLegsLife.Location = new System.Drawing.Point(1806, 184);
             this.eLabelLegsLife.Name = "eLabelLegsLife";
             this.eLabelLegsLife.Size = new System.Drawing.Size(54, 14);
             this.eLabelLegsLife.TabIndex = 47;
@@ -275,7 +277,7 @@
             // 
             this.eLabelLegsArmor.AutoSize = true;
             this.eLabelLegsArmor.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.eLabelLegsArmor.Location = new System.Drawing.Point(1819, 541);
+            this.eLabelLegsArmor.Location = new System.Drawing.Point(1806, 166);
             this.eLabelLegsArmor.Name = "eLabelLegsArmor";
             this.eLabelLegsArmor.Size = new System.Drawing.Size(69, 14);
             this.eLabelLegsArmor.TabIndex = 46;
@@ -285,7 +287,7 @@
             // 
             this.eLabelRightLife.AutoSize = true;
             this.eLabelRightLife.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.eLabelRightLife.Location = new System.Drawing.Point(1819, 475);
+            this.eLabelRightLife.Location = new System.Drawing.Point(1806, 100);
             this.eLabelRightLife.Name = "eLabelRightLife";
             this.eLabelRightLife.Size = new System.Drawing.Size(54, 14);
             this.eLabelRightLife.TabIndex = 45;
@@ -295,7 +297,7 @@
             // 
             this.eLabelRightArmor.AutoSize = true;
             this.eLabelRightArmor.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.eLabelRightArmor.Location = new System.Drawing.Point(1819, 457);
+            this.eLabelRightArmor.Location = new System.Drawing.Point(1806, 82);
             this.eLabelRightArmor.Name = "eLabelRightArmor";
             this.eLabelRightArmor.Size = new System.Drawing.Size(69, 14);
             this.eLabelRightArmor.TabIndex = 44;
@@ -305,7 +307,7 @@
             // 
             this.eLabelLeftLife.AutoSize = true;
             this.eLabelLeftLife.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eLabelLeftLife.Location = new System.Drawing.Point(1599, 475);
+            this.eLabelLeftLife.Location = new System.Drawing.Point(1586, 100);
             this.eLabelLeftLife.Name = "eLabelLeftLife";
             this.eLabelLeftLife.Size = new System.Drawing.Size(54, 14);
             this.eLabelLeftLife.TabIndex = 43;
@@ -315,7 +317,7 @@
             // 
             this.eLabelLeftArmor.AutoSize = true;
             this.eLabelLeftArmor.Font = new System.Drawing.Font("Yu Gothic", 8.25F);
-            this.eLabelLeftArmor.Location = new System.Drawing.Point(1599, 457);
+            this.eLabelLeftArmor.Location = new System.Drawing.Point(1586, 82);
             this.eLabelLeftArmor.Name = "eLabelLeftArmor";
             this.eLabelLeftArmor.Size = new System.Drawing.Size(69, 14);
             this.eLabelLeftArmor.TabIndex = 42;
@@ -325,38 +327,74 @@
             // 
             this.eLabelFuel.AutoSize = true;
             this.eLabelFuel.Font = new System.Drawing.Font("Yu Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eLabelFuel.Location = new System.Drawing.Point(1668, 602);
+            this.eLabelFuel.Location = new System.Drawing.Point(1655, 227);
             this.eLabelFuel.Name = "eLabelFuel";
             this.eLabelFuel.Size = new System.Drawing.Size(107, 35);
             this.eLabelFuel.TabIndex = 41;
             this.eLabelFuel.Text = "FUEL 0";
             // 
-            // pictureBoxEnnemiBot
-            // 
-            this.pictureBoxEnnemiBot.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBoxEnnemiBot.Image = global::PJS5_CSharp_Form.Properties.Resources.RobotEnnemi2;
-            this.pictureBoxEnnemiBot.Location = new System.Drawing.Point(1644, 138);
-            this.pictureBoxEnnemiBot.Name = "pictureBoxEnnemiBot";
-            this.pictureBoxEnnemiBot.Size = new System.Drawing.Size(194, 217);
-            this.pictureBoxEnnemiBot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxEnnemiBot.TabIndex = 69;
-            this.pictureBoxEnnemiBot.TabStop = false;
-            // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::PJS5_CSharp_Form.Properties.Resources.RobotPlayer;
-            this.pictureBox1.Location = new System.Drawing.Point(94, 138);
+            this.pictureBox1.Location = new System.Drawing.Point(77, 498);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(194, 217);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 70;
             this.pictureBox1.TabStop = false;
             // 
+            // pictureBoxEnnemiBot
+            // 
+            this.pictureBoxEnnemiBot.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxEnnemiBot.Image = global::PJS5_CSharp_Form.Properties.Resources.RobotEnnemi2;
+            this.pictureBoxEnnemiBot.Location = new System.Drawing.Point(1627, 498);
+            this.pictureBoxEnnemiBot.Name = "pictureBoxEnnemiBot";
+            this.pictureBoxEnnemiBot.Size = new System.Drawing.Size(194, 217);
+            this.pictureBoxEnnemiBot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxEnnemiBot.TabIndex = 69;
+            this.pictureBoxEnnemiBot.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pLabelFuel);
+            this.panel1.Controls.Add(this.pLabelLeftArmor);
+            this.panel1.Controls.Add(this.selectionSwitch31);
+            this.panel1.Controls.Add(this.pLabelLeftLife);
+            this.panel1.Controls.Add(this.selectionSwitch21);
+            this.panel1.Controls.Add(this.pLabelRightArmor);
+            this.panel1.Controls.Add(this.selectionSwitch1);
+            this.panel1.Controls.Add(this.pLabelRightLife);
+            this.panel1.Controls.Add(this.eLabelFurnaceLife);
+            this.panel1.Controls.Add(this.pLabelLegsArmor);
+            this.panel1.Controls.Add(this.eLabelFurnaceArmor);
+            this.panel1.Controls.Add(this.pLabelLegsLife);
+            this.panel1.Controls.Add(this.labelFurnace);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.labelLegs);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.labelLeftArm);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.labelRightArm);
+            this.panel1.Controls.Add(this.pLabelFurnaceArmor);
+            this.panel1.Controls.Add(this.eLabelLegsLife);
+            this.panel1.Controls.Add(this.pLabelFurnaceLife);
+            this.panel1.Controls.Add(this.eLabelLegsArmor);
+            this.panel1.Controls.Add(this.eLabelFuel);
+            this.panel1.Controls.Add(this.eLabelRightLife);
+            this.panel1.Controls.Add(this.eLabelLeftArmor);
+            this.panel1.Controls.Add(this.eLabelRightArmor);
+            this.panel1.Controls.Add(this.eLabelLeftLife);
+            this.panel1.Location = new System.Drawing.Point(-4, 742);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1961, 305);
+            this.panel1.TabIndex = 71;
+            // 
             // selectionSwitch31
             // 
             this.selectionSwitch31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.selectionSwitch31.Location = new System.Drawing.Point(1060, 394);
+            this.selectionSwitch31.Location = new System.Drawing.Point(1047, 19);
             this.selectionSwitch31.Name = "selectionSwitch31";
             this.selectionSwitch31.Size = new System.Drawing.Size(226, 231);
             this.selectionSwitch31.TabIndex = 67;
@@ -368,7 +406,7 @@
             // selectionSwitch21
             // 
             this.selectionSwitch21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.selectionSwitch21.Location = new System.Drawing.Point(828, 394);
+            this.selectionSwitch21.Location = new System.Drawing.Point(815, 19);
             this.selectionSwitch21.Name = "selectionSwitch21";
             this.selectionSwitch21.Size = new System.Drawing.Size(226, 231);
             this.selectionSwitch21.TabIndex = 66;
@@ -380,7 +418,7 @@
             // selectionSwitch1
             // 
             this.selectionSwitch1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.selectionSwitch1.Location = new System.Drawing.Point(596, 394);
+            this.selectionSwitch1.Location = new System.Drawing.Point(583, 19);
             this.selectionSwitch1.Name = "selectionSwitch1";
             this.selectionSwitch1.Size = new System.Drawing.Size(226, 231);
             this.selectionSwitch1.TabIndex = 65;
@@ -392,46 +430,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 670);
+            this.BackgroundImage = global::PJS5_CSharp_Form.Properties.Resources.background2;
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBoxEnnemiBot);
-            this.Controls.Add(this.selectionSwitch31);
-            this.Controls.Add(this.selectionSwitch21);
-            this.Controls.Add(this.selectionSwitch1);
-            this.Controls.Add(this.eLabelFurnaceLife);
-            this.Controls.Add(this.eLabelFurnaceArmor);
-            this.Controls.Add(this.labelFurnace);
-            this.Controls.Add(this.labelLegs);
-            this.Controls.Add(this.labelLeftArm);
-            this.Controls.Add(this.labelRightArm);
-            this.Controls.Add(this.eLabelLegsLife);
-            this.Controls.Add(this.eLabelLegsArmor);
-            this.Controls.Add(this.eLabelRightLife);
-            this.Controls.Add(this.eLabelRightArmor);
-            this.Controls.Add(this.eLabelLeftLife);
-            this.Controls.Add(this.eLabelLeftArmor);
-            this.Controls.Add(this.eLabelFuel);
-            this.Controls.Add(this.pLabelFurnaceLife);
-            this.Controls.Add(this.pLabelFurnaceArmor);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pLabelLegsLife);
-            this.Controls.Add(this.pLabelLegsArmor);
-            this.Controls.Add(this.pLabelRightLife);
-            this.Controls.Add(this.pLabelRightArmor);
-            this.Controls.Add(this.pLabelLeftLife);
-            this.Controls.Add(this.pLabelLeftArmor);
-            this.Controls.Add(this.pLabelFuel);
             this.Name = "CombatForm";
             this.ShowIcon = false;
             this.Text = "Umshini";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CombatForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEnnemiBot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEnnemiBot)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -468,6 +481,7 @@
         private SelectionSwitch3 selectionSwitch31;
         private System.Windows.Forms.PictureBox pictureBoxEnnemiBot;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

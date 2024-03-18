@@ -39,6 +39,7 @@
             // guiKnob
             // 
             this.guiKnob.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(0)))), ((int)(((byte)(27)))));
+            this.guiKnob.Image = global::PJS5_CSharp_Form.Properties.Resources.lever;
             this.guiKnob.Location = new System.Drawing.Point(15, 27);
             this.guiKnob.Name = "guiKnob";
             this.guiKnob.Size = new System.Drawing.Size(118, 19);

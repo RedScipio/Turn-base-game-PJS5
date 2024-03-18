@@ -132,5 +132,14 @@
   <ItemGroup>
     <None Include="Resources\RobotPlayer.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lever.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

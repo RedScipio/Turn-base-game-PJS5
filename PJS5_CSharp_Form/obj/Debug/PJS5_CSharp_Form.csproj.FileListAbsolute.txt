@@ -31,3 +31,16 @@ C:\Users\lebgn\OneDrive\Bureau\finaltry\Working Better i guess\PJS5_CSharp_Form\
 C:\Users\lebgn\OneDrive\Bureau\finaltry\Working Better i guess\PJS5_CSharp_Form\PJS5_CSharp_Form\obj\Debug\PJS5_CSharp_Form.SelectionSwitch.resources
 C:\Users\lebgn\OneDrive\Bureau\finaltry\Working Better i guess\PJS5_CSharp_Form\PJS5_CSharp_Form\obj\Debug\PJS5_CSharp_Form.SelectionSwitch2.resources
 C:\Users\lebgn\OneDrive\Bureau\finaltry\Working Better i guess\PJS5_CSharp_Form\PJS5_CSharp_Form\obj\Debug\PJS5_CSharp_Form.SelectionSwitch3.resources
+C:\Users\lebgn\OneDrive\Bureau\finaltry\Turn-base-game-PJS5\PJS5_CSharp_Form\PJS5_CSharp_Form\bin\Debug\PJS5_CSharp_Form.exe.config
+C:\Users\lebgn\OneDrive\Bureau\finaltry\Turn-base-game-PJS5\PJS5_CSharp_Form\PJS5_CSharp_Form\bin\Debug\PJS5_CSharp_Form.exe
+C:\Users\lebgn\OneDrive\Bureau\finaltry\Turn-base-game-PJS5\PJS5_CSharp_Form\PJS5_CSharp_Form\bin\Debug\PJS5_CSharp_Form.pdb
+C:\Users\lebgn\OneDrive\Bureau\finaltry\Turn-base-game-PJS5\PJS5_CSharp_Form\PJS5_CSharp_Form\obj\Debug\PJS5_CSharp_Form.csproj.AssemblyReference.cache
+C:\Users\lebgn\OneDrive\Bureau\finaltry\Turn-base-game-PJS5\PJS5_CSharp_Form\PJS5_CSharp_Form\obj\Debug\PJS5_CSharp_Form.CombatForm.resources
+C:\Users\lebgn\OneDrive\Bureau\finaltry\Turn-base-game-PJS5\PJS5_CSharp_Form\PJS5_CSharp_Form\obj\Debug\PJS5_CSharp_Form.SelectionSwitch3.resources
+C:\Users\lebgn\OneDrive\Bureau\finaltry\Turn-base-game-PJS5\PJS5_CSharp_Form\PJS5_CSharp_Form\obj\Debug\PJS5_CSharp_Form.SelectionSwitch2.resources
+C:\Users\lebgn\OneDrive\Bureau\finaltry\Turn-base-game-PJS5\PJS5_CSharp_Form\PJS5_CSharp_Form\obj\Debug\PJS5_CSharp_Form.Properties.Resources.resources
+C:\Users\lebgn\OneDrive\Bureau\finaltry\Turn-base-game-PJS5\PJS5_CSharp_Form\PJS5_CSharp_Form\obj\Debug\PJS5_CSharp_Form.SelectionSwitch.resources
+C:\Users\lebgn\OneDrive\Bureau\finaltry\Turn-base-game-PJS5\PJS5_CSharp_Form\PJS5_CSharp_Form\obj\Debug\PJS5_CSharp_Form.csproj.GenerateResource.cache
+C:\Users\lebgn\OneDrive\Bureau\finaltry\Turn-base-game-PJS5\PJS5_CSharp_Form\PJS5_CSharp_Form\obj\Debug\PJS5_CSharp_Form.csproj.CoreCompileInputs.cache
+C:\Users\lebgn\OneDrive\Bureau\finaltry\Turn-base-game-PJS5\PJS5_CSharp_Form\PJS5_CSharp_Form\obj\Debug\PJS5_CSharp_Form.exe
+C:\Users\lebgn\OneDrive\Bureau\finaltry\Turn-base-game-PJS5\PJS5_CSharp_Form\PJS5_CSharp_Form\obj\Debug\PJS5_CSharp_Form.pdb
