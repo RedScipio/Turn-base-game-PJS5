@@ -121,6 +121,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                                 {
                                     _pRobot.DealDamage(pEnnemiRobot, iChoice, iTargetChoice);
                                     CombatForm.SetInt(CONTINUE_CODE);
+                                    CombatForm.EnnemiHit(iTargetChoice);
                                     return;
                                 }
                             }
@@ -128,7 +129,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                             {
                                 CombatForm.AlreadyDestroy();
                                 AttackMenu(pEnnemiRobot);
-                                CombatForm.SetInt(CONTINUE_CODE);
+                                //CombatForm.SetInt(CONTINUE_CODE);
                                 return;
                             }
                         }
@@ -136,6 +137,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                         {
                             CombatForm.WeaponIsUnusable();
                             AttackMenu(pEnnemiRobot);
+                            
                             return;
                         }
                     }
@@ -165,6 +167,7 @@ namespace PJS5_CSharp.Sources.Pilot.Player
                                 {
                                     _pRobot.DealDamage(pEnnemiRobot, iChoice, iTargetChoice);
                                     CombatForm.SetInt(CONTINUE_CODE);
+                                    CombatForm.EnnemiHit(iTargetChoice);
                                     return;
                                 }
                             }

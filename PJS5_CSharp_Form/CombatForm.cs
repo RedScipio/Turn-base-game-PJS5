@@ -470,7 +470,7 @@ namespace PJS5_CSharp_Form
 
         }
 
-        private void IntUpdater_Tick(object sender, EventArgs e)
+        private async void IntUpdater_Tick(object sender, EventArgs e)
         {
             if (iResultValue == CONTINUE_CODE)
             {
@@ -478,8 +478,70 @@ namespace PJS5_CSharp_Form
                 ContinueBattle(iResultValue);
                 
             }
+            if (bShakeEnnemi == true)
+            {
+                var original = pictureBoxEnnemiBot.Location; //(pictureBoxEnnemiBot/pictureBoxPlayerBot)
+                var rnd = new Random(1337);
+                const int shake_amplitude = 2;
+                for (int i = 0; i < 10; i++)
+                {
+                    pictureBoxEnnemiBot.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));
+                    await Task.Delay(20);
+                }
+                pictureBoxEnnemiBot.Location = original;
+                bShakeEnnemi = false;
+
+                //PART HIT RED EFFECT
+                switch (iTargetChoice)
+                {
+                    case 1:
+                        {
+                            labelLeftArm.ForeColor = Color.FromArgb(255, 128, 128);
+                            await Task.Delay(200);
+                            labelLeftArm.ForeColor = Color.Black;
+                            break; 
+                        }
+                    case 2:
+                        {
+                            labelRightArm.ForeColor = Color.FromArgb(255, 128, 128);
+                            await Task.Delay(200);
+                            labelRightArm.ForeColor = Color.Black;
+                            break;
+                        }
+                    case 3:
+                        {
+                            labelLegs.ForeColor = Color.FromArgb(255, 128, 128);
+                            await Task.Delay(200);
+                            labelLegs.ForeColor = Color.Black;
+                            break;
+                        }
+                    case 4:
+                        {
+                            labelFurnace.ForeColor = Color.FromArgb(255, 128, 128);
+                            await Task.Delay(200);
+                            labelFurnace.ForeColor = Color.Black;
+                            break;
+                        }
+                    default:
+                        {
+                            return;
+                        }
+                }
+
+
+            }
 
         }
+        static bool bShakeEnnemi = false;
+        static int iTargetChoice;
+
+        public static void EnnemiHit(int iChoice)
+        {
+            bShakeEnnemi = true;
+            iTargetChoice = iChoice;
+        }
+
+
         private void guiBackButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("0");
@@ -553,6 +615,109 @@ namespace PJS5_CSharp_Form
         }
 
         private void label1_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void selectionSwitch1_MouseDown(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void selectionSwitch1_MouseLeave(object sender, EventArgs e)
+        {
+            if (selectionSwitch1.Value != 0)
+            {
+                iResultValue = selectionSwitch1.Value;
+                selectionSwitch21.Show();
+                selectionSwitch1.Enabled = false;
+            }
+
+        }
+
+        private void selectionSwitch21_MouseLeave(object sender, EventArgs e)
+        {
+            if (selectionSwitch21.Value != 0)
+            {
+                if (selectionSwitch21.Value == 3)
+                {
+                    //RETUN BACK
+                    iResultValue = 0;
+                    selectionSwitch1.Enabled = true;
+                    selectionSwitch21.Hide();
+                    selectionSwitch31.Hide();
+                    selectionSwitch1.Value = 0;
+                    selectionSwitch1.Refresh();
+
+                    selectionSwitch21.Value = 0;
+                    selectionSwitch21.Refresh();
+
+                    selectionSwitch31.Value = 0;
+                    selectionSwitch31.Refresh();
+                }
+                else
+                {
+                    iResultValue = selectionSwitch21.Value;
+                    selectionSwitch31.Show();
+                    selectionSwitch21.Enabled = false;
+                }
+            }
+
+
+        }
+
+        private void selectionSwitch31_MouseLeave(object sender, EventArgs e)
+        {
+            if (selectionSwitch31.Value != 0)
+            {
+                if (selectionSwitch31.Value == 5)
+                {
+                    iResultValue = 0;
+                    selectionSwitch21.Enabled = true;
+                    selectionSwitch31.Hide();
+
+                    selectionSwitch21.Value = 0;
+                    selectionSwitch21.Refresh();
+
+                    selectionSwitch31.Value = 0;
+                    selectionSwitch31.Refresh();
+                }
+                else
+                {
+                    iResultValue = selectionSwitch31.Value;
+                    selectionSwitch1.Enabled = true;
+                    selectionSwitch21.Enabled = true;
+                    selectionSwitch21.Hide();
+                    selectionSwitch31.Hide();
+                    selectionSwitch1.Value = 0;
+                    selectionSwitch1.Refresh();
+
+                    selectionSwitch21.Value = 0;
+                    selectionSwitch21.Refresh();
+
+                    selectionSwitch31.Value = 0;
+                    selectionSwitch31.Refresh();
+                }
+            }
+
+        }
+
+        private void selectionSwitch21_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void selectionSwitch1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void selectionSwitch31_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CombatForm_Load(object sender, EventArgs e)
         {
 
         }

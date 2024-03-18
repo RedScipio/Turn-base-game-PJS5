@@ -52,12 +52,24 @@
     <Compile Include="CombatForm.Designer.cs">
       <DependentUpon>CombatForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectionSwitch.cs">
+    <Compile Include="CustomTheme\SelectionSwitch3.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SelectionSwitch.Designer.cs">
+    <Compile Include="CustomTheme\SelectionSwitch3.Designer.cs">
+      <DependentUpon>SelectionSwitch3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomTheme\SelectionSwitch2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomTheme\SelectionSwitch2.Designer.cs">
+      <DependentUpon>SelectionSwitch2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CustomTheme\SelectionSwitch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomTheme\SelectionSwitch.Designer.cs">
       <DependentUpon>SelectionSwitch.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\Battle\Battle.cs" />
@@ -76,6 +88,12 @@
     <EmbeddedResource Include="CombatForm.resx">
       <DependentUpon>CombatForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomTheme\SelectionSwitch3.resx">
+      <DependentUpon>SelectionSwitch3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomTheme\SelectionSwitch2.resx">
+      <DependentUpon>SelectionSwitch2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -84,8 +102,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SelectionSwitch.resx">
+    <EmbeddedResource Include="CustomTheme\SelectionSwitch.resx">
       <DependentUpon>SelectionSwitch.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -103,6 +122,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sources\GUI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RobotEnnemi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RobotEnnemi2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RobotPlayer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
