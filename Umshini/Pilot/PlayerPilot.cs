@@ -75,7 +75,7 @@ namespace Pilot
                 return;
             }
 
-            --iUsed; // Converti la valeur 1 en 0, etc
+            //--iUsed; // Converti la valeur 1 en 0, etc
 
             switch (iUsed)
             {

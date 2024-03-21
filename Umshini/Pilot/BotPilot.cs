@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pilot
 {
-    internal abstract class BotPilot: APILOT
+    public abstract class BotPilot: APILOT
     {
         public BotPilot(IROBOT pRobot, List<ICONSUMABLE> vFuelsReserve, List<ICONSUMABLE> vRepairKitsReserve) : base(pRobot, vFuelsReserve, vRepairKitsReserve)
         {

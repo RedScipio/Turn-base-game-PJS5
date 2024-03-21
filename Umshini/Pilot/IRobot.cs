@@ -1,5 +1,5 @@
 ﻿
-using System;
+
 
 namespace Pilot
 {
@@ -19,6 +19,7 @@ namespace Pilot
         bool RepairArmorTargetIsValid(PARTS_TYPES eTargetChoice);
         void RemoveFuel(int iFuel);
         int GetFurnaceLife();
+        int GetFuel();
         int GetWeaponDamage(int iWeapon);
         int GetWeaponHitChance(int iWeapon);
         bool IsFurnaceBroken();

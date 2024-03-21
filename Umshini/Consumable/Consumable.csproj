@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="AConsumable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RefuelKit.cs" />
+    <Compile Include="RepairKit.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Umshini\Umshini.csproj">

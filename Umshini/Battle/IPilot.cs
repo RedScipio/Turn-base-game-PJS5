@@ -11,6 +11,7 @@ namespace Battle
 
         bool IsBotPilot();
         List<int> PlayTurnAuto();
+        
         bool FirstChoice(int iChoice);
         bool Refuel(int iChoice);
         bool Repair(int iChoice);

@@ -9,6 +9,8 @@ namespace Robot
         int GetDamage();
         int GetAmmo();
         bool RemoveAmmo();
+        int GetMinAccuracy();
+        int GetAccuracy();
         int GetHeatEffect();
     }
 }

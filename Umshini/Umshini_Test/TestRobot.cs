@@ -1,5 +1,4 @@
 
-using Umshini;
 
 namespace Umshini_Test
 {
@@ -60,25 +59,90 @@ namespace Umshini_Test
 
             //Checking if melee weapon can attack, with and without legs
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, melWeap);
-            playerRobot.WeaponIsUsable(1).Should().BeTrue();
-
-            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
-            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
-
             playerRobot.WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
+
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+
+            playerRobot.WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON).Should().BeFalse();
         }
 
         [Fact]
         public void TestIsNormalWeaponUsable()
         {
-            IWEAPON normWeap = new NORMAL_WEAPON(1, "normal melee weap", 1, 1, 5, 0, 60, 40);
+            IWEAPON normWeap = new NORMAL_WEAPON(1, "normal melee weap", 1, 1, 5, 100, 60, 40);
+
+            //Checking if normal weapon can attack
+            playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, normWeap);
+            playerRobot.WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
+
+            playerRobot.RemoveFuel(normWeap.GetPowerConsumption());
+
+            playerRobot.WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON).Should().BeFalse();
+
+            playerRobot.Refuel(100);
+
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.LEFT_WEAPON, PARTS_TYPES.WEAPON + 1);
+
+            playerRobot.WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON).Should().BeFalse();
         }
 
         [Fact]
-        public void TestDamageWithDifferentWeapons()
+        public void TestDamageWithThermalWeapon()
         {
+            IWEAPON thermWeap = new THERMAL_WEAPON(1, "normal melee weap", 1, 1, 3, 10, 20, 40, 40);
 
+            //Checking if thermal weapons remove fuel correctly from the enemies
+            playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, thermWeap);
+            playerRobot.WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
+            
 
+            //Removing fuel and checking if the enemy robot need to restart
+            playerRobot.DealDamage(botRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            botRobot.GetFuel().Should().Be(60);
+            playerRobot.DealDamage(botRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            botRobot.GetFuel().Should().Be(20);
+            botRobot.NeedToRestart();
+        }
+
+        [Fact]
+        public void TestHitChanceWithMeleeWeapons()
+        {
+            IWEAPON melWeap = new MELEE_WEAPON(1, "normal melee weap", 1, 1, 5, 0, 100, 0);
+
+            //Checking if melee weapons lose 50% / 100% of hit chance with 1 / 2 legs lost
+            playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, melWeap);
+            playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(100);
+
+            //With one leg broken
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(50);
+
+            //With two legs broken
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(0);
+
+            //After repairing one leg
+            playerRobot.RepairRobotLifePoint(1, PARTS_TYPES.LEG);
+            playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(50);
+        }
+
+        [Fact]
+        public void TestHitChanceWithProjectileWeapons()
+        {
+            IWEAPON projWeap = new PROJECTILE_WEAPON(1, "normal projectile weapon", 1, 1, 5, 0, 100, 80, 1);
+
+            //Checking if projectile weapons loses less accuracy than every other weapons, as intended
+            playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, projWeap);
+            playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(100);
+
+            //With one leg broken
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(90);
+
+            //With two legs broken
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(80);
         }
     }
 }

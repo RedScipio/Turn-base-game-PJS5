@@ -343,7 +343,8 @@ namespace Robot
 
         public int GetWeaponHitChance(int iWeapon)
         {
-            return 100;
+            
+            return this._lWeapon[iWeapon].GetMinAccuracy() + (_lWeapon[iWeapon].GetAccuracy() - _lWeapon[iWeapon].GetMinAccuracy()) / _pLeg.GetMaxLife() * _pLeg.GetLife();
         }
 
         public bool IsFurnaceBroken()
@@ -359,6 +360,11 @@ namespace Robot
         public bool IsWeaponBroken(int iWeapon)
         {
             return _lWeapon[iWeapon].IsBroken();
+        }
+
+        public IWEAPON GetWeapon(int iWeapon)
+        {
+            return _lWeapon[iWeapon];
         }
     }
 }
