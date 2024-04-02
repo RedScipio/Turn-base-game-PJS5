@@ -11,10 +11,6 @@ namespace Consumable
     {
         public RepairKit(REPAIR? eRepair = null) : base(eRepair, null) { }
 
-        public override int GetNumberItems()
-        {
-            throw new NotImplementedException();
-        }
 
     }
 }

@@ -2,6 +2,24 @@
 
 namespace Consumable
 {
+    public enum ENERGY
+    {
+        UNDEFINED = -1,
+        ENERGY_WOOD = 15,
+        ENERGY_CHARCOAL = 20,
+        ENERGY_COAL = 25,
+        ENERGY_COMPACT_COAL = 35,
+    }
+
+    public enum REPAIR
+    {
+        UNDEFINED = -1,
+        LIGHT_ARMOR = 1,
+        HEAVY_ARMOR = 3,
+        LIGHT_KIT = 2,
+        FULL_KIT = 4
+    }
+
     public abstract class ACONSUMABLE : ICONSUMABLE
     {
         private readonly REPAIR eRepair;
@@ -72,47 +90,8 @@ namespace Consumable
             }
             return sName;
         }
-        public abstract int GetNumberItems();
         public int GetValue()
         {
-            /*if (eRepair != REPAIR.UNDEFINED)
-            {
-                switch (eRepair)
-                {
-                    case REPAIR.LIGHT_ARMOR:
-                        iValue = ((int)REPAIR.LIGHT_ARMOR);
-                        break;
-                    case REPAIR.HEAVY_ARMOR:
-                        iValue = ((int)REPAIR.HEAVY_ARMOR);
-                        break;
-                    case REPAIR.LIGHT_KIT:
-                        iValue = ((int)REPAIR.LIGHT_KIT);
-                        break;
-                    case REPAIR.FULL_KIT:
-                        iValue = ((int)REPAIR.FULL_KIT);
-                        break;
-                    default: break;
-                }
-            }
-            else
-            {
-                switch (eEnergy)
-                {
-                    case ENERGY.ENERGY_WOOD:
-                        iValue = ((int)ENERGY.ENERGY_WOOD);
-                        break;
-                    case ENERGY.ENERGY_CHARCOAL:
-                        iValue = ((int)ENERGY.ENERGY_CHARCOAL);
-                        break;
-                    case ENERGY.ENERGY_COAL:
-                        iValue = ((int)ENERGY.ENERGY_COAL);
-                        break;
-                    case ENERGY.ENERGY_COMPACT_COAL:
-                        iValue = ((int)ENERGY.ENERGY_COMPACT_COAL);
-                        break;
-                    default: break;
-                }
-            }*/
             return iValue;
         }
     }

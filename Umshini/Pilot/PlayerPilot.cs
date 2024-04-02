@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System;
+using System.Linq;
 using Battle;
 using Umshini;
 
@@ -170,7 +171,7 @@ namespace Pilot
                     }
                 case REPAIRS_MENU.Light_Armor:
                     {
-                        if (_vRepairKitsReserve[iActionChoice - 1].GetNumberItems() > 0)
+                        if (_vRepairKitsReserve.Count() > 0)
                         {
                             int iTargetChoice = GUI.TargetMenu(iUsed);
                             PARTS_TYPES eTargetChoice = (PARTS_TYPES)iTargetChoice;
@@ -196,7 +197,7 @@ namespace Pilot
                     }
                 case REPAIRS_MENU.Heavy_Armor:
                     {
-                        if (_vRepairKitsReserve[iActionChoice - 1].GetNumberItems() > 0)
+                        if (_vRepairKitsReserve.Count() > 0)
                         {
                             int iTargetChoice = GUI.TargetMenu(iUsed);
                             PARTS_TYPES eTargetChoice = (PARTS_TYPES)iTargetChoice;
@@ -222,7 +223,7 @@ namespace Pilot
                     }
                 case REPAIRS_MENU.Repair_Kits:
                     {
-                        if (_vRepairKitsReserve[iActionChoice - 1].GetNumberItems() > 0)
+                        if (_vRepairKitsReserve.Count() > 0)
                         {
                             PARTS_TYPES eTargetChoice = (PARTS_TYPES)GUI.TargetMenu(iUsed);
 
@@ -247,7 +248,7 @@ namespace Pilot
                     }
                 case REPAIRS_MENU.Full_Kits:
                     {
-                        if (_vRepairKitsReserve[iActionChoice - 1].GetNumberItems() > 0)
+                        if (_vRepairKitsReserve.Count() > 0)
                         {
                             int iTargetChoice = GUI.TargetMenu(iUsed);
                             PARTS_TYPES eTargetChoice = (PARTS_TYPES)iTargetChoice;
@@ -283,11 +284,67 @@ namespace Pilot
 
         private void FurnaceMenu(IROBOT pEnnemiRobot, int iActionChoice = -1, int iUsed = -1)
         {
+            //not finished again
             if (iActionChoice == -1)
             {
                 iActionChoice = GUI.FuelMenu(this, iUsed);
             }
-            
+            switch((FUEL_MENU)iActionChoice) {
+                case FUEL_MENU.Wood:
+                    {
+                        if (_vFuelsReserve.Count() > 0)
+                        {
+                            pEnnemiRobot.Refuel(15);
+                            return;
+                        }
+                        else
+                        {
+                            GUI.NoStockFuel();
+                            return;
+                        }
+                    }
+                case FUEL_MENU.Charcoal:
+                    {
+                        if (_vFuelsReserve.Count() > 0)
+                        {
+                            pEnnemiRobot.Refuel(20);
+                            return;
+                        }
+                        else
+                        {
+                            GUI.NoStockFuel();
+                            return;
+                        }
+                    }
+                case FUEL_MENU.Coal:
+                    {
+                        if (_vFuelsReserve.Count() > 0)
+                        {
+                            pEnnemiRobot.Refuel(25);
+                            return;
+                        }
+                        else
+                        {
+                            GUI.NoStockFuel();
+                            return;
+                        }
+                    }
+                case FUEL_MENU.Compact_Coal:
+                    {
+                        if (_vFuelsReserve.Count() > 0)
+                        {
+                            this._pRobot.Refuel(35);
+                            return;
+                        }
+                        else
+                        {
+                            GUI.NoStockFuel();
+                            return;
+                        }
+                    }
+                default:
+                    return;
+            }
 
         }
 

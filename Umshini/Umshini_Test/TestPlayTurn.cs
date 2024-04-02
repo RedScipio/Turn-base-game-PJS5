@@ -1,5 +1,6 @@
 ﻿
 
+using Consumable;
 using Umshini;
 
 namespace Umshini_Test
@@ -28,7 +29,17 @@ namespace Umshini_Test
             List<ICONSUMABLE> _vBotRepairKitsReserve = new List<ICONSUMABLE>(); 
 
             List<ICONSUMABLE> _vPlayerFuelsReserve = new List<ICONSUMABLE>(); 
-            List<ICONSUMABLE> _vBotFuelsReserve = new List<ICONSUMABLE>(); 
+            List<ICONSUMABLE> _vBotFuelsReserve = new List<ICONSUMABLE>();
+
+            _vPlayerRepairKitsReserve.Add(new RepairKit(REPAIR.LIGHT_KIT));
+            _vPlayerRepairKitsReserve.Add(new RepairKit(REPAIR.FULL_KIT));
+            _vPlayerRepairKitsReserve.Add(new RepairKit(REPAIR.LIGHT_ARMOR));
+            _vPlayerRepairKitsReserve.Add(new RepairKit(REPAIR.HEAVY_ARMOR));
+
+            _vPlayerFuelsReserve.Add(new RefuelKit(ENERGY.ENERGY_WOOD));
+            _vPlayerFuelsReserve.Add(new RefuelKit(ENERGY.ENERGY_CHARCOAL));
+            _vPlayerFuelsReserve.Add(new RefuelKit(ENERGY.ENERGY_COAL));
+            _vPlayerFuelsReserve.Add(new RefuelKit(ENERGY.ENERGY_COMPACT_COAL));
 
             playerFurn = new FURNACE(1, "Normal Furnace", 1, 2, 50);
             botFurn = new FURNACE(1, "Normal Furnace", 1, 1, 50);
@@ -86,12 +97,35 @@ namespace Umshini_Test
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, playerRightWeap);
             botRobot = new ROBOT(botFurn, botLegs, botLeftWeap, botRightWeap);
 
+            pPlayerPilot = new PLAYER_PILOT(playerRobot, pPlayerPilot.GetRepairKitsReserve(), pPlayerPilot.GetFuelsReserve());
+            pBotPilot = new DumbBotPilot(botRobot, pBotPilot.GetRepairKitsReserve(), pBotPilot.GetFuelsReserve());
+
             pBotPilot.PlayTurn(playerRobot);
             playerFurn.GetArmor().Should().Be(0);
 
             //The player, whose furnace's damaged, will repair it.
             pPlayerPilot.PlayTurn(playerRobot, 2, 1, (int)PARTS_TYPES.FURNACE);
             playerFurn.GetArmor().Should().Be(1);
+
+            for (int i = 0; i < 2; i++) { pBotPilot.PlayTurn(playerRobot); }
+            playerFurn.GetLife().Should().Be(2);
+
+            pPlayerPilot.PlayTurn(playerRobot, 2, 3, (int)PARTS_TYPES.FURNACE);
+            playerFurn.GetLife().Should().Be(3);
+
+            //Checking that after repairing, the furnace life points are not superior to his maximum lifepoints (Being actually 3 life points max) when repaired
+            for (int i = 0; i < 4; i++) { pBotPilot.PlayTurn(playerRobot); }
+
+            playerFurn.GetLife().Should().Be(1);
+            pPlayerPilot.PlayTurn(playerRobot, 2, 4, (int)PARTS_TYPES.FURNACE);
+            playerFurn.GetLife().Should().Be(3);
+        }
+
+        [Fact]
+        public void TestRefuelMenuTurn() {
+            //Removing all fuel of the player's robot to check if he is unusable, then refill it to see the good fuel refill values
+            playerRobot.RemoveFuel(100);
+            playerRobot.NeedToRestart().Should().BeTrue();
         }
     }
 }
