@@ -12,15 +12,5 @@ C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.csproj.CoreComp
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.csproj.Up2Date
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.dll
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.pdb
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\bin\Debug\Pilot.dll
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\bin\Debug\Pilot.pdb
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\bin\Debug\Battle.dll
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\bin\Debug\GUI.exe
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\bin\Debug\Battle.pdb
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\bin\Debug\GUI.pdb
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\bin\Debug\GUI.exe.config
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\obj\Debug\Pilot.csproj.AssemblyReference.cache
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\obj\Debug\Pilot.csproj.CoreCompileInputs.cache
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\obj\Debug\Pilot.csproj.Up2Date
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\obj\Debug\Pilot.dll
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\obj\Debug\Pilot.pdb

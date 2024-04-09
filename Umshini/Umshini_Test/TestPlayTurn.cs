@@ -126,6 +126,26 @@ namespace Umshini_Test
             //Removing all fuel of the player's robot to check if he is unusable, then refill it to see the good fuel refill values
             playerRobot.RemoveFuel(100);
             playerRobot.NeedToRestart().Should().BeTrue();
+
+            //Checking after each refuel that the energies returning the good values
+            pPlayerPilot.PlayTurn(playerRobot, 3, 1);
+            playerRobot.GetFuel().Should().Be(15); //Total : 15
+
+            pPlayerPilot.PlayTurn(playerRobot, 3, 2);
+            playerRobot.GetFuel().Should().Be(15 + 20); //Total : 35
+
+            pPlayerPilot.PlayTurn(playerRobot, 3, 3);
+            playerRobot.GetFuel().Should().Be(15 + 20 + 25); //Total : 60
+
+            //Checking that the robot doesn't need to restart
+            playerRobot.NeedToRestart().Should().BeFalse();
+
+            pPlayerPilot.PlayTurn(playerRobot, 3, 4);
+            playerRobot.GetFuel().Should().Be(15 + 20 + 25 + 35); //Total : 95
+
+            //Checking that when attacking, the robot weapons remove the good fuel values
+            pPlayerPilot.PlayTurn(botRobot, 1, 1, (int)PARTS_TYPES.FURNACE, 40);
+            playerRobot.GetFuel().Should().Be(20 + 25 + 35); //Total fuel : 80
         }
     }
 }

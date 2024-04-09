@@ -10,7 +10,7 @@ namespace Umshini
     {
         static void Main(string[] args)
         {
-
+            //IPILOT pPlayerPilot;
         }
     }
 }

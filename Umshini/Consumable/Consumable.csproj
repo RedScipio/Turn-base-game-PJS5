@@ -46,11 +46,5 @@
     <Compile Include="RefuelKit.cs" />
     <Compile Include="RepairKit.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Umshini\Umshini.csproj">
-      <Project>{f3302d16-6ba4-4076-9067-75c99239c668}</Project>
-      <Name>Umshini</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

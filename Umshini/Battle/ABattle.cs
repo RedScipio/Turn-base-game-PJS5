@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Umshini;
 
 namespace Battle
 {
-    public abstract class ABATTLE //: IBATTLE
+    public abstract class ABATTLE
     {
         protected List<IPILOT> _lPilots;
 

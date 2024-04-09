@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
-using Umshini;
 
 namespace Battle
 {
@@ -135,17 +134,17 @@ namespace Battle
                 switch (iChoice)
                 {
                     case 0:
-                        result = pilot.IsLegsBroken();
+                        result = pilot.GetRobot().IsLegsBroken();
                         bLoop = false;
                         break;
                     case 1:
-                        result = pilot.IsFurnaceBroken();
+                        result = pilot.GetRobot().IsFurnaceBroken();
                         bLoop = false;
                         break;
                     default:
                         try
                         {
-                            result = pilot.IsWeaponBroken(iChoice);
+                            result = pilot.GetRobot().IsWeaponBroken(iChoice);
                             bLoop = false;
                         }
                         catch (ArgumentOutOfRangeException e)

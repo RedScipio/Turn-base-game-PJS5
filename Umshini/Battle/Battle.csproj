@@ -44,6 +44,7 @@
     <Compile Include="BasicBattle.cs" />
     <Compile Include="ABattle.cs" />
     <Compile Include="GUI.cs" />
+    <Compile Include="IConsumable.cs" />
     <Compile Include="IPilot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -51,9 +52,9 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Umshini\Umshini.csproj">
-      <Project>{f3302d16-6ba4-4076-9067-75c99239c668}</Project>
-      <Name>Umshini</Name>
+    <ProjectReference Include="..\Consumable\Consumable.csproj">
+      <Project>{68d1093b-6db4-4f96-8d99-4d618c5449fb}</Project>
+      <Name>Consumable</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

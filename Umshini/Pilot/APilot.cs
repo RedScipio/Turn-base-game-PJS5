@@ -1,5 +1,4 @@
-﻿using Umshini;
-using Battle;
+﻿using Battle;
 using System.Collections.Generic;
 
 namespace Pilot
@@ -85,27 +84,17 @@ namespace Pilot
             throw new System.NotImplementedException();
         }
 
-        bool IPILOT.IsWeaponUsable(int iChoice)
+        List<ICONSUMABLE> IPILOT.GetFuelsReserve()
         {
-            throw new System.NotImplementedException();
+            return _vFuelsReserve;
         }
 
-        bool IPILOT.UseWeapon(int iChoice)
+        List<ICONSUMABLE> IPILOT.GetRepairKitsReserve()
         {
-            throw new System.NotImplementedException();
+            return _vRepairKitsReserve;
         }
 
-        bool IPILOT.IsFurnaceBroken()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        bool IPILOT.IsLegsBroken()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        bool IPILOT.IsWeaponBroken(int iWeapon)
+        public bool IsWeaponUsable(int iChoice)
         {
             throw new System.NotImplementedException();
         }

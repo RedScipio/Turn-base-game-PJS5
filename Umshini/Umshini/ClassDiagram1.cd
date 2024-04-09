@@ -14,19 +14,5 @@
       <FileName>IBattle.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Umshini.ICONSUMABLE" Collapsed="true">
-    <Position X="2.25" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAIAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
-      <FileName>IConsumable.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Enum Name="Umshini.ENERGY" Collapsed="true">
-    <Position X="0.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAAQAAAACAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IConsumable.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
