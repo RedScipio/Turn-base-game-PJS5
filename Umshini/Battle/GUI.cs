@@ -376,10 +376,6 @@ namespace Battle
             Console.WriteLine("|               Wrong  Entry               |");
             Console.WriteLine("!!!-----------------!==!-----------------!!!");
         }
-        public static int RefuelMenu()
-        {
-            throw new NotImplementedException();
-        }
 
         public static int TargetPartMenu()
         {

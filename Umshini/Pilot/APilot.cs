@@ -54,7 +54,7 @@ namespace Pilot
             throw new System.NotImplementedException();
         }
 
-        public bool FirstChoice(int iChoice)
+        public bool FirstChoiceIsValid(int iChoice)
         {
             throw new System.NotImplementedException();
         }
@@ -66,10 +66,15 @@ namespace Pilot
 
         public bool Repair(int iChoice)
         {
-            throw new System.NotImplementedException();
+            if (this._pRobot.RepairLifeTargetIsValid((PARTS_TYPES)iChoice))
+            {
+
+            }
+
+            return false;
         }
 
-        public bool Attack(int iChoice)
+        public bool Attack(int iChoice, IPILOT e)
         {
             throw new System.NotImplementedException();
         }

@@ -16,24 +16,29 @@ namespace Battle
 
         public void PlayBattle()
         {
+            List<int> lResult = new List<int>();
+
+            // Tant que aucun des 2 robots n'est détruit
             while (!_lPilots[0].IsFurnaceBroken() && !_lPilots[1].IsFurnaceBroken())
             {
-                PlayRound();
+                lResult.AddRange(PlayRound());
             } 
         }
-
+        
+        // Joue un round, un tour par joueur
         public override List<int> PlayRound()
         {
             List<int> lResult = new List<int>();
 
             for (int i = 0; i<this._lPilots.Count; i++)
             {
-                lResult = this.PlayTurn(i);
+                lResult.AddRange(this.PlayTurn(i));
             }
 
             return lResult;
         }
 
+        // Joue le tour d'un joueur
         public override List<int> PlayTurn(int iPilot)
         {
             int iChoice;
@@ -41,6 +46,10 @@ namespace Battle
             IPILOT currentPilot = this._lPilots[iPilot];
             List<int> actions = new List<int>();
 
+            /*
+             * Si c'est bien un bot,
+             * procéder au PlayTurnAuto()
+             */
             if (currentPilot.IsBotPilot()) 
             {
                 return currentPilot.PlayTurnAuto();
@@ -76,30 +85,24 @@ namespace Battle
                 }
             } 
             // FirstChoice is used in case no option are valid in the selected menu
-            while (!currentPilot.FirstChoice(iChoice) && bLoop);
+            while (!currentPilot.FirstChoiceIsValid(iChoice) && bLoop);
 
             return actions;
         }
 
+        
         private bool Attack(IPILOT currentPilot, IPILOT ennemyPilot)
         {
-            bool bMainLoop = true;
             int iChoiceWeapon;
 
             do
             {
                 iChoiceWeapon = GUI.WeaponMenu(currentPilot);
-
-                if (iChoiceWeapon == int.MinValue)
-                {
-                    return true;
-                }
-
-
             }
-            while (!currentPilot.IsWeaponUsable(iChoiceWeapon));
+            while (!currentPilot.IsWeaponUsable(iChoiceWeapon) && iChoiceWeapon != int.MinValue);
 
-            return bMainLoop;
+            currentPilot.Attack(iChoiceWeapon, ennemyPilot);
+            return false;
         }
 
         private void Repair(IPILOT currentPilot)
@@ -117,7 +120,7 @@ namespace Battle
             int iChoice;
             do
             {
-                iChoice = GUI.RefuelMenu();
+                iChoice = GUI.FuelMenu(currentPilot);
             }
             while (!currentPilot.Refuel(iChoice));
         }
