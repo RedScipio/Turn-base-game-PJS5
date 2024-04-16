@@ -1,4 +1,5 @@
-﻿
+﻿using Battle;
+
 namespace Weapon
 {
     /// <summary>
@@ -21,7 +22,7 @@ namespace Weapon
         /// <param name="iAccuracy"></param>
         /// <param name="iMinAccuracy"></param>
         /// <param name="eWeaponType"></param>
-        public PROJECTILE_WEAPON(int iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, int iAmmo) : base(iId, sName, iArmor, iLifePoint, iDamage, iPowerConsumption, iAccuracy, iMinAccuracy, Robot.WEAPONS_TYPES.PROJECTILE)
+        public PROJECTILE_WEAPON(int iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, int iAmmo) : base(iId, sName, iArmor, iLifePoint, iDamage, iPowerConsumption, iAccuracy, iMinAccuracy, WEAPONS_TYPES.PROJECTILE)
         {
             _iAmmo = iAmmo;
         }

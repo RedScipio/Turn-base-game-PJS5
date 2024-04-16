@@ -47,56 +47,70 @@ namespace Pilot
             return _vResultsInputs;
         }
 
-        /*public bool TargetPart(int iChoice)
-        {
-            
-        }*/
-
         public abstract bool IsBotPilot();
 
-        List<int> IPILOT.PlayTurnAuto()
+        public List<int> PlayTurnAuto()
         {
             throw new System.NotImplementedException();
         }
 
-        bool IPILOT.FirstChoice(int iChoice)
+        public bool FirstChoice(int iChoice)
         {
             throw new System.NotImplementedException();
         }
 
-        bool IPILOT.Refuel(int iChoice)
+        public bool Refuel(int iChoice)
         {
             throw new System.NotImplementedException();
         }
 
-        bool IPILOT.Repair(int iChoice)
+        public bool Repair(int iChoice)
         {
             throw new System.NotImplementedException();
         }
 
-        bool IPILOT.Attack(int iChoice)
+        public bool Attack(int iChoice)
         {
             throw new System.NotImplementedException();
         }
 
-        bool IPILOT.TargetPart(int iChoice)
+        public bool TargetPart(int iChoice)
         {
             throw new System.NotImplementedException();
-        }
-
-        List<ICONSUMABLE> IPILOT.GetFuelsReserve()
-        {
-            return _vFuelsReserve;
-        }
-
-        List<ICONSUMABLE> IPILOT.GetRepairKitsReserve()
-        {
-            return _vRepairKitsReserve;
         }
 
         public bool IsWeaponUsable(int iChoice)
         {
-            throw new System.NotImplementedException();
+            return _pRobot.WeaponIsUsable(iChoice);
+        }
+
+        /// <summary>
+        /// return true if the leg is broken
+        /// </summary>
+        public bool IsLegsBroken()
+        {
+            return _pRobot.IsLegsBroken();
+        }
+
+        /// <summary>
+        /// return true if the furnace is broken
+        /// </summary>
+        public bool IsFurnaceBroken()
+        {
+            return _pRobot.IsFurnaceBroken();
+        }
+
+        /// <summary>
+        /// return true if the weapon is broken
+        /// </summary>
+        public bool IsWeaponBroken(int iChoice)
+        {
+            return _pRobot.IsWeaponBroken(iChoice);
+        }
+
+        public int GetLeftWeaponType()
+        {
+           return  _pRobot.GetWeaponDamage(0);
         }
     }
 }

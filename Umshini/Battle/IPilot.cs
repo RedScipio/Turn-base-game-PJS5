@@ -14,5 +14,9 @@ namespace Battle
         bool Attack(int iChoice);
         bool TargetPart(int iChoice);
         bool IsWeaponUsable(int iChoice);
+        bool IsLegsBroken();
+        bool IsFurnaceBroken();
+        bool IsWeaponBroken(int iChoice);
+        IROBOT GetRobot();
     }
 }

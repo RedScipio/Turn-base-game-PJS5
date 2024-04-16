@@ -29,7 +29,6 @@
     <ProjectReference Include="..\Part\Part.csproj" />
     <ProjectReference Include="..\Pilot\Pilot.csproj" />
     <ProjectReference Include="..\Robot\Robot.csproj" />
-    <ProjectReference Include="..\Umshini\Umshini.csproj" />
     <ProjectReference Include="..\Weapon\Weapon.csproj" />
   </ItemGroup>
 

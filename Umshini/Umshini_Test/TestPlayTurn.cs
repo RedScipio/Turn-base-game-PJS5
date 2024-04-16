@@ -1,8 +1,4 @@
 ﻿
-
-using Consumable;
-using Umshini;
-
 namespace Umshini_Test
 {
     public class TestPlayTurn

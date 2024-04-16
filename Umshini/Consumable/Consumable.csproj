@@ -46,5 +46,11 @@
     <Compile Include="RefuelKit.cs" />
     <Compile Include="RepairKit.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Battle\Battle.csproj">
+      <Project>{3ba5891c-f6c3-4ef3-9c78-6d79e7974396}</Project>
+      <Name>Battle</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

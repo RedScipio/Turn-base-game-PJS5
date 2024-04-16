@@ -1,5 +1,5 @@
 ﻿using Part;
-using Robot;
+using Battle;
 
 namespace Weapon
 {

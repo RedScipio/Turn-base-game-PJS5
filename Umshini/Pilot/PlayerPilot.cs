@@ -66,7 +66,7 @@ namespace Pilot
         {
             if (iUsed == -1)
             {
-                iUsed = GUI.WeaponMenu();
+                iUsed = GUI.WeaponMenu(this);
             }
             if (_pRobot.NeedToRestart())
             {

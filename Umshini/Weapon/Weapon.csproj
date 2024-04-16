@@ -49,13 +49,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Battle\Battle.csproj">
+      <Project>{3ba5891c-f6c3-4ef3-9c78-6d79e7974396}</Project>
+      <Name>Battle</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Part\Part.csproj">
       <Project>{461BDC44-5CC4-4CC0-8CF2-45AC1CDB361C}</Project>
       <Name>Part</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Robot\Robot.csproj">
-      <Project>{7FF93513-7E8A-4902-94D6-610CEBC90DD2}</Project>
-      <Name>Robot</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

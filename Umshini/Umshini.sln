@@ -4,11 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battle", "Battle\Battle.csproj", "{3BA5891C-F6C3-4EF3-9C78-6D79E7974396}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F3302D16-6BA4-4076-9067-75C99239C668} = {F3302D16-6BA4-4076-9067-75C99239C668}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umshini", "Umshini\Umshini.csproj", "{F3302D16-6BA4-4076-9067-75C99239C668}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pilot", "Pilot\Pilot.csproj", "{57856C53-F2E4-4E73-96B0-0F6F420197C1}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -25,6 +20,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weapon", "Weapon\Weapon.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umshini_Test", "Umshini_Test\Umshini_Test.csproj", "{69AD59CB-A5EC-41CF-97D1-857B71D9D625}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormTry", "WindowsFormTry\WindowsFormTry.csproj", "{FD08685B-5544-4690-9A33-A9D585A4D993}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoFormApp", "NoFormApp\NoFormApp.csproj", "{3693C9BF-692C-4EFC-B2A5-C68C70D67D6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +34,6 @@ Global
 		{3BA5891C-F6C3-4EF3-9C78-6D79E7974396}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BA5891C-F6C3-4EF3-9C78-6D79E7974396}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BA5891C-F6C3-4EF3-9C78-6D79E7974396}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F3302D16-6BA4-4076-9067-75C99239C668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3302D16-6BA4-4076-9067-75C99239C668}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3302D16-6BA4-4076-9067-75C99239C668}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3302D16-6BA4-4076-9067-75C99239C668}.Release|Any CPU.Build.0 = Release|Any CPU
 		{57856C53-F2E4-4E73-96B0-0F6F420197C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{57856C53-F2E4-4E73-96B0-0F6F420197C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57856C53-F2E4-4E73-96B0-0F6F420197C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,6 +58,14 @@ Global
 		{69AD59CB-A5EC-41CF-97D1-857B71D9D625}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69AD59CB-A5EC-41CF-97D1-857B71D9D625}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69AD59CB-A5EC-41CF-97D1-857B71D9D625}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD08685B-5544-4690-9A33-A9D585A4D993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD08685B-5544-4690-9A33-A9D585A4D993}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD08685B-5544-4690-9A33-A9D585A4D993}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD08685B-5544-4690-9A33-A9D585A4D993}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3693C9BF-692C-4EFC-B2A5-C68C70D67D6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3693C9BF-692C-4EFC-B2A5-C68C70D67D6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3693C9BF-692C-4EFC-B2A5-C68C70D67D6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3693C9BF-692C-4EFC-B2A5-C68C70D67D6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

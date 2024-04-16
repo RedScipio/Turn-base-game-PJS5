@@ -1,0 +1,18 @@
+{
+    "LIGHT_ARMOR": {
+      "armor": 1,
+      "life": 0
+    },
+    "HEAVY_ARMOR (copy)": {
+      "armor": 3,
+      "life": 0
+    },
+    "LIGHT_KIT (copy 2)": {
+      "armor": 0,
+      "life": 1
+    },
+    "HEAVY_KIT (copy 3)": {
+      "armor": 0,
+      "life": 3
+    }
+}

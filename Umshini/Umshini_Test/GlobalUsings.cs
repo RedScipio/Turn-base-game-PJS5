@@ -4,4 +4,5 @@ global using Part;
 global using Pilot;
 global using Robot;
 global using Weapon;
+global using Consumable;
 global using FluentAssertions;

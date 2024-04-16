@@ -128,7 +128,7 @@ namespace Battle
             return iResult;
         }
 
-        public static int RepairMenu(IPILOT pPilot, int res)
+        public static int RepairMenu(IPILOT pPilot, int res = -1)
         {
             int iResult;
             Console.WriteLine("|====================--====================|");
@@ -234,119 +234,76 @@ namespace Battle
             return iResult;
         }
 
-        /*public override int WeaponMenu(IPILOT pPlayer)
+        public static int WeaponMenu(IPILOT pPlayer, int res = -1)
         {
             int iResult;
+            int iWeapon = 0;
+            IROBOT playerRobot = pPlayer.GetRobot();
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|              Weapon  Menu                |");
             Console.WriteLine("|===================-<>-===================|");
-            Console.Write("| " + (int)WEAPON_MENU.Left_Weapon + "-Left Weapon type: ");
-            switch (pPlayer.GetLeftWeaponType())
+
+            foreach(IWEAPON weapon in playerRobot.GetWeapons())
             {
-                case 1:
-                    {
-                        Console.WriteLine("Normal               |");
-                        break;
-                    }
-                case 2:
-                    {
-                        Console.WriteLine("Melee                |");
-                        break;
-                    }
-                case 3:
-                    {
-                        Console.WriteLine("Projectile           |");
-                        int iAmmo = pPlayer.GetLeftWeaponSpecificity();
-                        Console.Write("| Remaining ammo: x" + iAmmo);
-                        if (iAmmo < 10)
+                Console.Write("| " + (int)WEAPON_MENU.Left_Weapon + "-Left Weapon type: ");
+                switch (weapon.TypeIs())
+                {
+                    case WEAPONS_TYPES.NORMAL:
                         {
-                            Console.Write(" ");
+                            Console.WriteLine("Normal               |");
+                            break;
                         }
-                        Console.WriteLine("                      |");
-                        break;
-                    }
-                case 4:
-                    {
-                        Console.WriteLine("Thermal              |");
-                        int iFuel = pPlayer.GetLeftWeaponSpecificity();
-                        Console.Write("| Burning fuels: x" + iFuel);
-                        if (iFuel < 10)
+                    case WEAPONS_TYPES.MELEE:
                         {
-                            Console.Write(" ");
+                            Console.WriteLine("Melee                |");
+                            break;
                         }
-                        Console.WriteLine("                     |");
-                        break;
-                    }
-                default:
-                    {
-                        Console.WriteLine("Undefined            |");
-                        break;
-                    }
+                    case WEAPONS_TYPES.PROJECTILE:
+                        {
+                            Console.WriteLine("Projectile           |");
+                            int iAmmo = weapon.GetAmmo();
+                            Console.Write("| Remaining ammo: x" + iAmmo);
+                            if (iAmmo < 10)
+                            {
+                                Console.Write(" ");
+                            }
+                            Console.WriteLine("                      |");
+                            break;
+                        }
+                    case WEAPONS_TYPES.THERMAL:
+                        {
+                            Console.WriteLine("Thermal              |");
+                            int iFuel = weapon.GetHeatEffect();
+                            Console.Write("| Burning fuels: x" + iFuel);
+                            if (iFuel < 10)
+                            {
+                                Console.Write(" ");
+                            }
+                            Console.WriteLine("                     |");
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Undefined            |");
+                            break;
+                        }
+                }
+                Console.WriteLine("|>- - - - - - - - - -<>- - - - - - - - - -<|");
+                Console.WriteLine("| Damage: " + weapon.GetDamage() + "                                |");
+                int iLeftAccuracy = playerRobot.GetWeaponHitChance(iWeapon);
+                Console.Write("| Accuracy: " + iLeftAccuracy + "%");
+                if (iLeftAccuracy < 100)
+                {
+                    Console.Write(" ");
+                }
+                Console.WriteLine("                           |");
+                Console.WriteLine("| Fuel Consumption: " + weapon.GetPowerConsumption() + "                     |");
+
+                iWeapon++;
             }
-            Console.WriteLine("|>- - - - - - - - - -<>- - - - - - - - - -<|");
-            Console.WriteLine("| Damage: " + pPlayer.GetLeftWeaponDamage() + "                                |");
-            int iLeftAccuracy = pPlayer.GetLeftWeaponHitChance();
-            Console.Write("| Accuracy: " + iLeftAccuracy + "%");
-            if (iLeftAccuracy < 100)
-            {
-                Console.Write(" ");
-            }
-            Console.WriteLine("                           |");
-            Console.WriteLine("| Fuel Consumption: " + pPlayer.GetLeftWeaponPowerConsumption() + "                     |");
+            
+            
             Console.WriteLine("|===================-<>-===================|");
-            Console.Write("| " + (int)WEAPON_MENU.Right_Weapon + "-Right Weapon type: ");
-            switch (pPlayer.GetRightWeaponType())
-            {
-                case 1:
-                    {
-                        Console.WriteLine("Normal              |");
-                        break;
-                    }
-                case 2:
-                    {
-                        Console.WriteLine("Melee               |");
-                        break;
-                    }
-                case 3:
-                    {
-                        Console.WriteLine("Projectile          |");
-                        int iAmmo = pPlayer.GetRightWeaponSpecificity();
-                        Console.Write("| Remaining ammo: x" + iAmmo);
-                        if (iAmmo < 10)
-                        {
-                            Console.Write(" ");
-                        }
-                        Console.WriteLine("                      |");
-                        break;
-                    }
-                case 4:
-                    {
-                        Console.WriteLine("Thermal             |");
-                        int iFuel = pPlayer.GetRightWeaponSpecificity();
-                        Console.Write("| Burning fuels: x" + iFuel);
-                        if (iFuel < 10)
-                        {
-                            Console.Write(" ");
-                        }
-                        Console.WriteLine("                     |");
-                        break;
-                    }
-                default:
-                    {
-                        Console.WriteLine("Undefined           |");
-                        break;
-                    }
-            }
-            Console.WriteLine("|>- - - - - - - - - -<>- - - - - - - - - -<|");
-            Console.WriteLine("| Damage: " + pPlayer.GetRightWeaponDamage() + "                                |");
-            int iRightAccuracy = pPlayer.GetRightWeaponHitChance();
-            Console.Write("| Accuracy: " + iRightAccuracy + "%");
-            if (iRightAccuracy < 100)
-            {
-                Console.Write(" ");
-            }
-            Console.WriteLine("                           |");
-            Console.WriteLine("| Fuel Consumption: " + pPlayer.GetRightWeaponPowerConsumption() + "                     |");
             Console.WriteLine("|===================-<>-===================|");
             Console.WriteLine("|                    ||       " + (int)WEAPON_MENU.Back + "-Back       |");
             Console.WriteLine("|===================-<>-===================|");
@@ -362,7 +319,7 @@ namespace Battle
             Console.WriteLine("                   |");
             Console.WriteLine("|====================--====================|");
             return iResult;
-        }*/
+        }
 
         public static void RobotRestart()
         {
@@ -419,28 +376,12 @@ namespace Battle
             Console.WriteLine("|               Wrong  Entry               |");
             Console.WriteLine("!!!-----------------!==!-----------------!!!");
         }
-
-        public static int MainMenu()
-        {
-            throw new NotImplementedException();
-        }
-
         public static int RefuelMenu()
         {
             throw new NotImplementedException();
         }
 
-        public static int RepairMenu()
-        {
-            throw new NotImplementedException();
-        }
-
         public static int TargetPartMenu()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static int WeaponMenu()
         {
             throw new NotImplementedException();
         }

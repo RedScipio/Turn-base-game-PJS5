@@ -1,7 +1,4 @@
-﻿using Consumable;
-using Umshini;
-
-namespace Umshini_Test
+﻿namespace Umshini_Test
 {
     public class TestConsumable
     {

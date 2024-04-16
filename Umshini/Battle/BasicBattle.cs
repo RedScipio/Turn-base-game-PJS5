@@ -16,7 +16,10 @@ namespace Battle
 
         public void PlayBattle()
         {
-
+            while (!_lPilots[0].IsFurnaceBroken() && !_lPilots[1].IsFurnaceBroken())
+            {
+                PlayRound();
+            } 
         }
 
         public override List<int> PlayRound()
@@ -72,6 +75,7 @@ namespace Battle
                         }
                 }
             } 
+            // FirstChoice is used in case no option are valid in the selected menu
             while (!currentPilot.FirstChoice(iChoice) && bLoop);
 
             return actions;
@@ -84,7 +88,7 @@ namespace Battle
 
             do
             {
-                iChoiceWeapon = GUI.WeaponMenu();
+                iChoiceWeapon = GUI.WeaponMenu(currentPilot);
 
                 if (iChoiceWeapon == int.MinValue)
                 {
@@ -103,7 +107,7 @@ namespace Battle
             int iChoice;
             do
             {
-                iChoice = GUI.RepairMenu();
+                iChoice = GUI.RepairMenu(currentPilot);
             }
             while (!currentPilot.Repair(iChoice));
         }
@@ -134,17 +138,17 @@ namespace Battle
                 switch (iChoice)
                 {
                     case 0:
-                        result = pilot.GetRobot().IsLegsBroken();
+                        result = pilot.IsLegsBroken();
                         bLoop = false;
                         break;
                     case 1:
-                        result = pilot.GetRobot().IsFurnaceBroken();
+                        result = pilot.IsFurnaceBroken();
                         bLoop = false;
                         break;
                     default:
                         try
                         {
-                            result = pilot.GetRobot().IsWeaponBroken(iChoice);
+                            result = pilot.IsWeaponBroken(iChoice);
                             bLoop = false;
                         }
                         catch (ArgumentOutOfRangeException e)

@@ -47,9 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Robot\Robot.csproj">
-      <Project>{7FF93513-7E8A-4902-94D6-610CEBC90DD2}</Project>
-      <Name>Robot</Name>
+    <ProjectReference Include="..\Battle\Battle.csproj">
+      <Project>{3ba5891c-f6c3-4ef3-9c78-6d79e7974396}</Project>
+      <Name>Battle</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

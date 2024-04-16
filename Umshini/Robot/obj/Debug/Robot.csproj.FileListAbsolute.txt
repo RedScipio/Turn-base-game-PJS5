@@ -14,5 +14,12 @@ C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.CoreComp
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.Up2Date
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.dll
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.pdb
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\bin\Debug\Robot.dll
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\bin\Debug\Robot.pdb
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\bin\Debug\Battle.dll
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\bin\Debug\Battle.pdb
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\obj\Debug\Robot.csproj.AssemblyReference.cache
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\obj\Debug\Robot.csproj.CoreCompileInputs.cache
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\obj\Debug\Robot.csproj.Up2Date
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\obj\Debug\Robot.dll
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\obj\Debug\Robot.pdb

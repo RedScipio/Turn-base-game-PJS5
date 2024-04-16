@@ -1,4 +1,4 @@
-﻿using Pilot;
+﻿using Battle;
 using System.Collections.Generic;
 
 namespace Robot
@@ -25,7 +25,7 @@ namespace Robot
         {
             _pFurnace = furnace;
             _pLeg = leg;
-            _lWeapon = new List<IWEAPON> { leftWeapon , rightWeapon };
+            _lWeapon = new List<IWEAPON> { leftWeapon, rightWeapon };
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace Robot
         {
             IWEAPON pWeapon = _lWeapon[iWeaponChoice];
 
-            if(pWeapon.TypeIs() == WEAPONS_TYPES.PROJECTILE)
+            if (pWeapon.TypeIs() == WEAPONS_TYPES.PROJECTILE)
             {
                 pWeapon.RemoveAmmo();
             }
@@ -155,7 +155,7 @@ namespace Robot
         /// </summary>
         /// <developer>MBI</developer>
         /// <param name="iFuel"></param>
-        public void Refuel(int iFuel) 
+        public void Refuel(int iFuel)
         {
             _iFuel += iFuel;
 
@@ -343,7 +343,7 @@ namespace Robot
 
         public int GetWeaponHitChance(int iWeapon)
         {
-            
+
             return this._lWeapon[iWeapon].GetMinAccuracy() + (_lWeapon[iWeapon].GetAccuracy() - _lWeapon[iWeapon].GetMinAccuracy()) / _pLeg.GetMaxLife() * _pLeg.GetLife();
         }
 
@@ -365,6 +365,16 @@ namespace Robot
         public IWEAPON GetWeapon(int iWeapon)
         {
             return _lWeapon[iWeapon];
+        }
+
+        /// <summary>
+        /// Return a copy of _lWeapon list to be use by the GUI
+        /// We don't want to be able to modify the list or weapons
+        /// </summary>
+        /// <returns></returns>
+        public List<IWEAPON> GetWeapons()
+        {
+            return new List<IWEAPON>(_lWeapon);
         }
     }
 }

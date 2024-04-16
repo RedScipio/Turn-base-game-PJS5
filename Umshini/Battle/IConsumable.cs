@@ -21,8 +21,8 @@ namespace Battle
     {
         UNDEFINED = -1,
         LIGHT_ARMOR = 1,
-        HEAVY_ARMOR = 3,
-        LIGHT_KIT = 2,
+        HEAVY_ARMOR = 2,
+        LIGHT_KIT = 3,
         FULL_KIT = 4
     }
 }
