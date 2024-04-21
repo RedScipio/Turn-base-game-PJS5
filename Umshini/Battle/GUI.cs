@@ -188,35 +188,35 @@ namespace Battle
             Console.WriteLine("|                Fuel  Menu                |");
             Console.WriteLine("|===================-<>-===================|");
             List<ICONSUMABLE> vFuelsReserve = pPilot.GetFuelsReserve();
-            ICONSUMABLE iWood = vFuelsReserve[0];
-            Console.Write("|     " + (int)FUEL_MENU.Wood + "-Wood: x" + iWood);
-            if (iWood.GetValue() < 10)
+            ICONSUMABLE Wood = vFuelsReserve[0];
+            Console.Write("|     " + (int)FUEL_MENU.Wood + "-"+ Wood.GetName() + ": x" + Wood.GetValue());
+            if (Wood.GetValue() < 10)
             {
                 Console.Write(" ");
             }
-            ICONSUMABLE iCharcoal = vFuelsReserve[1];
-            Console.Write("    ||   " + (int)FUEL_MENU.Charcoal + "-Charcoal: x" + iCharcoal);
-            if (iCharcoal.GetValue() < 10)
+            ICONSUMABLE Charcoal = vFuelsReserve[1];
+            Console.Write("    ||  " + (int)FUEL_MENU.Charcoal +  " -"+ Charcoal.GetName() + ": x" + Charcoal.GetValue());
+            if (Charcoal.GetValue() < 10) // adapt to two digits
             {
                 Console.Write(" ");
             }
             Console.WriteLine("  |");
-            Console.WriteLine("|     Energy: " + ENERGY.ENERGY_WOOD + "     ||     Energy: " + ENERGY.ENERGY_CHARCOAL + "     |");
+            Console.WriteLine("|     Energy: " + (int)ENERGY.ENERGY_WOOD + "     ||     Energy: " + (int)ENERGY.ENERGY_CHARCOAL + "     |");
             Console.WriteLine("|===================-<>-===================|");
-            ICONSUMABLE iCoal = vFuelsReserve[2];
-            Console.Write("|     " + (int)FUEL_MENU.Coal + "-Coal: x" + iCoal);
-            if (iCoal.GetValue() < 10)
+            ICONSUMABLE Coal = vFuelsReserve[2];
+            Console.Write("|     " + (int)FUEL_MENU.Coal + "-"+ Coal.GetName() + ": x" + Coal.GetValue());
+            if (Coal.GetValue() < 10)
             {
                 Console.Write(" ");
             }
-            ICONSUMABLE iCompactCoal = vFuelsReserve[3];
-            Console.Write("    || " + (int)FUEL_MENU.Compact_Coal + "-Compact Coal: x" + iCompactCoal);
-            if (iCompactCoal.GetValue() < 10)
+            ICONSUMABLE CompactCoal = vFuelsReserve[3];
+            Console.Write("    || " + (int)FUEL_MENU.Compact_Coal + "-"+ CompactCoal.GetName() + ": x" + CompactCoal.GetValue());
+            if (CompactCoal.GetValue() < 10)
             {
                 Console.Write(" ");
             }
             Console.WriteLine("|");
-            Console.WriteLine("|     Energy: " + ENERGY.ENERGY_COAL + "     ||     Energy: " + ENERGY.ENERGY_COMPACT_COAL + "     |");
+            Console.WriteLine("|     Energy: " + (int)ENERGY.ENERGY_COAL + "     ||     Energy: " + (int)ENERGY.ENERGY_COMPACT_COAL + "     |");
             Console.WriteLine("|===================-<>-===================|");
             Console.WriteLine("|                    ||       " + (int)FUEL_MENU.Back + "-Back       |");
             Console.WriteLine("|===================-<>-===================|");

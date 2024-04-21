@@ -61,7 +61,12 @@ namespace Pilot
 
         public bool Refuel(int iChoice)
         {
-            throw new System.NotImplementedException();
+            if(this._pRobot.GetFuel() < 100)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public bool Repair(int iChoice)

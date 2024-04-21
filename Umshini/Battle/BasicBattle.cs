@@ -42,7 +42,7 @@ namespace Battle
         public override List<int> PlayTurn(int iPilot)
         {
             int iChoice;
-            bool bLoop = true;
+            bool bDontLoop = false;
             IPILOT currentPilot = this._lPilots[iPilot];
             List<int> actions = new List<int>();
 
@@ -65,7 +65,7 @@ namespace Battle
                         {
                             int iEnnemy = (iPilot == 0) ? 1 : 0;
 
-                            bLoop = Attack(currentPilot, this._lPilots[iEnnemy]);
+                            bDontLoop = Attack(currentPilot, this._lPilots[iEnnemy]);
                             break;
                         }
                     case 1: // Repair
@@ -85,7 +85,7 @@ namespace Battle
                 }
             } 
             // FirstChoice is used in case no option are valid in the selected menu
-            while (!currentPilot.FirstChoiceIsValid(iChoice) && bLoop);
+            while (!currentPilot.FirstChoiceIsValid(iChoice) && bDontLoop);
 
             return actions;
         }
