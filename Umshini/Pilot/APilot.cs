@@ -7,13 +7,13 @@ namespace Pilot
     {
         private protected IROBOT _pRobot;
 
-        private protected List<ICONSUMABLE> _vFuelsReserve;
+        private protected List<ICONSUMABLES> _vFuelsReserve;
 
-        private protected List<ICONSUMABLE> _vRepairKitsReserve;
+        private protected List<ICONSUMABLES> _vRepairKitsReserve;
 
         private protected List<int> _vResultsInputs;
 
-        public APILOT(IROBOT pRobot, List<ICONSUMABLE> vFuelsReserve, List<ICONSUMABLE> vRepairKitsReserve)
+        public APILOT(IROBOT pRobot, List<ICONSUMABLES> vFuelsReserve, List<ICONSUMABLES> vRepairKitsReserve)
         {
             _pRobot = pRobot;
             _vFuelsReserve = vFuelsReserve;
@@ -32,12 +32,12 @@ namespace Pilot
             return _pRobot;
         }
 
-        public List<ICONSUMABLE> GetFuelsReserve()
+        public List<ICONSUMABLES> GetFuelsReserve()
         {
             return _vFuelsReserve;
         }
 
-        public List<ICONSUMABLE> GetRepairKitsReserve()
+        public List<ICONSUMABLES> GetRepairKitsReserve()
         {
             return _vRepairKitsReserve;
         }
@@ -61,7 +61,12 @@ namespace Pilot
 
         public bool Refuel(int iChoice)
         {
-            if(this._pRobot.GetFuel() < 100)
+            if (this._vFuelsReserve[iChoice].GetNumberItems() < 1)
+            {
+                return false;
+            }
+
+            if (this._pRobot.GetFuel() < 100)
             {
                 return true;
             }

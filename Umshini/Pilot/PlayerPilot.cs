@@ -11,7 +11,7 @@ namespace Pilot
 
         private readonly List<int> _vActionResults;
 
-        public PLAYER_PILOT(IROBOT pRobot, List<ICONSUMABLE> vFuelsReserve, List<ICONSUMABLE> vRepairKitsReserve) : base(pRobot, vFuelsReserve, vRepairKitsReserve)
+        public PLAYER_PILOT(IROBOT pRobot, List<ICONSUMABLES> vFuelsReserve, List<ICONSUMABLES> vRepairKitsReserve) : base(pRobot, vFuelsReserve, vRepairKitsReserve)
         {
             _vActionResults = new List<int> { };
         }

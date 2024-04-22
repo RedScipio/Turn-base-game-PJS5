@@ -1,4 +1,6 @@
 ﻿
+using Consumable;
+
 namespace Umshini_Test
 {
     public class TestPlayTurn
@@ -21,21 +23,21 @@ namespace Umshini_Test
 
         public TestPlayTurn() 
         {
-            List<ICONSUMABLE> _vPlayerRepairKitsReserve = new List<ICONSUMABLE>();
-            List<ICONSUMABLE> _vBotRepairKitsReserve = new List<ICONSUMABLE>(); 
+            List<ICONSUMABLES> _vPlayerRepairKitsReserve = new List<ICONSUMABLES>();
+            List<ICONSUMABLES> _vBotRepairKitsReserve = new List<ICONSUMABLES>(); 
 
-            List<ICONSUMABLE> _vPlayerFuelsReserve = new List<ICONSUMABLE>(); 
-            List<ICONSUMABLE> _vBotFuelsReserve = new List<ICONSUMABLE>();
+            List<ICONSUMABLES> _vPlayerFuelsReserve = new List<ICONSUMABLES>(); 
+            List<ICONSUMABLES> _vBotFuelsReserve = new List<ICONSUMABLES>();
 
-            _vPlayerRepairKitsReserve.Add(new RepairKit(REPAIR.LIGHT_KIT));
-            _vPlayerRepairKitsReserve.Add(new RepairKit(REPAIR.FULL_KIT));
-            _vPlayerRepairKitsReserve.Add(new RepairKit(REPAIR.LIGHT_ARMOR));
-            _vPlayerRepairKitsReserve.Add(new RepairKit(REPAIR.HEAVY_ARMOR));
+            _vPlayerRepairKitsReserve.Add(new RepairKit(3, REPAIR.LIGHT_KIT));
+            _vPlayerRepairKitsReserve.Add(new RepairKit(3, REPAIR.FULL_KIT));
+            _vPlayerRepairKitsReserve.Add(new RepairKit(3, REPAIR.LIGHT_ARMOR));
+            _vPlayerRepairKitsReserve.Add(new RepairKit(3, REPAIR.HEAVY_ARMOR));
 
-            _vPlayerFuelsReserve.Add(new RefuelKit(ENERGY.ENERGY_WOOD));
-            _vPlayerFuelsReserve.Add(new RefuelKit(ENERGY.ENERGY_CHARCOAL));
-            _vPlayerFuelsReserve.Add(new RefuelKit(ENERGY.ENERGY_COAL));
-            _vPlayerFuelsReserve.Add(new RefuelKit(ENERGY.ENERGY_COMPACT_COAL));
+            _vPlayerFuelsReserve.Add(new RefuelKit(3, ENERGY.ENERGY_WOOD));
+            _vPlayerFuelsReserve.Add(new RefuelKit(3, ENERGY.ENERGY_CHARCOAL));
+            _vPlayerFuelsReserve.Add(new RefuelKit(3, ENERGY.ENERGY_COAL));
+            _vPlayerFuelsReserve.Add(new RefuelKit(3, ENERGY.ENERGY_COMPACT_COAL));
 
             playerFurn = new FURNACE(1, "Normal Furnace", 1, 2, 50);
             botFurn = new FURNACE(1, "Normal Furnace", 1, 1, 50);
@@ -142,6 +144,9 @@ namespace Umshini_Test
             //Checking that when attacking, the robot weapons remove the good fuel values
             pPlayerPilot.PlayTurn(botRobot, 1, 1, (int)PARTS_TYPES.FURNACE, 40);
             playerRobot.GetFuel().Should().Be(20 + 25 + 35); //Total fuel : 80
+
+
         }
+
     }
 }

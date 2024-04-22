@@ -9,7 +9,7 @@ namespace Pilot
 {
     internal class SmartBotPilot: BotPilot
     { 
-        public SmartBotPilot(IROBOT pRobot, List<ICONSUMABLE> vFuelsReserve, List<ICONSUMABLE> vRepairKitsReserve) : base(pRobot, vFuelsReserve, vRepairKitsReserve)
+        public SmartBotPilot(IROBOT pRobot, List<ICONSUMABLES> vFuelsReserve, List<ICONSUMABLES> vRepairKitsReserve) : base(pRobot, vFuelsReserve, vRepairKitsReserve)
         {
         }
 
@@ -39,7 +39,7 @@ namespace Pilot
             // Si je risque surtout de mourir, je tente de me soigner
             else
             {
-                List<ICONSUMABLE> listKits = this.GetRepairKitsReserve();
+                List<ICONSUMABLES> listKits = this.GetRepairKitsReserve();
 
                 // Si je peux me soigner
                 if (listKits.Count > 0)
@@ -66,13 +66,13 @@ namespace Pilot
             return;
         }
 
-        private void SoinOptimal(List<ICONSUMABLE> listKits)
+        private void SoinOptimal(List<ICONSUMABLES> listKits)
         {
             listKits.Sort();
 
-            List<ICONSUMABLE> listKitsOptmum = listKits.Where(n => n.GetValue() > 30).ToList();
+            List<ICONSUMABLES> listKitsOptmum = listKits.Where(n => n.GetValue() > 30).ToList();
 
-            ICONSUMABLE kitUtilise;
+            ICONSUMABLES kitUtilise;
 
             // Je prend le soin de la meilleure valeur optimale
             if (listKitsOptmum.Count == 1)

@@ -134,14 +134,14 @@ namespace Battle
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|                Kits  Menu                |");
             Console.WriteLine("|===================-<>-===================|");
-            List<ICONSUMABLE> vRepairKitsReserve = pPilot.GetRepairKitsReserve();
-            ICONSUMABLE iLightArmor = vRepairKitsReserve[0];
+            List<ICONSUMABLES> vRepairKitsReserve = pPilot.GetRepairKitsReserve();
+            ICONSUMABLES iLightArmor = vRepairKitsReserve[0];
             Console.Write("| " + (int)REPAIRS_MENU.Light_Armor + "-Light armor: x" + iLightArmor);
             if (iLightArmor.GetValue() < 10)
             {
                 Console.Write(" ");
             }
-            ICONSUMABLE iHeavyKits = vRepairKitsReserve[1];
+            ICONSUMABLES iHeavyKits = vRepairKitsReserve[1];
             Console.Write(" || " + (int)REPAIRS_MENU.Heavy_Armor + "-Heavy armor: x" + iHeavyKits);
             if (iHeavyKits.GetValue() < 10)
             {
@@ -150,13 +150,13 @@ namespace Battle
             Console.WriteLine(" |");
             Console.WriteLine("|      Armor: 1      ||      Armor: 3      |");
             Console.WriteLine("|===================-<>-===================|");
-            ICONSUMABLE iRepairKits = vRepairKitsReserve[2];
+            ICONSUMABLES iRepairKits = vRepairKitsReserve[2];
             Console.Write("| " + (int)REPAIRS_MENU.Repair_Kits + "-Repair kits: x" + iRepairKits);
             if (iRepairKits.GetValue() < 10)
             {
                 Console.Write(" ");
             }
-            ICONSUMABLE iFullKits = vRepairKitsReserve[3];
+            ICONSUMABLES iFullKits = vRepairKitsReserve[3];
             Console.Write(" ||  " + (int)REPAIRS_MENU.Full_Kits + "-Full kits: x" + iFullKits);
             if (iFullKits.GetValue() < 10)
             {
@@ -187,14 +187,14 @@ namespace Battle
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|                Fuel  Menu                |");
             Console.WriteLine("|===================-<>-===================|");
-            List<ICONSUMABLE> vFuelsReserve = pPilot.GetFuelsReserve();
-            ICONSUMABLE Wood = vFuelsReserve[0];
+            List<ICONSUMABLES> vFuelsReserve = pPilot.GetFuelsReserve();
+            ICONSUMABLES Wood = vFuelsReserve[0];
             Console.Write("|     " + (int)FUEL_MENU.Wood + "-"+ Wood.GetName() + ": x" + Wood.GetValue());
             if (Wood.GetValue() < 10)
             {
                 Console.Write(" ");
             }
-            ICONSUMABLE Charcoal = vFuelsReserve[1];
+            ICONSUMABLES Charcoal = vFuelsReserve[1];
             Console.Write("    ||  " + (int)FUEL_MENU.Charcoal +  " -"+ Charcoal.GetName() + ": x" + Charcoal.GetValue());
             if (Charcoal.GetValue() < 10) // adapt to two digits
             {
@@ -203,13 +203,13 @@ namespace Battle
             Console.WriteLine("  |");
             Console.WriteLine("|     Energy: " + (int)ENERGY.ENERGY_WOOD + "     ||     Energy: " + (int)ENERGY.ENERGY_CHARCOAL + "     |");
             Console.WriteLine("|===================-<>-===================|");
-            ICONSUMABLE Coal = vFuelsReserve[2];
+            ICONSUMABLES Coal = vFuelsReserve[2];
             Console.Write("|     " + (int)FUEL_MENU.Coal + "-"+ Coal.GetName() + ": x" + Coal.GetValue());
             if (Coal.GetValue() < 10)
             {
                 Console.Write(" ");
             }
-            ICONSUMABLE CompactCoal = vFuelsReserve[3];
+            ICONSUMABLES CompactCoal = vFuelsReserve[3];
             Console.Write("    || " + (int)FUEL_MENU.Compact_Coal + "-"+ CompactCoal.GetName() + ": x" + CompactCoal.GetValue());
             if (CompactCoal.GetValue() < 10)
             {

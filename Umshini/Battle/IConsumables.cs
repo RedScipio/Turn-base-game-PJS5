@@ -1,11 +1,14 @@
 ﻿
 namespace Battle
 {
-    public interface ICONSUMABLE
+    public interface ICONSUMABLES
     {
 
         int GetValue();
         string GetName();
+        int GetNumberItems();
+        void decrNumberItems();
+
     }
 
     public enum ENERGY

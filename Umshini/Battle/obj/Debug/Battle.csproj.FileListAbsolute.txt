@@ -39,3 +39,9 @@ C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.csproj.Ass
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.dll
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.pdb
+C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.AssemblyReference.cache
+C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
+C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Battle.dll
+C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Battle.pdb
+C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.dll
+C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.pdb

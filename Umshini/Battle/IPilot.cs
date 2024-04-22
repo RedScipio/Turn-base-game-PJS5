@@ -4,8 +4,8 @@ namespace Battle
 {
     public interface IPILOT
     {
-        List<ICONSUMABLE> GetFuelsReserve();
-        List<ICONSUMABLE> GetRepairKitsReserve();
+        List<ICONSUMABLES> GetFuelsReserve();
+        List<ICONSUMABLES> GetRepairKitsReserve();
         bool IsBotPilot();
         List<int> PlayTurnAuto();
         bool FirstChoiceIsValid(int iChoice); // specify if the current choice is possible
