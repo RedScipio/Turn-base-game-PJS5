@@ -9,7 +9,7 @@ namespace Consumable
 {
     public class RepairKit : ACONSUMABLE
     {
-        public RepairKit(REPAIR? eRepair = null) : base(eRepair, null) { }
+        public RepairKit(int iNumberItems, REPAIR? eRepair = null) : base(iNumberItems, eRepair, null) { }
 
 
     }

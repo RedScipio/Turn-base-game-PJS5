@@ -5,7 +5,7 @@ namespace Consumable
 {
     public class RefuelKit : ACONSUMABLE
     {
-        public RefuelKit(ENERGY? eRefuel = null) : base(null, eRefuel) { }
+        public RefuelKit(int iNumberItems, ENERGY? eRefuel = null) : base(iNumberItems, null, eRefuel) { }
 
     }
 }

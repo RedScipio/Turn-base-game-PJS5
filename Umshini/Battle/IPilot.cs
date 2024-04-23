@@ -4,8 +4,8 @@ namespace Battle
 {
     public interface IPILOT
     {
-        List<ICONSUMABLE> GetFuelsReserve();
-        List<ICONSUMABLE> GetRepairKitsReserve();
+        List<ICONSUMABLES> GetFuelsReserve();
+        List<ICONSUMABLES> GetRepairKitsReserve();
         bool IsBotPilot();
         List<int> PlayTurnAuto();
         void PlayTurn(IROBOT ennemiRobot, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);

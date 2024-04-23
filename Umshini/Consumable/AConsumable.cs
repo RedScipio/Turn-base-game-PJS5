@@ -2,14 +2,15 @@
 
 namespace Consumable
 {
-    public abstract class ACONSUMABLE : ICONSUMABLE
+    public abstract class ACONSUMABLE : ICONSUMABLES
     {
         private readonly REPAIR eRepair;
         private readonly ENERGY eEnergy;
         private string sName;
         private int iValue;
+        private int iNumberItems;
 
-        public ACONSUMABLE(REPAIR? eRepair = null, ENERGY? eRefuel = null)
+        public ACONSUMABLE(int iNumberItems, REPAIR? eRepair = null, ENERGY? eRefuel = null)
         {
             if(eRepair == null && eRefuel == null)
             {
@@ -27,6 +28,7 @@ namespace Consumable
                 iValue = (int)eRepair;
                 eEnergy = ENERGY.UNDEFINED;
             }
+            this.iNumberItems = iNumberItems;
         }
         public string GetName()
         {
@@ -72,6 +74,17 @@ namespace Consumable
             }
             return sName;
         }
+
+        public int GetNumberItems()
+        {
+            return iNumberItems;
+        }
+
+        public void decrNumberItems()
+        {
+            iNumberItems--;
+        }
+
         public int GetValue()
         {
             return iValue;

@@ -136,6 +136,10 @@ namespace Battle
             while (!currentPilot.Repair(iChoice));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currentPilot"> the pilot selected to refuel his robot </param>
         private void Refuel(IPILOT currentPilot)
         {
             FUEL_MENU iChoice;
@@ -144,6 +148,11 @@ namespace Battle
                 iChoice = GUI.FuelMenu(currentPilot);
             }
             while (!currentPilot.Refuel(iChoice));
+
+            currentPilot.GetRobot().Refuel(currentPilot.GetFuelsReserve()[iChoice].GetValue());
+            currentPilot.GetFuelsReserve()[iChoice].decrNumberItems();
+            
+            
         }
 
         private bool TargetPartIsBroken(IPILOT pilot)

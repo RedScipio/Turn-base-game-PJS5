@@ -44,7 +44,7 @@
     <Compile Include="BasicBattle.cs" />
     <Compile Include="ABattle.cs" />
     <Compile Include="GUI.cs" />
-    <Compile Include="IConsumable.cs" />
+    <Compile Include="IConsumables.cs" />
     <Compile Include="IFurnace.cs" />
     <Compile Include="ILeg.cs" />
     <Compile Include="IPart.cs" />
