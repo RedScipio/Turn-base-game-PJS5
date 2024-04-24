@@ -41,8 +41,8 @@ namespace Battle
         // Joue le tour d'un joueur
         public override List<int> PlayTurn(int iPilot)
         {
-            int iChoice;
-            bool bDontLoop = false;
+            MAIN_MENU iChoice;
+            bool bStopLoop = true;
             IPILOT currentPilot = this._lPilots[iPilot];
             List<int> actions = new List<int>();
 
@@ -61,31 +61,33 @@ namespace Battle
 
                 switch (iChoice)
                 {
-                    case 0: // Attack
+                    case MAIN_MENU.Attack: // Attack
                         {
                             int iEnnemy = (iPilot == 0) ? 1 : 0;
 
-                            bDontLoop = Attack(currentPilot, this._lPilots[iEnnemy]);
+                            bStopLoop = Attack(currentPilot, this._lPilots[iEnnemy]);
                             break;
                         }
-                    case 1: // Repair
+                    case MAIN_MENU.Repairs: // Repair
                         {
                             Repair(currentPilot);
                             break;
                         }
-                    case 2: // Refuel
+                    case MAIN_MENU.Furnace: // Refuel
                         {
                             bDontLoop = Refuel(currentPilot);
                             break;
                         }
                     default:
                         {
+                            GUI.WrongEntry();
+                            bStopLoop = false;
                             break;
                         }
                 }
             } 
             // FirstChoice is used in case no option are valid in the selected menu
-            while (!currentPilot.FirstChoiceIsValid(iChoice) && bDontLoop);
+            while (!currentPilot.FirstChoiceIsValid(iChoice) || bStopLoop == false);
 
             return actions;
         }
@@ -93,21 +95,40 @@ namespace Battle
         
         private bool Attack(IPILOT currentPilot, IPILOT ennemyPilot)
         {
-            int iChoiceWeapon;
+            WEAPON_MENU eChoiceWeapon;
+            TARGET_MENU eChoicePart;
 
             do
             {
-                iChoiceWeapon = GUI.WeaponMenu(currentPilot);
+                eChoiceWeapon = GUI.WeaponMenu(currentPilot);
+                if (eChoiceWeapon == WEAPON_MENU.Back) return false;
             }
-            while (!currentPilot.IsWeaponUsable(iChoiceWeapon) && iChoiceWeapon != int.MinValue);
+            while (!currentPilot.IsWeaponUsable((int) eChoiceWeapon));
 
-            currentPilot.Attack(iChoiceWeapon, ennemyPilot);
-            return false;
+            do
+            {
+                eChoicePart = GUI.TargetMenu();
+                if (eChoicePart == TARGET_MENU.Back) return false;
+            } while (eChoicePart == TARGET_MENU.Error);
+
+            int iChoiceWeapon;
+
+            if (eChoiceWeapon == WEAPON_MENU.Left_Weapon)
+            {
+                iChoiceWeapon = 0;
+            }
+            else
+            {
+                iChoiceWeapon = 1;
+            }
+
+            currentPilot.Attack(iChoiceWeapon, ennemyPilot, (PARTS_TYPES) eChoicePart);
+            return true;
         }
 
         private void Repair(IPILOT currentPilot)
         {
-            int iChoice;
+            REPAIRS_MENU iChoice;
             do
             {
                 iChoice = GUI.RepairMenu(currentPilot);
@@ -121,7 +142,7 @@ namespace Battle
         /// <param name="currentPilot"> the pilot selected to refuel his robot </param>
         private bool /*void*/ Refuel(IPILOT currentPilot)
         {
-            int iChoice;
+            FUEL_MENU iChoice;
             do
             {
                 iChoice = GUI.FuelMenu(currentPilot);
@@ -167,7 +188,7 @@ namespace Battle
                             result = pilot.IsWeaponBroken(iChoice);
                             bLoop = false;
                         }
-                        catch (ArgumentOutOfRangeException e)
+                        catch
                         {
                             GUI.WeaponOutOfRange();
                         }

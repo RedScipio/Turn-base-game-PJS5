@@ -16,40 +16,40 @@ namespace Pilot
             _vActionResults = new List<int> { };
         }
 
-        override public void PlayTurn(IROBOT pEnnemiRobot, int iActionChoice = -1, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
+        override public void PlayTurn(IROBOT pEnnemiRobot, MAIN_MENU iActionChoice = MAIN_MENU.Error, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
         {
             MainMenu(pEnnemiRobot, iActionChoice, iUsed, iTargetPart, iHitChance);
         }
 
-        private void MainMenu(IROBOT pEnnemiRobot, int iActionChoice = -1, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
+        private void MainMenu(IROBOT pEnnemiRobot, MAIN_MENU iActionChoice = MAIN_MENU.Error, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
         {
-            if (iActionChoice == -1)
+            if (iActionChoice == MAIN_MENU.Error)
             {
                 iActionChoice = GUI.MainMenu();
             }
-            switch ((MAIN_MENU)iActionChoice)
+            switch (iActionChoice)
             {
                 case MAIN_MENU.Attack:
                     {
-                        this.GetActionResults().Add(iActionChoice);
-                        AttackMenu(pEnnemiRobot, iUsed, iTargetPart, iHitChance);
+                        this.GetActionResults().Add((int)iActionChoice);
+                        AttackMenu(pEnnemiRobot, (WEAPON_MENU) iUsed, iTargetPart, iHitChance);
                         return;
                     }
                 case MAIN_MENU.Repairs:
                     {
-                        this.GetActionResults().Add(iActionChoice);
-                        RepairsMenu(pEnnemiRobot, iUsed, iTargetPart);
+                        this.GetActionResults().Add((int)iActionChoice);
+                        RepairsMenu(pEnnemiRobot, (REPAIRS_MENU) iUsed, iTargetPart);
                         return;
                     }
                 case MAIN_MENU.Furnace:
                     {
-                        this.GetActionResults().Add(iActionChoice);
-                        FurnaceMenu(pEnnemiRobot, iUsed, iTargetPart);
+                        this.GetActionResults().Add((int)iActionChoice);
+                        FurnaceMenu(pEnnemiRobot, (FUEL_MENU) iUsed, iTargetPart);
                         return;
                     }
                 default:
                     {
-                        MainMenu(pEnnemiRobot, iUsed, iTargetPart);
+                        MainMenu(pEnnemiRobot, (MAIN_MENU) iUsed, iTargetPart);
                         return;
                     }
             }
@@ -62,9 +62,9 @@ namespace Pilot
         /// <param name="iUsed"></param>
         /// <param name="iTargetPart"></param>
         /// <param name="iHitChance"></param>
-        private void AttackMenu(IROBOT pEnemyRobot, int iUsed = -1, int iTargetPart = -1, int iHitChance = -1)
+        private void AttackMenu(IROBOT pEnemyRobot, WEAPON_MENU iUsed = WEAPON_MENU.Error, int iTargetPart = -1, int iHitChance = -1)
         {
-            if (iUsed == -1)
+            if (iUsed == WEAPON_MENU.Error)
             {
                 iUsed = GUI.WeaponMenu(this);
             }
@@ -79,24 +79,24 @@ namespace Pilot
 
             switch (iUsed)
             {
-                case 0:
+                case WEAPON_MENU.Back:
                     {
                         MainMenu(pEnemyRobot);
                         return;
                     }
-                case 1:
-                case 2:
+                case WEAPON_MENU.Left_Weapon:
+                case WEAPON_MENU.Right_Weapon:
                     {
-                        int iWeapon = iUsed - 1;
+                        int iWeapon = ((int) iUsed) - 1;
 
-                        this.GetActionResults().Add(iUsed);
+                        this.GetActionResults().Add(((int)iUsed));
 
                         if (_pRobot.WeaponIsUsable(iWeapon))
                         {
-                            int iTargetChoice = GUI.TargetMenu(iTargetPart);
+                            TARGET_MENU iTargetChoice = GUI.TargetMenu(iTargetPart);
                             PARTS_TYPES eTargetChoice = (PARTS_TYPES)(iTargetChoice);
                             
-                            this.GetActionResults().Add(iTargetChoice);
+                            this.GetActionResults().Add((int) iTargetChoice);
 
                             if (pEnemyRobot.AttackTargetIsValid(eTargetChoice))
                             {
@@ -155,9 +155,9 @@ namespace Pilot
         /// <param name="pEnemyRobot">Enemy Robot</param>
         /// <param name="iActionChoice">Choice of Repair's Menu</param>
         /// <param name="iUsed"></param>
-        private void RepairsMenu(IROBOT pEnemyRobot, int iActionChoice = -1, int iUsed = -1)
+        private void RepairsMenu(IROBOT pEnemyRobot, REPAIRS_MENU iActionChoice = REPAIRS_MENU.Error, int iUsed = -1)
         {
-            if (iActionChoice == -1)
+            if (iActionChoice == REPAIRS_MENU.Error)
             {
                 iActionChoice = GUI.RepairMenu(this, iUsed);
             }
@@ -172,9 +172,9 @@ namespace Pilot
                     {
                         if (_vRepairKitsReserve.Count() > 0)
                         {
-                            int iTargetChoice = GUI.TargetMenu(iUsed);
+                            TARGET_MENU iTargetChoice = GUI.TargetMenu(iUsed);
                             PARTS_TYPES eTargetChoice = (PARTS_TYPES)iTargetChoice;
-                            this.GetActionResults().Add(iTargetChoice);
+                            this.GetActionResults().Add((int)iTargetChoice);
                             if (_pRobot.RepairArmorTargetIsValid(eTargetChoice))
                             {
                                 _pRobot.RepairRobotArmor(1, eTargetChoice);
@@ -198,9 +198,9 @@ namespace Pilot
                     {
                         if (_vRepairKitsReserve.Count() > 0)
                         {
-                            int iTargetChoice = GUI.TargetMenu(iUsed);
+                            TARGET_MENU iTargetChoice = GUI.TargetMenu(iUsed);
                             PARTS_TYPES eTargetChoice = (PARTS_TYPES)iTargetChoice;
-                            this.GetActionResults().Add(iTargetChoice);
+                            this.GetActionResults().Add((int) iTargetChoice);
                             if (_pRobot.RepairArmorTargetIsValid(eTargetChoice))
                             {
                                 _pRobot.RepairRobotArmor(3, eTargetChoice);
@@ -249,10 +249,10 @@ namespace Pilot
                     {
                         if (_vRepairKitsReserve.Count() > 0)
                         {
-                            int iTargetChoice = GUI.TargetMenu(iUsed);
+                            TARGET_MENU iTargetChoice = GUI.TargetMenu(iUsed);
                             PARTS_TYPES eTargetChoice = (PARTS_TYPES)iTargetChoice;
 
-                            this.GetActionResults().Add(iTargetChoice);
+                            this.GetActionResults().Add((int)iTargetChoice);
                             if (_pRobot.RepairLifeTargetIsValid(eTargetChoice))
                             {
                                 _pRobot.RepairRobotLifePoint(3, eTargetChoice);
@@ -281,10 +281,10 @@ namespace Pilot
             }
         }
 
-        private void FurnaceMenu(IROBOT pEnnemiRobot, int iActionChoice = -1, int iUsed = -1)
+        private void FurnaceMenu(IROBOT pEnnemiRobot, FUEL_MENU iActionChoice = FUEL_MENU.Error, int iUsed = -1)
         {
             //not finished again
-            if (iActionChoice == -1)
+            if (iActionChoice == FUEL_MENU.Error)
             {
                 iActionChoice = GUI.FuelMenu(this, iUsed);
             }
@@ -356,40 +356,5 @@ namespace Pilot
         {
             return false;
         }
-    }
-
-    
-    public enum MAIN_MENU
-    {
-        Attack = 1,
-        Repairs = 2,
-        Furnace = 3,
-    }
-
-    public enum TARGET_MENU
-    {
-        Back = 0,
-        Left_Weapon = 1,
-        Right_Weapon = 2,
-        Legs = 3,
-        Furnace = 4,
-    }
-
-    public enum REPAIRS_MENU
-    {
-        Back = 0,
-        Light_Armor = 1,
-        Heavy_Armor = 2,
-        Repair_Kits = 3,
-        Full_Kits = 4,
-    }
-
-    public enum FUEL_MENU
-    {
-        Back = 0,
-        Wood = 1,
-        Charcoal = 2,
-        Coal = 3,
-        Compact_Coal = 4,
     }
 }

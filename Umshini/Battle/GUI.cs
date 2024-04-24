@@ -7,6 +7,7 @@ namespace Battle
 {    
     public enum MAIN_MENU
     {
+        Error = -1,
         Attack = 1,
         Repairs = 2,
         Furnace = 3,
@@ -14,6 +15,7 @@ namespace Battle
 
     public enum TARGET_MENU
     {
+        Error = -1,
         Back = 0,
         Left_Weapon = 1,
         Right_Weapon = 2,
@@ -23,6 +25,7 @@ namespace Battle
 
     public enum REPAIRS_MENU
     {
+        Error = -1,
         Back = 0,
         Light_Armor = 1,
         Heavy_Armor = 2,
@@ -32,6 +35,7 @@ namespace Battle
 
     public enum WEAPON_MENU
     {
+        Error = -1,
         Back = 0,
         Left_Weapon = 1,
         Right_Weapon = 2,
@@ -39,6 +43,7 @@ namespace Battle
 
     public enum FUEL_MENU
     {
+        Error = -1,
         Back = 0,
         Wood = 1,
         Charcoal = 2,
@@ -84,7 +89,7 @@ namespace Battle
             Console.WriteLine("|====================--====================|");
         }*/
 
-        public static int MainMenu(int res = -1)
+        public static MAIN_MENU MainMenu(int resultat = -1)
         {
             int iResult = 0;
             Console.WriteLine("|====================--====================|");
@@ -93,16 +98,33 @@ namespace Battle
             Console.WriteLine("|  " + (int)MAIN_MENU.Attack + "-Attack  ||  " + (int)MAIN_MENU.Repairs + "-Repairs  ||  " + (int)MAIN_MENU.Furnace + "-Furnace  |");
             Console.WriteLine("|===================-<>-===================|");
             Console.Write("| Tap the number of the desired action : ");
-            if (res == -1)
+            if (resultat == -1)
             {
-                iResult = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    iResult = Convert.ToInt32(Console.ReadLine());
+                }
+                catch {
+                    return MAIN_MENU.Error;
+                }
             }
             Console.WriteLine(" |");
             Console.WriteLine("|====================--====================|");
-            return iResult;
+
+            switch (iResult)
+            {
+                case (int)MAIN_MENU.Attack:
+                    return MAIN_MENU.Attack;
+                case (int)MAIN_MENU.Repairs:
+                    return MAIN_MENU.Repairs;
+                case (int)MAIN_MENU.Furnace:
+                    return MAIN_MENU.Furnace;
+                default:
+                    return MAIN_MENU.Error;
+            }
         }
 
-        public static int TargetMenu(int res = -1)
+        public static TARGET_MENU TargetMenu(int res = -1)
         {
             int iResult;
             Console.WriteLine("|====================--====================|");
@@ -117,7 +139,14 @@ namespace Battle
             Console.Write("| Select the target part : ");
             if (res == -1)
             {
-                iResult = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    iResult = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    return TARGET_MENU.Error;
+                }
             }
             else
             {
@@ -125,24 +154,39 @@ namespace Battle
             }
             Console.WriteLine("               |");
             Console.WriteLine("|====================--====================|");
-            return iResult;
+
+            switch (iResult)
+            {
+                case (int) TARGET_MENU.Left_Weapon:
+                    return TARGET_MENU.Left_Weapon;
+                case (int) TARGET_MENU.Right_Weapon:
+                    return TARGET_MENU.Right_Weapon;
+                case (int) TARGET_MENU.Legs:
+                    return TARGET_MENU.Legs;
+                case (int) TARGET_MENU.Back:
+                    return TARGET_MENU.Back;
+                case (int) TARGET_MENU.Furnace:
+                    return TARGET_MENU.Furnace;
+                default:
+                    return TARGET_MENU.Error;
+            }
         }
 
-        public static int RepairMenu(IPILOT pPilot, int res = -1)
+        public static REPAIRS_MENU RepairMenu(IPILOT pPilot, int res = -1)
         {
             int iResult;
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|                Kits  Menu                |");
             Console.WriteLine("|===================-<>-===================|");
-            List<ICONSUMABLES> vRepairKitsReserve = pPilot.GetRepairKitsReserve();
-            ICONSUMABLES iLightArmor = vRepairKitsReserve[0];
-            Console.Write("| " + (int)REPAIRS_MENU.Light_Armor + "-Light armor: x" + iLightArmor);
+            List<ICONSUMABLE> vRepairKitsReserve = pPilot.GetRepairKitsReserve();
+            ICONSUMABLE iLightArmor = vRepairKitsReserve[0];
+            Console.Write("| " + (int)REPAIRS_MENU.Light_Armor + "-Light armor: x" + iLightArmor.GetValue());
             if (iLightArmor.GetValue() < 10)
             {
                 Console.Write(" ");
             }
-            ICONSUMABLES iHeavyKits = vRepairKitsReserve[1];
-            Console.Write(" || " + (int)REPAIRS_MENU.Heavy_Armor + "-Heavy armor: x" + iHeavyKits);
+            ICONSUMABLE iHeavyKits = vRepairKitsReserve[1];
+            Console.Write(" || " + (int)REPAIRS_MENU.Heavy_Armor + "-Heavy armor: x" + iHeavyKits.GetValue());
             if (iHeavyKits.GetValue() < 10)
             {
                 Console.Write(" ");
@@ -150,14 +194,14 @@ namespace Battle
             Console.WriteLine(" |");
             Console.WriteLine("|      Armor: 1      ||      Armor: 3      |");
             Console.WriteLine("|===================-<>-===================|");
-            ICONSUMABLES iRepairKits = vRepairKitsReserve[2];
-            Console.Write("| " + (int)REPAIRS_MENU.Repair_Kits + "-Repair kits: x" + iRepairKits);
+            ICONSUMABLE iRepairKits = vRepairKitsReserve[2];
+            Console.Write("| " + (int)REPAIRS_MENU.Repair_Kits + "-Repair kits: x" + iRepairKits.GetValue());
             if (iRepairKits.GetValue() < 10)
             {
                 Console.Write(" ");
             }
-            ICONSUMABLES iFullKits = vRepairKitsReserve[3];
-            Console.Write(" ||  " + (int)REPAIRS_MENU.Full_Kits + "-Full kits: x" + iFullKits);
+            ICONSUMABLE iFullKits = vRepairKitsReserve[3];
+            Console.Write(" ||  " + (int)REPAIRS_MENU.Full_Kits + "-Full kits: x" + iFullKits.GetValue());
             if (iFullKits.GetValue() < 10)
             {
                 Console.Write(" ");
@@ -170,7 +214,14 @@ namespace Battle
             Console.Write("| Select your kit type : ");
             if (res == -1)
             {
-                iResult = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    iResult = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    return REPAIRS_MENU.Error;
+                }
             }
             else
             {
@@ -178,10 +229,25 @@ namespace Battle
             }
             Console.WriteLine("                 |");
             Console.WriteLine("|====================--====================|");
-            return iResult;
+            
+            switch (iResult)
+            {
+                case (int) REPAIRS_MENU.Full_Kits:
+                    return REPAIRS_MENU.Full_Kits;
+                case (int) REPAIRS_MENU.Repair_Kits:
+                    return REPAIRS_MENU.Repair_Kits;
+                case (int) REPAIRS_MENU.Light_Armor:
+                    return REPAIRS_MENU.Light_Armor;
+                case (int) REPAIRS_MENU.Heavy_Armor:
+                    return REPAIRS_MENU.Heavy_Armor;
+                case (int) REPAIRS_MENU.Back:
+                    return REPAIRS_MENU.Back;
+                default:
+                    return REPAIRS_MENU.Error;
+            }
         }
 
-        public static int FuelMenu(IPILOT pPilot, int res = -1)
+        public static FUEL_MENU FuelMenu(IPILOT pPilot, int res = -1)
         {
             int iResult;
             Console.WriteLine("|====================--====================|");
@@ -223,7 +289,14 @@ namespace Battle
             Console.Write("| Select your fuel type : ");
             if (res == -1)
             {
-                iResult = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    iResult = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    return FUEL_MENU.Error;
+                }
             }
             else
             {
@@ -231,10 +304,23 @@ namespace Battle
             }
             Console.WriteLine("                |");
             Console.WriteLine("|====================--====================|");
-            return iResult;
+
+            switch (iResult)
+            {
+                case (int)FUEL_MENU.Wood:
+                    return FUEL_MENU.Wood;
+                case (int)FUEL_MENU.Charcoal:
+                    return FUEL_MENU.Charcoal;
+                case (int)FUEL_MENU.Coal:
+                    return FUEL_MENU.Coal;
+                case (int)FUEL_MENU.Back:
+                    return FUEL_MENU.Back;
+                default:
+                    return FUEL_MENU.Error;
+            }
         }
 
-        public static int WeaponMenu(IPILOT pPlayer, int res = -1)
+        public static WEAPON_MENU WeaponMenu(IPILOT pPlayer, int res = -1)
         {
             int iResult;
             int iWeapon = 0;
@@ -242,10 +328,9 @@ namespace Battle
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|              Weapon  Menu                |");
             Console.WriteLine("|===================-<>-===================|");
-
             foreach(IWEAPON weapon in playerRobot.GetWeapons())
             {
-                Console.Write("| " + (int)WEAPON_MENU.Left_Weapon + "-Left Weapon type: ");
+                Console.Write("| Weapon n°" + (iWeapon+1) + " type: ");
                 switch (weapon.TypeIs())
                 {
                     case WEAPONS_TYPES.NORMAL:
@@ -310,7 +395,14 @@ namespace Battle
             Console.Write("| Select your weapon : ");
             if (res == -1)
             {
-                iResult = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    iResult = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    return WEAPON_MENU.Error;
+                }
             }
             else
             {
@@ -318,7 +410,18 @@ namespace Battle
             }
             Console.WriteLine("                   |");
             Console.WriteLine("|====================--====================|");
-            return iResult;
+            
+            switch(iResult)
+            {
+                case (int) WEAPON_MENU.Left_Weapon:
+                    return WEAPON_MENU.Left_Weapon;
+                case (int)WEAPON_MENU.Right_Weapon:
+                    return WEAPON_MENU.Right_Weapon;
+                case (int)WEAPON_MENU.Back:
+                    return WEAPON_MENU.Back;
+                default:
+                    return WEAPON_MENU.Error;
+            }
         }
 
         public static void RobotRestart()
