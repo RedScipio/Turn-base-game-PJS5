@@ -49,7 +49,6 @@ namespace Umshini_Test
         {
             Action aRepairKit = () => new RepairKit(0);
             aRepairKit.Should().Throw<ArgumentNullException>();
-            //Assert.Throws()
         }
     }
 }

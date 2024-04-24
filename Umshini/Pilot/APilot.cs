@@ -56,7 +56,7 @@ namespace Pilot
 
         public bool FirstChoiceIsValid(int iChoice)
         {
-            throw new System.NotImplementedException();
+            return false;
         }
 
         public bool Refuel(int iChoice)
@@ -67,6 +67,12 @@ namespace Pilot
             }
 
             if (this._pRobot.GetFuel() < 100)
+            {
+                _vFuelsReserve[iChoice].decrNumberItems();
+                return true;
+            }
+
+            if(iChoice <= 0)
             {
                 return true;
             }

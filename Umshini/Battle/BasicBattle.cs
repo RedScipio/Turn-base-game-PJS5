@@ -75,7 +75,7 @@ namespace Battle
                         }
                     case 2: // Refuel
                         {
-                            Refuel(currentPilot);
+                            bDontLoop = Refuel(currentPilot);
                             break;
                         }
                     default:
@@ -119,7 +119,7 @@ namespace Battle
         /// 
         /// </summary>
         /// <param name="currentPilot"> the pilot selected to refuel his robot </param>
-        private void Refuel(IPILOT currentPilot)
+        private bool /*void*/ Refuel(IPILOT currentPilot)
         {
             int iChoice;
             do
@@ -128,9 +128,13 @@ namespace Battle
             }
             while (!currentPilot.Refuel(iChoice));
 
-            currentPilot.GetRobot().Refuel(currentPilot.GetFuelsReserve()[iChoice].GetValue());
-            currentPilot.GetFuelsReserve()[iChoice].decrNumberItems();
-            
+            if(currentPilot.Refuel(iChoice) && iChoice > 0)
+            {
+                currentPilot.GetRobot().Refuel(currentPilot.GetFuelsReserve()[iChoice].GetValue());
+                return false;
+            }
+
+            return true;
             
         }
 
