@@ -77,7 +77,7 @@ namespace Battle
                         }
                     case MAIN_MENU.Furnace: // Refuel
                         {
-                            bStopLoop = Refuel(currentPilot);
+                            Refuel(currentPilot);
                             break;
                         }
                     default:
@@ -154,7 +154,7 @@ namespace Battle
         /// 
         /// </summary>
         /// <param name="currentPilot"> the pilot selected to refuel his robot </param>
-        private bool Refuel(IPILOT currentPilot)
+        private void Refuel(IPILOT currentPilot)
         {
             FUEL_MENU iChoice;
             do
@@ -166,17 +166,10 @@ namespace Battle
                     GUI.WrongEntry();
                 }
 
-                else if (iChoice == FUEL_MENU.Back)
-                {
-                    return false;
-                }
-            }
-            while (iChoice == FUEL_MENU.Error || !currentPilot.Refuel((int)iChoice));
-
-            currentPilot.GetRobot().Refuel(currentPilot.GetFuelsReserve()[(int) iChoice].GetValue());
-            currentPilot.GetFuelsReserve()[(int) iChoice].decrNumberItems();
-
-            return true;
+            currentPilot.GetRobot().Refuel(currentPilot.GetFuelsReserve()[iChoice].GetValue());
+            currentPilot.GetFuelsReserve()[iChoice].decrNumberItems();
+            
+            
         }
 
         private bool TargetPartIsBroken(IPILOT pilot)

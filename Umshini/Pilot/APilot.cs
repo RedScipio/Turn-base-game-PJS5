@@ -64,6 +64,12 @@ namespace Pilot
 
             if (this._pRobot.GetFuel() < 100)
             {
+                _vFuelsReserve[iChoice].decrNumberItems();
+                return true;
+            }
+
+            if(iChoice <= 0)
+            {
                 return true;
             }
 
