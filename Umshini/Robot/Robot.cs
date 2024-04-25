@@ -46,6 +46,8 @@ namespace Robot
         /// <returns></returns>
         public bool WeaponIsUsable(int iWeaponChoice)
         {
+            if (iWeaponChoice < 0) return false;
+
             IWEAPON pWeapon = _lWeapon[iWeaponChoice];
 
             if (pWeapon.IsBroken() || pWeapon.GetPowerConsumption() > _iFuel)

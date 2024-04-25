@@ -25,5 +25,23 @@ namespace Pilot
                 this.GetRobot().DealDamage(ennemiRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.FURNACE);
             }
         }
+
+        public override List<int> PlayTurnAuto(IROBOT ennemyRobot)
+        {
+            if (this.GetRobot().WeaponIsUsable((int)WEAPON_SIDE.LEFT_WEAPON))
+            {
+                return new List<int>(this.GetRobot().DealDamage(ennemyRobot, (int)WEAPON_SIDE.LEFT_WEAPON, PARTS_TYPES.FURNACE));
+            }
+
+            else if (this.GetRobot().WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON))
+            {
+                return new List<int>(this.GetRobot().DealDamage(ennemyRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.FURNACE));
+            }
+
+            else
+            {
+                return new List<int>();
+            }
+        }
     }
 }

@@ -2,13 +2,8 @@ C:\Users\bilbo\Documents\Travaille\IUT\Turn-base-game-PJS5-Refacto-Code\Umshini\
 C:\Users\bilbo\Documents\Travaille\IUT\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\obj\Debug\Robot.csproj.CoreCompileInputs.cache
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Robot.dll
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Robot.pdb
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Pilot.dll
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Battle.dll
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\GUI.exe
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Pilot.pdb
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Battle.pdb
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\GUI.pdb
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\GUI.exe.config
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.AssemblyReference.cache
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.CoreCompileInputs.cache
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.Up2Date

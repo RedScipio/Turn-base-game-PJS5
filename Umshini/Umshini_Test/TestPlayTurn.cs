@@ -61,7 +61,7 @@ namespace Umshini_Test
         public void TestAttackMenuTurn()
         {
             //Verifying if the AttackMenu works
-            pPlayerPilot.PlayTurn(botRobot, 1, 2, (int)PARTS_TYPES.WEAPON, 40);
+            pPlayerPilot.PlayTurn(botRobot, MAIN_MENU.Attack, 2, (int)PARTS_TYPES.WEAPON, 40);
             botRobot.GetWeapon(0).GetArmor().Should().Be(2);
 
             pBotPilot.PlayTurn(playerRobot);
@@ -69,11 +69,11 @@ namespace Umshini_Test
             playerRobot.GetFurnaceLife().Should().Be(playerFurn.GetMaxLife() - 1);
             playerFurn.GetArmor().Should().Be(1);
 
-            pPlayerPilot.PlayTurn(botRobot, 1, 1, (int)PARTS_TYPES.WEAPON, 40);
+            pPlayerPilot.PlayTurn(botRobot, MAIN_MENU.Attack, 1, (int)PARTS_TYPES.WEAPON, 40);
             botRobot.GetWeapon(0).IsBroken().Should().BeTrue();
 
             //The player has destroyed the robot
-            pPlayerPilot.PlayTurn(botRobot, 1, 1, (int)PARTS_TYPES.FURNACE, 40);
+            pPlayerPilot.PlayTurn(botRobot, MAIN_MENU.Attack, 1, (int)PARTS_TYPES.FURNACE, 40);
             botRobot.IsDestroy().Should().BeTrue();
         }
 
@@ -102,20 +102,20 @@ namespace Umshini_Test
             playerFurn.GetArmor().Should().Be(0);
 
             //The player, whose furnace's damaged, will repair it.
-            pPlayerPilot.PlayTurn(playerRobot, 2, 1, (int)PARTS_TYPES.FURNACE);
+            pPlayerPilot.PlayTurn(playerRobot, MAIN_MENU.Repairs, 1, (int)PARTS_TYPES.FURNACE);
             playerFurn.GetArmor().Should().Be(1);
 
             for (int i = 0; i < 2; i++) { pBotPilot.PlayTurn(playerRobot); }
             playerFurn.GetLife().Should().Be(2);
 
-            pPlayerPilot.PlayTurn(playerRobot, 2, 3, (int)PARTS_TYPES.FURNACE);
+            pPlayerPilot.PlayTurn(playerRobot, MAIN_MENU.Repairs, 3, (int)PARTS_TYPES.FURNACE);
             playerFurn.GetLife().Should().Be(3);
 
             //Checking that after repairing, the furnace life points are not superior to his maximum lifepoints (Being actually 3 life points max) when repaired
             for (int i = 0; i < 4; i++) { pBotPilot.PlayTurn(playerRobot); }
 
             playerFurn.GetLife().Should().Be(1);
-            pPlayerPilot.PlayTurn(playerRobot, 2, 4, (int)PARTS_TYPES.FURNACE);
+            pPlayerPilot.PlayTurn(playerRobot, MAIN_MENU.Repairs, 4, (int)PARTS_TYPES.FURNACE);
             playerFurn.GetLife().Should().Be(3);
         }
 
@@ -126,23 +126,23 @@ namespace Umshini_Test
             playerRobot.NeedToRestart().Should().BeTrue();
 
             //Checking after each refuel that the energies returning the good values
-            pPlayerPilot.PlayTurn(playerRobot, 3, 1);
+            pPlayerPilot.PlayTurn(playerRobot, MAIN_MENU.Furnace, 1);
             playerRobot.GetFuel().Should().Be(15); //Total : 15
 
-            pPlayerPilot.PlayTurn(playerRobot, 3, 2);
+            pPlayerPilot.PlayTurn(playerRobot, MAIN_MENU.Furnace, 2);
             playerRobot.GetFuel().Should().Be(15 + 20); //Total : 35
 
-            pPlayerPilot.PlayTurn(playerRobot, 3, 3);
+            pPlayerPilot.PlayTurn(playerRobot, MAIN_MENU.Furnace, 3);
             playerRobot.GetFuel().Should().Be(15 + 20 + 25); //Total : 60
 
             //Checking that the robot doesn't need to restart
             playerRobot.NeedToRestart().Should().BeFalse();
 
-            pPlayerPilot.PlayTurn(playerRobot, 3, 4);
+            pPlayerPilot.PlayTurn(playerRobot, MAIN_MENU.Furnace, 4);
             playerRobot.GetFuel().Should().Be(15 + 20 + 25 + 35); //Total : 95
 
             //Checking that when attacking, the robot weapons remove the good fuel values
-            pPlayerPilot.PlayTurn(botRobot, 1, 1, (int)PARTS_TYPES.FURNACE, 40);
+            pPlayerPilot.PlayTurn(botRobot, MAIN_MENU.Attack, 1, (int)PARTS_TYPES.FURNACE, 40);
             playerRobot.GetFuel().Should().Be(20 + 25 + 35); //Total fuel : 80
 
 

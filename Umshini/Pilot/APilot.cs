@@ -20,7 +20,7 @@ namespace Pilot
             _vRepairKitsReserve = vRepairKitsReserve;
         }
 
-        public abstract void PlayTurn(IROBOT ennemiRobot, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);
+        public abstract void PlayTurn(IROBOT ennemyRobot, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);
 
         public bool RobotIsDestroy()
         {
@@ -49,16 +49,13 @@ namespace Pilot
 
         public abstract bool IsBotPilot();
 
-        public List<int> PlayTurnAuto()
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract List<int> PlayTurnAuto(IROBOT ennemyRobot);
 
         public bool FirstChoiceIsValid(MAIN_MENU iChoice)
         {
             return true;        }
 
-        public bool Refuel(FUEL_MENU iChoice)
+        public bool Refuel(int iChoice)
         {
             if (this._vFuelsReserve[iChoice].GetNumberItems() < 1)
             {
@@ -75,12 +72,14 @@ namespace Pilot
 
         public bool Repair(REPAIRS_MENU iChoice)
         {
+            if (iChoice == REPAIRS_MENU.Error) return false;
+
             if (this._pRobot.RepairLifeTargetIsValid((PARTS_TYPES)iChoice))
             {
 
             }
 
-            return false;
+            return true;
         }
 
         public bool Attack(int iChoiceWeapon, IPILOT ennemy, PARTS_TYPES target)

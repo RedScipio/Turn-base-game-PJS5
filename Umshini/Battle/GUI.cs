@@ -56,6 +56,8 @@ namespace Battle
 
         /*public void ShowStatus(IROBOT pPlayer, IROBOT pBot)
         {
+            //Console.Clear();
+
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|                  Robots                  |");
             Console.WriteLine("|===================-<>-===================|");
@@ -91,6 +93,8 @@ namespace Battle
 
         public static MAIN_MENU MainMenu(int resultat = -1)
         {
+            //Console.Clear();
+
             int iResult = 0;
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|                Main  Menu                |");
@@ -126,6 +130,8 @@ namespace Battle
 
         public static TARGET_MENU TargetMenu(int res = -1)
         {
+            //Console.Clear();
+
             int iResult;
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|              Target  Menu                |");
@@ -174,18 +180,20 @@ namespace Battle
 
         public static REPAIRS_MENU RepairMenu(IPILOT pPilot, int res = -1)
         {
+            //Console.Clear();
+
             int iResult;
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|                Kits  Menu                |");
             Console.WriteLine("|===================-<>-===================|");
-            List<ICONSUMABLE> vRepairKitsReserve = pPilot.GetRepairKitsReserve();
-            ICONSUMABLE iLightArmor = vRepairKitsReserve[0];
+            List<ICONSUMABLES> vRepairKitsReserve = pPilot.GetRepairKitsReserve();
+            ICONSUMABLES iLightArmor = vRepairKitsReserve[0];
             Console.Write("| " + (int)REPAIRS_MENU.Light_Armor + "-Light armor: x" + iLightArmor.GetValue());
             if (iLightArmor.GetValue() < 10)
             {
                 Console.Write(" ");
             }
-            ICONSUMABLE iHeavyKits = vRepairKitsReserve[1];
+            ICONSUMABLES iHeavyKits = vRepairKitsReserve[1];
             Console.Write(" || " + (int)REPAIRS_MENU.Heavy_Armor + "-Heavy armor: x" + iHeavyKits.GetValue());
             if (iHeavyKits.GetValue() < 10)
             {
@@ -194,13 +202,13 @@ namespace Battle
             Console.WriteLine(" |");
             Console.WriteLine("|      Armor: 1      ||      Armor: 3      |");
             Console.WriteLine("|===================-<>-===================|");
-            ICONSUMABLE iRepairKits = vRepairKitsReserve[2];
+            ICONSUMABLES iRepairKits = vRepairKitsReserve[2];
             Console.Write("| " + (int)REPAIRS_MENU.Repair_Kits + "-Repair kits: x" + iRepairKits.GetValue());
             if (iRepairKits.GetValue() < 10)
             {
                 Console.Write(" ");
             }
-            ICONSUMABLE iFullKits = vRepairKitsReserve[3];
+            ICONSUMABLES iFullKits = vRepairKitsReserve[3];
             Console.Write(" ||  " + (int)REPAIRS_MENU.Full_Kits + "-Full kits: x" + iFullKits.GetValue());
             if (iFullKits.GetValue() < 10)
             {
@@ -249,6 +257,8 @@ namespace Battle
 
         public static FUEL_MENU FuelMenu(IPILOT pPilot, int res = -1)
         {
+            //Console.Clear();
+
             int iResult;
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|                Fuel  Menu                |");
@@ -315,6 +325,8 @@ namespace Battle
                     return FUEL_MENU.Coal;
                 case (int)FUEL_MENU.Back:
                     return FUEL_MENU.Back;
+                case (int)FUEL_MENU.Compact_Coal:
+                    return FUEL_MENU.Compact_Coal;
                 default:
                     return FUEL_MENU.Error;
             }
@@ -322,6 +334,8 @@ namespace Battle
 
         public static WEAPON_MENU WeaponMenu(IPILOT pPlayer, int res = -1)
         {
+            //Console.Clear();
+
             int iResult;
             int iWeapon = 0;
             IROBOT playerRobot = pPlayer.GetRobot();
@@ -426,6 +440,8 @@ namespace Battle
 
         public static void RobotRestart()
         {
+            //Console.Clear();
+
             Console.WriteLine("|--------------------==--------------------|");
             Console.WriteLine("|      The robot need fuel to restart      |");
             Console.WriteLine("|--------------------==--------------------|");
@@ -433,6 +449,8 @@ namespace Battle
 
         public static void WeaponIsUnusable()
         {
+            //Console.Clear();
+
             Console.WriteLine("|--------------------==--------------------|");
             Console.WriteLine("|         This weapon  is unusable         |");
             Console.WriteLine("|--------------------==--------------------|");
@@ -440,6 +458,8 @@ namespace Battle
 
         public static void AlreadyDestroy()
         {
+            //Console.Clear();
+
             Console.WriteLine("|--------------------==--------------------|");
             Console.WriteLine("|       This part is already destroy       |");
             Console.WriteLine("|--------------------==--------------------|");
@@ -447,6 +467,8 @@ namespace Battle
 
         public static void MissedFire()
         {
+            //Console.Clear();
+
             Console.WriteLine("|--------------------==--------------------|");
             Console.WriteLine("|            It'  missed fire            |");
             Console.WriteLine("|--------------------==--------------------|");
@@ -454,6 +476,8 @@ namespace Battle
 
         public static void NoStockKit()
         {
+            //Console.Clear();
+
             Console.WriteLine("|--------------------==--------------------|");
             Console.WriteLine("|    No more kits of this type in stock    |");
             Console.WriteLine("|--------------------==--------------------|");
@@ -461,6 +485,8 @@ namespace Battle
 
         public static void PerfectlyFine()
         {
+            //Console.Clear();
+
             Console.WriteLine("|--------------------==--------------------|");
             Console.WriteLine("|              Perfectly Fine              |");
             Console.WriteLine("|--------------------==--------------------|");
@@ -468,6 +494,8 @@ namespace Battle
 
         public static void NoStockFuel()
         {
+            //Console.Clear();
+
             Console.WriteLine("|--------------------==--------------------|");
             Console.WriteLine("|    No more fuel of this type in stock    |");
             Console.WriteLine("|--------------------==--------------------|");
@@ -475,6 +503,8 @@ namespace Battle
 
         public static void WrongEntry()
         {
+            //Console.Clear();
+
             Console.WriteLine("!!!-----------------!==!-----------------!!!");
             Console.WriteLine("|               Wrong  Entry               |");
             Console.WriteLine("!!!-----------------!==!-----------------!!!");
@@ -488,6 +518,17 @@ namespace Battle
         public static void WeaponOutOfRange()
         {
             throw new NotImplementedException();
+        }
+
+        internal static void GameOver()
+        {
+            //Console.Clear();
+
+            Console.WriteLine("|--------------------==--------------------|");
+            Console.WriteLine("|                 Game Over                |");
+            Console.WriteLine("|--------------------==--------------------|");
+            
+            Console.ReadLine();
         }
     }
 }

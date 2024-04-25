@@ -7,7 +7,7 @@ namespace Consumable
         private readonly REPAIR eRepair;
         private readonly ENERGY eEnergy;
         private string sName;
-        private int iValue;
+        private readonly int iValue;
         private int iNumberItems;
 
         public ACONSUMABLE(int iNumberItems, REPAIR? eRepair = null, ENERGY? eRefuel = null)

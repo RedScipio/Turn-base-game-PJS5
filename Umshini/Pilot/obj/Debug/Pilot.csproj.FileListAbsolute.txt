@@ -3,10 +3,7 @@ C:\Users\bilbo\Documents\Travaille\IUT\Turn-base-game-PJS5-Refacto-Code\Umshini\
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\bin\Debug\Pilot.dll
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\bin\Debug\Pilot.pdb
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\bin\Debug\Battle.dll
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\bin\Debug\GUI.exe
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\bin\Debug\Battle.pdb
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\bin\Debug\GUI.pdb
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\bin\Debug\GUI.exe.config
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.csproj.AssemblyReference.cache
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.csproj.CoreCompileInputs.cache
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.csproj.Up2Date

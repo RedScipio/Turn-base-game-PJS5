@@ -22,7 +22,9 @@ namespace Battle
             while (!_lPilots[0].IsFurnaceBroken() && !_lPilots[1].IsFurnaceBroken())
             {
                 lResult.AddRange(PlayRound());
-            } 
+            }
+
+            GUI.GameOver();
         }
         
         // Joue un round, un tour par joueur
@@ -44,6 +46,8 @@ namespace Battle
             MAIN_MENU iChoice;
             bool bStopLoop = true;
             IPILOT currentPilot = this._lPilots[iPilot];
+            int iEnnemy = (iPilot == 0) ? 1 : 0;
+            IROBOT ennemyRobot = this._lPilots[iEnnemy].GetRobot();
             List<int> actions = new List<int>();
 
             /*
@@ -52,7 +56,7 @@ namespace Battle
              */
             if (currentPilot.IsBotPilot()) 
             {
-                return currentPilot.PlayTurnAuto();
+                return currentPilot.PlayTurnAuto(ennemyRobot);
             }
 
             do
@@ -63,19 +67,17 @@ namespace Battle
                 {
                     case MAIN_MENU.Attack: // Attack
                         {
-                            int iEnnemy = (iPilot == 0) ? 1 : 0;
-
                             bStopLoop = Attack(currentPilot, this._lPilots[iEnnemy]);
                             break;
                         }
                     case MAIN_MENU.Repairs: // Repair
                         {
-                            Repair(currentPilot);
+                            bStopLoop = Repair(currentPilot);
                             break;
                         }
                     case MAIN_MENU.Furnace: // Refuel
                         {
-                            Refuel(currentPilot);
+                            bStopLoop = Refuel(currentPilot);
                             break;
                         }
                     default:
@@ -126,33 +128,55 @@ namespace Battle
             return true;
         }
 
-        private void Repair(IPILOT currentPilot)
+        private bool Repair(IPILOT currentPilot)
         {
             REPAIRS_MENU iChoice;
             do
             {
                 iChoice = GUI.RepairMenu(currentPilot);
+
+                if (iChoice == REPAIRS_MENU.Error)
+                {
+                    GUI.WrongEntry();
+                }
+
+                else if (iChoice == REPAIRS_MENU.Back)
+                {
+                    return false;
+                }
             }
             while (!currentPilot.Repair(iChoice));
+
+            return true;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="currentPilot"> the pilot selected to refuel his robot </param>
-        private void Refuel(IPILOT currentPilot)
+        private bool Refuel(IPILOT currentPilot)
         {
             FUEL_MENU iChoice;
             do
             {
                 iChoice = GUI.FuelMenu(currentPilot);
-            }
-            while (!currentPilot.Refuel(iChoice));
 
-            currentPilot.GetRobot().Refuel(currentPilot.GetFuelsReserve()[iChoice].GetValue());
-            currentPilot.GetFuelsReserve()[iChoice].decrNumberItems();
-            
-            
+                if (iChoice == FUEL_MENU.Error)
+                {
+                    GUI.WrongEntry();
+                }
+
+                else if (iChoice == FUEL_MENU.Back)
+                {
+                    return false;
+                }
+            }
+            while (iChoice == FUEL_MENU.Error || !currentPilot.Refuel((int)iChoice));
+
+            currentPilot.GetRobot().Refuel(currentPilot.GetFuelsReserve()[(int) iChoice].GetValue());
+            currentPilot.GetFuelsReserve()[(int) iChoice].decrNumberItems();
+
+            return true;
         }
 
         private bool TargetPartIsBroken(IPILOT pilot)
@@ -195,5 +219,4 @@ namespace Battle
             return result;
         }
     }
-
 }

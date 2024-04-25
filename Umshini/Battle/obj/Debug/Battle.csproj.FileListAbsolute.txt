@@ -25,12 +25,8 @@ C:\Users\Mehdi\source\repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\obj\Deb
 C:\Users\Mehdi\source\repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.pdb
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Battle.dll
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Battle.pdb
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\GUI.exe
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\GUI.pdb
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\GUI.exe.config
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.AssemblyReference.cache
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.Up2Date
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.dll
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.pdb
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\bin\Debug\Battle.dll

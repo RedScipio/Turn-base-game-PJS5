@@ -88,5 +88,39 @@ namespace Pilot
 
             return;
         }
+
+        public override List<int> PlayTurnAuto(IROBOT ennemyRobot)
+        {
+            int life = this.GetRobot().GetFurnaceLife();
+
+            int maxDegatPossibleEnnemy = System.Math.Max(ennemyRobot.GetWeaponDamage(0), ennemyRobot.GetWeaponDamage(1));
+            int nbToursSurviePossible = life / maxDegatPossibleEnnemy; // Vérifier en cas de restes
+
+            int maxDegatPossibleBot = System.Math.Max(this.GetRobot().GetWeaponDamage(0), ennemyRobot.GetWeaponDamage(1));
+            int nbToursSurviePossibleEnnemy = life / maxDegatPossibleBot; // Vérifier en cas de restes
+
+
+            // Si mes espoirs de victoires sont supérieurs aux siennes, j'attaque
+            if (nbToursSurviePossible >= nbToursSurviePossibleEnnemy)
+            {
+                UsingPowerfulWeapon(ennemyRobot);
+                return new List<int>();
+            }
+
+            // Si je risque surtout de mourir, je tente de me soigner
+            else
+            {
+                List<ICONSUMABLES> listKits = this.GetRepairKitsReserve();
+
+                // Si je peux me soigner
+                if (listKits.Count > 0)
+                {
+                    SoinOptimal(listKits);
+                    return new List<int>();
+                }
+
+                return new List<int>();
+            }
+        }
     }
 }
