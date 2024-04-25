@@ -165,9 +165,9 @@ namespace Battle
                 {
                     GUI.WrongEntry();
                 }
-
-            currentPilot.GetRobot().Refuel(currentPilot.GetFuelsReserve()[iChoice].GetValue());
-            currentPilot.GetFuelsReserve()[iChoice].decrNumberItems();
+            } while (!currentPilot.Refuel((int)iChoice));
+            currentPilot.GetRobot().Refuel(currentPilot.GetFuelsReserve()[(int)iChoice].GetValue());
+            currentPilot.GetFuelsReserve()[(int)iChoice].decrNumberItems();
             
             
         }
