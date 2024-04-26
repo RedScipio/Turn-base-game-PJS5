@@ -18,6 +18,7 @@ namespace Battle
         bool IsLegsBroken();
         bool IsFurnaceBroken();
         bool IsWeaponBroken(int iChoice);
+        bool IsAllKitsEmpty(List<ICONSUMABLES> list);
         IROBOT GetRobot();
     }
 }

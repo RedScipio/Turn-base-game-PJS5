@@ -1,5 +1,6 @@
 ﻿using Battle;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Pilot
 {
@@ -53,17 +54,58 @@ namespace Pilot
 
         public bool FirstChoiceIsValid(MAIN_MENU iChoice)
         {
-            return true;        }
+            if(iChoice == MAIN_MENU.Attack)
+            {
+                if (!this.IsWeaponUsable((int)iChoice))
+                {
+                    return false;
+                }
+            }
+            else if(iChoice == MAIN_MENU.Repairs)
+            {
+                if (IsAllKitsEmpty(_vRepairKitsReserve))
+                {
+                    return false;
+                }
+            }
+            else if(iChoice == MAIN_MENU.Furnace)
+            {
+                if (IsAllKitsEmpty(_vFuelsReserve))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Check if every kit in the list is empty
+        /// </summary>
+        /// <param name="listKits"> the list of kits selected </param>
+        /// <returns>true if every element in the list has 0 items</returns>
+        public bool IsAllKitsEmpty(List<ICONSUMABLES> listKits)
+        {
+            if(listKits.All(rf => rf.GetNumberItems() < 1))
+            {
+                return true;
+            }
+            return false;
+        }
 
         public bool Refuel(int iChoice)
         {
             if (this._vFuelsReserve[iChoice].GetNumberItems() < 1)
             {
+                if (IsAllKitsEmpty(_vFuelsReserve))
+                {
+                    return true;
+                }
                 return false;
             }
 
             if (this._pRobot.GetFuel() < 100)
             {
+                _pRobot.Refuel(_vFuelsReserve[iChoice].GetValue());
                 _vFuelsReserve[iChoice].decrNumberItems();
                 return true;
             }

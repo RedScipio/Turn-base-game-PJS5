@@ -24,7 +24,7 @@ namespace Battle
                 lResult.AddRange(PlayRound());
             }
 
-            GUI.GameOver();
+            //GUI.GameOver();
         }
         
         // Joue un round, un tour par joueur
@@ -77,7 +77,7 @@ namespace Battle
                         }
                     case MAIN_MENU.Furnace: // Refuel
                         {
-                            Refuel(currentPilot);
+                            bStopLoop = Refuel(currentPilot);
                             break;
                         }
                     default:
@@ -154,7 +154,7 @@ namespace Battle
         /// 
         /// </summary>
         /// <param name="currentPilot"> the pilot selected to refuel his robot </param>
-        private void Refuel(IPILOT currentPilot)
+        private bool Refuel(IPILOT currentPilot)
         {
             FUEL_MENU iChoice;
             do
@@ -165,9 +165,17 @@ namespace Battle
                 {
                     GUI.WrongEntry();
                 }
+
+                if(iChoice == FUEL_MENU.Back)
+                {
+                    return false;
+                }
+
             } while (!currentPilot.Refuel((int)iChoice));
-            currentPilot.GetRobot().Refuel(currentPilot.GetFuelsReserve()[(int)iChoice].GetValue());
-            currentPilot.GetFuelsReserve()[(int)iChoice].decrNumberItems();
+
+
+            return true;
+            
             
             
         }

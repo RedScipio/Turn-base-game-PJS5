@@ -27,15 +27,15 @@ namespace WindowsFormTry
             List<ICONSUMABLES> _vPlayerFuelsReserve = new List<ICONSUMABLES>();
             List<ICONSUMABLES> _vBotFuelsReserve = new List<ICONSUMABLES>();
 
-            _vPlayerRepairKitsReserve.Add(new RepairKit(3, REPAIR.LIGHT_KIT));
-            _vPlayerRepairKitsReserve.Add(new RepairKit(3, REPAIR.FULL_KIT));
-            _vPlayerRepairKitsReserve.Add(new RepairKit(3, REPAIR.LIGHT_ARMOR));
-            _vPlayerRepairKitsReserve.Add(new RepairKit(3, REPAIR.HEAVY_ARMOR));
+            _vPlayerRepairKitsReserve.Add(new RepairKit(0, REPAIR.LIGHT_KIT));
+            _vPlayerRepairKitsReserve.Add(new RepairKit(0, REPAIR.FULL_KIT));
+            _vPlayerRepairKitsReserve.Add(new RepairKit(0, REPAIR.LIGHT_ARMOR));
+            _vPlayerRepairKitsReserve.Add(new RepairKit(0, REPAIR.HEAVY_ARMOR));
 
-            _vPlayerFuelsReserve.Add(new RefuelKit(3, ENERGY.ENERGY_WOOD));
-            _vPlayerFuelsReserve.Add(new RefuelKit(3, ENERGY.ENERGY_CHARCOAL));
-            _vPlayerFuelsReserve.Add(new RefuelKit(3, ENERGY.ENERGY_COAL));
-            _vPlayerFuelsReserve.Add(new RefuelKit(3, ENERGY.ENERGY_COMPACT_COAL));
+            _vPlayerFuelsReserve.Add(new RefuelKit(0, ENERGY.ENERGY_WOOD));
+            _vPlayerFuelsReserve.Add(new RefuelKit(0, ENERGY.ENERGY_CHARCOAL));
+            _vPlayerFuelsReserve.Add(new RefuelKit(0, ENERGY.ENERGY_COAL));
+            _vPlayerFuelsReserve.Add(new RefuelKit(0, ENERGY.ENERGY_COMPACT_COAL));
 
             IFURNACE playerFurn = new FURNACE(1, "Normal Furnace", 1, 2, 50);
             IFURNACE botFurn = new FURNACE(1, "Normal Furnace", 1, 1, 50);
