@@ -15,6 +15,7 @@ namespace Pilot
 
         public override void PlayTurn(IROBOT ennemiRobot, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1)
         {
+            Console.WriteLine("DumbBot attaque");
             if (this.GetRobot().WeaponIsUsable((int)WEAPON_SIDE.LEFT_WEAPON))
             {
                 this.GetRobot().DealDamage(ennemiRobot, (int)WEAPON_SIDE.LEFT_WEAPON, PARTS_TYPES.FURNACE);
@@ -28,6 +29,7 @@ namespace Pilot
 
         public override List<int> PlayTurnAuto(IROBOT ennemyRobot)
         {
+            Console.WriteLine("DumbBot attaque");
             if (this.GetRobot().WeaponIsUsable((int)WEAPON_SIDE.LEFT_WEAPON))
             {
                 return new List<int>(this.GetRobot().DealDamage(ennemyRobot, (int)WEAPON_SIDE.LEFT_WEAPON, PARTS_TYPES.FURNACE));

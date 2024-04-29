@@ -25,5 +25,20 @@ namespace Battle
         bool IsFurnaceBroken();
         bool IsLegsBroken();
         bool IsWeaponBroken(int iWeapon);
+        int GetFurnaceArmor();
+        int GetFurnaceMaxArmor();
+        int GetFurnaceMaxLife();
+        int GetLegsArmor();
+        int GetLegsMaxArmor();
+        int GetLegsLife();
+        int GetLegsMaxLife();
+        int GetLeftWeaponArmor();
+        int GetLeftWeaponMaxArmor();
+        int GetLeftWeaponLife();
+        int GetLeftWeaponMaxLife();
+        int GetRightWeaponArmor();
+        int GetRightWeaponMaxArmor();
+        int GetRightWeaponLife();
+        int GetRightWeaponMaxLife();
     }
 }

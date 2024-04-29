@@ -24,6 +24,6 @@ C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\bin\Debu
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Robot.pdb
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Battle.dll
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Battle.pdb
-C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.CopyComplete
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.dll
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.pdb
+C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.Up2Date

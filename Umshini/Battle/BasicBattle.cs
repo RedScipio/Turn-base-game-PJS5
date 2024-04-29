@@ -34,6 +34,7 @@ namespace Battle
 
             for (int i = 0; i<this._lPilots.Count; i++)
             {
+                GUI.ShowStatus(_lPilots[0], _lPilots[0]);
                 lResult.AddRange(this.PlayTurn(i));
             }
 
@@ -43,6 +44,7 @@ namespace Battle
         // Joue le tour d'un joueur
         public override List<int> PlayTurn(int iPilot)
         {
+            
             MAIN_MENU iChoice;
             bool bStopLoop = true;
             IPILOT currentPilot = this._lPilots[iPilot];
@@ -127,7 +129,11 @@ namespace Battle
             currentPilot.Attack(iChoiceWeapon, ennemyPilot, (PARTS_TYPES) eChoicePart);
             return true;
         }
-
+        /// <summary>
+        /// Choose the repair kit to repair the selected part
+        /// </summary>
+        /// <param name="currentPilot"></param>
+        /// <returns>True </returns>
         private bool Repair(IPILOT currentPilot)
         {
             REPAIRS_MENU iChoice;

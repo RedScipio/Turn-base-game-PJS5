@@ -8,80 +8,83 @@ namespace Battle
     public enum MAIN_MENU
     {
         Error = -1,
-        Attack = 1,
-        Repairs = 2,
-        Furnace = 3,
+        Attack,
+        Repairs,
+        Furnace,
     }
 
     public enum TARGET_MENU
     {
         Error = -1,
-        Back = 0,
-        Left_Weapon = 1,
-        Right_Weapon = 2,
-        Legs = 3,
-        Furnace = 4,
+        Left_Weapon,
+        Right_Weapon,
+        Legs,
+        Furnace,
+        Back // Back is also used as count value
     }
 
     public enum REPAIRS_MENU
     {
         Error = -1,
-        Back = 0,
-        Light_Armor = 1,
-        Heavy_Armor = 2,
-        Repair_Kits = 3,
-        Full_Kits = 4,
+        Light_Armor,
+        Heavy_Armor,
+        Repair_Kits,
+        Full_Kits,
+        Back // Back is also used as count value
     }
 
     public enum WEAPON_MENU
     {
         Error = -1,
-        Back = 0,
-        Left_Weapon = 1,
-        Right_Weapon = 2,
+        Left_Weapon,
+        Right_Weapon,
+        Back // Back is also used as count value
     }
 
     public enum FUEL_MENU
     {
         Error = -1,
-        Back = 0,
-        Wood = 1,
-        Charcoal = 2,
-        Coal = 3,
-        Compact_Coal = 4,
+        Wood,
+        Charcoal,
+        Coal,
+        Compact_Coal,
+        Back // Back is also used as count value
     }
 
     public static class GUI
     {
 
-        /*public void ShowStatus(IROBOT pPlayer, IROBOT pBot)
+        public static void ShowStatus(IPILOT pPlayer, IPILOT pBot)
         {
-            //Console.Clear();
+            Console.Clear();
+            IROBOT playerRobot = pPlayer.GetRobot();
+
+            IROBOT botRobot = pBot.GetRobot();
 
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|                  Robots                  |");
             Console.WriteLine("|===================-<>-===================|");
             Console.WriteLine("|>-     Player     -<||>-     Ennemi     -<|");
             Console.WriteLine("|===================-<>-===================|");
-            Console.WriteLine("| Furnace armor: " + pPlayer.GetFurnaceArmor() + "/" + pPlayer.GetFurnaceMaxArmor() + " || Furnace armor: " + pBot.GetFurnaceArmor() + "/" + pBot.GetFurnaceMaxArmor() + " |");
-            Console.WriteLine("| Furnace life: " + pPlayer.GetFurnaceLife() + "/" + pPlayer.GetFurnaceMaxLife() + "  || Furnace life: " + pBot.GetFurnaceLife() + "/" + pBot.GetFurnaceMaxLife() + "  |");
+            Console.WriteLine("| Furnace armor: " + playerRobot.GetFurnaceArmor() + "/" + playerRobot.GetFurnaceMaxArmor() + " || Furnace armor: " + botRobot.GetFurnaceArmor() + "/" + botRobot.GetFurnaceMaxArmor() + " |");
+            Console.WriteLine("| Furnace life: " + playerRobot.GetFurnaceLife() + "/" + playerRobot.GetFurnaceMaxLife() + "  || Furnace life: " + botRobot.GetFurnaceLife() + "/" + botRobot.GetFurnaceMaxLife() + "  |");
             Console.WriteLine("|>- - - - - - - - - -<>- - - - - - - - - -<|");
-            Console.WriteLine("| Legs armor: " + pPlayer.GetLegsArmor() + "/" + pPlayer.GetLegsMaxArmor() + "    || Legs armor: " + pBot.GetLegsArmor() + "/" + pBot.GetLegsMaxArmor() + "    |");
-            Console.WriteLine("| Legs remains: " + pPlayer.GetLegsLife() + "/" + pPlayer.GetLegsMaxLife() + "  || Legs remains: " + pBot.GetLegsLife() + "/" + pBot.GetLegsMaxLife() + "  |");
+            Console.WriteLine("| Legs armor: " + playerRobot.GetLegsArmor() + "/" + playerRobot.GetLegsMaxArmor() + "    || Legs armor: " + botRobot.GetLegsArmor() + "/" + botRobot.GetLegsMaxArmor() + "    |");
+            Console.WriteLine("| Legs remains: " + playerRobot.GetLegsLife() + "/" + playerRobot.GetLegsMaxLife() + "  || Legs remains: " + botRobot.GetLegsLife() + "/" + botRobot.GetLegsMaxLife() + "  |");
             Console.WriteLine("|>- - - - - - - - - -<>- - - - - - - - - -<|");
-            Console.WriteLine("| WeaponL armor: " + pPlayer.GetLeftWeaponArmor() + "/" + pPlayer.GetLeftWeaponMaxArmor() + " || WeaponL armor: " + pBot.GetLeftWeaponArmor() + "/" + pBot.GetLeftWeaponMaxArmor() + " |");
-            Console.WriteLine("| WeaponL life: " + pPlayer.GetLeftWeaponLife() + "/" + pPlayer.GetLeftWeaponMaxLife() + "  || WeaponL life: " + pBot.GetLeftWeaponLife() + "/" + pBot.GetLeftWeaponMaxLife() + "  |");
+            Console.WriteLine("| WeaponL armor: " + playerRobot.GetLeftWeaponArmor() + "/" + playerRobot.GetLeftWeaponMaxArmor() + " || WeaponL armor: " + botRobot.GetLeftWeaponArmor() + "/" + botRobot.GetLeftWeaponMaxArmor() + " |");
+            Console.WriteLine("| WeaponL life: " + playerRobot.GetLeftWeaponLife() + "/" + playerRobot.GetLeftWeaponMaxLife() + "  || WeaponL life: " + botRobot.GetLeftWeaponLife() + "/" + botRobot.GetLeftWeaponMaxLife() + "  |");
             Console.WriteLine("|>- - - - - - - - - -<>- - - - - - - - - -<|");
-            Console.WriteLine("| WeaponR armor: " + pPlayer.GetRightWeaponArmor() + "/" + pPlayer.GetRightWeaponMaxArmor() + " || WeaponR armor: " + pBot.GetRightWeaponArmor() + "/" + pBot.GetRightWeaponMaxArmor() + " |");
-            Console.WriteLine("| WeaponR life: " + pPlayer.GetRightWeaponLife() + "/" + pPlayer.GetRightWeaponMaxLife() + "  || WeaponR life: " + pBot.GetRightWeaponLife() + "/" + pBot.GetRightWeaponMaxLife() + "  |");
+            Console.WriteLine("| WeaponR armor: " + playerRobot.GetRightWeaponArmor() + "/" + playerRobot.GetRightWeaponMaxArmor() + " || WeaponR armor: " + botRobot.GetRightWeaponArmor() + "/" + botRobot.GetRightWeaponMaxArmor() + " |");
+            Console.WriteLine("| WeaponR life: " + playerRobot.GetRightWeaponLife() + "/" + playerRobot.GetRightWeaponMaxLife() + "  || WeaponR life: " + botRobot.GetRightWeaponLife() + "/" + botRobot.GetRightWeaponMaxLife() + "  |");
             Console.WriteLine("|===================-<>-===================|");
-            int iPlayerFuel = pPlayer.GetFuel();
+            int iPlayerFuel = playerRobot.GetFuel();
             Console.Write("|    Fuel: " + iPlayerFuel + "/100");
             if (iPlayerFuel < 100)
             {
                 Console.Write(" ");
             }
-            int iBotFuel = pBot.GetFuel();
+            int iBotFuel = botRobot.GetFuel();
             Console.Write("   ||    Fuel: " + iBotFuel + "/100");
             if (iBotFuel < 100)
             {
@@ -89,7 +92,7 @@ namespace Battle
             }
             Console.WriteLine("   |");
             Console.WriteLine("|====================--====================|");
-        }*/
+        }
 
         public static MAIN_MENU MainMenu(int resultat = -1)
         {

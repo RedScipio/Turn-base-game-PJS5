@@ -51,7 +51,13 @@ namespace Pilot
         public abstract bool IsBotPilot();
 
         public abstract List<int> PlayTurnAuto(IROBOT ennemyRobot);
-
+        /// <summary>
+        /// False if the selected weapons is not 
+        /// usable or if all kits (refuel or repair) 
+        /// are empty, else true
+        /// </summary>
+        /// <param name="iChoice"> The choice in the main menu </param>
+        /// <returns> bool </returns>
         public bool FirstChoiceIsValid(MAIN_MENU iChoice)
         {
             if(iChoice == MAIN_MENU.Attack)
@@ -79,19 +85,26 @@ namespace Pilot
         }
 
         /// <summary>
-        /// Check if every kit in the list is empty
+        /// Check if every kit in the list is empty.
+        /// Return true if every element 
+        /// in the list has 0 items
         /// </summary>
         /// <param name="listKits"> the list of kits selected </param>
-        /// <returns>true if every element in the list has 0 items</returns>
+        /// <returns> bool </returns>
         public bool IsAllKitsEmpty(List<ICONSUMABLES> listKits)
         {
-            if(listKits.All(rf => rf.GetNumberItems() < 1))
+            if(listKits.All(kits => kits.GetNumberItems() < 1))
             {
                 return true;
             }
             return false;
         }
 
+        /// <summary>
+        /// Return true 
+        /// </summary>
+        /// <param name="iChoice"></param>
+        /// <returns>bool </returns>
         public bool Refuel(int iChoice)
         {
             if (this._vFuelsReserve[iChoice].GetNumberItems() < 1)

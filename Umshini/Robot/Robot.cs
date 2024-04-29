@@ -378,5 +378,80 @@ namespace Robot
         {
             return new List<IWEAPON>(_lWeapon);
         }
+
+        public int GetFurnaceArmor()
+        {
+            return _pFurnace.GetArmor();
+        }
+
+        public int GetFurnaceMaxArmor()
+        {
+            return _pFurnace.GetMaxArmor();
+        }
+
+        public int GetFurnaceMaxLife()
+        {
+            return _pFurnace.GetMaxLife();
+        }
+
+        public int GetLegsArmor()
+        {
+            return _pLeg.GetArmor();
+        }
+
+        public int GetLegsMaxArmor()
+        {
+            return _pLeg.GetMaxArmor();
+        }
+
+        public int GetLegsLife()
+        {
+            return _pLeg.GetLife();
+        }
+
+        public int GetLegsMaxLife()
+        {
+            return _pLeg.GetMaxLife();
+        }
+
+        public int GetLeftWeaponArmor()
+        {
+            return _lWeapon[0].GetArmor();
+        }
+
+        public int GetLeftWeaponMaxArmor()
+        {
+            return _lWeapon[0].GetMaxArmor();
+        }
+
+        public int GetLeftWeaponLife()
+        {
+            return _lWeapon[0].GetLife();
+        }
+
+        public int GetLeftWeaponMaxLife()
+        {
+            return _lWeapon[0].GetMaxLife();
+        }
+
+        public int GetRightWeaponArmor()
+        {
+            return _lWeapon[1].GetArmor();
+        }
+
+        public int GetRightWeaponMaxArmor()
+        {
+            return _lWeapon[1].GetMaxArmor();
+        }
+
+        public int GetRightWeaponLife()
+        {
+            return _lWeapon[1].GetLife();
+        }
+
+        public int GetRightWeaponMaxLife()
+        {
+            return _lWeapon[1].GetMaxLife();
+        }
     }
 }
