@@ -126,6 +126,7 @@ namespace Robot
         public int DealDamage(IROBOT pEnnemiRobot, int iWeaponChoice, PARTS_TYPES eTargetChoice)
         {
             IWEAPON pWeapon = _lWeapon[iWeaponChoice];
+            this.RemoveFuel(pWeapon.GetPowerConsumption());
 
             if (pWeapon.TypeIs() == WEAPONS_TYPES.THERMAL)
             {
