@@ -131,18 +131,54 @@ namespace Pilot
             return false;
         }
 
-        public bool Repair(REPAIRS_MENU iChoice)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="iChoice"></param>
+        /// <returns> bool </returns>
+        public bool Repair(REPAIRS_MENU iChoice, PARTS_TYPES iChoicePart)
         {
             if (iChoice == REPAIRS_MENU.Error) return false;
 
-            if (this._pRobot.RepairLifeTargetIsValid((PARTS_TYPES)iChoice))
+            if (_vRepairKitsReserve[(int)iChoice].GetNumberItems() < 1)
+            {
+                if (IsAllKitsEmpty(_vRepairKitsReserve))
+                {
+                    return true;
+                }
+            }
+
+            if(iChoice == REPAIRS_MENU.Light_Armor || iChoice == REPAIRS_MENU.Heavy_Armor)
+            {
+                if (this._pRobot.RepairArmorTargetIsValid(iChoicePart))
+                {
+                    return true;
+                }
+                
+            }
+            
+            if(iChoice == REPAIRS_MENU.Repair_Kits || iChoice == REPAIRS_MENU.Full_Kits)
+            {
+                if (this._pRobot.RepairLifeTargetIsValid((PARTS_TYPES)iChoice))
+                {
+                    
+                }
+            }
+            if (!this._pRobot.RepairLifeTargetIsValid((PARTS_TYPES)iChoice))
             {
 
             }
 
-            return true;
+            return false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="iChoiceWeapon"> the weapon we choose to attack</param>
+        /// <param name="ennemy"> the enemy pilot</param>
+        /// <param name="target"> the part we selected to attack </param>
+        /// <returns></returns>
         public bool Attack(int iChoiceWeapon, IPILOT ennemy, PARTS_TYPES target)
         {
             if (this.GetRobot().WeaponIsUsable(iChoiceWeapon))
@@ -159,6 +195,11 @@ namespace Pilot
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// Verify the weapon choosed is usable.
+        /// </summary>
+        /// <param name="iChoice"></param>
+        /// <returns></returns>
         public bool IsWeaponUsable(int iChoice)
         {
             return _pRobot.WeaponIsUsable(iChoice);

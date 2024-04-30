@@ -39,11 +39,14 @@ namespace Robot
         }
 
         /// <summary>
-        /// Check if the selected weapon is usable
+        /// Check if the selected weapon is usable.
+        /// Return false if it is broken or if the robot 
+        /// lack fuel (or gets legs broken (Melee) 
+        /// or lack ammo (Projectile)), else true.
         /// </summary>
         /// <developer>MBI</developer>
         /// <param name="iWeaponChoice"></param>
-        /// <returns></returns>
+        /// <returns> bool </returns>
         public bool WeaponIsUsable(int iWeaponChoice)
         {
             if (iWeaponChoice < 0) return false;
@@ -78,9 +81,9 @@ namespace Robot
         /// Use to take damage from another robot
         /// </summary>
         /// <developer>MBI</developer>
-        /// <param name="iDamage"></param>
-        /// <param name="eType"></param>
-        /// <returns></returns>
+        /// <param name="iDamage"> the amount of damage taken</param>
+        /// <param name="eType"> the type of part selected </param>
+        /// <returns> int </returns>
         public int TakeDamage(int iDamage, PARTS_TYPES eType)
         {
             switch (eType)
@@ -99,7 +102,8 @@ namespace Robot
         /// Remove fuel when needed
         /// </summary>
         /// <developer>MBI</developer>
-        /// <param name="iFuel"></param>
+        /// <param name="iFuel"> the amount of fuel
+        /// removed </param>
         public void RemoveFuel(int iFuel)
         {
             if (_iFuel < 1 && iFuel < 1)
@@ -157,7 +161,7 @@ namespace Robot
         /// Refuel Robot furnace
         /// </summary>
         /// <developer>MBI</developer>
-        /// <param name="iFuel"></param>
+        /// <param name="iFuel"> amount of fuel refueled </param>
         public void Refuel(int iFuel)
         {
             _iFuel += iFuel;
@@ -177,8 +181,9 @@ namespace Robot
         /// Repair the armor of one part of the robot
         /// </summary>
         /// <developer>MBI</developer>
-        /// <param name="iRepairPoints"></param>
-        /// <param name="iTargetChoice"></param>
+        /// <param name="iRepairPoints"> amount of armor points 
+        /// repaired </param>
+        /// <param name="iTargetChoice"> the part targeted </param>
         public void RepairRobotArmor(int iRepairPoints, PARTS_TYPES eTargetChoice)
         {
             switch (eTargetChoice)
@@ -200,8 +205,9 @@ namespace Robot
         /// Repair the life points of one part of the robot
         /// </summary>
         /// <developer>MBI</developer>
-        /// <param name="iRepairPoints"></param>
-        /// <param name="eTargetChoice"></param>
+        /// <param name="iRepairPoints">amount of armor points 
+        /// repaired </param>
+        /// <param name="eTargetChoice"> the part targeted </param>
         public void RepairRobotLifePoint(int iRepairPoints, PARTS_TYPES eTargetChoice)
         {
             switch (eTargetChoice)
@@ -219,11 +225,13 @@ namespace Robot
         }
 
         /// <summary>
-        /// Check if the robot can attack the chosen part
+        /// Check if the robot can attack the chosen part.
+        /// Return true if the life points of the part are
+        /// above 0, else false.
         /// </summary>
         /// <developer>MBI</developer>
-        /// <param name="eChoice"></param>
-        /// <returns></returns>
+        /// <param name="eChoice"> the part targeted </param>
+        /// <returns> bool </returns>
         public bool AttackTargetIsValid(PARTS_TYPES eChoice)
         {
             switch (eChoice)
@@ -251,11 +259,14 @@ namespace Robot
         }
 
         /// <summary>
-        /// Check if it's possible to repair the life chosen part of the robot
+        /// Check if it's possible to repair the life 
+        /// chosen part of the robot. Return true if part's
+        /// life point are below max life points value,
+        /// else false.
         /// </summary>
         /// <developer>MBI</developer>
-        /// <param name="eChoice"></param>
-        /// <returns></returns>
+        /// <param name="eTargetChoice"> the part targeted </param>
+        /// <returns> bool </returns>
         public bool RepairLifeTargetIsValid(PARTS_TYPES eTargetChoice)
         {
             switch (eTargetChoice)
@@ -283,11 +294,14 @@ namespace Robot
         }
 
         /// <summary>
-        /// Check if it's possible to repair the armor chosen part of the robot
+        /// Check if it's possible to repair the armor
+        /// from the chosen part of the robot. 
+        /// Return true if the current armor value is strictly 
+        /// below the max armor value, else false.
         /// </summary>
         /// <developer>MBI</developer>
         /// <param name="eChoice"></param>
-        /// <returns></returns>
+        /// <returns> bool </returns>
         public bool RepairArmorTargetIsValid(PARTS_TYPES eTargetChoice)
         {
             switch (eTargetChoice)
@@ -339,6 +353,11 @@ namespace Robot
             return this._pFurnace.GetLife();
         }
 
+        /// <summary>
+        /// Getter for the selected weapon damage
+        /// </summary>
+        /// <param name="iWeapon"> the selected weapon </param>
+        /// <returns></returns>
         public int GetWeaponDamage(int iWeapon)
         {
             return this._lWeapon[iWeapon].GetDamage();

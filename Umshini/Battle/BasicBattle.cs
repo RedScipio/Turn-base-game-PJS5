@@ -145,15 +145,28 @@ namespace Battle
                 {
                     GUI.WrongEntry();
                 }
-
                 else if (iChoice == REPAIRS_MENU.Back)
                 {
                     return false;
                 }
             }
-            while (!currentPilot.Repair(iChoice));
+            while (iChoice == REPAIRS_MENU.Error);
 
-            return true;
+            TARGET_MENU iChoicePart;
+            do
+            {
+                iChoicePart = GUI.TargetMenu();
+                if (iChoicePart == TARGET_MENU.Back)
+                {
+                    return false;
+                }
+                else if(iChoicePart == TARGET_MENU.Error)
+                {
+                    GUI.WrongEntry();
+                }
+            } while (iChoicePart == TARGET_MENU.Error);
+            
+            return currentPilot.Repair(iChoice, (PARTS_TYPES)iChoicePart); 
         }
 
         /// <summary>
