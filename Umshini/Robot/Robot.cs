@@ -81,13 +81,13 @@ namespace Robot
         /// <param name="iDamage"></param>
         /// <param name="eType"></param>
         /// <returns></returns>
-        public int TakeDamage(int iDamage, PARTS_TYPES eType)
+        public int TakeDamage(int iDamage, TARGET_TYPE eType)
         {
             switch (eType)
             {
-                case PARTS_TYPES.FURNACE:
+                case TARGET_TYPE.FURNACE:
                     return _pFurnace.TakeDamage(iDamage);
-                case PARTS_TYPES.LEG:
+                case TARGET_TYPE.LEG:
                     return _pLeg.TakeDamage(iDamage);
                 default:
                     int iWeapon = (int)eType - (int)PARTS_TYPES.WEAPON;
@@ -123,7 +123,7 @@ namespace Robot
         /// <param name="iWeaponChoice"></param>
         /// <param name="eTargetChoice"></param>
         /// <returns> int </returns>
-        public int DealDamage(IROBOT pEnnemiRobot, int iWeaponChoice, PARTS_TYPES eTargetChoice)
+        public int DealDamage(IROBOT pEnnemiRobot, int iWeaponChoice, TARGET_TYPE eTargetChoice)
         {
             IWEAPON pWeapon = _lWeapon[iWeaponChoice];
             this.RemoveFuel(pWeapon.GetPowerConsumption());
@@ -179,18 +179,18 @@ namespace Robot
         /// <developer>MBI</developer>
         /// <param name="iRepairPoints"></param>
         /// <param name="iTargetChoice"></param>
-        public void RepairRobotArmor(int iRepairPoints, PARTS_TYPES eTargetChoice)
+        public void RepairRobotArmor(int iRepairPoints, TARGET_TYPE eTargetChoice)
         {
             switch (eTargetChoice)
             {
-                case PARTS_TYPES.FURNACE:
+                case TARGET_TYPE.FURNACE:
                     _pFurnace.RepairArmor(iRepairPoints);
                     return;
-                case PARTS_TYPES.LEG:
+                case TARGET_TYPE.LEG:
                     _pLeg.RepairArmor(iRepairPoints);
                     return;
                 default:
-                    int iWeapon = (int)eTargetChoice - (int)PARTS_TYPES.WEAPON;
+                    int iWeapon = (int) eTargetChoice - (int)TARGET_TYPE.LEFT_WEAPON;
                     _lWeapon[iWeapon].RepairArmor(iRepairPoints);
                     return;
             }
@@ -202,18 +202,18 @@ namespace Robot
         /// <developer>MBI</developer>
         /// <param name="iRepairPoints"></param>
         /// <param name="eTargetChoice"></param>
-        public void RepairRobotLifePoint(int iRepairPoints, PARTS_TYPES eTargetChoice)
+        public void RepairRobotLifePoint(int iRepairPoints, TARGET_TYPE eTargetChoice)
         {
             switch (eTargetChoice)
             {
-                case PARTS_TYPES.FURNACE:
+                case TARGET_TYPE.FURNACE:
                     _pFurnace.RepairLife(iRepairPoints);
                     return;
-                case PARTS_TYPES.LEG:
+                case TARGET_TYPE.LEG:
                     _pLeg.RepairLife(iRepairPoints);
                     return;
                 default:
-                    _lWeapon[(int)eTargetChoice - (int)PARTS_TYPES.WEAPON].RepairLife(iRepairPoints);
+                    _lWeapon[(int)eTargetChoice - (int)TARGET_TYPE.LEFT_WEAPON].RepairLife(iRepairPoints);
                     return;
             }
         }
@@ -224,24 +224,24 @@ namespace Robot
         /// <developer>MBI</developer>
         /// <param name="eChoice"></param>
         /// <returns></returns>
-        public bool AttackTargetIsValid(PARTS_TYPES eChoice)
+        public bool AttackTargetIsValid(TARGET_TYPE eChoice)
         {
             switch (eChoice)
             {
-                case PARTS_TYPES.FURNACE:
+                case TARGET_TYPE.FURNACE:
                     if (_pFurnace.GetLife() > 0)
                     {
                         return true;
                     }
                     return false;
-                case PARTS_TYPES.LEG:
+                case TARGET_TYPE.LEG:
                     if (_pLeg.GetLife() > 0)
                     {
                         return true;
                     }
                     return false;
                 default:
-                    int iWeapon = (int)eChoice - (int)PARTS_TYPES.WEAPON;
+                    int iWeapon = (int)eChoice - (int)TARGET_TYPE.LEFT_WEAPON;
                     if (_lWeapon[iWeapon].GetLife() > 0)
                     {
                         return true;
@@ -256,24 +256,24 @@ namespace Robot
         /// <developer>MBI</developer>
         /// <param name="eChoice"></param>
         /// <returns></returns>
-        public bool RepairLifeTargetIsValid(PARTS_TYPES eTargetChoice)
+        public bool RepairLifeTargetIsValid(TARGET_TYPE eTargetChoice)
         {
             switch (eTargetChoice)
             {
-                case PARTS_TYPES.FURNACE:
+                case TARGET_TYPE.FURNACE:
                     if (_pFurnace.GetLife() < _pFurnace.GetMaxLife())
                     {
                         return true;
                     }
                     return false;
-                case PARTS_TYPES.LEG:
+                case TARGET_TYPE.LEG:
                     if (_pLeg.GetLife() < _pLeg.GetMaxLife())
                     {
                         return true;
                     }
                     return false;
                 default:
-                    int iWeapon = (int)eTargetChoice - (int)PARTS_TYPES.WEAPON;
+                    int iWeapon = (int)eTargetChoice - (int)TARGET_TYPE.LEFT_WEAPON;
                     if (_lWeapon[iWeapon].GetLife() < _lWeapon[iWeapon].GetMaxLife())
                     {
                         return true;
@@ -288,24 +288,24 @@ namespace Robot
         /// <developer>MBI</developer>
         /// <param name="eChoice"></param>
         /// <returns></returns>
-        public bool RepairArmorTargetIsValid(PARTS_TYPES eTargetChoice)
+        public bool RepairArmorTargetIsValid(TARGET_TYPE eTargetChoice)
         {
             switch (eTargetChoice)
             {
-                case PARTS_TYPES.FURNACE:
+                case TARGET_TYPE.FURNACE:
                     if (_pFurnace.GetArmor() < _pFurnace.GetMaxArmor())
                     {
                         return true;
                     }
                     return false;
-                case PARTS_TYPES.LEG:
+                case TARGET_TYPE.LEG:
                     if (_pLeg.GetArmor() < _pLeg.GetMaxArmor())
                     {
                         return true;
                     }
                     return false;
                 default:
-                    int iWeapon = (int)eTargetChoice - (int)PARTS_TYPES.WEAPON;
+                    int iWeapon = (int)eTargetChoice - (int)TARGET_TYPE.LEFT_WEAPON;
                     if (_lWeapon[iWeapon].GetMaxArmor() < _lWeapon[iWeapon].GetMaxArmor())
                     {
                         return true;

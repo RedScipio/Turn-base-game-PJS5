@@ -18,12 +18,12 @@ namespace Pilot
             Console.WriteLine("DumbBot attaque");
             if (this.GetRobot().WeaponIsUsable((int)WEAPON_SIDE.LEFT_WEAPON))
             {
-                this.GetRobot().DealDamage(ennemiRobot, (int)WEAPON_SIDE.LEFT_WEAPON, PARTS_TYPES.FURNACE);
+                this.GetRobot().DealDamage(ennemiRobot, (int)WEAPON_SIDE.LEFT_WEAPON, TARGET_TYPE.FURNACE);
             }
 
             else if (this.GetRobot().WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON))
             {
-                this.GetRobot().DealDamage(ennemiRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.FURNACE);
+                this.GetRobot().DealDamage(ennemiRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, TARGET_TYPE.FURNACE);
             }
         }
 
@@ -32,12 +32,12 @@ namespace Pilot
             Console.WriteLine("DumbBot attaque");
             if (this.GetRobot().WeaponIsUsable((int)WEAPON_SIDE.LEFT_WEAPON))
             {
-                return new List<int>(this.GetRobot().DealDamage(ennemyRobot, (int)WEAPON_SIDE.LEFT_WEAPON, PARTS_TYPES.FURNACE));
+                return new List<int>(this.GetRobot().DealDamage(ennemyRobot, (int)WEAPON_SIDE.LEFT_WEAPON, TARGET_TYPE.FURNACE));
             }
 
             else if (this.GetRobot().WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON))
             {
-                return new List<int>(this.GetRobot().DealDamage(ennemyRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.FURNACE));
+                return new List<int>(this.GetRobot().DealDamage(ennemyRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, TARGET_TYPE.FURNACE));
             }
 
             else

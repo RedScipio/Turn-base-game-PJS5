@@ -99,7 +99,8 @@ namespace Pilot
                         if (_pRobot.WeaponIsUsable(iWeapon))
                         {
                             TARGET_MENU iTargetChoice = GUI.TargetMenu(iTargetPart);
-                            PARTS_TYPES eTargetChoice = (PARTS_TYPES)(iTargetChoice);
+                            //!!!
+                            TARGET_TYPE eTargetChoice = (TARGET_TYPE)(iTargetChoice);
                             
                             this.GetActionResults().Add((int) iTargetChoice);
 
@@ -126,7 +127,7 @@ namespace Pilot
                                 }
                                 else
                                 {
-                                    int damage = _pRobot.DealDamage(pEnemyRobot, iWeapon, (PARTS_TYPES)iTargetChoice);
+                                    int damage = _pRobot.DealDamage(pEnemyRobot, iWeapon, (TARGET_TYPE)iTargetChoice);
                                     this.GetActionResults().Add(damage);
                                     return;
                                 }
@@ -178,7 +179,8 @@ namespace Pilot
                         if (_vRepairKitsReserve.Count() > 0)
                         {
                             TARGET_MENU iTargetChoice = GUI.TargetMenu(iUsed);
-                            PARTS_TYPES eTargetChoice = (PARTS_TYPES)iTargetChoice;
+                            ///!!!
+                            TARGET_TYPE eTargetChoice = (TARGET_TYPE)iTargetChoice;
                             this.GetActionResults().Add((int)iTargetChoice);
                             if (_pRobot.RepairArmorTargetIsValid(eTargetChoice))
                             {
@@ -204,7 +206,8 @@ namespace Pilot
                         if (_vRepairKitsReserve.Count() > 0)
                         {
                             TARGET_MENU iTargetChoice = GUI.TargetMenu(iUsed);
-                            PARTS_TYPES eTargetChoice = (PARTS_TYPES)iTargetChoice;
+                            //!!!
+                            TARGET_TYPE eTargetChoice = (TARGET_TYPE)iTargetChoice;
                             this.GetActionResults().Add((int) iTargetChoice);
                             if (_pRobot.RepairArmorTargetIsValid(eTargetChoice))
                             {
@@ -229,7 +232,8 @@ namespace Pilot
                     {
                         if (_vRepairKitsReserve.Count() > 0)
                         {
-                            PARTS_TYPES eTargetChoice = (PARTS_TYPES)GUI.TargetMenu(iUsed);
+                            ///!!!
+                            TARGET_TYPE eTargetChoice = (TARGET_TYPE)GUI.TargetMenu(iUsed);
 
                             if (_pRobot.RepairLifeTargetIsValid(eTargetChoice))
                             {
@@ -255,7 +259,8 @@ namespace Pilot
                         if (_vRepairKitsReserve.Count() > 0)
                         {
                             TARGET_MENU iTargetChoice = GUI.TargetMenu(iUsed);
-                            PARTS_TYPES eTargetChoice = (PARTS_TYPES)iTargetChoice;
+                            //!!!
+                            TARGET_TYPE eTargetChoice = (TARGET_TYPE)iTargetChoice;
 
                             this.GetActionResults().Add((int)iTargetChoice);
                             if (_pRobot.RepairLifeTargetIsValid(eTargetChoice))

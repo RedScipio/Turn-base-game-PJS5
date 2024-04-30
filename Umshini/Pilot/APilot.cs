@@ -135,7 +135,7 @@ namespace Pilot
         {
             if (iChoice == REPAIRS_MENU.Error) return false;
 
-            if (this._pRobot.RepairLifeTargetIsValid((PARTS_TYPES)iChoice))
+            if (this._pRobot.RepairLifeTargetIsValid((TARGET_TYPE)iChoice))
             {
 
             }
@@ -143,11 +143,11 @@ namespace Pilot
             return true;
         }
 
-        public bool Attack(int iChoiceWeapon, IPILOT ennemy, PARTS_TYPES target)
+        public bool Attack(int iChoiceWeapon, IROBOT ennemy, TARGET_TYPE target)
         {
             if (this.GetRobot().WeaponIsUsable(iChoiceWeapon))
             {
-                ennemy.GetRobot().DealDamage(ennemy.GetRobot(), iChoiceWeapon, target);
+                this.GetRobot().DealDamage(ennemy, iChoiceWeapon, target);
                 return true;
             }
 

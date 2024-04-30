@@ -59,7 +59,7 @@ namespace Part
             {
                 iRemainingDamage = iDamage - _iArmor;
                 iResult = _iArmor - iDamage;
-                _iArmor = _iArmor - iDamage;
+                _iArmor -= iDamage;
             }
             if (_iLifePoint > 0 && iRemainingDamage > 0)
             {
@@ -74,7 +74,7 @@ namespace Part
                     _iArmor = 0;
                 }
             }
-            Console.WriteLine("Dealt damage to " + _iId + ", " + _sName);
+            Console.WriteLine("Dealt" + iDamage + "damage(s) to " + _iId + ", " + _sName);
             return iResult;
         }
 
