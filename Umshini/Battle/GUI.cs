@@ -533,5 +533,22 @@ namespace Battle
             
             Console.ReadLine();
         }
-    }
+
+        public static TARGET_TYPE ConvertTargetType(TARGET_MENU eChoicePart)
+        {
+            switch (eChoicePart)
+            {
+                case TARGET_MENU.Legs:
+                    return TARGET_TYPE.LEG;
+                case TARGET_MENU.Furnace:
+                    return TARGET_TYPE.FURNACE;
+                case TARGET_MENU.Left_Weapon:
+                    return TARGET_TYPE.LEFT_WEAPON;
+                case TARGET_MENU.Right_Weapon:
+                    return TARGET_TYPE.RIGHT_WEAPON;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+}
 }

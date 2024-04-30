@@ -169,21 +169,11 @@ namespace Pilot
 
             }
 
-            return false;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="iChoiceWeapon"> the weapon we choose to attack</param>
-        /// <param name="ennemy"> the enemy pilot</param>
-        /// <param name="target"> the part we selected to attack </param>
-        /// <returns></returns>
-        public bool Attack(int iChoiceWeapon, IPILOT ennemy, PARTS_TYPES target)
+        public bool Attack(int iChoiceWeapon, IROBOT ennemy, TARGET_TYPE target)
         {
             if (this.GetRobot().WeaponIsUsable(iChoiceWeapon))
             {
-                ennemy.GetRobot().DealDamage(ennemy.GetRobot(), iChoiceWeapon, target);
+                this.GetRobot().DealDamage(ennemy, iChoiceWeapon, target);
                 return true;
             }
 

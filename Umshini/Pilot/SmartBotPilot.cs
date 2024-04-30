@@ -58,11 +58,11 @@ namespace Pilot
 
             if (averageLeftWeapon > averageRightWeapon)
             {
-                GetRobot().DealDamage(ennemy, (int)WEAPON_SIDE.LEFT_WEAPON, PARTS_TYPES.FURNACE);
+                GetRobot().DealDamage(ennemy, (int)WEAPON_SIDE.LEFT_WEAPON, TARGET_TYPE.FURNACE);
                 return;
             }
 
-            GetRobot().DealDamage(ennemy, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.FURNACE);
+            GetRobot().DealDamage(ennemy, (int)WEAPON_SIDE.RIGHT_WEAPON, TARGET_TYPE.FURNACE);
             return;
         }
 
@@ -84,7 +84,7 @@ namespace Pilot
                 kitUtilise = listKits[-1];
             }
 
-            GetRobot().RepairRobotLifePoint(kitUtilise.GetValue(), PARTS_TYPES.FURNACE);
+            GetRobot().RepairRobotLifePoint(kitUtilise.GetValue(), TARGET_TYPE.FURNACE);
 
             return;
         }

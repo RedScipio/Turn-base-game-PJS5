@@ -34,7 +34,7 @@ namespace Battle
 
             for (int i = 0; i<this._lPilots.Count; i++)
             {
-                GUI.ShowStatus(_lPilots[0], _lPilots[0]);
+                //GUI.ShowStatus(_lPilots[0], _lPilots[1]);
                 lResult.AddRange(this.PlayTurn(i));
             }
 
@@ -44,9 +44,8 @@ namespace Battle
         // Joue le tour d'un joueur
         public override List<int> PlayTurn(int iPilot)
         {
-            
             MAIN_MENU iChoice;
-            bool bStopLoop = true;
+            bool bStopLoop;
             IPILOT currentPilot = this._lPilots[iPilot];
             int iEnnemy = (iPilot == 0) ? 1 : 0;
             IROBOT ennemyRobot = this._lPilots[iEnnemy].GetRobot();
@@ -69,7 +68,7 @@ namespace Battle
                 {
                     case MAIN_MENU.Attack: // Attack
                         {
-                            bStopLoop = Attack(currentPilot, this._lPilots[iEnnemy]);
+                            bStopLoop = Attack(currentPilot, ennemyRobot);
                             break;
                         }
                     case MAIN_MENU.Repairs: // Repair
@@ -97,7 +96,7 @@ namespace Battle
         }
 
         
-        private bool Attack(IPILOT currentPilot, IPILOT ennemyPilot)
+        private bool Attack(IPILOT currentPilot, IROBOT ennemyRobot)
         {
             WEAPON_MENU eChoiceWeapon;
             TARGET_MENU eChoicePart;
@@ -116,6 +115,7 @@ namespace Battle
             } while (eChoicePart == TARGET_MENU.Error);
 
             int iChoiceWeapon;
+            TARGET_TYPE eChoiceTargetType;
 
             if (eChoiceWeapon == WEAPON_MENU.Left_Weapon)
             {
@@ -126,7 +126,16 @@ namespace Battle
                 iChoiceWeapon = 1;
             }
 
-            currentPilot.Attack(iChoiceWeapon, ennemyPilot, (PARTS_TYPES) eChoicePart);
+            try
+            {
+                eChoiceTargetType = GUI.ConvertTargetType(eChoicePart);
+            }
+            catch(NotImplementedException e)
+            {
+                return false;
+            }
+
+            currentPilot.Attack(iChoiceWeapon, ennemyRobot, eChoiceTargetType);
             return true;
         }
         /// <summary>
@@ -192,11 +201,7 @@ namespace Battle
 
             } while (!currentPilot.Refuel((int)iChoice));
 
-
             return true;
-            
-            
-            
         }
 
         private bool TargetPartIsBroken(IPILOT pilot)

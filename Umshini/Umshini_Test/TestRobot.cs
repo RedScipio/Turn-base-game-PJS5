@@ -137,11 +137,11 @@ namespace Umshini_Test
             playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(100);
 
             //With one leg broken
-            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, TARGET_TYPE.LEG);
             playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(90);
 
             //With two legs broken
-            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, TARGET_TYPE.LEG);
             playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(80);
         }
     }

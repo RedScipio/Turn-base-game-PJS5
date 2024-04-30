@@ -6,16 +6,16 @@ namespace Battle
     {
         bool IsDestroy();
         bool NeedToRestart();
-        int DealDamage(IROBOT pEnnemiRobot, int iWeaponChoice, PARTS_TYPES eTargetChoice);
-        int TakeDamage(int iDamage, PARTS_TYPES eType);
-        void RepairRobotLifePoint(int kitUsed, PARTS_TYPES eChoice);
-        bool AttackTargetIsValid(PARTS_TYPES eTargetChoice);
+        int DealDamage(IROBOT pEnnemiRobot, int iWeaponChoice, TARGET_TYPE eTargetChoice);
+        int TakeDamage(int iDamage, TARGET_TYPE eType);
+        void RepairRobotLifePoint(int kitUsed, TARGET_TYPE eChoice);
+        bool AttackTargetIsValid(TARGET_TYPE eTargetChoice);
         void WeaponFired(int iWeaponChoice);
         bool WeaponIsUsable(int iWeaponChoice);
         void Refuel(int iFuel);
-        bool RepairLifeTargetIsValid(PARTS_TYPES eTargetChoice);
-        void RepairRobotArmor(int iRepairPoints, PARTS_TYPES eTargetChoice);
-        bool RepairArmorTargetIsValid(PARTS_TYPES eTargetChoice);
+        bool RepairLifeTargetIsValid(TARGET_TYPE eTargetChoice);
+        void RepairRobotArmor(int iRepairPoints, TARGET_TYPE eTargetChoice);
+        bool RepairArmorTargetIsValid(TARGET_TYPE eTargetChoice);
         void RemoveFuel(int iFuel);
         List<IWEAPON> GetWeapons();
         int GetFurnaceLife();
@@ -41,4 +41,13 @@ namespace Battle
         int GetRightWeaponLife();
         int GetRightWeaponMaxLife();
     }
+}
+
+
+public enum TARGET_TYPE
+{
+    LEG = 0,
+    FURNACE = 1,
+    LEFT_WEAPON = 2,
+    RIGHT_WEAPON = 3,
 }
