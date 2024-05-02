@@ -134,42 +134,56 @@ namespace Pilot
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="iChoice"></param>
+        /// <param name="eChoice"></param>
         /// <returns> bool </returns>
-        public bool Repair(REPAIRS_MENU iChoice, PARTS_TYPES iChoicePart)
+        public bool Repair(REPAIRS_MENU eChoice, TARGET_TYPE eChoicePart)
         {
-            if (iChoice == REPAIRS_MENU.Error) return false;
+            if (eChoice == REPAIRS_MENU.Error) return false;
 
-            if (_vRepairKitsReserve[(int)iChoice].GetNumberItems() < 1)
+
+            if (_vRepairKitsReserve[(int)eChoice].GetNumberItems() < 1)
             {
                 if (IsAllKitsEmpty(_vRepairKitsReserve))
                 {
                     return true;
                 }
+                return false;
             }
 
-            if(iChoice == REPAIRS_MENU.Light_Armor || iChoice == REPAIRS_MENU.Heavy_Armor)
+            if(eChoice == REPAIRS_MENU.Light_Armor || eChoice == REPAIRS_MENU.Heavy_Armor)
             {
-                if (this._pRobot.RepairArmorTargetIsValid(iChoicePart))
+                if (this._pRobot.RepairArmorTargetIsValid(eChoicePart))
                 {
+                    this._pRobot.RepairRobotArmor(_vRepairKitsReserve[(int)eChoice].GetValue(), eChoicePart);
+                    this._vRepairKitsReserve[(int)eChoice].decrNumberItems();
                     return true;
                 }
                 
             }
             
-            if(iChoice == REPAIRS_MENU.Repair_Kits || iChoice == REPAIRS_MENU.Full_Kits)
+            if(eChoice == REPAIRS_MENU.Repair_Kits || eChoice == REPAIRS_MENU.Full_Kits)
             {
-                if (this._pRobot.RepairLifeTargetIsValid((PARTS_TYPES)iChoice))
+                if (this._pRobot.RepairLifeTargetIsValid(eChoicePart))
                 {
-                    
+                    this._pRobot.RepairRobotLifePoint(_vRepairKitsReserve[(int)eChoice].GetValue(), eChoicePart);
+                    this._vRepairKitsReserve[(int)eChoice].decrNumberItems();
+                    return true;
                 }
             }
-            if (!this._pRobot.RepairLifeTargetIsValid((PARTS_TYPES)iChoice))
-            {
 
-            }
+            return false;
+        }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="iChoiceWeapon"> the weapon we choose to attack</param>
+        /// <param name="ennemy"> the enemy pilot</param>
+        /// <param name="target"> the part we selected to attack </param>
+        /// <returns></returns>
         public bool Attack(int iChoiceWeapon, IROBOT ennemy, TARGET_TYPE target)
+
         {
             if (this.GetRobot().WeaponIsUsable(iChoiceWeapon))
             {

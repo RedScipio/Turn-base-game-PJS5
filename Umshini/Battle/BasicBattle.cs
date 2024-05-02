@@ -34,7 +34,7 @@ namespace Battle
 
             for (int i = 0; i<this._lPilots.Count; i++)
             {
-                //GUI.ShowStatus(_lPilots[0], _lPilots[1]);
+                GUI.ShowStatus(_lPilots[0], _lPilots[1]);
                 lResult.AddRange(this.PlayTurn(i));
             }
 
@@ -145,37 +145,41 @@ namespace Battle
         /// <returns>True </returns>
         private bool Repair(IPILOT currentPilot)
         {
-            REPAIRS_MENU iChoice;
+            REPAIRS_MENU eChoice;
+            TARGET_MENU eChoicePart;
             do
             {
-                iChoice = GUI.RepairMenu(currentPilot);
+                eChoice = GUI.RepairMenu(currentPilot);
 
-                if (iChoice == REPAIRS_MENU.Error)
+                if (eChoice == REPAIRS_MENU.Error)
                 {
                     GUI.WrongEntry();
                 }
-                else if (iChoice == REPAIRS_MENU.Back)
+                else if (eChoice == REPAIRS_MENU.Back)
                 {
                     return false;
                 }
             }
-            while (iChoice == REPAIRS_MENU.Error);
+            while (eChoice == REPAIRS_MENU.Error);
 
-            TARGET_MENU iChoicePart;
+            
             do
             {
-                iChoicePart = GUI.TargetMenu();
-                if (iChoicePart == TARGET_MENU.Back)
+                eChoicePart = GUI.TargetMenu();
+                if (eChoicePart == TARGET_MENU.Back)
                 {
                     return false;
                 }
-                else if(iChoicePart == TARGET_MENU.Error)
+                else if(eChoicePart == TARGET_MENU.Error)
                 {
                     GUI.WrongEntry();
                 }
-            } while (iChoicePart == TARGET_MENU.Error);
-            
-            return currentPilot.Repair(iChoice, (PARTS_TYPES)iChoicePart); 
+            } while (eChoicePart == TARGET_MENU.Error);
+
+            TARGET_TYPE eChoiceTargetType = GUI.ConvertTargetType(eChoicePart);
+
+            currentPilot.Repair(eChoice, eChoiceTargetType);
+            return true;
         }
 
         /// <summary>
