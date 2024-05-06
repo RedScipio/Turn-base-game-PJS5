@@ -27,3 +27,12 @@ C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Pilot\bin\Debu
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.dll
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.pdb
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.csproj.Up2Date
+C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Pilot\bin\Debug\Pilot.dll
+C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Pilot\bin\Debug\Pilot.pdb
+C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Pilot\bin\Debug\Battle.dll
+C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Pilot\bin\Debug\Battle.pdb
+C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Pilot\obj\Debug\Pilot.csproj.AssemblyReference.cache
+C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Pilot\obj\Debug\Pilot.csproj.CoreCompileInputs.cache
+C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Pilot\obj\Debug\Pilot.csproj.Up2Date
+C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Pilot\obj\Debug\Pilot.dll
+C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Pilot\obj\Debug\Pilot.pdb

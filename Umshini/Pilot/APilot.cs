@@ -140,13 +140,8 @@ namespace Pilot
         {
             if (eChoice == REPAIRS_MENU.Error) return false;
 
-
             if (_vRepairKitsReserve[(int)eChoice].GetNumberItems() < 1)
             {
-                if (IsAllKitsEmpty(_vRepairKitsReserve))
-                {
-                    return true;
-                }
                 return false;
             }
 
