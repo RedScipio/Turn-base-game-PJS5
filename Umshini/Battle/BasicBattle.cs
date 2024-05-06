@@ -135,8 +135,7 @@ namespace Battle
                 return false;
             }
 
-            currentPilot.Attack(iChoiceWeapon, ennemyRobot, eChoiceTargetType);
-            return true;
+            return currentPilot.Attack(iChoiceWeapon, ennemyRobot, eChoiceTargetType);
         }
         /// <summary>
         /// Choose the repair kit to repair the selected part
@@ -178,8 +177,7 @@ namespace Battle
 
             TARGET_TYPE eChoiceTargetType = GUI.ConvertTargetType(eChoicePart);
 
-            currentPilot.Repair(eChoice, eChoiceTargetType);
-            return true;
+            return currentPilot.Repair(eChoice, eChoiceTargetType);
         }
 
         /// <summary>

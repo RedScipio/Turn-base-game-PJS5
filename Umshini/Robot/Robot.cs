@@ -305,24 +305,34 @@ namespace Robot
             switch (eTargetChoice)
             {
                 case TARGET_TYPE.FURNACE:
-                    if (_pFurnace.GetArmor() < _pFurnace.GetMaxArmor())
                     {
-                        return true;
+                        if (_pFurnace.GetArmor() < _pFurnace.GetMaxArmor())
+                        {
+                            return true;
+                        }
+
+                        return false;
                     }
-                    return false;
                 case TARGET_TYPE.LEG:
-                    if (_pLeg.GetArmor() < _pLeg.GetMaxArmor())
                     {
-                        return true;
+                        if (_pLeg.GetArmor() < _pLeg.GetMaxArmor())
+                        {
+                            return true;
+                        }
+
+                        return false;
                     }
-                    return false;
                 default:
-                    int iWeapon = (int)eTargetChoice - (int)TARGET_TYPE.LEFT_WEAPON;
-                    if (_lWeapon[iWeapon].GetMaxArmor() < _lWeapon[iWeapon].GetMaxArmor())
                     {
-                        return true;
+                        int iWeapon = (int)eTargetChoice - (int)TARGET_TYPE.LEFT_WEAPON;
+
+                        if (_lWeapon[iWeapon].GetMaxArmor() < _lWeapon[iWeapon].GetMaxArmor())
+                        {
+                            return true;
+                        }
+
+                        return false;
                     }
-                    return false;
             }
         }
 
