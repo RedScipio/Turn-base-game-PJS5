@@ -42,7 +42,7 @@ namespace Battle
         }
 
         // Joue le tour d'un joueur
-        public override List<int> PlayTurn(int iPilot)
+        public override List<int> PlayTurn(int iPilot, MAIN_MENU eChoiceMenu = MAIN_MENU.Error, int iRes = -1, int iTargetPart = -1)
         {
             MAIN_MENU iChoice;
             bool bStopLoop;
@@ -68,17 +68,17 @@ namespace Battle
                 {
                     case MAIN_MENU.Attack: // Attack
                         {
-                            bStopLoop = Attack(currentPilot, ennemyRobot);
+                            bStopLoop = Attack(currentPilot, ennemyRobot, actions);
                             break;
                         }
                     case MAIN_MENU.Repairs: // Repair
                         {
-                            bStopLoop = Repair(currentPilot);
+                            bStopLoop = Repair(currentPilot, actions);
                             break;
                         }
                     case MAIN_MENU.Furnace: // Refuel
                         {
-                            bStopLoop = Refuel(currentPilot);
+                            bStopLoop = Refuel(currentPilot, actions);
                             break;
                         }
                     default:
@@ -96,7 +96,7 @@ namespace Battle
         }
 
         
-        private bool Attack(IPILOT currentPilot, IROBOT ennemyRobot)
+        private bool Attack(IPILOT currentPilot, IROBOT ennemyRobot, List<int> lInputActions)
         {
             WEAPON_MENU eChoiceWeapon;
             TARGET_MENU eChoicePart;
@@ -115,6 +115,7 @@ namespace Battle
             } while (eChoicePart == TARGET_MENU.Error);
 
             int iChoiceWeapon;
+            
             TARGET_TYPE eChoiceTargetType;
 
             if (eChoiceWeapon == WEAPON_MENU.Left_Weapon)
@@ -126,6 +127,8 @@ namespace Battle
                 iChoiceWeapon = 1;
             }
 
+            lInputActions.Add(iChoiceWeapon);
+
             try
             {
                 eChoiceTargetType = GUI.ConvertTargetType(eChoicePart);
@@ -135,14 +138,16 @@ namespace Battle
                 return false;
             }
 
-            return currentPilot.Attack(iChoiceWeapon, ennemyRobot, eChoiceTargetType);
+            lInputActions.Add((int)eChoiceTargetType);
+
+            return currentPilot.Attack(iChoiceWeapon, ennemyRobot, eChoiceTargetType, lInputActions);
         }
         /// <summary>
         /// Choose the repair kit to repair the selected part
         /// </summary>
         /// <param name="currentPilot"></param>
         /// <returns>True </returns>
-        private bool Repair(IPILOT currentPilot)
+        private bool Repair(IPILOT currentPilot, List<int> lInputActions)
         {
             REPAIRS_MENU eChoice;
             TARGET_MENU eChoicePart;
@@ -184,7 +189,7 @@ namespace Battle
         /// 
         /// </summary>
         /// <param name="currentPilot"> the pilot selected to refuel his robot </param>
-        private bool Refuel(IPILOT currentPilot)
+        private bool Refuel(IPILOT currentPilot, List<int> lInputActions)
         {
             FUEL_MENU iChoice;
             do

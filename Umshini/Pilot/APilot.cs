@@ -105,7 +105,7 @@ namespace Pilot
         /// </summary>
         /// <param name="iChoice"></param>
         /// <returns>bool </returns>
-        public bool Refuel(int iChoice)
+        public bool Refuel(int iChoice, List<int> lInputActions)
         {
             if (this._vFuelsReserve[iChoice].GetNumberItems() < 1)
             {
@@ -119,6 +119,7 @@ namespace Pilot
             if (this._pRobot.GetFuel() < 100)
             {
                 _pRobot.Refuel(_vFuelsReserve[iChoice].GetValue());
+                lInputActions.Add(_vFuelsReserve[iChoice].GetValue());
                 _vFuelsReserve[iChoice].decrNumberItems();
                 return true;
             }
@@ -136,7 +137,7 @@ namespace Pilot
         /// </summary>
         /// <param name="eChoice"></param>
         /// <returns> bool </returns>
-        public bool Repair(REPAIRS_MENU eChoice, TARGET_TYPE eChoicePart)
+        public bool Repair(REPAIRS_MENU eChoice, TARGET_TYPE eChoicePart, List<int> lInputActions)
         {
             if (eChoice == REPAIRS_MENU.Error) return false;
 
@@ -150,6 +151,7 @@ namespace Pilot
                 if (this._pRobot.RepairArmorTargetIsValid(eChoicePart))
                 {
                     this._pRobot.RepairRobotArmor(_vRepairKitsReserve[(int)eChoice].GetValue(), eChoicePart);
+                    lInputActions.Add(_vRepairKitsReserve[(int)eChoice].GetValue());
                     this._vRepairKitsReserve[(int)eChoice].decrNumberItems();
                     return true;
                 }
@@ -161,6 +163,7 @@ namespace Pilot
                 if (this._pRobot.RepairLifeTargetIsValid(eChoicePart))
                 {
                     this._pRobot.RepairRobotLifePoint(_vRepairKitsReserve[(int)eChoice].GetValue(), eChoicePart);
+                    lInputActions.Add(_vRepairKitsReserve[(int)eChoice].GetValue());
                     this._vRepairKitsReserve[(int)eChoice].decrNumberItems();
                     return true;
                 }
@@ -177,12 +180,12 @@ namespace Pilot
         /// <param name="ennemy"> the enemy pilot</param>
         /// <param name="target"> the part we selected to attack </param>
         /// <returns></returns>
-        public bool Attack(int iChoiceWeapon, IROBOT ennemy, TARGET_TYPE target)
+        public bool Attack(int iChoiceWeapon, IROBOT ennemy, TARGET_TYPE target, List<int> lInputActions = null)
 
         {
             if (this.GetRobot().WeaponIsUsable(iChoiceWeapon))
             {
-                this.GetRobot().DealDamage(ennemy, iChoiceWeapon, target);
+                lInputActions.Add(this.GetRobot().DealDamage(ennemy, iChoiceWeapon, target));
                 return true;
             }
 

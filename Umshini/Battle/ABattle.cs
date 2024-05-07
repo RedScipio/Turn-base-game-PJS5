@@ -12,6 +12,6 @@ namespace Battle
         }
 
         public abstract List<int> PlayRound();
-        public abstract List<int> PlayTurn(int iPilot);
+        public abstract List<int> PlayTurn(int iPilot, MAIN_MENU eChoiceMenu = MAIN_MENU.Error, int iRes = -1, int iTargetPart = -1);
     }
 }

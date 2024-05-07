@@ -61,8 +61,8 @@ namespace Umshini_Test
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, melWeap);
             playerRobot.WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON).Should().BeTrue();
 
-            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
-            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, TARGET_TYPE.LEG);
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, TARGET_TYPE.LEG);
 
             playerRobot.WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON).Should().BeFalse();
         }
@@ -82,7 +82,7 @@ namespace Umshini_Test
 
             playerRobot.Refuel(100);
 
-            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.LEFT_WEAPON, PARTS_TYPES.WEAPON + 1);
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.LEFT_WEAPON, TARGET_TYPE.RIGHT_WEAPON);
 
             playerRobot.WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON).Should().BeFalse();
         }
@@ -98,9 +98,9 @@ namespace Umshini_Test
             
 
             //Removing fuel and checking if the enemy robot need to restart
-            playerRobot.DealDamage(botRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            playerRobot.DealDamage(botRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, TARGET_TYPE.LEG);
             botRobot.GetFuel().Should().Be(60);
-            playerRobot.DealDamage(botRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            playerRobot.DealDamage(botRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, TARGET_TYPE.LEG);
             botRobot.GetFuel().Should().Be(20);
             botRobot.NeedToRestart();
         }
@@ -115,15 +115,15 @@ namespace Umshini_Test
             playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(100);
 
             //With one leg broken
-            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, TARGET_TYPE.LEG);
             playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(50);
 
             //With two legs broken
-            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, PARTS_TYPES.LEG);
+            playerRobot.DealDamage(playerRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, TARGET_TYPE.LEG);
             playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(0);
 
             //After repairing one leg
-            playerRobot.RepairRobotLifePoint(1, PARTS_TYPES.LEG);
+            playerRobot.RepairRobotLifePoint(1, TARGET_TYPE.LEG);
             playerRobot.GetWeaponHitChance((int)WEAPON_SIDE.RIGHT_WEAPON).Should().Be(50);
         }
 
