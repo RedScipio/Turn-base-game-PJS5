@@ -247,14 +247,14 @@ namespace Battle
             
             switch (iResult)
             {
+                case (int)REPAIRS_MENU.Light_Armor:
+                    return REPAIRS_MENU.Light_Armor;
+                case (int)REPAIRS_MENU.Heavy_Armor:
+                    return REPAIRS_MENU.Heavy_Armor;
                 case (int) REPAIRS_MENU.Full_Kits:
                     return REPAIRS_MENU.Full_Kits;
                 case (int) REPAIRS_MENU.Repair_Kits:
                     return REPAIRS_MENU.Repair_Kits;
-                case (int) REPAIRS_MENU.Light_Armor:
-                    return REPAIRS_MENU.Light_Armor;
-                case (int) REPAIRS_MENU.Heavy_Armor:
-                    return REPAIRS_MENU.Heavy_Armor;
                 case (int) REPAIRS_MENU.Back:
                     return REPAIRS_MENU.Back;
                 default:
