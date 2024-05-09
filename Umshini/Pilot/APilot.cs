@@ -180,7 +180,7 @@ namespace Pilot
         /// <param name="ennemy"> the enemy pilot</param>
         /// <param name="target"> the part we selected to attack </param>
         /// <returns></returns>
-        public bool Attack(int iChoiceWeapon, IROBOT ennemy, TARGET_TYPE target, List<int> lInputActions = null)
+        public bool Attack(int iChoiceWeapon, IROBOT ennemy, TARGET_TYPE target, List<int> lInputActions)
 
         {
             if (this.GetRobot().WeaponIsUsable(iChoiceWeapon))

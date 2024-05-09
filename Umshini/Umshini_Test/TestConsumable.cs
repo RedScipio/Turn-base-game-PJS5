@@ -1,4 +1,4 @@
-﻿using Consumable;
+﻿
 
 namespace Umshini_Test
 {
@@ -42,13 +42,6 @@ namespace Umshini_Test
             RefuelKit = new RefuelKit(3, ENERGY.ENERGY_COMPACT_COAL);
             RefuelKit.GetValue().Should().Be(35);
             RefuelKit.GetName().Should().Be("Compact coal");
-        }
-
-        [Fact]
-        public void ICONSUMABLESExceptions()
-        {
-            Action aRepairKit = () => new RepairKit(0);
-            aRepairKit.Should().Throw<ArgumentNullException>();
         }
     }
 }

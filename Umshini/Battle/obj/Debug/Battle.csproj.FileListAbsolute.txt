@@ -29,12 +29,6 @@ C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.Assemb
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.dll
 C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.pdb
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\bin\Debug\Battle.dll
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\bin\Debug\Battle.pdb
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.csproj.AssemblyReference.cache
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.dll
-C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.pdb
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.AssemblyReference.cache
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Battle.dll
@@ -47,3 +41,9 @@ C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Battle\obj\Debug
 C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
 C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Battle\obj\Debug\Battle.dll
 C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Battle\obj\Debug\Battle.pdb
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\bin\Debug\Battle.dll
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\bin\Debug\Battle.pdb
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.csproj.AssemblyReference.cache
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.dll
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.pdb

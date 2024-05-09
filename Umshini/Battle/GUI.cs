@@ -115,6 +115,10 @@ namespace Battle
                     return MAIN_MENU.Error;
                 }
             }
+            else
+            {
+                iResult = resultat;
+            }
             Console.WriteLine(" |");
             Console.WriteLine("|====================--====================|");
 
