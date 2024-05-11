@@ -7,8 +7,8 @@ namespace Battle
         int GetValue();
         string GetName();
         int GetNumberItems();
-        void decrNumberItems();
-
+        void DecrNumberItems();
+        void IncrNumberItems();
     }
 
     public enum ENERGY

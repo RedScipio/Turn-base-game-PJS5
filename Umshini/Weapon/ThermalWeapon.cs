@@ -37,7 +37,7 @@ namespace Weapon
         /// <summary>
         /// represents the amount of fuel burned
         /// </summary>
-        /// <returns></returns>
+        /// <returns>int</returns>
         public override int GetHeatEffect()
         {
             return _iFuelBurn;

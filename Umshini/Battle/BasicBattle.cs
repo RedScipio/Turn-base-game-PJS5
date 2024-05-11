@@ -207,7 +207,7 @@ namespace Battle
                     return false;
                 }
 
-            } while (!currentPilot.Refuel((int)iChoice, lInputActions));
+            } while (!currentPilot.Refuel(iChoice, lInputActions));
 
             lInputActions.Add((int)iChoice);
 

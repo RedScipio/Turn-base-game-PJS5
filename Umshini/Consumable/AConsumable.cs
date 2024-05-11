@@ -30,6 +30,12 @@ namespace Consumable
             }
             this.iNumberItems = iNumberItems;
         }
+
+        /// <summary>
+        /// Return the name of the consumable based on the type
+        /// of consumable in the constructor
+        /// </summary>
+        /// <returns>String</returns>
         public string GetName()
         {
             
@@ -75,14 +81,30 @@ namespace Consumable
             return sName;
         }
 
+        /// <summary>
+        /// Return the number of items in a consumable
+        /// </summary>
+        /// <returns>int</returns>
         public int GetNumberItems()
         {
             return iNumberItems;
         }
 
-        public void decrNumberItems()
+        /// <summary>
+        /// Reduce the number of items by 1
+        /// </summary>
+        public void DecrNumberItems()
         {
             iNumberItems--;
+        }
+
+        /// <summary>
+        /// Raise the number of items  by 1
+        /// Only used for testing purpose
+        /// </summary>
+        public void IncrNumberItems()
+        {
+            iNumberItems++;
         }
 
         public int GetValue()

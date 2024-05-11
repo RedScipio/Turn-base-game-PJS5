@@ -86,8 +86,7 @@ namespace Pilot
 
         /// <summary>
         /// Check if every kit in the list is empty.
-        /// Return true if every element 
-        /// in the list has 0 items
+        /// Return true if every element in the list has 0 items
         /// </summary>
         /// <param name="listKits"> the list of kits selected </param>
         /// <returns> bool </returns>
@@ -101,13 +100,16 @@ namespace Pilot
         }
 
         /// <summary>
-        /// Return true 
+        /// Refill the robot in fuel with the selected
+        /// refuel kit.
+        /// Return false if no more kits or already at max fuel.
+        /// Else return True.
         /// </summary>
         /// <param name="iChoice"></param>
         /// <returns>bool </returns>
-        public bool Refuel(int iChoice, List<int> lInputActions)
+        public bool Refuel(FUEL_MENU iChoice, List<int> lInputActions)
         {
-            if (this._vFuelsReserve[iChoice].GetNumberItems() < 1)
+            if (this._vFuelsReserve[(int)iChoice].GetNumberItems() < 1)
             {
                 if (IsAllKitsEmpty(_vFuelsReserve))
                 {
@@ -118,22 +120,21 @@ namespace Pilot
 
             if (this._pRobot.GetFuel() < 100)
             {
-                _pRobot.Refuel(_vFuelsReserve[iChoice].GetValue());
-                lInputActions.Add(_vFuelsReserve[iChoice].GetValue());
-                _vFuelsReserve[iChoice].decrNumberItems();
+                _pRobot.Refuel(_vFuelsReserve[(int)iChoice].GetValue());
+                lInputActions.Add(_vFuelsReserve[(int)iChoice].GetValue());
+                _vFuelsReserve[(int)iChoice].DecrNumberItems();
                 return true;
             }
 
-            if(iChoice <= 0)
-            {
-                return true;
-            }
+            
 
             return false;
         }
 
         /// <summary>
-        /// 
+        /// Repairing the robot selected part with the selected kit.
+        /// Return False if you are out of kits or if any 
+        /// armor/life target are invalid, else return True.
         /// </summary>
         /// <param name="eChoice"></param>
         /// <returns> bool </returns>
@@ -152,7 +153,7 @@ namespace Pilot
                 {
                     this._pRobot.RepairRobotArmor(_vRepairKitsReserve[(int)eChoice].GetValue(), eChoicePart);
                     lInputActions.Add(_vRepairKitsReserve[(int)eChoice].GetValue());
-                    this._vRepairKitsReserve[(int)eChoice].decrNumberItems();
+                    this._vRepairKitsReserve[(int)eChoice].DecrNumberItems();
                     return true;
                 }
                 
@@ -164,7 +165,7 @@ namespace Pilot
                 {
                     this._pRobot.RepairRobotLifePoint(_vRepairKitsReserve[(int)eChoice].GetValue(), eChoicePart);
                     lInputActions.Add(_vRepairKitsReserve[(int)eChoice].GetValue());
-                    this._vRepairKitsReserve[(int)eChoice].decrNumberItems();
+                    this._vRepairKitsReserve[(int)eChoice].DecrNumberItems();
                     return true;
                 }
             }
@@ -174,12 +175,14 @@ namespace Pilot
 
 
         /// <summary>
-        /// 
+        /// Attack a part of the enemy and inflict damage
+        /// Return False if the weapon is unusable,
+        /// else return True
         /// </summary>
         /// <param name="iChoiceWeapon"> the weapon we choose to attack</param>
         /// <param name="ennemy"> the enemy pilot</param>
         /// <param name="target"> the part we selected to attack </param>
-        /// <returns></returns>
+        /// <returns>bool</returns>
         public bool Attack(int iChoiceWeapon, IROBOT ennemy, TARGET_TYPE target, List<int> lInputActions)
 
         {
@@ -201,7 +204,7 @@ namespace Pilot
         /// Verify the weapon choosed is usable.
         /// </summary>
         /// <param name="iChoice"></param>
-        /// <returns></returns>
+        /// <returns>bool</returns>
         public bool IsWeaponUsable(int iChoice)
         {
             return _pRobot.WeaponIsUsable(iChoice);

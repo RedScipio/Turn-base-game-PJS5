@@ -104,7 +104,7 @@ namespace Umshini_Test
             pPlayerPilot = new PLAYER_PILOT(playerRobot, pPlayerPilot.GetFuelsReserve(), pPlayerPilot.GetRepairKitsReserve());
             basicBattle = new BASIC_BATTLE(pPlayerPilot, pBotPilot);
 
-
+            ///We're making the bot attacking the furnace
             basicBattle.PlayTurn(1);
             playerRobot.GetFurnaceArmor().Should().Be(0);
 
@@ -114,6 +114,7 @@ namespace Umshini_Test
             lInputRepair.Should().BeEquivalentTo(lOutputRepair);
             playerRobot.GetFurnaceArmor().Should().Be(2);
 
+            ///We're making the bot attacking the furnace again
             basicBattle.PlayTurn(1);
             playerRobot.GetFurnaceArmor().Should().Be(3);
             playerRobot.GetFurnaceLife().Should().Be(2);
@@ -124,6 +125,7 @@ namespace Umshini_Test
             lInputRepair.Should().BeEquivalentTo(lOutputRepair);
             playerRobot.GetFurnaceLife().Should().Be(3);
 
+            ///We're making the bot attacking the furnace again
             basicBattle.PlayTurn(1);
             playerRobot.GetFurnaceArmor().Should().Be(0);
 
