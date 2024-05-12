@@ -62,23 +62,24 @@ namespace Battle
 
             do
             {
-                iChoice = GUI.MainMenu();
+                iChoice = GUI.MainMenu((int)eChoiceMenu);
+                actions.Add((int)iChoice);
 
                 switch (iChoice)
                 {
                     case MAIN_MENU.Attack: // Attack
                         {
-                            bStopLoop = Attack(currentPilot, ennemyRobot, actions);
+                            bStopLoop = Attack(currentPilot, ennemyRobot, actions, iRes, iTargetPart);
                             break;
                         }
                     case MAIN_MENU.Repairs: // Repair
                         {
-                            bStopLoop = Repair(currentPilot, actions);
+                            bStopLoop = Repair(currentPilot, actions, iRes, iTargetPart);
                             break;
                         }
                     case MAIN_MENU.Furnace: // Refuel
                         {
-                            bStopLoop = Refuel(currentPilot, actions);
+                            bStopLoop = Refuel(currentPilot, actions, iRes);
                             break;
                         }
                     default:
@@ -96,21 +97,21 @@ namespace Battle
         }
 
         
-        private bool Attack(IPILOT currentPilot, IROBOT ennemyRobot, List<int> lInputActions)
+        private bool Attack(IPILOT currentPilot, IROBOT ennemyRobot, List<int> lInputActions, int iWeapon = -1, int iTargetPart = -1)
         {
             WEAPON_MENU eChoiceWeapon;
             TARGET_MENU eChoicePart;
 
             do
             {
-                eChoiceWeapon = GUI.WeaponMenu(currentPilot);
+                eChoiceWeapon = GUI.WeaponMenu(currentPilot, iWeapon);
                 if (eChoiceWeapon == WEAPON_MENU.Back) return false;
             }
             while (!currentPilot.IsWeaponUsable((int) eChoiceWeapon));
 
             do
             {
-                eChoicePart = GUI.TargetMenu();
+                eChoicePart = GUI.TargetMenu(iTargetPart);
                 if (eChoicePart == TARGET_MENU.Back) return false;
             } while (eChoicePart == TARGET_MENU.Error);
 
@@ -147,13 +148,13 @@ namespace Battle
         /// </summary>
         /// <param name="currentPilot"></param>
         /// <returns>True </returns>
-        private bool Repair(IPILOT currentPilot, List<int> lInputActions)
+        private bool Repair(IPILOT currentPilot, List<int> lInputActions, int iRes = -1, int iTargetPart = -1)
         {
             REPAIRS_MENU eChoice;
             TARGET_MENU eChoicePart;
             do
             {
-                eChoice = GUI.RepairMenu(currentPilot);
+                eChoice = GUI.RepairMenu(currentPilot, iRes);
 
                 if (eChoice == REPAIRS_MENU.Error)
                 {
@@ -166,10 +167,10 @@ namespace Battle
             }
             while (eChoice == REPAIRS_MENU.Error);
 
-            
+            lInputActions.Add((int)eChoice);
             do
             {
-                eChoicePart = GUI.TargetMenu();
+                eChoicePart = GUI.TargetMenu(iTargetPart);
                 if (eChoicePart == TARGET_MENU.Back)
                 {
                     return false;
@@ -181,20 +182,20 @@ namespace Battle
             } while (eChoicePart == TARGET_MENU.Error);
 
             TARGET_TYPE eChoiceTargetType = GUI.ConvertTargetType(eChoicePart);
-
-            return currentPilot.Repair(eChoice, eChoiceTargetType);
+            lInputActions.Add((int)eChoiceTargetType);
+            return currentPilot.Repair(eChoice, eChoiceTargetType, lInputActions);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="currentPilot"> the pilot selected to refuel his robot </param>
-        private bool Refuel(IPILOT currentPilot, List<int> lInputActions)
+        private bool Refuel(IPILOT currentPilot, List<int> lInputActions, int iRes)
         {
             FUEL_MENU iChoice;
             do
             {
-                iChoice = GUI.FuelMenu(currentPilot);
+                iChoice = GUI.FuelMenu(currentPilot, iRes);
 
                 if (iChoice == FUEL_MENU.Error)
                 {
@@ -206,7 +207,9 @@ namespace Battle
                     return false;
                 }
 
-            } while (!currentPilot.Refuel((int)iChoice));
+            } while (!currentPilot.Refuel(iChoice, lInputActions));
+
+            lInputActions.Add((int)iChoice);
 
             return true;
         }
