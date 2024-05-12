@@ -64,7 +64,7 @@ namespace Battle
             Console.WriteLine("|====================--====================|");
             Console.WriteLine("|                  Robots                  |");
             Console.WriteLine("|===================-<>-===================|");
-            Console.WriteLine("|>-     Player     -<||>-     Ennemi     -<|");
+            Console.WriteLine("|>-     Player     -<||>-      Enemy     -<|");
             Console.WriteLine("|===================-<>-===================|");
             Console.WriteLine("| Furnace armor: " + playerRobot.GetFurnaceArmor() + "/" + playerRobot.GetFurnaceMaxArmor() + " || Furnace armor: " + botRobot.GetFurnaceArmor() + "/" + botRobot.GetFurnaceMaxArmor() + " |");
             Console.WriteLine("| Furnace life: " + playerRobot.GetFurnaceLife() + "/" + playerRobot.GetFurnaceMaxLife() + "  || Furnace life: " + botRobot.GetFurnaceLife() + "/" + botRobot.GetFurnaceMaxLife() + "  |");

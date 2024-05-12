@@ -68,7 +68,9 @@ namespace Pilot
 
         public override List<int> PlayTurnAuto(IROBOT enemyRobot)
         {
-            this.PlayTurn(enemyRobot); return null;
+            this.PlayTurn(enemyRobot);
+            List<int> l = new List<int>();
+            return l;
         }
 
         /// <summary>
@@ -263,7 +265,7 @@ namespace Pilot
                 }
             }
 
-            return weapon != null && this.GetRobot().GetFurnaceLife() <= weapon.GetDamage();
+            return weapon != null && this.GetRobot().GetFurnaceLife() <= weapon.GetDamage() && weapon.GetDamage() < this.GetRobot().GetFurnaceMaxLife();
         }
 
         /// <summary>
