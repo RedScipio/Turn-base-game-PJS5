@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pilot
 {
@@ -13,85 +11,85 @@ namespace Pilot
         {
         }
 
-        public override void PlayTurn(IROBOT ennemy, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1)
+        public override void PlayTurn(IROBOT enemy, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1)
         {
-            if (this.ShouldIRepareMyFurnace(ennemy))
+            if (this.ShouldIRepairMyFurnace(enemy))
             {
-                Console.WriteLine("Bot devrait réparer son fourneau !");
+                Console.WriteLine("Bot should repair its furnace !");
 
-                if (this.PuisJeMeReparer())
+                if (this.CanIBeRepair())
                 {
-                    Console.WriteLine("Bot se répare !");
-                    //this.JeMeRepare();
+                    Console.WriteLine("Bot repairs itself !");
+                    //this.IRepairMe();
                 }
                 else
                 {
-                    Console.WriteLine("Bot ne peut pas réparer son fourneau, il utilise sa meilleure arme !");
-                    this.UseBestWeapon(ennemy);
+                    Console.WriteLine("Bot can't repair its furnace, so it uses its best weapon !");
+                    this.UseBestWeapon(enemy);
                 }
             }
 
             else
             {
-                Console.WriteLine("Le fourneau de Bot ne nécessite pas encore d'attention.");
+                Console.WriteLine("Bot's furnace doesn't need any attention yet.");
 
-                if (this.PuisJeManquerDeCarburantAuProchainTour())
+                if (this.CanIRunOutOfFuelNextRoundAround())
                 {
-                    Console.WriteLine("Bot risque de manquer de carburant au tour prochain !");
+                    Console.WriteLine("Bot risks running out of fuel next round !");
 
-                    if (this.PuisJeMeRechargerEnCarburant())
+                    if (this.CanIRechargeInFuel())
                     {
-                        Console.WriteLine("Bot se recharge en carburant !");
-                        this.JeMeRechargeEnCarburant();
+                        Console.WriteLine("Bot recharges with fuel !");
+                        this.IFuelRecharge();
                     }
                     else
                     {
-                        Console.WriteLine("Bot ne peut pas se recharger en carburant, il utilise sa meilleure arme !");
-                        this.UseBestWeapon(ennemy);
+                        Console.WriteLine("Bot can't refuel, so it uses its best weapon!");
+                        this.UseBestWeapon(enemy);
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Bot a encore largement assez de carburant !");
-                    if (this.IsThermalWeaponWorthIt(ennemy))
+                    Console.WriteLine("Bot still has plenty of fuel !");
+                    if (this.IsThermalWeaponWorthIt(enemy))
                     {
-                        Console.WriteLine("Bot utilise sa meilleure arme thermique !");
+                        Console.WriteLine("Bot uses its best thermal weapon !");
                         int iThermicWeapon = GetBestThermicWeapon();
-                        this.GetRobot().DealDamage(ennemy, iThermicWeapon, TARGET_TYPE.FURNACE);
+                        this.GetRobot().DealDamage(enemy, iThermicWeapon, TARGET_TYPE.FURNACE);
                     }
                     else
                     {
-                        Console.WriteLine("Bot utilise sa meilleure arme non thermique !");
-                        this.UseBestWeapon(ennemy);
+                        Console.WriteLine("Bot uses its best no-thermal weapon !");
+                        this.UseBestWeapon(enemy);
                     }
                 }
             }
         }
 
-        public override List<int> PlayTurnAuto(IROBOT ennemyRobot)
+        public override List<int> PlayTurnAuto(IROBOT enemyRobot)
         {
-            this.PlayTurn(ennemyRobot); return null;
+            this.PlayTurn(enemyRobot); return null;
         }
 
         /// <summary>
-        /// Vérifie si le robot peut se recharger suffisament
+        /// Checks whether the bot can recharge sufficiently
         /// </summary>
-        /// <returns>true si le robot peut se recharger suffisement, false sinon</returns>
+        /// <returns>true if the robot can recharge sufficiently, false otherwise</returns>
         /// <developer>CME</developer>
-        private bool PuisJeMeRechargerEnCarburant()
+        private bool CanIRechargeInFuel()
         {
-            int minimumFuel = this.MaxConsommation();
+            int minimumFuel = this.MaxConsumption();
 
             return this.GetFuelsReserve().Where(n => minimumFuel <= n.GetValue()).ToList().Count > 0;
         }
 
         /// <summary>
-        /// Recharge le robot en carburant
+        /// Refuels the bot
         /// </summary>
         /// <developper>CME</developper>
-        private void JeMeRechargeEnCarburant()
+        private void IFuelRecharge()
         {
-            int minFuel = this.MaxConsommation();
+            int minFuel = this.MaxConsumption();
             int maxAcceptable = APILOT.MAX_FUEL - minFuel;
 
             List<ICONSUMABLES> l = this.GetFuelsReserve();
@@ -120,10 +118,10 @@ namespace Pilot
         }
 
         /// <summary>
-        /// Vérifie si oui ou non je dispose encore de kits de réparations
+        /// Check whether or not I still have repair kits available
         /// </summary>
         /// <developer>CME</developer>
-        private bool PuisJeMeReparer()
+        private bool CanIBeRepair()
         {
             if (this.GetRepairKitsReserve().Count > 0)
             {
@@ -134,9 +132,9 @@ namespace Pilot
         }
 
         /// <summary>
-        /// Retourne l'index de la meilleure arme (degats/précision)
+        /// Returns the index of the best weapon (degats/precision)
         /// </summary>
-        /// <returns>-1 si pas d'arme utilisable, index de l'arme sinon</returns>
+        /// <returns>-1 if no weapon usable, weapon index otherwise</returns>
         /// <developer>CME</developer>
         private int GetBestWeapon()
         {
@@ -165,9 +163,9 @@ namespace Pilot
         }
 
         /// <summary>
-        /// Retourne l'index de la meilleure arme thermique
+        /// Return the index of the best heat weapon
         /// </summary>
-        /// <returns>-1 si pas d'arme thermique utilisable, index de l'arme thermique sinon</returns>
+        /// <returns>-1 if no thermal weapon usable, heat weapon index otherwise</returns>
         /// <developer>CME</developer>
         private int GetBestThermicWeapon()
         {
@@ -181,8 +179,8 @@ namespace Pilot
                 IWEAPON w = l[i];
 
                 /*
-                 * Si l'arme thermique dans la boucle est utilisable, et que son ratio dégats/précision est mieux que
-                 * l'arme stockée dans bestWeapon (ou qu'elle est vide), la remplacer dans bestWeapon
+                 * If the thermal weapon in the loop is usable, and its damage/accuracy ratio is better than
+                 * the weapon stored in bestWeapon (or is empty), replace it in bestWeapon
                  */
                 if (this.IsWeaponUsable(i) && w.TypeIs() == WEAPONS_TYPES.THERMAL &&
                     (bestWeapon == null || bestWeapon.GetDamage() * bestWeapon.GetAccuracy() < w.GetDamage() * w.GetAccuracy()))
@@ -196,20 +194,20 @@ namespace Pilot
         }
 
         /// <summary>
-        /// Indique s'il vaut mieux utiliser une arme thermique ou non
+        /// Indicates whether or not to use a thermal weapon
         /// </summary>
-        /// <param name="ennemy"></param>
-        /// <returns>true si l'arme thermique est préférable, false sinon</returns>
+        /// <param name="enemy"></param>
+        /// <returns>true if thermal weapon is preferred, false otherwise</returns>
         /// <developer>CME</developer>
-        private bool IsThermalWeaponWorthIt(IROBOT ennemy)
+        private bool IsThermalWeaponWorthIt(IROBOT enemy)
         {
-            // Inutile si l'ennemi n'a plus de carburant
-            if (ennemy.GetFuel() == 0)
+            // Useless if the enemy is out of fuel
+            if (enemy.GetFuel() == 0)
             {
                 return false;
             }
 
-            //Vérifier la présense d'une arme thermique
+            // Checking the presence of a thermal weapon
             bool haveAThermicalWeapon = false;
             IWEAPON weapon = null;
             int iWeapon = 0;
@@ -224,40 +222,40 @@ namespace Pilot
                 }
             }
 
-            //Si pas d'arme thermique, impossible d'en utiliser
+            // If no thermal weapon, impossible to use
             if (!haveAThermicalWeapon)
             {
                 return false;
             }
 
-            //Calculer le rapport de consommation
-            float rapportConsommation = ennemy.GetFuel() / weapon.GetPowerConsumption();
-            
-            //Obtention de la meilleure arme non thermique
+            // Calculate the consumption ratio
+            float rapportConsommation = enemy.GetFuel() / weapon.GetPowerConsumption();
+
+            // Getting the best non-thermal weapon
             int iBestWeapon = this.GetBestWeapon();
 
-            //Si aucune arme non thermique sélectionnée, on ne peut utiliser qu'une arme thermique
+            // If no non-thermal weapon is selected, only one thermal weapon can be used
             if (iBestWeapon < 0) return true;
 
-            //Calculer le rapport de dégats
+            // Calculate the damage ratio
             IWEAPON bestWeapon = this.GetRobot().GetWeapons()[iBestWeapon];
-            float rapportDegats = ennemy.GetFurnaceLife() / (bestWeapon.GetDamage()/bestWeapon.GetAccuracy());
+            float rapportDegats = enemy.GetFurnaceLife() / (bestWeapon.GetDamage()/bestWeapon.GetAccuracy());
 
-            //Retourner le rapport
+            // Return the ratio
             return rapportConsommation > rapportDegats;
         }
 
         /// <summary>
-        /// Indique si le robot risque de se faire détruire au prochain coup
+        /// Indicates whether the robot will be destroyed on the next round
         /// </summary>
-        /// <param name="ennemy">Player</param>
-        /// <returns>true si le rique est vrai, false sinon</returns>
-        /// <developper>CME</developper>
-        private bool ShouldIRepareMyFurnace(IROBOT ennemy)
+        /// <param name="enemy">Player</param>
+        /// <returns>true if the risk is true, false otherwise</returns>
+        /// <developer>CME</developer>
+        private bool ShouldIRepairMyFurnace(IROBOT enemy)
         {
-            // Get the most powerful weapon of the ennemy
+            // Get the most powerful weapon of the enemy
             IWEAPON weapon = null;
-            foreach (IWEAPON w in ennemy.GetWeapons())
+            foreach (IWEAPON w in enemy.GetWeapons())
             {
                 if (weapon == null || weapon.GetDamage() < w.GetDamage())
                 {
@@ -269,17 +267,11 @@ namespace Pilot
         }
 
         /// <summary>
-        /// Indique s'il sera impossible d'utiliser la meilleure arme 2 fois de suite
+        /// Indicates whether it will be impossible to use the best weapon 2 times in a row
         /// </summary>
-        /// <developper>CME</developper>
-        private bool PuisJeManquerDeCarburantAuProchainTour()
+        /// <developer>CME</developer>
+        private bool CanIRunOutOfFuelNextRoundAround()
         {
-            // Le joueur a une arme thermique
-
-            // Le robot a une arme qui peut augmenter sa consommation
-
-            // Je manque de carburant ssi mon arme favorite consomme entre 1 et 2 fois
-            // la quantité actuelle de fuel
             if (this.GetRobot().GetFuel() == 0) return true;
 
             int iWeapon = this.GetBestWeapon();
@@ -292,23 +284,23 @@ namespace Pilot
         }
 
         /// <summary>
-        /// Utilise l'arme ayant le meilleur ration dégats/précision disponible
+        /// Use the weapon with the best available damage/accuracy ratio
         /// </summary>
-        /// <param name="ennemy">Robot ennemi (joueur)</param>
+        /// <param name="enemy">Enemy robot (player)</param>
         /// <developer>CME</developer>
-        private void UseBestWeapon(IROBOT ennemy)
+        private void UseBestWeapon(IROBOT enemy)
         {
             int iWeapon = this.GetBestWeapon();
 
             if (iWeapon != -1)
-                this.GetRobot().DealDamage(ennemy, iWeapon, TARGET_TYPE.FURNACE);
+                this.GetRobot().DealDamage(enemy, iWeapon, TARGET_TYPE.FURNACE);
         }
 
         /// <summary>
-        /// Retourne la consommation de l'arme non brisée la plus gourmande en fuel
+        /// Returns the consumption of the most fuel-hungry unbroken weapon
         /// </summary>
-        /// <returns></returns>
-        private int MaxConsommation()
+        /// <developer>CME</developer>
+        private int MaxConsumption()
         {
             int maxConso = 0;
 
