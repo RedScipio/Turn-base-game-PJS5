@@ -16,34 +16,27 @@ namespace Pilot
         public override void PlayTurn(IROBOT ennemiRobot, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1)
         {
             Console.WriteLine("DumbBot attaque");
-            if (this.GetRobot().WeaponIsUsable((int)WEAPON_SIDE.LEFT_WEAPON))
+            for (int i=0; i<this.GetRobot().GetWeapons().Count; i++)
             {
-                this.GetRobot().DealDamage(ennemiRobot, (int)WEAPON_SIDE.LEFT_WEAPON, TARGET_TYPE.FURNACE);
-            }
-
-            else if (this.GetRobot().WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON))
-            {
-                this.GetRobot().DealDamage(ennemiRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, TARGET_TYPE.FURNACE);
+                if (this.IsWeaponUsable(i))
+                {
+                    this.GetRobot().DealDamage(ennemiRobot, i, TARGET_TYPE.FURNACE);
+                }
             }
         }
 
         public override List<int> PlayTurnAuto(IROBOT ennemyRobot)
         {
             Console.WriteLine("DumbBot attaque");
-            if (this.GetRobot().WeaponIsUsable((int)WEAPON_SIDE.LEFT_WEAPON))
+            for (int i = 0; i < this.GetRobot().GetWeapons().Count; i++)
             {
-                return new List<int>(this.GetRobot().DealDamage(ennemyRobot, (int)WEAPON_SIDE.LEFT_WEAPON, TARGET_TYPE.FURNACE));
+                if (this.IsWeaponUsable(i))
+                {
+                    return new List<int>(this.GetRobot().DealDamage(ennemyRobot, i, TARGET_TYPE.FURNACE));
+                }
             }
 
-            else if (this.GetRobot().WeaponIsUsable((int)WEAPON_SIDE.RIGHT_WEAPON))
-            {
-                return new List<int>(this.GetRobot().DealDamage(ennemyRobot, (int)WEAPON_SIDE.RIGHT_WEAPON, TARGET_TYPE.FURNACE));
-            }
-
-            else
-            {
-                return new List<int>();
-            }
+            return new List<int>();
         }
     }
 }

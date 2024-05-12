@@ -1,5 +1,6 @@
 ﻿using Battle;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace Pilot
@@ -13,6 +14,8 @@ namespace Pilot
         private protected List<ICONSUMABLES> _vRepairKitsReserve;
 
         private protected List<int> _vResultsInputs;
+
+        private protected const int MAX_FUEL = 100;
 
         public APILOT(IROBOT pRobot, List<ICONSUMABLES> vFuelsReserve, List<ICONSUMABLES> vRepairKitsReserve)
         {
@@ -51,6 +54,7 @@ namespace Pilot
         public abstract bool IsBotPilot();
 
         public abstract List<int> PlayTurnAuto(IROBOT ennemyRobot);
+
         /// <summary>
         /// False if the selected weapons is not 
         /// usable or if all kits (refuel or repair) 
@@ -116,7 +120,7 @@ namespace Pilot
                 return false;
             }
 
-            if (this._pRobot.GetFuel() < 100)
+            if (this._pRobot.GetFuel() < APILOT.MAX_FUEL)
             {
                 _pRobot.Refuel(_vFuelsReserve[iChoice].GetValue());
                 lInputActions.Add(_vFuelsReserve[iChoice].GetValue());

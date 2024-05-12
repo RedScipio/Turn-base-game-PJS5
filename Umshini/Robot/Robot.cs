@@ -5,13 +5,15 @@ namespace Robot
 {
     public class ROBOT : IROBOT
     {
+        public const int MAX_FUEL = 100;
+
         private readonly IFURNACE _pFurnace;
         private readonly ILEG _pLeg;
 
         private readonly List<IWEAPON> _lWeapon;
 
         private bool _bNeedRestart = false;
-        private int _iFuel = 100;
+        private int _iFuel = ROBOT.MAX_FUEL;
 
         /// <summary>
         /// ROBOT represent a robot used by a pilot during a Battle
@@ -166,9 +168,9 @@ namespace Robot
         {
             _iFuel += iFuel;
 
-            if (_iFuel > 100)
+            if (_iFuel > MAX_FUEL)
             {
-                _iFuel = 100;
+                _iFuel = MAX_FUEL;
             }
 
             if (_iFuel >= _pFurnace.GetRestartLimit())
