@@ -16,7 +16,7 @@ namespace Pilot
             _vActionResults = new List<int> { };
         }
 
-        public override List<int> PlayTurnAuto(IROBOT ennemyRobot)
+        public override List<int> PlayTurnAuto(IROBOT enemyRobot)
         {
             throw new NotImplementedException();
         }
@@ -31,7 +31,7 @@ namespace Pilot
             return false;
         }
 
-        public override void PlayTurn(IROBOT ennemyRobot, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1)
+        public override void PlayTurn(IROBOT enemyRobot, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1)
         {
             throw new NotImplementedException();
         }

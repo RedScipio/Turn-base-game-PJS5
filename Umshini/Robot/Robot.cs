@@ -5,7 +5,7 @@ namespace Robot
 {
     public class ROBOT : IROBOT
     {
-        public const int MAX_FUEL = 100;
+        private const int MAX_FUEL = 100;
 
         private readonly IFURNACE _pFurnace;
         private readonly ILEG _pLeg;
@@ -13,7 +13,7 @@ namespace Robot
         private readonly List<IWEAPON> _lWeapon;
 
         private bool _bNeedRestart = false;
-        private int _iFuel = ROBOT.MAX_FUEL;
+        private int _iFuel;
 
         /// <summary>
         /// ROBOT represent a robot used by a pilot during a Battle
@@ -28,6 +28,7 @@ namespace Robot
             _pFurnace = furnace;
             _pLeg = leg;
             _lWeapon = new List<IWEAPON> { leftWeapon, rightWeapon };
+            _iFuel = this.GetMaxFuel();
         }
 
         /// <summary>
@@ -482,6 +483,11 @@ namespace Robot
         public int GetRightWeaponMaxLife()
         {
             return _lWeapon[1].GetMaxLife();
+        }
+
+        public int GetMaxFuel()
+        {
+            return ROBOT.MAX_FUEL;
         }
     }
 }

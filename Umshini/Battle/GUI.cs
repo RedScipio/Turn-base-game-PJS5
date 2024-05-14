@@ -51,6 +51,22 @@ namespace Battle
         Back // Back is also used as count value
     }
 
+    public enum FUEL_TYPE
+    {
+        Wood,
+        Charcoal,
+        Coal,
+        Compact_Coal,
+    }
+
+    public enum REPAIRS_TYPE
+    {
+        Light_Armor,
+        Heavy_Armor,
+        Repair_Kits,
+        Full_Kits,
+    }
+
     public static class GUI
     {
 
@@ -517,16 +533,6 @@ namespace Battle
             Console.WriteLine("!!!-----------------!==!-----------------!!!");
         }
 
-        public static int TargetPartMenu()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static void WeaponOutOfRange()
-        {
-            throw new NotImplementedException();
-        }
-
         internal static void GameOver()
         {
             //Console.Clear();
@@ -554,5 +560,53 @@ namespace Battle
                     throw new NotImplementedException();
             }
         }
-}
+
+        public static FUEL_TYPE ConvertFuelType(FUEL_MENU eChoicePart)
+        {
+            switch (eChoicePart)
+            {
+                case FUEL_MENU.Coal:
+                    return FUEL_TYPE.Coal;
+                case FUEL_MENU.Charcoal:
+                    return FUEL_TYPE.Charcoal;
+                case FUEL_MENU.Wood:
+                    return FUEL_TYPE.Wood;
+                case FUEL_MENU.Compact_Coal:
+                    return FUEL_TYPE.Compact_Coal;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+        public static REPAIRS_TYPE ConvertRepairType(REPAIRS_MENU eChoicePart)
+        {
+            switch (eChoicePart)
+            {
+                case REPAIRS_MENU.Full_Kits:
+                    return REPAIRS_TYPE.Full_Kits;
+                case REPAIRS_MENU.Light_Armor:
+                    return REPAIRS_TYPE.Light_Armor;
+                case REPAIRS_MENU.Heavy_Armor:
+                    return REPAIRS_TYPE.Heavy_Armor;
+                case REPAIRS_MENU.Repair_Kits:
+                    return REPAIRS_TYPE.Repair_Kits;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+        public static void RepairImpossible()
+        {
+            Console.WriteLine("|---------------------==--------------------|");
+            Console.WriteLine("|             Repair impossible             |");
+            Console.WriteLine("|---------------------==--------------------|");
+        }
+
+        internal static void AlreadyFullOfFuel()
+        {
+            Console.WriteLine("|---------------------==-------------------|");
+            Console.WriteLine("|    The robot est already full of fuel    |");
+            Console.WriteLine("|---------------------==-------------------|");
+        }
+    }
 }

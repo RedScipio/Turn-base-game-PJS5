@@ -7,13 +7,12 @@ namespace Battle
         List<ICONSUMABLES> GetFuelsReserve();
         List<ICONSUMABLES> GetRepairKitsReserve();
         bool IsBotPilot();
-        List<int> PlayTurnAuto(IROBOT ennemyRobot);
-        void PlayTurn(IROBOT ennemiRobot, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);
+        List<int> PlayTurnAuto(IROBOT enemyRobot);
+        void PlayTurn(IROBOT enemyRobot, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);
         bool FirstChoiceIsValid(MAIN_MENU iChoice); // specify if the current choice in the main menu is possible (broken weapon, etc)
-        bool Refuel(FUEL_MENU eChoice, List<int> lInputActions = null);
-        bool Repair(REPAIRS_MENU eChoice, TARGET_TYPE eChoicePart, List<int> lInputActions = null);
-        bool Attack(int iChoice, IROBOT ennemy, TARGET_TYPE eTarget, List<int> lInputActions = null);
-        bool TargetPart(int iChoice);
+        bool Refuel(FUEL_TYPE eChoice, List<int> lInputActions = null);
+        bool Repair(REPAIRS_TYPE eChoice, TARGET_TYPE eChoicePart, List<int> lInputActions = null);
+        bool Attack(int iChoice, IROBOT enemy, TARGET_TYPE eTarget, List<int> lInputActions = null);
         bool IsWeaponUsable(int iChoice);
         bool IsLegsBroken();
         bool IsFurnaceBroken();

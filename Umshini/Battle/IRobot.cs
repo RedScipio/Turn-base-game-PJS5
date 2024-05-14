@@ -20,6 +20,7 @@ namespace Battle
         List<IWEAPON> GetWeapons();
         int GetFurnaceLife();
         int GetFuel();
+        int GetMaxFuel();
         int GetWeaponDamage(int iWeapon);
         int GetWeaponHitChance(int iWeapon);
         bool IsFurnaceBroken();

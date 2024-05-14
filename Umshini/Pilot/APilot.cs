@@ -24,7 +24,7 @@ namespace Pilot
             _vRepairKitsReserve = vRepairKitsReserve;
         }
 
-        public abstract void PlayTurn(IROBOT ennemyRobot, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);
+        public abstract void PlayTurn(IROBOT enemyRobot, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);
 
         public bool RobotIsDestroy()
         {
@@ -53,7 +53,7 @@ namespace Pilot
 
         public abstract bool IsBotPilot();
 
-        public abstract List<int> PlayTurnAuto(IROBOT ennemyRobot);
+        public abstract List<int> PlayTurnAuto(IROBOT enemyRobot);
 
         /// <summary>
         /// False if the selected weapons is not 
@@ -111,7 +111,7 @@ namespace Pilot
         /// </summary>
         /// <param name="iChoice"></param>
         /// <returns>bool </returns>
-        public bool Refuel(FUEL_MENU iChoice, List<int> lInputActions)
+        public bool Refuel(FUEL_TYPE iChoice, List<int> lInputActions)
         {
             if (this._vFuelsReserve[(int)iChoice].GetNumberItems() < 1)
             {
@@ -137,21 +137,18 @@ namespace Pilot
 
         /// <summary>
         /// Repairing the robot selected part with the selected kit.
-        /// Return False if you are out of kits or if any 
-        /// armor/life target are invalid, else return True.
         /// </summary>
         /// <param name="eChoice"></param>
-        /// <returns> bool </returns>
-        public bool Repair(REPAIRS_MENU eChoice, TARGET_TYPE eChoicePart, List<int> lInputActions)
+        /// <returns> Return False if you are out of kits or if any 
+        /// armor/life target are invalid, else return True. </returns>
+        public bool Repair(REPAIRS_TYPE eChoice, TARGET_TYPE eChoicePart, List<int> lInputActions)
         {
-            if (eChoice == REPAIRS_MENU.Error) return false;
-
             if (_vRepairKitsReserve[(int)eChoice].GetNumberItems() < 1)
             {
                 return false;
             }
 
-            if(eChoice == REPAIRS_MENU.Light_Armor || eChoice == REPAIRS_MENU.Heavy_Armor)
+            if(eChoice == REPAIRS_TYPE.Light_Armor || eChoice == REPAIRS_TYPE.Heavy_Armor)
             {
                 if (this._pRobot.RepairArmorTargetIsValid(eChoicePart))
                 {
@@ -163,7 +160,7 @@ namespace Pilot
                 
             }
             
-            if(eChoice == REPAIRS_MENU.Repair_Kits || eChoice == REPAIRS_MENU.Full_Kits)
+            if(eChoice == REPAIRS_TYPE.Repair_Kits || eChoice == REPAIRS_TYPE.Full_Kits)
             {
                 if (this._pRobot.RepairLifeTargetIsValid(eChoicePart))
                 {
@@ -184,24 +181,19 @@ namespace Pilot
         /// else return True
         /// </summary>
         /// <param name="iChoiceWeapon"> the weapon we choose to attack</param>
-        /// <param name="ennemy"> the enemy pilot</param>
+        /// <param name="enemy"> the enemy pilot</param>
         /// <param name="target"> the part we selected to attack </param>
-        /// <returns>bool</returns>
-        public bool Attack(int iChoiceWeapon, IROBOT ennemy, TARGET_TYPE target, List<int> lInputActions)
+        /// <returns>true if the robot attacked, false otherwise</returns>
+        public bool Attack(int iChoiceWeapon, IROBOT enemy, TARGET_TYPE target, List<int> lInputActions)
 
         {
             if (this.GetRobot().WeaponIsUsable(iChoiceWeapon))
             {
-                lInputActions.Add(this.GetRobot().DealDamage(ennemy, iChoiceWeapon, target));
+                lInputActions.Add(this.GetRobot().DealDamage(enemy, iChoiceWeapon, target));
                 return true;
             }
 
             return false;
-        }
-
-        public bool TargetPart(int iChoice)
-        {
-            throw new System.NotImplementedException();
         }
 
         /// <summary>

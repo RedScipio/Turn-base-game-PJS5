@@ -54,11 +54,5 @@ namespace Weapon
             }
             return false;
         }
-
-        /// <summary>
-        /// Remove one ammo after each attack with this weapon
-        /// </summary>
-
-
     }
 }

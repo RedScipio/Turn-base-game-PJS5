@@ -18,7 +18,7 @@ namespace Battle
         {
             List<int> lResult = new List<int>();
 
-            // Tant que aucun des 2 robots n'est détruit
+            // As long as neither robot is destroyed
             while (!_lPilots[0].IsFurnaceBroken() && !_lPilots[1].IsFurnaceBroken())
             {
                 lResult.AddRange(PlayRound());
@@ -26,8 +26,12 @@ namespace Battle
 
             //GUI.GameOver();
         }
-        
-        // Joue un round, un tour par joueur
+
+        /// <summary>
+        /// Plays one round, one turn per robot
+        /// </summary>
+        /// <returns>The list of actions taken</returns>
+        /// <developer>CME</developer>
         public override List<int> PlayRound()
         {
             List<int> lResult = new List<int>();
@@ -41,23 +45,30 @@ namespace Battle
             return lResult;
         }
 
-        // Joue le tour d'un joueur
+        /// <summary>
+        /// Play the turn of a robot
+        /// </summary>
+        /// <param name="iPilot"></param>
+        /// <param name="eChoiceMenu"></param>
+        /// <param name="iRes"></param>
+        /// <param name="iTargetPart"></param>
+        /// <returns>The list of actions taken</returns>
         public override List<int> PlayTurn(int iPilot, MAIN_MENU eChoiceMenu = MAIN_MENU.Error, int iRes = -1, int iTargetPart = -1)
         {
             MAIN_MENU iChoice;
             bool bStopLoop;
             IPILOT currentPilot = this._lPilots[iPilot];
             int iEnnemy = (iPilot == 0) ? 1 : 0;
-            IROBOT ennemyRobot = this._lPilots[iEnnemy].GetRobot();
+            IROBOT enemyRobot = this._lPilots[iEnnemy].GetRobot();
             List<int> actions = new List<int>();
 
             /*
-             * Si c'est bien un bot,
-             * procéder au PlayTurnAuto()
+             * If it's a bot pilot,
+             * proceed with PlayTurnAuto()
              */
             if (currentPilot.IsBotPilot()) 
             {
-                return currentPilot.PlayTurnAuto(ennemyRobot);
+                return currentPilot.PlayTurnAuto(enemyRobot);
             }
 
             do
@@ -69,7 +80,7 @@ namespace Battle
                 {
                     case MAIN_MENU.Attack: // Attack
                         {
-                            bStopLoop = Attack(currentPilot, ennemyRobot, actions, iRes, iTargetPart);
+                            bStopLoop = Attack(currentPilot, enemyRobot, actions, iRes, iTargetPart);
                             break;
                         }
                     case MAIN_MENU.Repairs: // Repair
@@ -97,7 +108,7 @@ namespace Battle
         }
 
         
-        private bool Attack(IPILOT currentPilot, IROBOT ennemyRobot, List<int> lInputActions, int iWeapon = -1, int iTargetPart = -1)
+        private bool Attack(IPILOT currentPilot, IROBOT enemyRobot, List<int> lInputActions, int iWeapon = -1, int iTargetPart = -1)
         {
             WEAPON_MENU eChoiceWeapon;
             TARGET_MENU eChoicePart;
@@ -141,33 +152,38 @@ namespace Battle
 
             lInputActions.Add((int)eChoiceTargetType);
 
-            return currentPilot.Attack(iChoiceWeapon, ennemyRobot, eChoiceTargetType, lInputActions);
+            return currentPilot.Attack(iChoiceWeapon, enemyRobot, eChoiceTargetType, lInputActions);
         }
         /// <summary>
         /// Choose the repair kit to repair the selected part
         /// </summary>
         /// <param name="currentPilot"></param>
-        /// <returns>True </returns>
+        /// <returns>true if the robot has been repaired, false otherwise</returns>
         private bool Repair(IPILOT currentPilot, List<int> lInputActions, int iRes = -1, int iTargetPart = -1)
         {
-            REPAIRS_MENU eChoice;
+            REPAIRS_MENU eChoiceRepairMenu;
             TARGET_MENU eChoicePart;
             do
             {
-                eChoice = GUI.RepairMenu(currentPilot, iRes);
+                eChoiceRepairMenu = GUI.RepairMenu(currentPilot, iRes);
 
-                if (eChoice == REPAIRS_MENU.Error)
+                if (eChoiceRepairMenu == REPAIRS_MENU.Error)
                 {
                     GUI.WrongEntry();
                 }
-                else if (eChoice == REPAIRS_MENU.Back)
+                else if (eChoiceRepairMenu == REPAIRS_MENU.Back)
                 {
                     return false;
                 }
             }
-            while (eChoice == REPAIRS_MENU.Error);
+            while (eChoiceRepairMenu == REPAIRS_MENU.Error);
 
-            lInputActions.Add((int)eChoice);
+            REPAIRS_TYPE eChoiceRepairType = GUI.ConvertRepairType(eChoiceRepairMenu);
+
+            lInputActions.Add((int)eChoiceRepairType);
+
+            TARGET_TYPE eChoiceTargetType;
+            bool isReparationPossible = false;
             do
             {
                 eChoicePart = GUI.TargetMenu(iTargetPart);
@@ -175,19 +191,32 @@ namespace Battle
                 {
                     return false;
                 }
-                else if(eChoicePart == TARGET_MENU.Error)
+                else if (eChoicePart == TARGET_MENU.Error)
                 {
                     GUI.WrongEntry();
                 }
-            } while (eChoicePart == TARGET_MENU.Error);
+                else
+                {
+                    eChoiceTargetType = GUI.ConvertTargetType(eChoicePart);
+                    lInputActions.Add((int)eChoiceTargetType);
 
-            TARGET_TYPE eChoiceTargetType = GUI.ConvertTargetType(eChoicePart);
-            lInputActions.Add((int)eChoiceTargetType);
-            return currentPilot.Repair(eChoice, eChoiceTargetType, lInputActions);
+                    if (!currentPilot.Repair(eChoiceRepairType, eChoiceTargetType, lInputActions))
+                    {
+                        GUI.RepairImpossible();
+                        isReparationPossible = false;
+                    }
+                    else
+                    {
+                        isReparationPossible = true;
+                    }
+                }
+            } while (eChoicePart == TARGET_MENU.Error || !isReparationPossible);
+
+            return true;
         }
 
         /// <summary>
-        /// 
+        /// Refuel the robot
         /// </summary>
         /// <param name="currentPilot"> the pilot selected to refuel his robot </param>
         private bool Refuel(IPILOT currentPilot, List<int> lInputActions, int iRes)
@@ -202,56 +231,22 @@ namespace Battle
                     GUI.WrongEntry();
                 }
 
-                if(iChoice == FUEL_MENU.Back)
+                else if(iChoice == FUEL_MENU.Back)
                 {
                     return false;
                 }
 
-            } while (!currentPilot.Refuel(iChoice, lInputActions));
+                else if (currentPilot.GetRobot().GetFuel() == currentPilot.GetRobot().GetMaxFuel())
+                {
+                    GUI.AlreadyFullOfFuel();
+                    return false;
+                }
+
+            } while (!currentPilot.Refuel(GUI.ConvertFuelType(iChoice), lInputActions));
 
             lInputActions.Add((int)iChoice);
 
             return true;
-        }
-
-        private bool TargetPartIsBroken(IPILOT pilot)
-        {
-            int iChoice = GUI.TargetPartMenu();
-            bool bLoop = true;
-            bool result = true; //obligation d'initialiser
-
-            do
-            {
-                if (iChoice == int.MinValue)
-                {
-                    return true;
-                }
-
-                switch (iChoice)
-                {
-                    case 0:
-                        result = pilot.IsLegsBroken();
-                        bLoop = false;
-                        break;
-                    case 1:
-                        result = pilot.IsFurnaceBroken();
-                        bLoop = false;
-                        break;
-                    default:
-                        try
-                        {
-                            result = pilot.IsWeaponBroken(iChoice);
-                            bLoop = false;
-                        }
-                        catch
-                        {
-                            GUI.WeaponOutOfRange();
-                        }
-                        break;
-                }
-            } while (bLoop);
-
-            return result;
         }
     }
 }

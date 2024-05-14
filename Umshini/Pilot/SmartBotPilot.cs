@@ -13,6 +13,11 @@ namespace Pilot
 
         public override void PlayTurn(IROBOT enemy, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1)
         {
+
+        }
+
+        public override List<int> PlayTurnAuto(IROBOT enemy)
+        {
             if (this.ShouldIRepairMyFurnace(enemy))
             {
                 Console.WriteLine("Bot should repair its furnace !");
@@ -20,12 +25,12 @@ namespace Pilot
                 if (this.CanIBeRepair())
                 {
                     Console.WriteLine("Bot repairs itself !");
-                    //this.IRepairMe();
+                    return this.IRepairMe();
                 }
                 else
                 {
                     Console.WriteLine("Bot can't repair its furnace, so it uses its best weapon !");
-                    this.UseBestWeapon(enemy);
+                    return this.UseBestWeapon(enemy);
                 }
             }
 
@@ -40,12 +45,12 @@ namespace Pilot
                     if (this.CanIRechargeInFuel())
                     {
                         Console.WriteLine("Bot recharges with fuel !");
-                        this.IFuelRecharge();
+                        return this.IFuelRecharge();
                     }
                     else
                     {
                         Console.WriteLine("Bot can't refuel, so it uses its best weapon!");
-                        this.UseBestWeapon(enemy);
+                        return this.UseBestWeapon(enemy);
                     }
                 }
                 else
@@ -56,21 +61,27 @@ namespace Pilot
                         Console.WriteLine("Bot uses its best thermal weapon !");
                         int iThermicWeapon = GetBestThermicWeapon();
                         this.GetRobot().DealDamage(enemy, iThermicWeapon, TARGET_TYPE.FURNACE);
+                        return new List<int> { iThermicWeapon, (int)TARGET_TYPE.FURNACE };
                     }
                     else
                     {
                         Console.WriteLine("Bot uses its best no-thermal weapon !");
-                        this.UseBestWeapon(enemy);
+                        return this.UseBestWeapon(enemy);
                     }
                 }
             }
         }
 
-        public override List<int> PlayTurnAuto(IROBOT enemyRobot)
+        private protected List<int> IRepairMe()
         {
-            this.PlayTurn(enemyRobot);
-            List<int> l = new List<int>();
-            return l;
+            IROBOT r = this.GetRobot();
+            int pvToRepair = r.GetFurnaceMaxLife() + r.GetFurnaceMaxArmor() - r.GetFurnaceLife() - r.GetFurnaceArmor();
+            for (int i = 0; i < this.GetRepairKitsReserve().Count(); i++)
+            {
+                if (this.Repair((REPAIRS_TYPE)i, TARGET_TYPE.FURNACE, new List<int> { i, (int)TARGET_TYPE.FURNACE }));
+                new List<int> { i, (int)TARGET_TYPE.FURNACE };
+            }
+            return new List<int>();
         }
 
         /// <summary>
@@ -78,7 +89,7 @@ namespace Pilot
         /// </summary>
         /// <returns>true if the robot can recharge sufficiently, false otherwise</returns>
         /// <developer>CME</developer>
-        private bool CanIRechargeInFuel()
+        private protected bool CanIRechargeInFuel()
         {
             int minimumFuel = this.MaxConsumption();
 
@@ -89,7 +100,7 @@ namespace Pilot
         /// Refuels the bot
         /// </summary>
         /// <developper>CME</developper>
-        private void IFuelRecharge()
+        private protected List<int> IFuelRecharge()
         {
             int minFuel = this.MaxConsumption();
             int maxAcceptable = APILOT.MAX_FUEL - minFuel;
@@ -117,13 +128,15 @@ namespace Pilot
             {
                 this.GetRobot().Refuel(iChoice);
             }
+
+            return new List<int>() { iChoice };
         }
 
         /// <summary>
         /// Check whether or not I still have repair kits available
         /// </summary>
         /// <developer>CME</developer>
-        private bool CanIBeRepair()
+        private protected bool CanIBeRepair()
         {
             if (this.GetRepairKitsReserve().Count > 0)
             {
@@ -138,7 +151,7 @@ namespace Pilot
         /// </summary>
         /// <returns>-1 if no weapon usable, weapon index otherwise</returns>
         /// <developer>CME</developer>
-        private int GetBestWeapon()
+        private protected int GetBestWeapon()
         {
             List<IWEAPON> l =  this.GetRobot().GetWeapons();
 
@@ -169,7 +182,7 @@ namespace Pilot
         /// </summary>
         /// <returns>-1 if no thermal weapon usable, heat weapon index otherwise</returns>
         /// <developer>CME</developer>
-        private int GetBestThermicWeapon()
+        private protected int GetBestThermicWeapon()
         {
             List<IWEAPON> l = this.GetRobot().GetWeapons();
 
@@ -201,7 +214,7 @@ namespace Pilot
         /// <param name="enemy"></param>
         /// <returns>true if thermal weapon is preferred, false otherwise</returns>
         /// <developer>CME</developer>
-        private bool IsThermalWeaponWorthIt(IROBOT enemy)
+        private protected bool IsThermalWeaponWorthIt(IROBOT enemy)
         {
             // Useless if the enemy is out of fuel
             if (enemy.GetFuel() == 0)
@@ -253,7 +266,7 @@ namespace Pilot
         /// <param name="enemy">Player</param>
         /// <returns>true if the risk is true, false otherwise</returns>
         /// <developer>CME</developer>
-        private bool ShouldIRepairMyFurnace(IROBOT enemy)
+        private protected bool ShouldIRepairMyFurnace(IROBOT enemy)
         {
             // Get the most powerful weapon of the enemy
             IWEAPON weapon = null;
@@ -272,7 +285,7 @@ namespace Pilot
         /// Indicates whether it will be impossible to use the best weapon 2 times in a row
         /// </summary>
         /// <developer>CME</developer>
-        private bool CanIRunOutOfFuelNextRoundAround()
+        private protected bool CanIRunOutOfFuelNextRoundAround()
         {
             if (this.GetRobot().GetFuel() == 0) return true;
 
@@ -290,19 +303,24 @@ namespace Pilot
         /// </summary>
         /// <param name="enemy">Enemy robot (player)</param>
         /// <developer>CME</developer>
-        private void UseBestWeapon(IROBOT enemy)
+        private protected List<int> UseBestWeapon(IROBOT enemy)
         {
             int iWeapon = this.GetBestWeapon();
 
             if (iWeapon != -1)
+            {
                 this.GetRobot().DealDamage(enemy, iWeapon, TARGET_TYPE.FURNACE);
+                return new List<int> { iWeapon, (int) TARGET_TYPE.FURNACE };
+            }
+            
+            return new List<int>(-1);
         }
 
         /// <summary>
         /// Returns the consumption of the most fuel-hungry unbroken weapon
         /// </summary>
         /// <developer>CME</developer>
-        private int MaxConsumption()
+        private protected int MaxConsumption()
         {
             int maxConso = 0;
 
