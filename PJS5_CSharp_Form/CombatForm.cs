@@ -485,6 +485,7 @@ namespace PJS5_CSharp_Form
                 const int shake_amplitude = 4;
                 for (int i = 0; i < 10; i++)
                 {
+                    pictureBoxEnnemiBot.Invalidate();
                     pictureBoxEnnemiBot.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));
                     await Task.Delay(20);
                 }
@@ -498,28 +499,28 @@ namespace PJS5_CSharp_Form
                         {
                             labelLeftArm.ForeColor = Color.FromArgb(255, 128, 128);
                             await Task.Delay(200);
-                            labelLeftArm.ForeColor = Color.Black;
+                            labelLeftArm.ForeColor = Color.White;
                             break; 
                         }
                     case 2:
                         {
                             labelRightArm.ForeColor = Color.FromArgb(255, 128, 128);
                             await Task.Delay(200);
-                            labelRightArm.ForeColor = Color.Black;
+                            labelRightArm.ForeColor = Color.White;
                             break;
                         }
                     case 3:
                         {
                             labelLegs.ForeColor = Color.FromArgb(255, 128, 128);
                             await Task.Delay(200);
-                            labelLegs.ForeColor = Color.Black;
+                            labelLegs.ForeColor = Color.White;
                             break;
                         }
                     case 4:
                         {
                             labelFurnace.ForeColor = Color.FromArgb(255, 128, 128);
                             await Task.Delay(200);
-                            labelFurnace.ForeColor = Color.Black;
+                            labelFurnace.ForeColor = Color.White;
                             break;
                         }
                     default:
