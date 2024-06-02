@@ -43,6 +43,8 @@ namespace NoFormApp
             IWEAPON playerLeftWeap = new MELEE_WEAPON(1, "Melee Weapon", 3, 1, 3, 15, 100, 0);
             IWEAPON playerRightWeap = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 1, 15, 80, 40);
 
+            List<IPART> parts = new List<IPART>() { playerLegs, };
+
             ROBOT playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, playerRightWeap);
             ROBOT botRobot = new ROBOT(botFurn, botLegs, botLeftWeap, botRightWeap);
 

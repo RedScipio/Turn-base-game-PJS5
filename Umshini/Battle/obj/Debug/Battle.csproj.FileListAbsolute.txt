@@ -47,3 +47,6 @@ C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.csproj.Ass
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.dll
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.pdb
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.csproj.Up2Date

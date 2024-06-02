@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
@@ -16,6 +18,7 @@ namespace Battle
 
         public void PlayBattle()
         {
+
             List<int> lResult = new List<int>();
 
             // As long as neither robot is destroyed
@@ -23,6 +26,8 @@ namespace Battle
             {
                 lResult.AddRange(PlayRound());
             }
+
+
 
             //GUI.GameOver();
         }

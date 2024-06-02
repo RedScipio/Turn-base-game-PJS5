@@ -1,0 +1,29 @@
+﻿[
+  {
+    "Legs": [
+      {
+        "id": 1,
+        "name": "Basic Legs",
+        "armor": 1,
+        "life_points": 1
+      }
+    ]
+  },
+  {
+    "Weapons": [
+      {
+        "id": 1,
+        "name": 
+      }
+    ]
+  },
+  {
+    "Furnace": [
+      {
+        "id": 1,
+        "name": "Basic Furnace",
+        "armor": 1
+      }
+    ]
+  }
+]

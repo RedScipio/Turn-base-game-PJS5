@@ -36,3 +36,5 @@ C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\obj\Debug\Pilot.csproj.CoreC
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\obj\Debug\Pilot.csproj.Up2Date
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\obj\Debug\Pilot.dll
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\obj\Debug\Pilot.pdb
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Pilot\bin\Debug\Newtonsoft.Json.xml

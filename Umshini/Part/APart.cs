@@ -17,7 +17,7 @@ namespace Part
         private int _iLifePoint;
         private readonly int _iMaxArmor;
         private readonly int _iMaxLifePoint;
-
+        
         /// <summary>
         /// Represents an interchangeable part of a robot
         /// </summary>

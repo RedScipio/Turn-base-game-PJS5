@@ -36,3 +36,5 @@ C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\obj\Debug\Robot.csproj.CoreC
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\obj\Debug\Robot.csproj.Up2Date
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\obj\Debug\Robot.dll
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\obj\Debug\Robot.pdb
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\bin\Debug\Newtonsoft.Json.xml
