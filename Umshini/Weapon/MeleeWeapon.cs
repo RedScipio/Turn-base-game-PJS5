@@ -21,7 +21,7 @@ namespace Weapon
         /// <param name="iPowerConsumption"></param>
         /// <param name="iAccuracy"></param>
         /// <param name="iMinAccuracy"></param>
-        public MELEE_WEAPON(int iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy) : base(iId, sName, iArmor, iLifePoint, iDamage, iPowerConsumption, iAccuracy, iMinAccuracy, WEAPONS_TYPES.MELEE)
+        public MELEE_WEAPON(string iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy) : base(iId, sName, iArmor, iLifePoint, iDamage, iPowerConsumption, iAccuracy, iMinAccuracy, WEAPONS_TYPES.MELEE)
         {
         }
 

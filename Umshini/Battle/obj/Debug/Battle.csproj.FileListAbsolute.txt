@@ -50,3 +50,6 @@ C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.pdb
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Battle\obj\Debug\Battle.csproj.Up2Date
+C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.Up2Date

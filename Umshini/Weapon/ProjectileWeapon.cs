@@ -1,4 +1,5 @@
 ﻿using Battle;
+using Newtonsoft.Json;
 
 namespace Weapon
 {
@@ -9,6 +10,7 @@ namespace Weapon
     /// </summary>
     public class PROJECTILE_WEAPON : AWEAPON
     {
+        [JsonProperty("ammo", Order = 2)]
         private int _iAmmo = -1;
         /// <summary>
         /// Represents an accurate weapon with limited ammunition
@@ -22,7 +24,7 @@ namespace Weapon
         /// <param name="iAccuracy"></param>
         /// <param name="iMinAccuracy"></param>
         /// <param name="eWeaponType"></param>
-        public PROJECTILE_WEAPON(int iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, int iAmmo) : base(iId, sName, iArmor, iLifePoint, iDamage, iPowerConsumption, iAccuracy, iMinAccuracy, WEAPONS_TYPES.PROJECTILE)
+        public PROJECTILE_WEAPON(string iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, int iAmmo) : base(iId, sName, iArmor, iLifePoint, iDamage, iPowerConsumption, iAccuracy, iMinAccuracy, WEAPONS_TYPES.PROJECTILE)
         {
             _iAmmo = iAmmo;
         }

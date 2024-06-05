@@ -38,3 +38,5 @@ C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\obj\Debug\Robot.dll
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\obj\Debug\Robot.pdb
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Mehdi\source\repos\RedScipio\Umshini\Robot\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Newtonsoft.Json.xml

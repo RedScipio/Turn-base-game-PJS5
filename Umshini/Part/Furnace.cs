@@ -1,4 +1,5 @@
 ﻿using Battle;
+using Newtonsoft.Json;
 
 namespace Part
 {
@@ -9,8 +10,9 @@ namespace Part
     /// </summary>
     public class FURNACE : APART, IFURNACE
     {
+        
         private int _iRestartLimit = -1;
-        public FURNACE(int iId, string sName, int iArmor, int iLifePoint, int iRestartLimit) : base(iId, sName, iArmor, iLifePoint)
+        public FURNACE(string iId, string sName, int iArmor, int iLifePoint, int iRestartLimit) : base(iId, sName, iArmor, iLifePoint)
         {
             _iRestartLimit = iRestartLimit;
         }

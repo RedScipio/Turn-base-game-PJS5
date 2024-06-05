@@ -20,15 +20,15 @@ namespace Umshini_Test
         private static IPILOT pBotPilot = null;
         public TestRobot()
         {
-            playerFurn = new FURNACE(1, "Normal Furnace", 1, 1, 50);
-            botFurn = new FURNACE(1, "Normal Furnace", 1, 1, 50);
-            playerLegs = new LEG(1, "Basic Legs", 2, 2);
-            botLegs = new LEG(1, "Basic Legs", 3, 2);
+            playerFurn = new FURNACE("1", "Normal Furnace", 1, 1, 50);
+            botFurn = new FURNACE("1", "Normal Furnace", 1, 1, 50);
+            playerLegs = new LEG("1", "Basic Legs", 2, 2);
+            botLegs = new LEG("1", "Basic Legs", 3, 2);
 
-            botLeftWeap = new MELEE_WEAPON(1, "Melee Weapon", 3, 1, 3, 15, 100, 0);
-            botRightWeap = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 1, 15, 80, 40);
-            playerLeftWeap = new MELEE_WEAPON(1, "Melee Weapon", 3, 1, 2, 15, 100, 0);
-            playerRightWeap = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 1, 15, 80, 40);
+            botLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 1, 3, 15, 100, 0);
+            botRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, 1, 15, 80, 40);
+            playerLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 1, 2, 15, 100, 0);
+            playerRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, 1, 15, 80, 40);
 
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, playerRightWeap);
             botRobot = new ROBOT(botFurn, botLegs, botLeftWeap, botRightWeap);
@@ -41,7 +41,7 @@ namespace Umshini_Test
         public void TestIsProjectileWeaponUsable() 
         {
             //Initializing test weapons
-            IWEAPON projWeap = new PROJECTILE_WEAPON(1, "normal projectile weapon", 1, 1, 5, 0, 100, 95, 1);
+            IWEAPON projWeap = new PROJECTILE_WEAPON("1", "normal projectile weapon", 1, 1, 5, 0, 100, 95, 1);
 
             //Checking if projectile weapon can shoot, with and without ammo
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, projWeap);
@@ -55,7 +55,7 @@ namespace Umshini_Test
         [Fact]
         public void TestIsMeleeWeaponUsable()
         {
-            IWEAPON melWeap = new MELEE_WEAPON(1, "normal melee weap", 1, 1, 5, 0, 100, 0);
+            IWEAPON melWeap = new MELEE_WEAPON("1", "normal melee weap", 1, 1, 5, 0, 100, 0);
 
             //Checking if melee weapon can attack, with and without legs
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, melWeap);
@@ -70,7 +70,7 @@ namespace Umshini_Test
         [Fact]
         public void TestIsNormalWeaponUsable()
         {
-            IWEAPON normWeap = new NORMAL_WEAPON(1, "normal melee weap", 1, 1, 5, 100, 60, 40);
+            IWEAPON normWeap = new NORMAL_WEAPON("1", "normal melee weap", 1, 1, 5, 100, 60, 40);
 
             //Checking if normal weapon can attack
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, normWeap);
@@ -90,7 +90,7 @@ namespace Umshini_Test
         [Fact]
         public void TestDamageWithThermalWeapon()
         {
-            IWEAPON thermWeap = new THERMAL_WEAPON(1, "normal melee weap", 1, 1, 3, 10, 20, 40, 40);
+            IWEAPON thermWeap = new THERMAL_WEAPON("1", "normal melee weap", 1, 1, 3, 10, 20, 40, 40);
 
             //Checking if thermal weapons remove fuel correctly from the enemies
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, thermWeap);
@@ -108,7 +108,7 @@ namespace Umshini_Test
         [Fact]
         public void TestHitChanceWithMeleeWeapons()
         {
-            IWEAPON melWeap = new MELEE_WEAPON(1, "normal melee weap", 1, 1, 5, 0, 100, 0);
+            IWEAPON melWeap = new MELEE_WEAPON("1", "normal melee weap", 1, 1, 5, 0, 100, 0);
 
             //Checking if melee weapons lose 50% / 100% of hit chance with 1 / 2 legs lost
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, melWeap);
@@ -130,7 +130,7 @@ namespace Umshini_Test
         [Fact]
         public void TestHitChanceWithProjectileWeapons()
         {
-            IWEAPON projWeap = new PROJECTILE_WEAPON(1, "normal projectile weapon", 1, 1, 5, 0, 100, 80, 1);
+            IWEAPON projWeap = new PROJECTILE_WEAPON("1", "normal projectile weapon", 1, 1, 5, 0, 100, 80, 1);
 
             //Checking if projectile weapons loses less accuracy than every other weapons, as intended
             playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, projWeap);

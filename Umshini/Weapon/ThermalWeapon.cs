@@ -1,5 +1,6 @@
 ﻿
 using Battle;
+using Newtonsoft.Json;
 
 namespace Weapon
 {
@@ -10,6 +11,7 @@ namespace Weapon
     /// </summary>
     public class THERMAL_WEAPON : AWEAPON
     {
+        [JsonProperty("fuel_burn", Order = 2)]
         private readonly int _iFuelBurn = -1;
 
         /// <summary>
@@ -24,7 +26,7 @@ namespace Weapon
         /// <param name="iAccuracy"></param>
         /// <param name="iMinAccuracy"></param>
         /// <param name="iFuelBurn"></param>
-        public THERMAL_WEAPON(int iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, int iFuelBurn) : base(iId, sName, iArmor, iLifePoint, iDamage, iPowerConsumption, iAccuracy, iMinAccuracy, WEAPONS_TYPES.THERMAL)
+        public THERMAL_WEAPON(string iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, int iFuelBurn) : base(iId, sName, iArmor, iLifePoint, iDamage, iPowerConsumption, iAccuracy, iMinAccuracy, WEAPONS_TYPES.THERMAL)
         {
             _iFuelBurn = iFuelBurn;
         }

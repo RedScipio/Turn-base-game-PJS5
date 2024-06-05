@@ -37,15 +37,15 @@ namespace WindowsFormTry
             _vPlayerFuelsReserve.Add(new RefuelKit(0, ENERGY.ENERGY_COAL));
             _vPlayerFuelsReserve.Add(new RefuelKit(0, ENERGY.ENERGY_COMPACT_COAL));
 
-            IFURNACE playerFurn = new FURNACE(1, "Normal Furnace", 1, 2, 50);
-            IFURNACE botFurn = new FURNACE(1, "Normal Furnace", 1, 1, 50);
-            ILEG playerLegs = new LEG(1, "Basic Legs", 2, 2);
-            ILEG botLegs = new LEG(1, "Basic Legs", 3, 2);
+            IFURNACE playerFurn = new FURNACE("1", "Normal Furnace", 1, 2, 50);
+            IFURNACE botFurn = new FURNACE("1", "Normal Furnace", 1, 1, 50);
+            ILEG playerLegs = new LEG("1", "Basic Legs", 2, 2);
+            ILEG botLegs = new LEG("1", "Basic Legs", 3, 2);
 
-            IWEAPON botLeftWeap = new MELEE_WEAPON(1, "Melee Weapon", 3, 1, 3, 15, 100, 0);
-            IWEAPON botRightWeap = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 1, 15, 80, 40);
-            IWEAPON playerLeftWeap = new MELEE_WEAPON(1, "Melee Weapon", 3, 1, 3, 15, 100, 0);
-            IWEAPON playerRightWeap = new NORMAL_WEAPON(1, "Basic Normal Weapon", 3, 1, 1, 15, 80, 40);
+            IWEAPON botLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 1, 3, 15, 100, 0);
+            IWEAPON botRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, 1, 15, 80, 40);
+            IWEAPON playerLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 1, 3, 15, 100, 0);
+            IWEAPON playerRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, 1, 15, 80, 40);
 
             ROBOT playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, playerRightWeap);
             ROBOT botRobot = new ROBOT(botFurn, botLegs, botLeftWeap, botRightWeap);

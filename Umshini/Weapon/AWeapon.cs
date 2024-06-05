@@ -1,5 +1,7 @@
 ﻿using Part;
 using Battle;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Weapon
 {
@@ -10,10 +12,15 @@ namespace Weapon
     /// </summary>
     public abstract class AWEAPON : APART, IWEAPON
     {
+        [JsonProperty("damage", Order = 1)]
         private readonly int _iDamage = -1;
+        [JsonProperty("power_consumption", Order = 1)]
         private readonly int _iPowerConsumption = -1;
+        [JsonProperty("accuracy", Order = 1)]
         private readonly int _iAccuracy = -1;
+        [JsonProperty("min_accuracy", Order = 1)]
         private readonly int _iMinAccuracy = -1;
+        [JsonProperty("weapon_type", Order = 1)]
         private readonly WEAPONS_TYPES _eWeaponType;
 
         /// <summary>
@@ -25,7 +32,7 @@ namespace Weapon
         /// <param name="iLifePoint"></param>
         /// <param name="iMaxArmor"></param>
         /// <param name="iMaxLifePoint"></param>
-        protected AWEAPON(int iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, WEAPONS_TYPES eWeaponType) : base(iId, sName, iArmor, iLifePoint)
+        protected AWEAPON(string iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, WEAPONS_TYPES eWeaponType) : base(iId, sName, iArmor, iLifePoint)
         {
             _iDamage = iDamage;
             _iPowerConsumption = iPowerConsumption;

@@ -1,4 +1,5 @@
 ﻿using Battle;
+using Newtonsoft.Json;
 using System;
 
 
@@ -11,9 +12,13 @@ namespace Part
     /// </summary>
     public abstract class APART : IPART
     {
-        private readonly int _iId;
+        [JsonProperty("id")]
+        private readonly string _iId;
+        [JsonProperty("name")]
         private readonly string _sName;
+        [JsonProperty("armor")]
         private int _iArmor;
+        [JsonProperty("life_points")]
         private int _iLifePoint;
         private readonly int _iMaxArmor;
         private readonly int _iMaxLifePoint;
@@ -27,7 +32,7 @@ namespace Part
         /// <param name="iLifePoint"></param>
         /// <param name="iMaxArmor"></param>
         /// <param name="iMaxLifePoint"></param>
-        public APART(int iId, string sName, int iArmor, int iLifePoint)
+        public APART(string iId, string sName, int iArmor, int iLifePoint)
         {
             _iId = iId;
             _sName = sName;
