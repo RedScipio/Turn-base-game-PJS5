@@ -51,8 +51,8 @@ namespace Umshini_Test
 
             playerFurn = new FURNACE("1", "Normal Furnace", 3, 3, 50);
             botFurn = new FURNACE("1", "Normal Furnace", 1, 1, 50);
-            playerLegs = new LEG("1", "Basic Legs", 2, 2);
-            botLegs = new LEG("1", "Basic Legs", 3, 2);
+            playerLegs = new Part.LEG("1", "Basic Legs", 2, 2);
+            botLegs = new Part.LEG("1", "Basic Legs", 3, 2);
 
             botLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 1, 3, 15, 100, 0);
             botRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, 1, 15, 80, 40);

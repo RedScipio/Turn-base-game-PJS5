@@ -4,14 +4,8 @@ using Part;
 using Pilot;
 using Robot;
 using Weapon;
-
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using System.IO;
+using System;
 
 namespace NoFormApp
 {
@@ -27,7 +21,14 @@ namespace NoFormApp
             List<ICONSUMABLES> _vPlayerFuelsReserve = new List<ICONSUMABLES>();
             List<ICONSUMABLES> _vBotFuelsReserve = new List<ICONSUMABLES>();
 
-            
+            IPART part = Utils.GetEquipment("Weapons", 0);
+            if (part != null)
+            {
+                Console.WriteLine("PV : " + part.GetLife());
+                Console.WriteLine("Armure : " + part.GetArmor());
+                Console.WriteLine("Cassé ? : " + part.IsBroken());
+            }
+            Console.ReadLine();
 
             _vPlayerRepairKitsReserve.Add(new RepairKit(3, REPAIR.LIGHT_KIT));
             _vPlayerRepairKitsReserve.Add(new RepairKit(3, REPAIR.FULL_KIT));

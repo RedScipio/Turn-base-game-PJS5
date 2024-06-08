@@ -1,4 +1,6 @@
-﻿using Battle;
+﻿
+
+using Battle;
 
 namespace Part
 {
