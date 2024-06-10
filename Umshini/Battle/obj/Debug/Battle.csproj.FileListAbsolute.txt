@@ -62,3 +62,16 @@ C:\Users\Mehdi\Source\Repos\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.
 C:\Users\Mehdi\Source\Repos\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.Up2Date
 C:\Users\Mehdi\Source\Repos\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.dll
 C:\Users\Mehdi\Source\Repos\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.pdb
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\obj\Debug\Battle.csproj.AssemblyReference.cache
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\obj\Debug\Battle.dll
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\obj\Debug\Battle.pdb
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\bin\Debug\Battle.dll
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\bin\Debug\Battle.pdb
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\bin\Debug\Newtonsoft.Json.dll
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\bin\Debug\Newtonsoft.Json.xml
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\obj\Debug\Battle.csproj.CopyComplete
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\obj\Debug\Battle.BasikBattle.resources
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\obj\Debug\Battle.csproj.GenerateResource.cache
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\obj\Debug\Battle.Properties.Resources.resources
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\obj\Debug\Battle.ScoreStatus.resources

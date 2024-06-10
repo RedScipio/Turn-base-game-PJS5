@@ -51,3 +51,14 @@ C:\Users\Mehdi\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.cs
 C:\Users\Mehdi\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.Up2Date
 C:\Users\Mehdi\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.dll
 C:\Users\Mehdi\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.pdb
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\bin\Debug\Robot.dll
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\bin\Debug\Robot.pdb
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\bin\Debug\Battle.dll
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\bin\Debug\Newtonsoft.Json.dll
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\bin\Debug\Battle.pdb
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\bin\Debug\Newtonsoft.Json.xml
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\obj\Debug\Robot.csproj.AssemblyReference.cache
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\obj\Debug\Robot.csproj.CoreCompileInputs.cache
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\obj\Debug\Robot.csproj.CopyComplete
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\obj\Debug\Robot.dll
+C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Robot\obj\Debug\Robot.pdb

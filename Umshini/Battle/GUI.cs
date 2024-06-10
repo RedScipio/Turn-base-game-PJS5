@@ -72,7 +72,7 @@ namespace Battle
 
         public static void ShowStatus(IPILOT pPlayer, IPILOT pBot)
         {
-            Console.Clear();
+            //Console.Clear();
             IROBOT playerRobot = pPlayer.GetRobot();
 
             IROBOT botRobot = pBot.GetRobot();
