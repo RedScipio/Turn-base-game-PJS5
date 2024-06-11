@@ -67,5 +67,11 @@ namespace Weapon
         {
             return _eWeaponType;
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + "\nDégâts : " + _iDamage + "\nPrécision max : " + _iAccuracy + "\nPrécision min : " + _iMinAccuracy;
+        }
+
     }
 }

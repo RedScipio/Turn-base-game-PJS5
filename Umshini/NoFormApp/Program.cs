@@ -24,10 +24,9 @@ namespace NoFormApp
             IPART part = Utils.GetEquipment("Weapons", 0);
             if (part != null)
             {
-                Console.WriteLine("PV : " + part.GetLife());
-                Console.WriteLine("Armure : " + part.GetArmor());
-                Console.WriteLine("Cassé ? : " + part.IsBroken());
+                Console.WriteLine(part.ToString());
             }
+            Console.WriteLine("Appuyer pour continuer");
             Console.ReadLine();
 
             _vPlayerRepairKitsReserve.Add(new RepairKit(3, REPAIR.LIGHT_KIT));

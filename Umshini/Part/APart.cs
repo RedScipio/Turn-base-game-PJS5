@@ -150,5 +150,11 @@ namespace Part
         {
             return _iMaxArmor;
         }
+
+        public override string ToString()
+        {
+            return "Id de l'arme : " + _iId + "\nNom de l'arme : " + _sName 
+                + "\nPV : " + _iLifePoint + "\nArmure : " + _iArmor;
+        }
     }
 }
