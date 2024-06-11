@@ -14,16 +14,20 @@ namespace NoFormApp
 {
     public class Utils
     {
-        public static IPART GetEquipment(string sKeyName, int iEquipment)
+        /// <summary>
+        /// Retrieve an equipment part from a JSON file (Legs / Weapons / Furnace).
+        /// Return null if the key name is not equal to Legs, Weapons or Furnace
+        /// </summary>
+        /// <param name="sKeyName">The key name that access to equipment part</param>
+        /// <param name="iEquipment">the index for equipment</param>
+        /// <returns>A leg / weapon / furnace part</returns>
+        public static IPART GetEquipment(string filePath, string sKeyName, int iEquipment)
         {
-            string filePath = "../../RobotComponents.json";
+            //string filePath = "../../RobotComponents.json";
 
             string jsonString = File.ReadAllText(filePath);
 
             JObject parts = JObject.Parse(jsonString);
-
-            Console.WriteLine(parts);
-            Console.ReadLine();
 
             if (sKeyName.Equals("Legs"))
             {
@@ -36,34 +40,24 @@ namespace NoFormApp
                 if(iEquipment == (int)WEAPONS_TYPES.NORMAL)
                 {
                     iWeapon = parts[sKeyName][iEquipment].ToObject<Weapon.NORMAL_WEAPON>();
-                    Console.WriteLine(iWeapon.GetLife());
-                    Console.ReadLine();
                 }
                 else if(iEquipment == (int)WEAPONS_TYPES.MELEE)
                 {
                     iWeapon = parts[sKeyName][iEquipment].ToObject<Weapon.MELEE_WEAPON>();
-                    Console.WriteLine(iWeapon.GetLife());
-                    Console.ReadLine();
                 }
                 else if(iEquipment == (int)WEAPONS_TYPES.PROJECTILE)
                 {
                     iWeapon = parts[sKeyName][iEquipment].ToObject<Weapon.PROJECTILE_WEAPON>();
-                    Console.WriteLine(iWeapon.GetLife());
-                    Console.ReadLine();
                 }
                 else if(iEquipment == (int)WEAPONS_TYPES.THERMAL)
                 {
                     iWeapon = parts[sKeyName][iEquipment].ToObject<Weapon.THERMAL_WEAPON>();
-                    Console.WriteLine(iWeapon.GetLife());
-                    Console.ReadLine();
                 }
                 return iWeapon;
             }
             else if (sKeyName.Equals("Furnace"))
             {
                 FURNACE furnace = parts[sKeyName][iEquipment].ToObject<FURNACE>();
-                Console.WriteLine(furnace.GetLife());
-                Console.ReadLine();
                 return furnace;
             }
 

@@ -20,6 +20,8 @@ namespace Part
         private int _iArmor;
         [JsonProperty("life_points")]
         private int _iLifePoint;
+        [JsonProperty("url_image")]
+        private string _sUrlImage;
         private readonly int _iMaxArmor;
         private readonly int _iMaxLifePoint;
         
@@ -32,7 +34,8 @@ namespace Part
         /// <param name="iLifePoint"></param>
         /// <param name="iMaxArmor"></param>
         /// <param name="iMaxLifePoint"></param>
-        public APART(string iId, string sName, int iArmor, int iLifePoint)
+        /// <param name="sUrlImage"></param>
+        public APART(string iId, string sName, int iArmor, int iLifePoint, string sUrlImage)
         {
             _iId = iId;
             _sName = sName;
@@ -40,6 +43,7 @@ namespace Part
             _iLifePoint = iLifePoint;
             _iMaxArmor = iArmor;
             _iMaxLifePoint = iLifePoint;
+            _sUrlImage = sUrlImage;
         }
 
         /// <summary>

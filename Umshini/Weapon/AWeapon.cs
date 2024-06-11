@@ -32,7 +32,7 @@ namespace Weapon
         /// <param name="iLifePoint"></param>
         /// <param name="iMaxArmor"></param>
         /// <param name="iMaxLifePoint"></param>
-        protected AWEAPON(string iId, string sName, int iArmor, int iLifePoint, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, WEAPONS_TYPES eWeaponType) : base(iId, sName, iArmor, iLifePoint)
+        protected AWEAPON(string iId, string sName, int iArmor, int iLifePoint, string sUrlImage, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, WEAPONS_TYPES eWeaponType) : base(iId, sName, iArmor, iLifePoint, sUrlImage)
         {
             _iDamage = iDamage;
             _iPowerConsumption = iPowerConsumption;

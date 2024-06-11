@@ -18,7 +18,7 @@ namespace Part
         /// <param name="sName"></param>
         /// <param name="iArmor"></param>
         /// <param name="iLegsNumber"></param>
-        public LEG(string iId, string sName, int iArmor, int iLegsNumber) : base(iId, sName, iArmor, iLegsNumber)
+        public LEG(string iId, string sName, int iArmor, int iLegsNumber, string sUrlImage) : base(iId, sName, iArmor, iLegsNumber, sUrlImage)
         {
             
         }

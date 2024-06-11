@@ -12,7 +12,7 @@ namespace Part
     {
         
         private int _iRestartLimit = -1;
-        public FURNACE(string iId, string sName, int iArmor, int iLifePoint, int iRestartLimit) : base(iId, sName, iArmor, iLifePoint)
+        public FURNACE(string iId, string sName, int iArmor, int iLifePoint, string sUrlImage, int iRestartLimit) : base(iId, sName, iArmor, iLifePoint, sUrlImage)
         {
             _iRestartLimit = iRestartLimit;
         }

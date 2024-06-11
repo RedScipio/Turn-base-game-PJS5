@@ -75,3 +75,7 @@ C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\o
 C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\obj\Debug\Battle.csproj.GenerateResource.cache
 C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\obj\Debug\Battle.Properties.Resources.resources
 C:\Users\lebgn\OneDrive\Bureau\Turn-base-game-PJS5-Refacto-Code\Umshini\Battle\obj\Debug\Battle.ScoreStatus.resources
+C:\Users\Mehdi\Source\Repos\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.BasikBattle.resources
+C:\Users\Mehdi\Source\Repos\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.Properties.Resources.resources
+C:\Users\Mehdi\Source\Repos\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.ScoreStatus.resources
+C:\Users\Mehdi\Source\Repos\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.GenerateResource.cache

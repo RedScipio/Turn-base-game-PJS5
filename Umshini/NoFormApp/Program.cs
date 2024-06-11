@@ -21,7 +21,7 @@ namespace NoFormApp
             List<ICONSUMABLES> _vPlayerFuelsReserve = new List<ICONSUMABLES>();
             List<ICONSUMABLES> _vBotFuelsReserve = new List<ICONSUMABLES>();
 
-            IPART part = Utils.GetEquipment("Weapons", 0);
+            IPART part = Utils.GetEquipment("../../RobotComponents.json", "Weapons", 0);
             if (part != null)
             {
                 Console.WriteLine(part.ToString());
@@ -39,15 +39,15 @@ namespace NoFormApp
             _vPlayerFuelsReserve.Add(new RefuelKit(3, ENERGY.ENERGY_COAL));
             _vPlayerFuelsReserve.Add(new RefuelKit(3, ENERGY.ENERGY_COMPACT_COAL));
 
-            IFURNACE playerFurn = new FURNACE("1", "Normal Furnace", 3, 2, 50);
-            IFURNACE botFurn = new FURNACE("1", "Normal Furnace", 1, 1, 50);
-            ILEG playerLegs = new LEG("1", "Basic Legs", 2, 2);
-            ILEG botLegs = new LEG("1", "Basic Legs", 3, 2);
+            IFURNACE playerFurn = new FURNACE("1", "Normal Furnace", 3, 2, "", 50);
+            IFURNACE botFurn = new FURNACE("1", "Normal Furnace", 1, 1, "", 50);
+            ILEG playerLegs = new LEG("1", "Basic Legs", 2, 2, "");
+            ILEG botLegs = new LEG("1", "Basic Legs", 3, 2, "");
 
-            IWEAPON botLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 1, 1, 15, 100, 0);
-            IWEAPON botRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, 1, 15, 80, 40);
-            IWEAPON playerLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 1, 3, 15, 100, 0);
-            IWEAPON playerRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, 1, 15, 80, 40);
+            IWEAPON botLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 3, "", 1, 15, 100, 15);
+            IWEAPON botRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 15, 80, 40);
+            IWEAPON playerLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 1, "", 3, 15, 100, 0);
+            IWEAPON playerRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 15, 80, 40);
 
             ROBOT playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, playerRightWeap);
             ROBOT botRobot = new ROBOT(botFurn, botLegs, botLeftWeap, botRightWeap);
@@ -58,6 +58,7 @@ namespace NoFormApp
             BASIC_BATTLE basicBattle = new BASIC_BATTLE(pPlayerPilot, pBotPilot);
 
             basicBattle.PlayBattle();
+            //vérifier à chaque fois que le robot du pilote joueur n'est pas détruit. Peut être voir si le joueur veut s'arrêter.
         }
     }
 }
