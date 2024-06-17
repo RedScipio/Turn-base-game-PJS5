@@ -55,7 +55,7 @@
       "fuel_burn": 20
     }
   ],
-  "Furnace": [
+  "Furnaces": [
     {
       "id": "9f4682cb-70cb-4712-9321-007529f96b74",
       "name": "Normal Furnace",

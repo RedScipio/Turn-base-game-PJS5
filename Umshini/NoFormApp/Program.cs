@@ -13,21 +13,17 @@ namespace NoFormApp
     {
         static void Main(string[] args)
         {
-            
+            Console.WriteLine(rob.GetWeapons()[0].ToString() + "\n");
+            Console.WriteLine(rob.GetWeapons()[1].ToString() + "\n");
+            Console.WriteLine("PV Fournaise : " + rob.GetFurnaceLife() + "\n");
+            Console.WriteLine("PV Jambes : " + rob.GetLegsLife() + "\n");
+            Console.ReadLine();
 
             List<ICONSUMABLES> _vPlayerRepairKitsReserve = new List<ICONSUMABLES>();
             List<ICONSUMABLES> _vBotRepairKitsReserve = new List<ICONSUMABLES>();
 
             List<ICONSUMABLES> _vPlayerFuelsReserve = new List<ICONSUMABLES>();
             List<ICONSUMABLES> _vBotFuelsReserve = new List<ICONSUMABLES>();
-
-            IPART part = Utils.GetEquipment("../../RobotComponents.json", "Weapons", 0);
-            if (part != null)
-            {
-                Console.WriteLine(part.ToString());
-            }
-            Console.WriteLine("Appuyer pour continuer");
-            Console.ReadLine();
 
             _vPlayerRepairKitsReserve.Add(new RepairKit(3, REPAIR.LIGHT_KIT));
             _vPlayerRepairKitsReserve.Add(new RepairKit(3, REPAIR.FULL_KIT));
@@ -50,14 +46,21 @@ namespace NoFormApp
             IWEAPON playerRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 15, 80, 40);
 
             ROBOT playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, playerRightWeap);
-            ROBOT botRobot = new ROBOT(botFurn, botLegs, botLeftWeap, botRightWeap);
+            //ROBOT botRobot = new ROBOT(botFurn, botLegs, botLeftWeap, botRightWeap);
 
             IPILOT pPlayerPilot = new PLAYER_PILOT(playerRobot, _vPlayerFuelsReserve, _vPlayerRepairKitsReserve);
-            IPILOT pBotPilot = new SmartBotPilot(botRobot, _vBotFuelsReserve, _vBotRepairKitsReserve);
 
-            BASIC_BATTLE basicBattle = new BASIC_BATTLE(pPlayerPilot, pBotPilot);
+            do
+            {
+                IROBOT botRobot = Utils.GetProceduralRobot("../../RobotComponents.json");
+                IPILOT pBotPilot = new SmartBotPilot(botRobot, _vBotFuelsReserve, _vBotRepairKitsReserve);
 
-            basicBattle.PlayBattle();
+                BASIC_BATTLE basicBattle = new BASIC_BATTLE(pPlayerPilot, pBotPilot);
+                basicBattle.PlayBattle();
+            }while(!pPlayerPilot.GetRobot().IsDestroy());
+            
+
+            
             //vérifier à chaque fois que le robot du pilote joueur n'est pas détruit. Peut être voir si le joueur veut s'arrêter.
         }
     }
