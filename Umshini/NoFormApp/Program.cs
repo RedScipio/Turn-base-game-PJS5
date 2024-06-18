@@ -13,11 +13,7 @@ namespace NoFormApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(rob.GetWeapons()[0].ToString() + "\n");
-            Console.WriteLine(rob.GetWeapons()[1].ToString() + "\n");
-            Console.WriteLine("PV Fournaise : " + rob.GetFurnaceLife() + "\n");
-            Console.WriteLine("PV Jambes : " + rob.GetLegsLife() + "\n");
-            Console.ReadLine();
+            IROBOT rob = Utils.GetProceduralRobot("../../RobotComponents.json");
 
             List<ICONSUMABLES> _vPlayerRepairKitsReserve = new List<ICONSUMABLES>();
             List<ICONSUMABLES> _vBotRepairKitsReserve = new List<ICONSUMABLES>();

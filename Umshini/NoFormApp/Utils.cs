@@ -65,24 +65,30 @@ namespace NoFormApp
         }
 
         /// <summary>
-        /// 
+        /// Go through a JSON file, pick robot components 
+        /// and procedurally generate a robot following the game's rules 
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns>A robot procedurally made</returns>
         public static IROBOT GetProceduralRobot(string filePath)
         {
-            string jsonString = File.ReadAllText(filePath);
+            
+            string sJsonString = File.ReadAllText(filePath);
 
-            JObject parts = JObject.Parse(jsonString);
+            JObject parts = JObject.Parse(sJsonString);
 
             int iLengthWeapons = parts["Weapons"].ToList().Count();
             int iLengthLegs = parts["Legs"].ToList().Count();
             int iLengthFurnaces = parts["Furnaces"].ToList().Count();
 
-            int iWeapon_1 = new Random().Next(0, iLengthWeapons);
-            int iWeapon_2 = new Random().Next(0, iLengthWeapons);
-            int iLegs = new Random().Next(0, iLengthLegs - 1);
-            int iFurnaces = new Random().Next(0, iLengthFurnaces - 1);
+            Random random = new Random();
+
+            int iWeapon_1 = random.Next(0, iLengthWeapons);
+            int iWeapon_2 = random.Next(0, iLengthWeapons);
+            int iLegs = random.Next(0, iLengthLegs - 1);
+            int iFurnaces = random.Next(0, iLengthFurnaces - 1);
+            Console.WriteLine("2 : " + iWeapon_2 + " 1 : " + iWeapon_1 + " L : " + iLegs + " F : " + iFurnaces);
+            
 
             IFURNACE furnaceRobot = parts["Furnaces"][iFurnaces].ToObject<FURNACE>();
             ILEG legsRobot = parts["Legs"][iLegs].ToObject<LEG>();
@@ -93,10 +99,10 @@ namespace NoFormApp
         }
 
         /// <summary>
-        /// 
+        /// Pick a weapon from a JSON file ()
         /// </summary>
         /// <param name="jObject">la liste d'objets</param>
-        /// <param name="iWeaponChoice"></param>
+        /// <param name="iWeaponChoice">Le choix de l'arme</param>
         /// <returns>A normal / melee / 
         /// projectile / thermal weapon</returns>
         /// <exception cref="Exception"></exception>

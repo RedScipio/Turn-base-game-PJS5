@@ -83,7 +83,6 @@ namespace Part
                     _iArmor = 0;
                 }
             }
-            Console.WriteLine("Dealt" + iDamage + "damage(s) to " + _iId + ", " + _sName);
             return iResult;
         }
 
