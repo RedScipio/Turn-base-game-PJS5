@@ -26,7 +26,6 @@ namespace NoFormApp
         {
 
             string jsonString = File.ReadAllText(filePath);
-
             JObject parts = JObject.Parse(jsonString);
 
             if (sKeyName.Equals("Legs"))
