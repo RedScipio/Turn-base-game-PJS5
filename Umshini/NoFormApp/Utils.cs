@@ -86,7 +86,6 @@ namespace NoFormApp
             int iWeapon_2 = random.Next(0, iLengthWeapons);
             int iLegs = random.Next(0, iLengthLegs - 1);
             int iFurnaces = random.Next(0, iLengthFurnaces - 1);
-            Console.WriteLine("2 : " + iWeapon_2 + " 1 : " + iWeapon_1 + " L : " + iLegs + " F : " + iFurnaces);
             
 
             IFURNACE furnaceRobot = parts["Furnaces"][iFurnaces].ToObject<FURNACE>();

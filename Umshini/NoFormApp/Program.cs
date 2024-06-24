@@ -13,7 +13,6 @@ namespace NoFormApp
     {
         static void Main(string[] args)
         {
-            IROBOT rob = Utils.GetProceduralRobot("../../RobotComponents.json");
 
             List<ICONSUMABLES> _vPlayerRepairKitsReserve = new List<ICONSUMABLES>();
             List<ICONSUMABLES> _vBotRepairKitsReserve = new List<ICONSUMABLES>();
@@ -42,7 +41,6 @@ namespace NoFormApp
             IWEAPON playerRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 15, 80, 40);
 
             ROBOT playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, playerRightWeap);
-            //ROBOT botRobot = new ROBOT(botFurn, botLegs, botLeftWeap, botRightWeap);
 
             IPILOT pPlayerPilot = new PLAYER_PILOT(playerRobot, _vPlayerFuelsReserve, _vPlayerRepairKitsReserve);
 
@@ -50,8 +48,8 @@ namespace NoFormApp
             {
                 IROBOT botRobot = Utils.GetProceduralRobot("../../RobotComponents.json");
                 IPILOT pBotPilot = new SmartBotPilot(botRobot, _vBotFuelsReserve, _vBotRepairKitsReserve);
-
-                BASIC_BATTLE basicBattle = new BASIC_BATTLE(pPlayerPilot, pBotPilot);
+                BasikBattle bb = new BasikBattle(pPlayerPilot, pBotPilot);
+                BASIC_BATTLE basicBattle = new BASIC_BATTLE(bb, pPlayerPilot, pBotPilot);
                 basicBattle.PlayBattle();
             }while(!pPlayerPilot.GetRobot().IsDestroy());
             
