@@ -20,7 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weapon", "Weapon\Weapon.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umshini_Test", "Umshini_Test\Umshini_Test.csproj", "{69AD59CB-A5EC-41CF-97D1-857B71D9D625}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormTry", "WindowsFormTry\WindowsFormTry.csproj", "{FD08685B-5544-4690-9A33-A9D585A4D993}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormApplication", "WindowsFormTry\FormApplication.csproj", "{FD08685B-5544-4690-9A33-A9D585A4D993}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoFormApp", "NoFormApp\NoFormApp.csproj", "{3693C9BF-692C-4EFC-B2A5-C68C70D67D6D}"
 EndProject

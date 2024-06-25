@@ -1,4 +1,5 @@
 ﻿using Battle;
+using UGUI;
 using Consumable;
 using Part;
 using Pilot;
@@ -59,6 +60,7 @@ namespace WindowsFormTry
 
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
+            new UGUI.BasicBattleForm().Show();
             Application.Run();
         }
     }

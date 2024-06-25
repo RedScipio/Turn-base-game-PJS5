@@ -104,6 +104,10 @@
       <Project>{7ff93513-7e8a-4902-94d6-610cebc90dd2}</Project>
       <Name>Robot</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UGUI\UGUI.csproj">
+      <Project>{dee10441-946d-4a4d-8db1-b323a1cab6f7}</Project>
+      <Name>UGUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Weapon\Weapon.csproj">
       <Project>{e658ef0d-e930-4d67-bc80-a75e0a384e1b}</Project>
       <Name>Weapon</Name>
