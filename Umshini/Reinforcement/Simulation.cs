@@ -1,74 +1,25 @@
 ﻿using Battle;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Reinforcement
 {
-    enum Rewards
+    internal class Simulation : ISimulation
     {
-        WIN = 100,
-        LEGAL = 0,
-        LOSE = -1,
-        ILLEGAL = -100,
-    }
+        private protected IROBOT agent;
+        private protected IROBOT opponent;
 
-
-    internal class QLearning : IQLearning
-    {
-        private protected IROBOT IARobot;
-        private protected IROBOT RobotToKill;
-
-        private protected double[][] Qtable;
-
-        internal QLearning(IROBOT r1, IROBOT r2)
-        {
-            this.Qtable = GenerateQTable();
-
-            this.IARobot = r1;
-            this.RobotToKill = r2;
+        public Simulation(IROBOT agent, IROBOT opponent) {
+            this.agent = agent;
+            this.opponent = opponent;
         }
 
-        /// <summary>
-        /// Generates Q table
-        /// </summary>
-        /// <returns>Q table</returns>
-        private double[][] GenerateQTable()
-        {
-            int nbActions = Enum.GetValues(typeof(Action)).Length;
-            double[][] Qtable = new double[nbActions][];
-
-            for (int i = 0; i < nbActions; i++)
-            {
-                this.Qtable[i] = new double[nbActions];
-                for (int j = 0; j < nbActions; j++)
-                {
-                    this.Qtable[i][j] = 0;
-                }
-            }
-
-            return Qtable;
-        }
-
-
-        public void Run()
+        public void StartSimulation()
         {
             throw new NotImplementedException();
-        }
-
-        public void TrainingAgent(int nbTrains)
-        {
-            IROBOT[] robots = new IROBOT[] { this.IARobot, this.RobotToKill };
-
-            for (int i=0; i < nbTrains; i++)
-            {
-                // List Actions
-                Action[] legalActions = GetLegalActions(robots[0], robots[1]);
-                
-            }
         }
 
         /// <summary>
@@ -78,7 +29,7 @@ namespace Reinforcement
         /// <param name="opponent">Robot opponent</param>
         /// <param name="action">Type of action performed by the agent robot</param>
         /// <returns>State following agent robot action</returns>
-        private protected State NextState(IROBOT agent, IROBOT opponent, Action action)
+        public State NextState(IROBOT agent, IROBOT opponent, Action action)
         {
 
             if (action == Action.LEFT_WEAPON_ATTACK_LEGS)
@@ -126,21 +77,20 @@ namespace Reinforcement
         }
 
         /// <summary>
-        /// Indicates whether the simulation is complete
+        /// 
         /// </summary>
-        /// <returns>True if the simulation is complete, false otherwise</returns>
-        private protected bool IsSimulationOver(IROBOT agent, IROBOT opponent)
+        /// <returns></returns>
+        public bool IsOver()
         {
             return agent.IsDestroy() || opponent.IsDestroy();
         }
 
-        /// <summary>
-        /// Checks whether the action given as a parameter is possible in the current state.
-        /// </summary>
-        /// <param name="agent">Agent Robot</param>
-        /// <param name="opponent">Robot opponent</param>
-        /// <param name="action">Type of action performed by the agent robot</param>
-        /// <returns>True if the action is legal, false otherwise</returns>
+        public double[][] GetSimulationResults()
+        {
+            throw new NotImplementedException();
+        }
+
+        // Permet de savoir si l'action est légale
         private protected bool IsLegalAction(IROBOT agent, IROBOT opponent, Action action)
         {
             if (action == Action.LEFT_WEAPON_ATTACK_LEGS)
@@ -186,12 +136,7 @@ namespace Reinforcement
             return true;
         }
 
-        /// <summary>
-        /// Lists possible actions in the current state of the simulation
-        /// </summary>
-        /// <param name="agent">Agent Robot</param>
-        /// <param name="opponent">Robot opponent</param>
-        /// <returns>Possible actions in the current state of the simulation</returns>
+        // Permet de lister les actions légales
         private protected Action[] GetLegalActions(IROBOT agent, IROBOT opponent)
         {
             List<Action> legalActions = new List<Action>();
@@ -206,6 +151,8 @@ namespace Reinforcement
 
             return legalActions.ToArray();
         }
+
+        public State P
 
     }
 }
