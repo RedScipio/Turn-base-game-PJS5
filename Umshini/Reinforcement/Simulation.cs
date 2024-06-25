@@ -12,7 +12,7 @@ namespace Reinforcement
         private protected IROBOT agent;
         private protected IROBOT opponent;
 
-        public Simulation(IROBOT agent, IROBOT opponent) {
+        internal Simulation(IROBOT agent, IROBOT opponent) {
             this.agent = agent;
             this.opponent = opponent;
         }
@@ -151,8 +151,5 @@ namespace Reinforcement
 
             return legalActions.ToArray();
         }
-
-        public State P
-
     }
 }

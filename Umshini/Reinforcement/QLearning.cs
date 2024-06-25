@@ -8,13 +8,7 @@ using System.Threading.Tasks;
 
 namespace Reinforcement
 {
-    enum Rewards
-    {
-        WIN = 100,
-        LEGAL = 0,
-        LOSE = -1,
-        ILLEGAL = -100,
-    }
+
 
 
     internal class QLearning : IQLearning
@@ -24,7 +18,11 @@ namespace Reinforcement
 
         private protected double[][] Qtable;
 
-        internal QLearning(IROBOT r1, IROBOT r2)
+        private protected double _gamma;
+
+        private protected IQLearningProblem _qLearningProblem;
+
+        internal QLearning(IROBOT r1, IROBOT r2, double gamma)
         {
             this.Qtable = GenerateQTable();
 
@@ -35,6 +33,7 @@ namespace Reinforcement
         /// <summary>
         /// Generates Q table
         /// </summary>
+        /// <developer>CME</developer>
         /// <returns>Q table</returns>
         private double[][] GenerateQTable()
         {
@@ -65,10 +64,34 @@ namespace Reinforcement
 
             for (int i=0; i < nbTrains; i++)
             {
-                // List Actions
-                Action[] legalActions = GetLegalActions(robots[0], robots[1]);
-                
+                State initialState = new State(robots[0], robots[1]);
+                State currentState = new State(robots[0], robots[1]);
+
+                while (!IsSimulationOver(robots[0], robots[1]))
+                {
+
+                    // List Actions
+                    Action[] legalActions = GetLegalActions(robots[0], robots[1]);
+
+                    Action action = legalActions[0];
+
+                    currentState = NextState(robots[0], robots[1], action);
+                }
             }
+        }
+
+        private State TakeAction(IROBOT agent, IROBOT opposent, State currentState)
+        {
+            var validActions = _qLearningProblem.GetValidActions(currentState);
+            int randomIndexAction = _random.Next(0, validActions.Length);
+            int action = validActions[randomIndexAction];
+
+            double saReward = this.GetReward(agent, opposent);
+            double nsReward = _qTable[action].Max();
+            double qCurrentState = saReward + (_gamma * nsReward);
+            _qTable[currentState][action] = qCurrentState;
+            int newState = action;
+            return newState;
         }
 
         /// <summary>
@@ -77,6 +100,7 @@ namespace Reinforcement
         /// <param name="agent">Agent Robot</param>
         /// <param name="opponent">Robot opponent</param>
         /// <param name="action">Type of action performed by the agent robot</param>
+        /// <developer>CME</developer>
         /// <returns>State following agent robot action</returns>
         private protected State NextState(IROBOT agent, IROBOT opponent, Action action)
         {
@@ -128,6 +152,7 @@ namespace Reinforcement
         /// <summary>
         /// Indicates whether the simulation is complete
         /// </summary>
+        /// <developer>CME</developer>
         /// <returns>True if the simulation is complete, false otherwise</returns>
         private protected bool IsSimulationOver(IROBOT agent, IROBOT opponent)
         {
@@ -140,6 +165,7 @@ namespace Reinforcement
         /// <param name="agent">Agent Robot</param>
         /// <param name="opponent">Robot opponent</param>
         /// <param name="action">Type of action performed by the agent robot</param>
+        /// <developer>CME</developer>
         /// <returns>True if the action is legal, false otherwise</returns>
         private protected bool IsLegalAction(IROBOT agent, IROBOT opponent, Action action)
         {
@@ -191,6 +217,7 @@ namespace Reinforcement
         /// </summary>
         /// <param name="agent">Agent Robot</param>
         /// <param name="opponent">Robot opponent</param>
+        /// <developer>CME</developer>
         /// <returns>Possible actions in the current state of the simulation</returns>
         private protected Action[] GetLegalActions(IROBOT agent, IROBOT opponent)
         {
@@ -207,5 +234,27 @@ namespace Reinforcement
             return legalActions.ToArray();
         }
 
+        private protected double GetReward(IROBOT agent, IROBOT opponent)
+        {
+            if (agent.IsDestroy())
+            {
+                return (double) Rewards.LOSE;
+            }
+
+            if (opponent.IsDestroy())
+            {
+                return (double) Rewards.WIN;
+            }
+
+            return (double) Rewards.LEGAL;
+        }
+
+        private enum Rewards
+        {
+            WIN = 100,
+            LEGAL = 0,
+            LOSE = -1,
+            //ILLEGAL = -100,
+        }
     }
 }
