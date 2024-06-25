@@ -62,3 +62,14 @@ C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\obj\Debu
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.Up2Date
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.dll
 C:\Users\Wahad\Source\Repos\RedScipio\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.pdb
+C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Robot.dll
+C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Robot.pdb
+C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Battle.dll
+C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Newtonsoft.Json.dll
+C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Battle.pdb
+C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Newtonsoft.Json.xml
+C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.AssemblyReference.cache
+C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.CoreCompileInputs.cache
+C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.Up2Date
+C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.dll
+C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.pdb

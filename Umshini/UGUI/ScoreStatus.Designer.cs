@@ -1,4 +1,4 @@
-﻿namespace Battle
+﻿namespace UGUI
 {
     partial class ScoreStatus
     {

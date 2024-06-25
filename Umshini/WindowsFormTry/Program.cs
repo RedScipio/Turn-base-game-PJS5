@@ -53,15 +53,13 @@ namespace WindowsFormTry
             IPILOT pPlayerPilot = new PLAYER_PILOT(playerRobot, _vPlayerFuelsReserve, _vPlayerRepairKitsReserve);
             IPILOT pBotPilot = new DumbBotPilot(botRobot, _vBotFuelsReserve, _vBotRepairKitsReserve);
 
-            BasikBattle basikBattle = new BasikBattle(pPlayerPilot, pBotPilot);
-
-            BASIC_BATTLE basicBattle = new BASIC_BATTLE(basikBattle, pPlayerPilot, pBotPilot);
+            BASIC_BATTLE basicBattle = new BASIC_BATTLE(pPlayerPilot, pBotPilot);
 
             basicBattle.PlayBattle();
 
-            Application.EnableVisualStyles();
+            //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(basikBattle);
+            Application.Run();
         }
     }
 }

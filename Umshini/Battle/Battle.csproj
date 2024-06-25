@@ -48,12 +48,6 @@
   <ItemGroup>
     <Compile Include="BasicBattle.cs" />
     <Compile Include="ABattle.cs" />
-    <Compile Include="BasikBattle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BasikBattle.Designer.cs">
-      <DependentUpon>BasikBattle.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI.cs" />
     <Compile Include="IConsumables.cs" />
     <Compile Include="IFurnace.cs" />
@@ -68,27 +62,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ScoreStatus.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ScoreStatus.Designer.cs">
-      <DependentUpon>ScoreStatus.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="BasikBattle.resx">
-      <DependentUpon>BasikBattle.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScoreStatus.resx">
-      <DependentUpon>ScoreStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

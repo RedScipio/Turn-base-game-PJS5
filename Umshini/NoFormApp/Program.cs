@@ -48,8 +48,7 @@ namespace NoFormApp
             {
                 IROBOT botRobot = Utils.GetProceduralRobot("../../RobotComponents.json");
                 IPILOT pBotPilot = new SmartBotPilot(botRobot, _vBotFuelsReserve, _vBotRepairKitsReserve);
-                BasikBattle bb = new BasikBattle(pPlayerPilot, pBotPilot);
-                BASIC_BATTLE basicBattle = new BASIC_BATTLE(bb, pPlayerPilot, pBotPilot);
+                BASIC_BATTLE basicBattle = new BASIC_BATTLE(pPlayerPilot, pBotPilot);
                 basicBattle.PlayBattle();
             }while(!pPlayerPilot.GetRobot().IsDestroy());
             
