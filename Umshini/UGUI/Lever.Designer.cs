@@ -45,14 +45,17 @@
             this.LeverPictureBox.TabIndex = 0;
             this.LeverPictureBox.TabStop = false;
             this.LeverPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LeverPictureBox_MouseDown);
+            this.LeverPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LeverPictureBox_MouseMove);
+            this.LeverPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LeverPictureBox_MouseUp);
             // 
             // LabelLayout
             // 
             this.LabelLayout.BackColor = System.Drawing.Color.Transparent;
             this.LabelLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.LabelLayout.Location = new System.Drawing.Point(173, 1);
+            this.LabelLayout.Location = new System.Drawing.Point(169, 0);
+            this.LabelLayout.Margin = new System.Windows.Forms.Padding(0);
             this.LabelLayout.Name = "LabelLayout";
-            this.LabelLayout.Size = new System.Drawing.Size(170, 131);
+            this.LabelLayout.Size = new System.Drawing.Size(170, 140);
             this.LabelLayout.TabIndex = 1;
             // 
             // Lever
@@ -61,8 +64,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.LabelLayout);
             this.Controls.Add(this.LeverPictureBox);
+            this.Controls.Add(this.LabelLayout);
             this.DoubleBuffered = true;
             this.Name = "Lever";
             this.Size = new System.Drawing.Size(356, 182);
