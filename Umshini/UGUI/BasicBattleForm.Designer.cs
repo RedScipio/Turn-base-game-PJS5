@@ -29,7 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasicBattleForm));
+            this.lever1 = new UGUI.Lever();
             this.SuspendLayout();
+            // 
+            // lever1
+            // 
+            this.lever1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lever1.BackgroundImage")));
+            this.lever1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.lever1.LabelList = ((System.Collections.Specialized.StringCollection)(resources.GetObject("lever1.LabelList")));
+            this.lever1.Location = new System.Drawing.Point(247, 210);
+            this.lever1.Name = "lever1";
+            this.lever1.Size = new System.Drawing.Size(356, 182);
+            this.lever1.TabIndex = 0;
             // 
             // BasicBattleForm
             // 
@@ -38,6 +49,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lever1);
             this.DoubleBuffered = true;
             this.Name = "BasicBattleForm";
             this.Text = "Battle";
@@ -47,5 +59,7 @@
         }
 
         #endregion
+
+        private Lever lever1;
     }
 }

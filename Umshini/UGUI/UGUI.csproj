@@ -41,6 +41,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="UGUI">
+      <HintPath>obj\Debug\UGUI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicBattleForm.cs">
@@ -48,6 +51,12 @@
     </Compile>
     <Compile Include="BasicBattleForm.Designer.cs">
       <DependentUpon>BasicBattleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lever.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lever.Designer.cs">
+      <DependentUpon>Lever.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -65,6 +74,9 @@
   <ItemGroup>
     <EmbeddedResource Include="BasicBattleForm.resx">
       <DependentUpon>BasicBattleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lever.resx">
+      <DependentUpon>Lever.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
