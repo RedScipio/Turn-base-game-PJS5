@@ -17,7 +17,7 @@ namespace UGUI
 
         public static void Play(string FileName, string TrackName)
         {
-/*            try
+            try
             {
                 StringBuilder sb = new StringBuilder();
 
@@ -34,7 +34,7 @@ namespace UGUI
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred while playing the sound: " + ex.Message);
-            }*/
+            }
         }
     }
 }
