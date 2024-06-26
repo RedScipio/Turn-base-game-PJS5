@@ -1,4 +1,5 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
@@ -24,6 +25,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoFormApp", "NoFormApp\NoFormApp.csproj", "{3693C9BF-692C-4EFC-B2A5-C68C70D67D6D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UGUI", "UGUI\UGUI.csproj", "{DEE10441-946D-4A4D-8DB1-B323A1CAB6F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reinforcement", "Reinforcement\Reinforcement.csproj", "{999997B6-0D2F-42C6-8C89-1D219712606C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +74,10 @@ Global
 		{DEE10441-946D-4A4D-8DB1-B323A1CAB6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEE10441-946D-4A4D-8DB1-B323A1CAB6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEE10441-946D-4A4D-8DB1-B323A1CAB6F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{999997B6-0D2F-42C6-8C89-1D219712606C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{999997B6-0D2F-42C6-8C89-1D219712606C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{999997B6-0D2F-42C6-8C89-1D219712606C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{999997B6-0D2F-42C6-8C89-1D219712606C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

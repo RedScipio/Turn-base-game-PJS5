@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reinforcemen
+namespace Reinforcement
 {
     internal class State3 : IState
     {
@@ -50,10 +50,10 @@ namespace Reinforcemen
         {
             int n = 0;
 
-            n += agent.GetLegsArmor() > 0 ? (int)StateOfEquipement.Armor_Undestroyed * State3.COEFF_LEGS_AGENT :
-                (agent.GetLegsLife() > 0 ? (int)StateOfEquipement.Armor_Destroyed * State3.COEFF_LEGS_AGENT : (int)StateOfEquipement.Equipement_Destroyed * State3.COEFF_LEGS_AGENT);
+            n += agent.GetLegsArmor() > 0 ? (int) StateOfEquipement.Armor_Undestroyed * State3.COEFF_LEGS_AGENT : 
+                (agent.GetLegsLife() > 0 ? (int) StateOfEquipement.Armor_Destroyed * State3.COEFF_LEGS_AGENT : (int) StateOfEquipement.Equipement_Destroyed * State3.COEFF_LEGS_AGENT);
 
-            n += agent.GetLeftWeaponArmor() > 0 ? (int)StateOfEquipement.Armor_Undestroyed * State3.COEFF_WEAPON_LEFT_AGENT :
+            n += agent.GetLeftWeaponArmor() > 0 ? (int)StateOfEquipement.Armor_Undestroyed * State3.COEFF_WEAPON_LEFT_AGENT:
                 (agent.GetLeftWeaponLife() > 0 ? (int)StateOfEquipement.Armor_Destroyed * State3.COEFF_WEAPON_LEFT_AGENT : (int)StateOfEquipement.Equipement_Destroyed * State3.COEFF_WEAPON_LEFT_AGENT);
 
 

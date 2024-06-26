@@ -54,7 +54,7 @@ namespace Reinforcement
 
         public void TrainingAgent(int nbTrains)
         {
-            for (int i = 0; i < nbTrains; i++)
+            for (int i=0; i < nbTrains; i++)
             {
                 IROBOT agent = this._IARobot.Clone();
                 IPILOT opponent = this._robotToKill.Clone();
@@ -82,13 +82,13 @@ namespace Reinforcement
         {
             Action[] validActions = QLearning.GetLegalActions(agent, opposent.GetRobot());
             int randomIndexAction = _random.Next(0, validActions.Length);
-            int action = (int)validActions[randomIndexAction];
-            NextState(agent, opposent, (Action)action);
+            int action = (int) validActions[randomIndexAction];
+            NextState(agent, opposent, (Action) action);
 
             double saReward = QLearning.GetReward(agent, opposent.GetRobot());
             double nsReward = _qTable[action].Max();
             double qCurrentState = saReward + (_gamma * nsReward);
-            _qTable[(int)currentState][action] = qCurrentState;
+            _qTable[(int) currentState][action] = qCurrentState;
         }
 
         /// <summary>
@@ -243,15 +243,15 @@ namespace Reinforcement
         {
             if (agent.IsDestroy())
             {
-                return (double)Rewards.LOSE;
+                return (double) Rewards.LOSE;
             }
 
             if (opponent.IsDestroy())
             {
-                return (double)Rewards.WIN;
+                return (double) Rewards.WIN;
             }
 
-            return (double)Rewards.LEGAL;
+            return (double) Rewards.LEGAL;
         }
 
 

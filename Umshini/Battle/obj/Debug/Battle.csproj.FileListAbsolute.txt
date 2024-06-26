@@ -23,12 +23,6 @@ C:\Users\Mehdi\source\repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\obj\Deb
 C:\Users\Mehdi\source\repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.CopyComplete
 C:\Users\Mehdi\source\repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.dll
 C:\Users\Mehdi\source\repos\RedScipio\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.pdb
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Battle.dll
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Battle.pdb
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.AssemblyReference.cache
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.dll
-C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.pdb
 C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Battle\bin\Debug\Battle.dll
 C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Battle\bin\Debug\Battle.pdb
 C:\Users\bilbo\Documents\IUT\A3\Turn-base-game-PJS5.git\Umshini\Battle\obj\Debug\Battle.csproj.AssemblyReference.cache
@@ -110,3 +104,12 @@ C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csp
 C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.Up2Date
 C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.dll
 C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.pdb
+C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Battle.dll
+C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Battle.pdb
+C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Newtonsoft.Json.xml
+C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.AssemblyReference.cache
+C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
+C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.Up2Date
+C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.dll
+C:\Users\sackm\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.pdb
