@@ -106,6 +106,26 @@
       <Project>{3ba5891c-f6c3-4ef3-9c78-6d79e7974396}</Project>
       <Name>Battle</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Consumable\Consumable.csproj">
+      <Project>{68d1093b-6db4-4f96-8d99-4d618c5449fb}</Project>
+      <Name>Consumable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Part\Part.csproj">
+      <Project>{461bdc44-5cc4-4cc0-8cf2-45ac1cdb361c}</Project>
+      <Name>Part</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pilot\Pilot.csproj">
+      <Project>{57856c53-f2e4-4e73-96b0-0f6f420197c1}</Project>
+      <Name>Pilot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Robot\Robot.csproj">
+      <Project>{7ff93513-7e8a-4902-94d6-610cebc90dd2}</Project>
+      <Name>Robot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Weapon\Weapon.csproj">
+      <Project>{e658ef0d-e930-4d67-bc80-a75e0a384e1b}</Project>
+      <Name>Weapon</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

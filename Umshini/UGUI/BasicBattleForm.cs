@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Battle;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -21,6 +22,7 @@ namespace UGUI
 
     public partial class BasicBattleForm : Form
     {
+        private BASIC_BATTLE _basicBattle;
         private List<Lever> _lLever = new List<Lever> { };
 
         #region .. Double Buffered function ..
@@ -47,7 +49,7 @@ namespace UGUI
         }
         #endregion
 
-        public BasicBattleForm()
+        public BasicBattleForm(BASIC_BATTLE basicBattle)
         {
             InitializeComponent();
             SetDoubleBuffered(generalLayout);
@@ -56,7 +58,7 @@ namespace UGUI
             leverMainMenu.LabelClick += new EventHandler(lever_LabelClick);
 
             _lLever.Add(leverMainMenu);
-
+            _basicBattle = basicBattle;
         }
         protected void lever_LabelClick(object sender, EventArgs eventLever)
         {
