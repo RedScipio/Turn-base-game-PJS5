@@ -130,7 +130,7 @@
             // 
             this.leverMainMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("leverMainMenu.BackgroundImage")));
             this.leverMainMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.leverMainMenu.LabelList = ((System.Collections.Specialized.StringCollection)(resources.GetObject("leverMainMenu.LabelList")));
+            this.leverMainMenu.LabelList = ((System.Collections.Generic.List<string>)(resources.GetObject("leverMainMenu.LabelList")));
             this.leverMainMenu.Location = new System.Drawing.Point(3, 388);
             this.leverMainMenu.Name = "leverMainMenu";
             this.leverMainMenu.SelectedAction = null;

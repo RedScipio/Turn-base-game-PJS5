@@ -60,7 +60,19 @@ namespace UGUI
         }
         protected void lever_LabelClick(object sender, EventArgs eventLever)
         {
-            CreateNewLever(new StringCollection{"Test"});
+            Lever lever = (Lever)sender;
+            string sAction = lever.SelectedAction.Replace("- ", "");
+
+            List<string> lStringLabels = new List<string> { };
+
+            if (sAction == "Attack" && generalLayout.GetCellPosition(_lLever.Last()).Column == 0)
+            {
+                lStringLabels.Add("Left Weapon");
+                lStringLabels.Add("Right Weapon");
+            }
+
+
+            CreateNewLever(lStringLabels);
         }
 
         protected void lever_BackClick(object sender, EventArgs eventLever)
@@ -72,7 +84,7 @@ namespace UGUI
             }
         }
 
-        private void CreateNewLever(StringCollection lLabelsText)
+        private void CreateNewLever(List<string> lLabelsText)
         {
             Lever newLever = new Lever(lLabelsText);
 

@@ -10,7 +10,7 @@ namespace UGUI
 {
     public partial class Lever : UserControl
     {
-        private StringCollection _lLabelStringList = new StringCollection();
+        private List<string> _lLabelStringList = new List<string>();
         private List<Label> _lLabelList = new List<Label>();
         private bool _isDragging = false;
         private Point _startPoint = new Point();
@@ -24,7 +24,7 @@ namespace UGUI
 
         }
 
-        public Lever(StringCollection labelTexts, Lever previousLever = null) : this()
+        public Lever(List<string> labelTexts, Lever previousLever = null) : this()
         {
             LabelList = labelTexts;
 
@@ -55,7 +55,7 @@ namespace UGUI
 
         [Editor("System.Windows.Forms.Design.StringCollectionEditor, System.Design, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
             typeof(System.Drawing.Design.UITypeEditor))]
-        public StringCollection LabelList
+        public List<string> LabelList
         {
             get { return _lLabelStringList; }
             set
@@ -124,10 +124,13 @@ namespace UGUI
             {
                 LeverPictureBox.Top = clickedLabel.Top;
 
+                _selectedAction = clickedLabel.Text;
+
                 if (this.LabelClick != null)
                 {
                     this.LabelClick(this, eventClick);
-                }    
+                }
+                
             }
         }
 
@@ -186,21 +189,25 @@ namespace UGUI
                 {
                     if (closestLabel.Text.Contains("Back"))
                     {
+                        _selectedAction = closestLabel.Text;
+
                         if (this.BackClick != null)
                         {
                             this.BackClick(this, e);
                         }
 
                         this.Parent.Controls.Remove(this);
+                        
                         return;
                     }
 
                     LeverPictureBox.Top = closestLabel.Top;
-                    
+                    _selectedAction = closestLabel.Text;
                     if (this.LabelClick != null)
                     {
                         this.LabelClick(this, e);
                     }
+                    
                 }
             }
         }
@@ -235,7 +242,6 @@ namespace UGUI
             {
                 this.BackClick(this, e);
             }
-
             this.Parent.Controls.Remove(this);
         }
     }
