@@ -190,16 +190,14 @@ namespace UGUI
         protected void ShowStatus()
         {
             IROBOT robotPlayer = _basicBattle.Pilots[0].GetRobot();
-
-
-            fuelBar2.Percentage = robotPlayer.GetFuel();
+            fuelBar1.Percentage = robotPlayer.GetFuel();        
             scoreStatus2.RightArmColor = GetStatusColor(robotPlayer.GetRightWeaponLife(), robotPlayer.GetRightWeaponMaxLife(), robotPlayer.GetRightWeaponArmor(), robotPlayer.GetRightWeaponMaxArmor());
             scoreStatus2.LeftArmColor = GetStatusColor(robotPlayer.GetLeftWeaponLife(), robotPlayer.GetLeftWeaponMaxLife(), robotPlayer.GetLeftWeaponArmor(), robotPlayer.GetLeftWeaponMaxArmor());
             scoreStatus2.FurnaceColor = GetStatusColor(robotPlayer.GetFurnaceLife(), robotPlayer.GetFurnaceMaxLife(), robotPlayer.GetFurnaceArmor(), robotPlayer.GetFurnaceMaxArmor());
             scoreStatus2.LegsColor = GetStatusColor(robotPlayer.GetLegsLife(), robotPlayer.GetLegsMaxLife(), robotPlayer.GetLegsArmor(), robotPlayer.GetLegsMaxArmor());
 
             IROBOT robotEnnemi = _basicBattle.Pilots[1].GetRobot();
-            fuelBar1.Percentage = robotEnnemi.GetFuel();
+            fuelBar2.Percentage = robotEnnemi.GetFuel();
             scoreStatus4.RightArmColor = GetStatusColor(robotEnnemi.GetRightWeaponLife(), robotEnnemi.GetRightWeaponMaxLife(), robotEnnemi.GetRightWeaponArmor(), robotEnnemi.GetRightWeaponMaxArmor());
             scoreStatus4.LeftArmColor = GetStatusColor(robotEnnemi.GetLeftWeaponLife(), robotEnnemi.GetLeftWeaponMaxLife(), robotEnnemi.GetLeftWeaponArmor(), robotEnnemi.GetLeftWeaponMaxArmor());
             scoreStatus4.FurnaceColor = GetStatusColor(robotEnnemi.GetFurnaceLife(), robotEnnemi.GetFurnaceMaxLife(), robotEnnemi.GetFurnaceArmor(), robotEnnemi.GetFurnaceMaxArmor());
