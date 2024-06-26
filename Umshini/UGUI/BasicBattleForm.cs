@@ -1,4 +1,5 @@
 ﻿using Battle;
+using Pilot;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -27,7 +28,8 @@ namespace UGUI
     /// 
     public partial class BasicBattleForm : Form
     {
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
+    [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
             int nLeftRect,     // x-coordinate of upper-left corner
@@ -140,9 +142,8 @@ namespace UGUI
 
             BetweenTurn();
 
-            GUI.ShowStatus(_basicBattle.Pilots[0], _basicBattle.Pilots[1]);
-
             PlayTurnBot();
+
             BetweenTurn();
 
             foreach (Lever lever in _lLever)
@@ -151,16 +152,22 @@ namespace UGUI
             }
         }
 
-        protected void BetweenTurn()
+        protected async void BetweenTurn()
         {
             ShowStatus();
 
             if(_basicBattle.IsOver())
             {
+                if (_basicBattle.Pilots[0].GetRobot().IsFurnaceBroken())
+                {
+                    WriteInformation("You Lose");
+                    await Task.Delay(3000);
+                    Close();
+                }
 
-                StartingForm sf = new StartingForm(_basicBattle.Pilots[0].GetRobot());
-                Visible = false;
-                sf.Visible = true;
+                WriteInformation("You Win");
+                await Task.Delay(3000);
+                Close();
             }
         }
 
@@ -202,6 +209,40 @@ namespace UGUI
 
         protected void PlayTurnBot()
         {
+            List<int> lActions = _basicBattle.Pilots[1].PlayTurnAuto(_basicBattle.Pilots[0].GetRobot(), false);
+
+            if (lActions.Count < 1)
+            {
+                WriteInformation("The bot uses Splash ");
+                Task.Delay(3000);
+                return;
+            }
+
+            switch (lActions[0])
+            {
+                case (int)MAIN_MENU.Attack:
+                    {
+                        WriteInformation("The bot attack you");
+                        break;
+                    }
+                case (int)MAIN_MENU.Repairs:
+                    {
+                        WriteInformation("The bot repairs itself");
+                        break;
+                    }
+                case (int)MAIN_MENU.Furnace:
+                    {
+                        WriteInformation("The bot puts fuel back into its furnace");
+                        break;
+                    }
+                default:
+                    {
+                        WriteInformation("The bot uses Splash ");
+                        break;
+                    }
+            }
+
+            Task.Delay(3000);
             return;
         }
 
@@ -399,21 +440,53 @@ namespace UGUI
                         {
                             case "Left Weapon":
                                 {
+                                    if (_lActions[1] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsWeaponBroken((int)TARGET_MENU.Left_Weapon))
+                                    {
+                                        bCreateLever = false;
+                                        WriteInformation("Left Weapon already destroy");
+
+                                        break;
+                                    }
+
                                     iThirdChoice = (int)TARGET_MENU.Left_Weapon;
                                     break;
                                 }
                             case "Right Weapon":
                                 {
+                                    if (_lActions[1] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsWeaponBroken((int)TARGET_MENU.Right_Weapon))
+                                    {
+                                        bCreateLever = false;
+                                        WriteInformation("Right Weapon already destroy");
+
+                                        break;
+                                    }
+
                                     iThirdChoice = (int)TARGET_MENU.Right_Weapon;
                                     break;
                                 }
                             case "Legs":
                                 {
+                                    if (_lActions[1] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsWeaponBroken((int)TARGET_MENU.Legs))
+                                    {
+                                        bCreateLever = false;
+                                        WriteInformation("Legs already destroy");
+
+                                        break;
+                                    }
+
                                     iThirdChoice = (int)TARGET_MENU.Legs;
                                     break;
                                 }
                             case "Furnace":
                                 {
+                                    if (_lActions[1] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsWeaponBroken((int)TARGET_MENU.Furnace))
+                                    {
+                                        bCreateLever = false;
+                                        WriteInformation("Furnace already destroy");
+
+                                        break;
+                                    }
+
                                     iThirdChoice = (int)TARGET_MENU.Furnace;
                                     break;
                                 }

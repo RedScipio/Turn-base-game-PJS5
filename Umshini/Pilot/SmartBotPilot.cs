@@ -79,7 +79,7 @@ namespace Pilot
                             Console.WriteLine("Bot uses its best thermal weapon !");
                         int iThermicWeapon = GetBestThermicWeapon();
                         this.GetRobot().DealDamage(enemy, iThermicWeapon, TARGET_TYPE.FURNACE);
-                        return new List<int> { iThermicWeapon, (int)TARGET_TYPE.FURNACE };
+                        return new List<int> { (int)MAIN_MENU.Attack, iThermicWeapon, (int)TARGET_TYPE.FURNACE };
                     }
                     else
                     {
@@ -95,12 +95,14 @@ namespace Pilot
         {
             IROBOT r = this.GetRobot();
             int pvToRepair = r.GetFurnaceMaxLife() + r.GetFurnaceMaxArmor() - r.GetFurnaceLife() - r.GetFurnaceArmor();
+
             for (int i = 0; i < this.GetRepairKitsReserve().Count(); i++)
             {
                 if (this.Repair((REPAIRS_TYPE)i, TARGET_TYPE.FURNACE, new List<int> { i, (int)TARGET_TYPE.FURNACE }));
-                new List<int> { i, (int)TARGET_TYPE.FURNACE };
+                new List<int> { (int)MAIN_MENU.Repairs, i, (int)TARGET_TYPE.FURNACE };
             }
-            return new List<int>();
+
+            return new List<int> { (int)MAIN_MENU.Repairs };
         }
 
         /// <summary>
@@ -148,7 +150,7 @@ namespace Pilot
                 this.GetRobot().Refuel(iChoice);
             }
 
-            return new List<int>() { iChoice };
+            return new List<int>() { (int)MAIN_MENU.Furnace, iChoice };
         }
 
         /// <summary>
@@ -329,7 +331,7 @@ namespace Pilot
             if (iWeapon != -1)
             {
                 this.GetRobot().DealDamage(enemy, iWeapon, TARGET_TYPE.FURNACE);
-                return new List<int> { iWeapon, (int) TARGET_TYPE.FURNACE };
+                return new List<int> { (int)MAIN_MENU.Attack, iWeapon, (int) TARGET_TYPE.FURNACE };
             }
             
             return new List<int>(-1);

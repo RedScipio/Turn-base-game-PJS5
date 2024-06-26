@@ -107,7 +107,7 @@ namespace UGUI
             IROBOT botRobot = Utils.GetProceduralRobot(filePath);
 
             IPILOT pPlayerPilot = new PLAYER_PILOT(playerRobot, _vPlayerFuelsReserve, _vPlayerRepairKitsReserve);
-            IPILOT pBotPilot = new DumbBotPilot(botRobot, _vBotFuelsReserve, _vBotRepairKitsReserve);
+            IPILOT pBotPilot = new SmartBotPilot(botRobot, _vBotFuelsReserve, _vBotRepairKitsReserve);
 
             BASIC_BATTLE basicBattle = new BASIC_BATTLE(pPlayerPilot, pBotPilot);
 
