@@ -21,6 +21,8 @@ namespace UGUI
 
     public partial class BasicBattleForm : Form
     {
+        private List<Lever> _lLever = new List<Lever>{ };
+
         #region .. Double Buffered function ..
         public static void SetDoubleBuffered(Control c)
         {
@@ -51,31 +53,42 @@ namespace UGUI
             SetDoubleBuffered(generalLayout);
             SetDoubleBuffered(tableLayoutPanel1);
             SetDoubleBuffered(tableLayoutPanel2);
-            lever1.LabelClick += new EventHandler(lever1_LabelClick);
+            leverMainMenu.LabelClick += new EventHandler(lever_LabelClick);
+
+            _lLever.Add(leverMainMenu);
 
         }
-        protected void lever1_LabelClick(object sender, EventArgs e)
+        protected void lever_LabelClick(object sender, EventArgs eventLever)
         {
-            MessageBox.Show("eez");
+            CreateNewLever(new StringCollection{"Test"});
         }
 
-/*        private void CreateNewLever(string labelText, Lever lever)
+        protected void lever_BackClick(object sender, EventArgs eventLever)
         {
-            Lever newLever = new Lever(new StringCollection { labelText }, Lever)
+            if (this.generalLayout != null)
             {
-                Location = new Point(lever.Location.X + lever.Width + 10, lever.Location.Y),
-                Size = lever.Size
-            };
+                _lLever.RemoveAt(_lLever.Count - 1);
+                _lLever.Last().Enabled = true;
+            }
+        }
 
-            if (this.Parent != null)
+        private void CreateNewLever(StringCollection lLabelsText)
+        {
+            Lever newLever = new Lever(lLabelsText);
+
+            if (this.generalLayout != null)
             {
-                this.Parent.Controls.Add(newLever);
+                TableLayoutPanelCellPosition posLayoutLever = generalLayout.GetCellPosition(_lLever.Last());
+                this.generalLayout.Controls.Add(newLever, posLayoutLever.Column+1, posLayoutLever.Row);
             }
 
-            lever.Enabled = false;
-            _activeLever = newLever;
+            newLever.LabelClick += new EventHandler(lever_LabelClick);
+            newLever.BackClick += new EventHandler(lever_BackClick);
+
+            _lLever.Last().Enabled = false;
+            _lLever.Add(newLever);
         }
-*/
+
 
 
         private void BasicBattleForm_Load(object sender, EventArgs e)

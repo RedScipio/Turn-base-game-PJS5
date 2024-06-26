@@ -103,7 +103,6 @@
             this.DoubleBuffered = true;
             this.Name = "Lever";
             this.Size = new System.Drawing.Size(356, 182);
-            this.SizeChanged += new System.EventHandler(this.Lever_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.LeverPictureBox)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
