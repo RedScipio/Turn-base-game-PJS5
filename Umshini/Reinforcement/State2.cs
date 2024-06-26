@@ -41,9 +41,9 @@ namespace Reinforcement
         private const int COEFF_IS_FUEL_OPPONENT_UNDER_25_POURCENT = 524_288;
 
         
-        public double ConvertNumber(IROBOT agent, IROBOT opponent)
+        public int ConvertNumber(IROBOT agent, IROBOT opponent)
         {
-            double n = 0;
+            int n = 0;
 
             n += agent.GetLegsLife() > 0            ? 2 * State2.COEFF_IS_LEGS_AGENT_DESTROY : 0;
             n += agent.GetLegsArmor() > 0           ? 2 * State2.COEFF_IS_ARMOR_LEGS_AGENT_DESTROY : 0;
@@ -91,7 +91,7 @@ namespace Reinforcement
             return n;
         }
 
-        public double GetMaxValue()
+        public int GetMaxValue()
         {
             return State2.COEFF_IS_FUEL_OPPONENT_UNDER_25_POURCENT * 2 - 1;
         }

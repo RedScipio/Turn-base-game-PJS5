@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Consumable\Consumable.csproj" />
     <ProjectReference Include="..\Part\Part.csproj" />
+    <ProjectReference Include="..\Pilot\Pilot.csproj" />
     <ProjectReference Include="..\Robot\Robot.csproj" />
     <ProjectReference Include="..\Weapon\Weapon.csproj" />
   </ItemGroup>

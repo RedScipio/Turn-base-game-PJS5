@@ -30,13 +30,11 @@ namespace Reinforcement
             List<ICONSUMABLES> vFuelsReserve = new List<ICONSUMABLES>();
             List<ICONSUMABLES> vRepairKitsReserve = new List<ICONSUMABLES>();
 
-            //IPILOT pBotPilot = new SmartBotPilot(opponent, vFuelsReserve, vRepairKitsReserve);
-
-
+            IPILOT opponentPilot = new SmartBotPilot(opponent, vFuelsReserve, vRepairKitsReserve);
 
             IState state = FactoryState.GetState(FactoryState.Type_State.State3);
-            double i = state.GetMaxValue();
-            QLearning qLearning = new QLearning(agent, opponent, state, 0.8);
+
+            QLearning qLearning = new QLearning(agent, opponentPilot, state, 0.8);
 
             Console.WriteLine("Training Agent...");
             qLearning.TrainingAgent(10_000);

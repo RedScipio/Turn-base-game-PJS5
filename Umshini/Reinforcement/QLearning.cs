@@ -13,20 +13,20 @@ namespace Reinforcement
 {
     public class QLearning : IQLearning
     {
-        private protected IROBOT _IARobot;
-        private protected IROBOT _robotToKill;
+        private readonly IROBOT _IARobot;
+        private readonly IPILOT _robotToKill;
 
-        private protected double[][] _qTable;
+        private double[][] _qTable;
 
-        private protected readonly Random _random = new Random();
-        private protected double _gamma;
+        private readonly Random _random = new Random();
+        private readonly  double _gamma;
 
-        private protected IState _typeState;
+        private readonly IState _typeState;
 
-        private protected int nbVictories;
-        private protected int nbDefeats;
+        private int nbVictories;
+        private int nbDefeats;
 
-        public QLearning(IROBOT r1, IROBOT r2, IState state, double gamma)
+        public QLearning(IROBOT r1, IPILOT r2, IState state, double gamma)
         {
             this._IARobot = r1;
             this._robotToKill = r2;
@@ -60,46 +60,35 @@ namespace Reinforcement
 
         public void Run()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Resultats : rien");
         }
-
-        private protected IROBOT GetClone(IROBOT robot)
-        {
-            IFURNACE cloneFurnace = new FURNACE("1", "Normal Furnace", robot.GetFurnaceMaxArmor(), robot.GetFurnaceMaxLife(), "", robot.GetFurnaceRestartLimit());
-            ILEG cloneLegs = new LEG("1", "Basic Legs", robot.GetLegsMaxArmor(), robot.GetLegsMaxLife(), "");
-            IWEAPON cloneLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 3, "", 1, 15, 100, 15);
-            IWEAPON cloneRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 15, 80, 40);
-
-            return new ROBOT(cloneFurnace, cloneLegs, cloneLeftWeap, cloneRightWeap);
-        }
-
-
 
         public void TrainingAgent(int nbTrains)
         {
-            IROBOT[] robots = new IROBOT[] { this._IARobot, this._robotToKill };
-
             for (int i=0; i < nbTrains; i++)
             {
-                double initialState = this._typeState.ConvertNumber(robots[0], robots[1]);
-                double currentState = this._typeState.ConvertNumber(robots[0], robots[1]);
+                IROBOT agent = this._IARobot.Clone();
+                IPILOT opponent = this._robotToKill.Clone();
+
+                double initialState = this._typeState.ConvertNumber(agent, opponent.GetRobot());
+                double currentState = this._typeState.ConvertNumber(agent, opponent.GetRobot());
 
                 int x = 0;
 
-                while (!IsSimulationOver(robots[0], robots[1]))
+                while (!IsSimulationOver(agent, opponent.GetRobot()))
                 {
                     this.TakeAction(this._IARobot, this._robotToKill, currentState);
                 }
             }
         }
 
-        private void TakeAction(IROBOT agent, IROBOT opposent, double currentState)
+        private void TakeAction(IROBOT agent, IPILOT opposent, double currentState)
         {
-            Action[] validActions = this.GetLegalActions(agent, opposent);
+            Action[] validActions = this.GetLegalActions(agent, opposent.GetRobot());
             int randomIndexAction = _random.Next(0, validActions.Length);
             int action = (int) validActions[randomIndexAction];
 
-            double saReward = this.GetReward(agent, opposent);
+            double saReward = this.GetReward(agent, opposent.GetRobot());
             double nsReward = _qTable[action].Max();
             double qCurrentState = saReward + (_gamma * nsReward);
             _qTable[(int) currentState][action] = qCurrentState;
@@ -113,7 +102,7 @@ namespace Reinforcement
         /// <param name="action">Type of action performed by the agent robot</param>
         /// <developer>CME</developer>
         /// <returns>State following agent robot action</returns>
-        private protected double NextState(IROBOT agent, IROBOT opponent, Action action)
+        private double NextState(IROBOT agent, IROBOT opponent, Action action)
         {
 
             if (action == Action.LEFT_WEAPON_ATTACK_LEGS)
@@ -164,7 +153,7 @@ namespace Reinforcement
         /// </summary>
         /// <developer>CME</developer>
         /// <returns>True if the simulation is complete, false otherwise</returns>
-        private protected bool IsSimulationOver(IROBOT agent, IROBOT opponent)
+        private bool IsSimulationOver(IROBOT agent, IROBOT opponent)
         {
             return agent.IsDestroy() || opponent.IsDestroy();
         }
@@ -177,7 +166,7 @@ namespace Reinforcement
         /// <param name="action">Type of action performed by the agent robot</param>
         /// <developer>CME</developer>
         /// <returns>True if the action is legal, false otherwise</returns>
-        private protected bool IsLegalAction(IROBOT agent, IROBOT opponent, Action action)
+        private bool IsLegalAction(IROBOT agent, IROBOT opponent, Action action)
         {
             if (action == Action.LEFT_WEAPON_ATTACK_LEGS)
             {
@@ -229,7 +218,7 @@ namespace Reinforcement
         /// <param name="opponent">Robot opponent</param>
         /// <developer>CME</developer>
         /// <returns>Possible actions in the current state of the simulation</returns>
-        private protected Action[] GetLegalActions(IROBOT agent, IROBOT opponent)
+        private Action[] GetLegalActions(IROBOT agent, IROBOT opponent)
         {
             List<Action> legalActions = new List<Action>();
 
@@ -244,7 +233,7 @@ namespace Reinforcement
             return legalActions.ToArray();
         }
 
-        private protected double GetReward(IROBOT agent, IROBOT opponent)
+        private double GetReward(IROBOT agent, IROBOT opponent)
         {
             if (agent.IsDestroy())
             {
