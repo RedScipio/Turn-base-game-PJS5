@@ -18,11 +18,13 @@ namespace UGUI
         private int _maxY;
         private static Lever _activeLever;
         private Lever _previousLever;
+        private string _selectedAction;
 
         public Lever()
         {
             InitializeComponent();
             _activeLever = this;
+
         }
 
         public Lever(StringCollection labelTexts, Lever previousLever = null) : this()
@@ -40,6 +42,19 @@ namespace UGUI
                 // Set limits for Y movement
                 _minY = _lLabelList.First().Top;
                 _maxY = _lLabelList.Last().Top;
+            }
+
+        }
+
+        public string SelectedAction
+        {
+            get 
+            {
+                return _selectedAction;
+            }
+            set 
+            {
+                _selectedAction = value;
             }
         }
 
@@ -101,6 +116,11 @@ namespace UGUI
             }
         }
 
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks label")]
+        public event EventHandler LabelClick;
         private void Label_Click(object sender, EventArgs e)
         {
             if (_activeLever != this) return;
@@ -111,7 +131,8 @@ namespace UGUI
             {
                 LeverPictureBox.Top = clickedLabel.Top;
                 CreateNewLever(clickedLabel.Text);
-
+                if (this.LabelClick != null)
+                    this.LabelClick(this, e);
             }
         }
 
@@ -180,7 +201,8 @@ namespace UGUI
                     }
 
                     LeverPictureBox.Top = closestLabel.Top;
-                    CreateNewLever(closestLabel.Text);
+                    if (this.LabelClick != null)
+                        this.LabelClick(this, e);
                 }
             }
         }

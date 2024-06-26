@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -43,13 +44,39 @@ namespace UGUI
             }
         }
         #endregion
+
         public BasicBattleForm()
         {
             InitializeComponent();
             SetDoubleBuffered(generalLayout);
             SetDoubleBuffered(tableLayoutPanel1);
             SetDoubleBuffered(tableLayoutPanel2);
+            lever1.LabelClick += new EventHandler(lever1_LabelClick);
+
         }
+        protected void lever1_LabelClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("eez");
+        }
+
+/*        private void CreateNewLever(string labelText, Lever lever)
+        {
+            Lever newLever = new Lever(new StringCollection { labelText }, Lever)
+            {
+                Location = new Point(lever.Location.X + lever.Width + 10, lever.Location.Y),
+                Size = lever.Size
+            };
+
+            if (this.Parent != null)
+            {
+                this.Parent.Controls.Add(newLever);
+            }
+
+            lever.Enabled = false;
+            _activeLever = newLever;
+        }
+*/
+
 
         private void BasicBattleForm_Load(object sender, EventArgs e)
         {
