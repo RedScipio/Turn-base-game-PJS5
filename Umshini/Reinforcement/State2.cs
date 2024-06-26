@@ -40,9 +40,6 @@ namespace Reinforcement
         private const int COEFF_IS_FUEL_OPPONENT_UNDER_50_POURCENT = 262_144;
         private const int COEFF_IS_FUEL_OPPONENT_UNDER_25_POURCENT = 524_288;
 
-
-        public const int MAX_STATE_VALUE = COEFF_IS_FUEL_AGENT_UNDER_25_POURCENT * 2 - 1;
-
         
         public double ConvertNumber(IROBOT agent, IROBOT opponent)
         {
@@ -96,7 +93,7 @@ namespace Reinforcement
 
         public double GetMaxValue()
         {
-            return State2.MAX_STATE_VALUE;
+            return State2.COEFF_IS_FUEL_OPPONENT_UNDER_25_POURCENT * 2 - 1;
         }
     }
 }
