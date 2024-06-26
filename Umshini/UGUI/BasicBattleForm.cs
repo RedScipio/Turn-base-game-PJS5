@@ -179,7 +179,8 @@ namespace UGUI
 
             newLever.LabelClick += new EventHandler(lever_LabelClick);
             newLever.BackClick += new EventHandler(lever_BackClick);
-
+            newLever.Dock = DockStyle.Fill;
+            newLever.Margin = leverMainMenu.Margin;
             _lLever.Last().Enabled = false;
             _lLever.Add(newLever);
         }
