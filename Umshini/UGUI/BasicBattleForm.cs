@@ -141,6 +141,10 @@ namespace UGUI
                 lever.Hide();
             }
 
+            _lLever.Clear();
+            _lLever.Add(leverMainMenu);
+            _lLever.Last().Enabled = true;
+
             ShowStatus();
             PlayTurnBot();
             ShowStatus();
