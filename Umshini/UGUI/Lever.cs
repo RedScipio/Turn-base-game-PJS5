@@ -120,7 +120,7 @@ namespace UGUI
         {
             Label clickedLabel = sender as Label;
 
-            if (clickedLabel != null)
+            if (clickedLabel != null && clickedLabel != _lLabelList[0])
             {
                 LeverPictureBox.Top = clickedLabel.Top;
 
@@ -203,6 +203,7 @@ namespace UGUI
 
                     LeverPictureBox.Top = closestLabel.Top;
                     _selectedAction = closestLabel.Text;
+
                     if (this.LabelClick != null)
                     {
                         this.LabelClick(this, e);

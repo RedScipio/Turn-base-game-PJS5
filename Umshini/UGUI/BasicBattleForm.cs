@@ -21,7 +21,7 @@ namespace UGUI
 
     public partial class BasicBattleForm : Form
     {
-        private List<Lever> _lLever = new List<Lever>{ };
+        private List<Lever> _lLever = new List<Lever> { };
 
         #region .. Double Buffered function ..
         public static void SetDoubleBuffered(Control c)
@@ -64,13 +64,79 @@ namespace UGUI
             string sAction = lever.SelectedAction.Replace("- ", "");
 
             List<string> lStringLabels = new List<string> { };
+            lStringLabels.Clear();
 
-            if (sAction == "Attack" && generalLayout.GetCellPosition(_lLever.Last()).Column == 0)
+            int iColumnLever = generalLayout.GetCellPosition(_lLever.Last()).Column;
+
+            switch (iColumnLever)
             {
-                lStringLabels.Add("Left Weapon");
-                lStringLabels.Add("Right Weapon");
-            }
+                case 0:
+                    {
+                        switch (sAction)
+                        {
+                            case "Attack":
+                                {
 
+                                    lStringLabels.Add("Left Weapon");
+                                    lStringLabels.Add("Right Weapon");
+
+                                    break;
+                                }
+
+                            case "Repair":
+                                {
+                                    lStringLabels.Add("Light Armor");
+                                    lStringLabels.Add("Heavy Armor");
+                                    lStringLabels.Add("Repair Kits");
+                                    lStringLabels.Add("Full Kits");
+
+                                    break;
+                                }
+                            case "Refuel":
+                                {
+                                    lStringLabels.Add("Wood");
+                                    lStringLabels.Add("Charcoal");
+                                    lStringLabels.Add("Coal");
+                                    lStringLabels.Add("Compact Coal");
+
+                                    break;
+                                }
+                        }
+
+                        break;
+                    }
+
+                case 1:
+                    {
+                        switch (sAction)
+                        {
+                            case "Left Weapon":
+                            case "Right Weapon":
+                            case "Light Armor":
+                            case "Heavy Armor":
+                            case "Repair Kits":
+                            case "Full Kits":
+                                {
+                                    lStringLabels.Add("Left Weapon");
+                                    lStringLabels.Add("Right Weapon");
+                                    lStringLabels.Add("Legs");
+                                    lStringLabels.Add("Furnace");
+
+                                    break;
+                                }
+                            case "Wood":
+                            case "Charcoal":
+                            case "Coal":
+                            case "Compact Coal":
+                                {
+                                    return;
+                                }
+                        }
+
+                        break;
+                    }
+
+            }
 
             CreateNewLever(lStringLabels);
         }
@@ -91,7 +157,7 @@ namespace UGUI
             if (this.generalLayout != null)
             {
                 TableLayoutPanelCellPosition posLayoutLever = generalLayout.GetCellPosition(_lLever.Last());
-                this.generalLayout.Controls.Add(newLever, posLayoutLever.Column+1, posLayoutLever.Row);
+                this.generalLayout.Controls.Add(newLever, posLayoutLever.Column + 1, posLayoutLever.Row);
             }
 
             newLever.LabelClick += new EventHandler(lever_LabelClick);
