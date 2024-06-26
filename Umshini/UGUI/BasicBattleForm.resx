@@ -121,7 +121,7 @@
   <data name="BarMenuPictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB4AAAAFoCAYAAAC2ZeYTAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAKBNJREFUeF7t2cGNXdGRZVGZIEM0rok8kieyQx7Iwe6exGWgsKuaBJ+S7+ddCaxJ
+        vAAADrwBlbxySQAAKBNJREFUeF7t2cGNXdGRZVGZIEM0rok8kieyQx7Iwe6exGWgsKuaBJ+S7+ddCaxJ
         AIwbZ5LM/89ffuLn/wAAAAAAAADwGr/1UwsBAAAAAAAA+DN+66cWAgAAAAAAAPBn/NZPLQQAAAAAAADg
         z/itn1oIAAAAAAAAwJ/xWz+1EAAAAAAAAIA/47d+aiEAAAAAAAAAf8Zv/dRCAAAAAAAAAP6M//Wn/sFP
         +dvf/gb8P3//+98/TuX4dJWTz/GPf/zjP6be+wp1y63++c9//sfUe29XOfg+/v3vf3+cyvGEeguAH+p3
@@ -295,10 +295,10 @@
         AAAA/Bn/w89f/vJ/ATkSvkIVjyLKAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="ScoreLayout.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tableLayoutPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAdkAAAFKCAYAAABRtSXvAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAADtxJREFUeF7t3T2OJs1xhdHPkscNaAdcgQztgaa2pSVTTgQQxkUw0VTX1M+5wHGz
+        vAAADrwBlbxySQAADtxJREFUeF7t3T2OJs1xhdHPkscNaAdcgQztgaa2pSVTTgQQxkUw0VTX1M+5wHGz
         +p0E8jHnr//6z//4JwDw/09kAeCXiCwA/BKRBYBfIrIA8EtEFgB+icgCwC/5l5H9x9//BgAEqZuTyALA
         D6VuTiILAD+UujmJLAD8UOrmJLIA8EOpm5PIAsAPpW5OIgsAP5S6OYksAPxQ6ub0b0X2f//nvwHg1VL/
         WurmJLIAsEj9a6mbk8gCwCL1r6VuTiILAIvUv5a6OYksACxS/1rq5iSyALBI/Wupm5PIAsAi9a+lbk4i
