@@ -13,15 +13,15 @@ namespace Weapon
     public abstract class AWEAPON : APART, IWEAPON
     {
         [JsonProperty("damage", Order = 1)]
-        private readonly int _iDamage = -1;
+        private protected readonly int _iDamage = -1;
         [JsonProperty("power_consumption", Order = 1)]
-        private readonly int _iPowerConsumption = -1;
+        private protected readonly int _iPowerConsumption = -1;
         [JsonProperty("accuracy", Order = 1)]
-        private readonly int _iAccuracy = -1;
+        private protected readonly int _iAccuracy = -1;
         [JsonProperty("min_accuracy", Order = 1)]
-        private readonly int _iMinAccuracy = -1;
+        private protected readonly int _iMinAccuracy = -1;
         [JsonProperty("weapon_type", Order = 1)]
-        private readonly WEAPONS_TYPES _eWeaponType;
+        private protected readonly WEAPONS_TYPES _eWeaponType;
 
         /// <summary>
         /// represents a weapon equipable by the robot

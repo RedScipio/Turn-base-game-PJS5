@@ -17,6 +17,11 @@ namespace Part
             _iRestartLimit = iRestartLimit;
         }
 
+        public FURNACE(FURNACE furnace) : base(furnace._iId, furnace._sName, furnace._iArmor, furnace._iLifePoint, furnace._sUrlImage)
+        {
+            _iRestartLimit = furnace._iRestartLimit;
+        }
+
         /// <summary>
         /// Represents the limit above which the robot must be refueled to use his weapons 
         /// </summary>
@@ -24,6 +29,11 @@ namespace Part
         public int GetRestartLimit()
         {
             return _iRestartLimit;
+        }
+
+        public override IPART Clone()
+        {
+            return new FURNACE(this);
         }
     }
 }

@@ -16,56 +16,75 @@ namespace Pilot
 
         }
 
-        public override List<int> PlayTurnAuto(IROBOT enemy)
+        public SmartBotPilot(SmartBotPilot smartBotPilot) : base(smartBotPilot._pRobot.Clone(), smartBotPilot._vFuelsReserve, smartBotPilot._vRepairKitsReserve)
+        {
+        }
+
+        public override IPILOT Clone()
+        {
+            return new SmartBotPilot(this);
+        }
+
+        public override List<int> PlayTurnAuto(IROBOT enemy, bool showIndications = true)
         {
             if (this.ShouldIRepairMyFurnace(enemy))
             {
-                Console.WriteLine("Bot should repair its furnace !");
+                if (showIndications)
+                    Console.WriteLine("Bot should repair its furnace !");
 
                 if (this.CanIBeRepair())
                 {
-                    Console.WriteLine("Bot repairs itself !");
+                    if (showIndications)
+                        Console.WriteLine("Bot repairs itself !");
                     return this.IRepairMe();
                 }
                 else
                 {
-                    Console.WriteLine("Bot can't repair its furnace, so it uses its best weapon !");
+                    if (showIndications)
+                        Console.WriteLine("Bot can't repair its furnace, so it uses its best weapon !");
                     return this.UseBestWeapon(enemy);
                 }
             }
 
             else
             {
-                Console.WriteLine("Bot's furnace doesn't need any attention yet.");
+                if (showIndications)
+                    Console.WriteLine("Bot's furnace doesn't need any attention yet.");
 
                 if (this.CanIRunOutOfFuelNextRoundAround())
                 {
-                    Console.WriteLine("Bot risks running out of fuel next round !");
+                    if (showIndications)
+                        Console.WriteLine("Bot risks running out of fuel next round !");
 
                     if (this.CanIRechargeInFuel())
                     {
-                        Console.WriteLine("Bot recharges with fuel !");
+                        if (showIndications)
+                            Console.WriteLine("Bot recharges with fuel !");
                         return this.IFuelRecharge();
                     }
                     else
                     {
-                        Console.WriteLine("Bot can't refuel, so it uses its best weapon!");
+                        if (showIndications)
+                            Console.WriteLine("Bot can't refuel, so it uses its best weapon!");
                         return this.UseBestWeapon(enemy);
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Bot still has plenty of fuel !");
+                    if (showIndications)
+                        Console.WriteLine("Bot still has plenty of fuel !");
                     if (this.IsThermalWeaponWorthIt(enemy))
                     {
-                        Console.WriteLine("Bot uses its best thermal weapon !");
+                        if (showIndications)
+                            Console.WriteLine("Bot uses its best thermal weapon !");
                         int iThermicWeapon = GetBestThermicWeapon();
                         this.GetRobot().DealDamage(enemy, iThermicWeapon, TARGET_TYPE.FURNACE);
                         return new List<int> { iThermicWeapon, (int)TARGET_TYPE.FURNACE };
                     }
                     else
                     {
-                        Console.WriteLine("Bot uses its best no-thermal weapon !");
+                        if (showIndications)
+                            Console.WriteLine("Bot uses its best no-thermal weapon !");
                         return this.UseBestWeapon(enemy);
                     }
                 }

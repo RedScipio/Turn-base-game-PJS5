@@ -31,6 +31,17 @@ namespace Consumable
             this.iNumberItems = iNumberItems;
         }
 
+        public ACONSUMABLE(ACONSUMABLE consumable)
+        {
+            eRepair = consumable.eRepair;
+            eEnergy = consumable.eEnergy;
+            sName = consumable.sName;
+            iValue = consumable.iValue;
+            iNumberItems = consumable.iNumberItems;
+        }
+
+        public abstract ICONSUMABLES Clone();
+
         /// <summary>
         /// Return the name of the consumable based on the type
         /// of consumable in the constructor

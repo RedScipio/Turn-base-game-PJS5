@@ -25,6 +25,15 @@ namespace Weapon
         {
         }
 
+        public MELEE_WEAPON(MELEE_WEAPON meleeWeapon) : base(meleeWeapon._iId, meleeWeapon._sName, meleeWeapon._iArmor, meleeWeapon._iLifePoint, meleeWeapon._sUrlImage, meleeWeapon._iDamage, meleeWeapon._iPowerConsumption, meleeWeapon._iAccuracy, meleeWeapon._iMinAccuracy, WEAPONS_TYPES.MELEE)
+        {
+        }
+
+        public override IPART Clone()
+        {
+            return new MELEE_WEAPON(this);
+        }
+
         public override int GetAmmo()
         {
             throw new System.NotImplementedException();

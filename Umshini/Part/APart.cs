@@ -13,18 +13,16 @@ namespace Part
     public abstract class APART : IPART
     {
         [JsonProperty("id")]
-        private readonly string _iId;
+        protected readonly string _iId;
         [JsonProperty("name")]
-        private readonly string _sName;
+        protected readonly string _sName;
         [JsonProperty("armor")]
-        private int _iArmor;
+        protected int _iArmor;
         [JsonProperty("life_points")]
-        private int _iLifePoint;
+        protected int _iLifePoint;
         [JsonProperty("url_image")]
         private string _sUrlImage;
-        [JsonProperty("max_armor")]
         private readonly int _iMaxArmor;
-        [JsonProperty("max_life_points")]
         private readonly int _iMaxLifePoint;
         
         /// <summary>
@@ -47,6 +45,18 @@ namespace Part
             _iMaxLifePoint = iLifePoint;
             _sUrlImage = sUrlImage;
         }
+
+        public APART(APART apart)
+        {
+            _iId = apart._iId;
+            _sName = apart._sName;
+            _iArmor = apart._iArmor;
+            _iLifePoint = apart._iLifePoint;
+            _iMaxArmor = apart._iArmor;
+            _iMaxLifePoint = apart._iLifePoint;
+            _sUrlImage = apart._sUrlImage;
+        }
+
 
         /// <summary>
         /// Checking if the part of a robot is broken
@@ -96,7 +106,7 @@ namespace Part
         {
             if (_iArmor < _iMaxArmor)
             {
-                _iArmor = _iArmor + iRepair;
+                _iArmor += iRepair;
                 if (_iArmor > _iMaxArmor)
                 {
                     _iArmor = _iMaxArmor;
@@ -112,7 +122,7 @@ namespace Part
         {
             if (_iLifePoint < _iMaxLifePoint)
             {
-                _iLifePoint = _iLifePoint + iRepair;
+                _iLifePoint += iRepair;
                 if (_iLifePoint > _iMaxLifePoint)
                 {
                     _iLifePoint = _iMaxLifePoint;
@@ -161,5 +171,7 @@ namespace Part
             return "Id de l'arme : " + _iId + "\nNom de l'arme : " + _sName 
                 + "\nPV : " + _iLifePoint + "\nArmure : " + _iArmor;
         }
+
+        public abstract IPART Clone();
     }
 }
