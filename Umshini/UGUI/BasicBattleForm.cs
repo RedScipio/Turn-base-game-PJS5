@@ -136,6 +136,21 @@ namespace UGUI
                         break;
                     }
 
+                case 2:
+                    {
+                        switch (sAction)
+                        {
+                            case "Left Weapon":
+                            case "Right Weapon":
+                            case "Legs":
+                            case "Furnace":
+                                {
+                                    return;
+                                }
+                        }
+
+                        break;
+                    }
             }
 
             CreateNewLever(lStringLabels);
