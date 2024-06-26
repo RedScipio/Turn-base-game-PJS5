@@ -146,6 +146,9 @@ namespace UGUI
             _lLever.Last().Enabled = true;
 
             ShowStatus();
+
+            GUI.ShowStatus(_basicBattle.Pilots[0], _basicBattle.Pilots[1]);
+
             PlayTurnBot();
             ShowStatus();
 
