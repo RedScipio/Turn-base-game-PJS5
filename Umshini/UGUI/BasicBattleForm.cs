@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Media;
+using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
@@ -84,7 +85,7 @@ namespace UGUI
             _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
             _trackName = "MusicMix";
             MusicSoundPlayer.Play(_fileName, _trackName);
-            SetRoundedCorners(informationPanel, 5);
+
         }
 
         public void SetRoundedCorners(Panel panel, int borderRadius)
@@ -97,6 +98,7 @@ namespace UGUI
             informationPanel.Show();
             infoLabel.Text = "";
             infoLabel.Text = content;
+            AlignInfoLabel();
             await Task.Delay(3000);
             informationPanel.Hide();
         }
@@ -350,6 +352,22 @@ namespace UGUI
         private void informationPanel_Click(object sender, EventArgs e)
         {
             informationPanel.Hide();
+        }
+        public void AlignInfoLabel()
+        {
+            int x = (informationPanel.Size.Width - infoLabel.Size.Width) / 2;
+            int y = (informationPanel.Size.Height - infoLabel.Size.Height) / 2;
+            infoLabel.Location = new Point(x, y);
+            SetRoundedCorners(informationPanel, 5);
+        }
+        private void informationPanel_SizeChanged(object sender, EventArgs e)
+        {
+            AlignInfoLabel();
+        }
+
+        private void infoLabel_TextChanged(object sender, EventArgs e)
+        {
+            AlignInfoLabel();
         }
     }
 }

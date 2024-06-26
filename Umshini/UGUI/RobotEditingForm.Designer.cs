@@ -134,6 +134,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "RobotEditingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Robot editing";
             this.Load += new System.EventHandler(this.RobotEditingForm_Load);
             this.ResumeLayout(false);

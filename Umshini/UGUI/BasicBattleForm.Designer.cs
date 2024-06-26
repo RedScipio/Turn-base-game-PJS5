@@ -114,20 +114,24 @@
             this.informationPanel.Name = "informationPanel";
             this.informationPanel.Size = new System.Drawing.Size(351, 84);
             this.informationPanel.TabIndex = 3;
+            this.informationPanel.SizeChanged += new System.EventHandler(this.informationPanel_SizeChanged);
             this.informationPanel.Click += new System.EventHandler(this.informationPanel_Click);
             // 
             // infoLabel
             // 
-            this.infoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.infoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.infoLabel.AutoSize = true;
+            this.infoLabel.BackColor = System.Drawing.Color.Transparent;
             this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.infoLabel.ForeColor = System.Drawing.Color.White;
-            this.infoLabel.Location = new System.Drawing.Point(129, 26);
+            this.infoLabel.Location = new System.Drawing.Point(124, 28);
             this.infoLabel.Name = "infoLabel";
             this.infoLabel.Size = new System.Drawing.Size(94, 17);
             this.infoLabel.TabIndex = 0;
             this.infoLabel.Text = "Sample Label";
+            this.infoLabel.TextChanged += new System.EventHandler(this.infoLabel_TextChanged);
             // 
             // scoreStatus2
             // 
