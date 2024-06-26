@@ -15,7 +15,7 @@ namespace UGUI
         [DllImport("winmm.dll")]
         static extern Int32 mciSendString(string command, StringBuilder buffer, int bufferSize, IntPtr hwndCallback);
 
-        public static void Play(string FileName, string TrackName, bool Loop)
+        public static void Play(string FileName, string TrackName)
         {
             try
             {
@@ -28,14 +28,8 @@ namespace UGUI
                 mciSendString("open \"" + FileName + "\" alias " + TrackName, sb, 0, IntPtr.Zero);
 
                 // Play the audio file, with optional looping
-                if (Loop)
-                {
-                    mciSendString("play " + TrackName + " repeat", sb, 0, IntPtr.Zero);
-                }
-                else
-                {
+
                     mciSendString("play " + TrackName, sb, 0, IntPtr.Zero);
-                }
             }
             catch (Exception ex)
             {
