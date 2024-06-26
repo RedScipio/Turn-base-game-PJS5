@@ -157,6 +157,7 @@ namespace UGUI
 
             if(_basicBattle.IsOver())
             {
+
                 StartingForm sf = new StartingForm(_basicBattle.Pilots[0].GetRobot());
                 Visible = false;
                 sf.Visible = true;
@@ -419,6 +420,15 @@ namespace UGUI
                         }
 
                         _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], _lActions[1], iThirdChoice);
+                        if (_lActions[0] == (int)MAIN_MENU.Attack)//Player attacker
+                        {
+                            Shake(2);
+                            relativePath = "..\\..\\..\\..\\Ressources\\SoundEffect\\Shoot\\gun-4.wav";
+                            _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
+                            _trackName = "gun-4";
+                            MusicSoundPlayer.Play(_fileName, _trackName);
+                        }
+                        
                         PlayRound();
                         return;
                     }
