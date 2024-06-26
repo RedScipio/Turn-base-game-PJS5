@@ -88,7 +88,7 @@ namespace Reinforcement
 
         public double GetMaxValue()
         {
-            return COEFF_FUEL_OPPONENT * 3 - 1;
+            return State3.COEFF_FUEL_OPPONENT * 3 - 1;
         }
     }
 }

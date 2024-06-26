@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Reinforcement
 {
+    // obsolete class
     internal class State
     {
         public readonly int pvLegsAgent;

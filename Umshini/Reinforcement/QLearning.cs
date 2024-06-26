@@ -8,26 +8,27 @@ using System.Threading.Tasks;
 
 namespace Reinforcement
 {
-
-
-
-    internal class QLearning : IQLearning
+    public class QLearning : IQLearning
     {
-        private protected IROBOT IARobot;
-        private protected IROBOT RobotToKill;
+        private protected IROBOT _IARobot;
+        private protected IROBOT _robotToKill;
 
-        private protected double[][] Qtable;
+        private protected double[][] _qTable;
 
+        private protected readonly Random _random = new Random();
         private protected double _gamma;
 
-        //private protected IQLearningProblem _qLearningProblem;
+        private protected IState _typeState;
 
-        internal QLearning(IROBOT r1, IROBOT r2, double gamma)
+        public QLearning(IROBOT r1, IROBOT r2, IState state, double gamma)
         {
-            this.Qtable = GenerateQTable();
+            this._qTable = GenerateQTable();
 
-            this.IARobot = r1;
-            this.RobotToKill = r2;
+            this._IARobot = r1;
+            this._robotToKill = r2;
+
+            this._typeState = state;
+            this._gamma = gamma;
         }
 
         /// <summary>
@@ -42,10 +43,10 @@ namespace Reinforcement
 
             for (int i = 0; i < nbActions; i++)
             {
-                this.Qtable[i] = new double[nbActions];
+                this._qTable[i] = new double[nbActions];
                 for (int j = 0; j < nbActions; j++)
                 {
-                    this.Qtable[i][j] = 0;
+                    this._qTable[i][j] = 0;
                 }
             }
 
@@ -60,12 +61,12 @@ namespace Reinforcement
 
         public void TrainingAgent(int nbTrains)
         {
-            IROBOT[] robots = new IROBOT[] { this.IARobot, this.RobotToKill };
+            IROBOT[] robots = new IROBOT[] { this._IARobot, this._robotToKill };
 
             for (int i=0; i < nbTrains; i++)
             {
-                State initialState = new State(robots[0], robots[1]);
-                State currentState = new State(robots[0], robots[1]);
+                double initialState = this._typeState.ConvertNumber(robots[0], robots[1]);
+                double currentState = this._typeState.ConvertNumber(robots[0], robots[1]);
 
                 while (!IsSimulationOver(robots[0], robots[1]))
                 {
@@ -80,19 +81,18 @@ namespace Reinforcement
             }
         }
 
-        private State TakeAction(IROBOT agent, IROBOT opposent, State currentState)
+        private int TakeAction(IROBOT agent, IROBOT opposent, double currentState)
         {
-            /*var validActions = _qLearningProblem.GetValidActions(currentState);
+            Action[] validActions = this.GetLegalActions(agent, opposent);
             int randomIndexAction = _random.Next(0, validActions.Length);
-            int action = validActions[randomIndexAction];
+            int action = (int) validActions[randomIndexAction];
 
             double saReward = this.GetReward(agent, opposent);
             double nsReward = _qTable[action].Max();
             double qCurrentState = saReward + (_gamma * nsReward);
-            _qTable[currentState][action] = qCurrentState;
-            int newState = action;*/
-            //return newState;
-            return new State(agent, opposent);
+            _qTable[(int) currentState][action] = qCurrentState;
+            int newState = action;
+            return newState;
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace Reinforcement
         /// <param name="action">Type of action performed by the agent robot</param>
         /// <developer>CME</developer>
         /// <returns>State following agent robot action</returns>
-        private protected State NextState(IROBOT agent, IROBOT opponent, Action action)
+        private protected double NextState(IROBOT agent, IROBOT opponent, Action action)
         {
 
             if (action == Action.LEFT_WEAPON_ATTACK_LEGS)
@@ -146,8 +146,7 @@ namespace Reinforcement
                 agent.DealDamage(opponent, 1, TARGET_TYPE.FURNACE);
             }
 
-
-            return new State(agent, opponent);
+            return this._typeState.ConvertNumber(agent, opponent);
         }
 
         /// <summary>
@@ -250,9 +249,10 @@ namespace Reinforcement
             return (double) Rewards.LEGAL;
         }
 
+
         private enum Rewards
         {
-            WIN = 100,
+            WIN = 1,
             LEGAL = 0,
             LOSE = -1,
             //ILLEGAL = -100,

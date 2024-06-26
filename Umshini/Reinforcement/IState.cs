@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Reinforcement
 {
-    internal interface IState
+    public interface IState
     {
         /// <summary>
         /// Converts the current state of the environment into an integer number
