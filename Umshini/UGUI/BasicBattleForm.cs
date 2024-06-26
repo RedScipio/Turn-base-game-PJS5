@@ -136,9 +136,19 @@ namespace UGUI
 
         protected void PlayRound()
         {
+            foreach (Lever lever in _lLever)
+            {
+                lever.Hide();
+            }
+
             ShowStatus();
             PlayTurnBot();
             ShowStatus();
+
+            foreach (Lever lever in _lLever)
+            {
+                lever.Show();
+            }
         }
 
         protected void ShowStatus()

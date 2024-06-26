@@ -260,8 +260,6 @@
         private System.Windows.Forms.TableLayoutPanel generalLayout;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Battle.ScoreStatus scoreStatus1;
-        private Battle.ScoreStatus scoreStatus3;
         private Lever leverMainMenu;
         private Battle.ScoreStatus scoreStatus2;
         private Battle.ScoreStatus scoreStatus4;
