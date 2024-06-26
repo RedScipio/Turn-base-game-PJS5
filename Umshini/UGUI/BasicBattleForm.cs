@@ -87,10 +87,7 @@ namespace UGUI
             _trackName = "MusicMix";
             MusicSoundPlayer.Play(_fileName, _trackName);
 
-            SetRoundedCorners(informationPanel, 5);
-            int x = (informationPanel.Size.Width - infoLabel.Size.Width) / 2;
-            int y = (informationPanel.Size.Height - infoLabel.Size.Height) / 2;
-            infoLabel.Location = new Point(x, y);
+            AlignInfoLabel();
         }
 
         public void SetRoundedCorners(Panel panel, int borderRadius)
@@ -337,13 +334,21 @@ namespace UGUI
         {
             informationPanel.Hide();
         }
-
-        private void informationPanel_SizeChanged(object sender, EventArgs e)
+        public void AlignInfoLabel()
         {
             int x = (informationPanel.Size.Width - infoLabel.Size.Width) / 2;
             int y = (informationPanel.Size.Height - infoLabel.Size.Height) / 2;
             infoLabel.Location = new Point(x, y);
             SetRoundedCorners(informationPanel, 5);
+        }
+        private void informationPanel_SizeChanged(object sender, EventArgs e)
+        {
+            AlignInfoLabel();
+        }
+
+        private void infoLabel_TextChanged(object sender, EventArgs e)
+        {
+            AlignInfoLabel();
         }
     }
 }

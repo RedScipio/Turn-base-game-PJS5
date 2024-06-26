@@ -32,10 +32,10 @@
             this.generalLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.scoreStatus2 = new Battle.ScoreStatus();
-            this.scoreStatus4 = new Battle.ScoreStatus();
             this.informationPanel = new System.Windows.Forms.Panel();
             this.infoLabel = new System.Windows.Forms.Label();
+            this.scoreStatus2 = new Battle.ScoreStatus();
+            this.scoreStatus4 = new Battle.ScoreStatus();
             this.leverMainMenu = new UGUI.Lever();
             this.generalLayout.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -104,32 +104,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(337, 207);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // scoreStatus2
-            // 
-            this.scoreStatus2.BackColor = System.Drawing.Color.Transparent;
-            this.scoreStatus2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scoreStatus2.FurnaceColor = System.Drawing.Color.Gray;
-            this.scoreStatus2.LeftArmColor = System.Drawing.Color.Gray;
-            this.scoreStatus2.LegsColor = System.Drawing.Color.Gray;
-            this.scoreStatus2.Location = new System.Drawing.Point(38, 23);
-            this.scoreStatus2.Name = "scoreStatus2";
-            this.scoreStatus2.RightArmColor = System.Drawing.Color.Gray;
-            this.scoreStatus2.Size = new System.Drawing.Size(99, 97);
-            this.scoreStatus2.TabIndex = 0;
-            // 
-            // scoreStatus4
-            // 
-            this.scoreStatus4.BackColor = System.Drawing.Color.Transparent;
-            this.scoreStatus4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scoreStatus4.FurnaceColor = System.Drawing.Color.Gray;
-            this.scoreStatus4.LeftArmColor = System.Drawing.Color.Gray;
-            this.scoreStatus4.LegsColor = System.Drawing.Color.Gray;
-            this.scoreStatus4.Location = new System.Drawing.Point(199, 23);
-            this.scoreStatus4.Name = "scoreStatus4";
-            this.scoreStatus4.RightArmColor = System.Drawing.Color.Gray;
-            this.scoreStatus4.Size = new System.Drawing.Size(99, 97);
-            this.scoreStatus4.TabIndex = 1;
-            // 
             // informationPanel
             // 
             this.informationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -156,6 +130,33 @@
             this.infoLabel.Size = new System.Drawing.Size(94, 17);
             this.infoLabel.TabIndex = 0;
             this.infoLabel.Text = "Sample Label";
+            this.infoLabel.TextChanged += new System.EventHandler(this.infoLabel_TextChanged);
+            // 
+            // scoreStatus2
+            // 
+            this.scoreStatus2.BackColor = System.Drawing.Color.Transparent;
+            this.scoreStatus2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scoreStatus2.FurnaceColor = System.Drawing.Color.Gray;
+            this.scoreStatus2.LeftArmColor = System.Drawing.Color.Gray;
+            this.scoreStatus2.LegsColor = System.Drawing.Color.Gray;
+            this.scoreStatus2.Location = new System.Drawing.Point(38, 23);
+            this.scoreStatus2.Name = "scoreStatus2";
+            this.scoreStatus2.RightArmColor = System.Drawing.Color.Gray;
+            this.scoreStatus2.Size = new System.Drawing.Size(99, 97);
+            this.scoreStatus2.TabIndex = 0;
+            // 
+            // scoreStatus4
+            // 
+            this.scoreStatus4.BackColor = System.Drawing.Color.Transparent;
+            this.scoreStatus4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scoreStatus4.FurnaceColor = System.Drawing.Color.Gray;
+            this.scoreStatus4.LeftArmColor = System.Drawing.Color.Gray;
+            this.scoreStatus4.LegsColor = System.Drawing.Color.Gray;
+            this.scoreStatus4.Location = new System.Drawing.Point(199, 23);
+            this.scoreStatus4.Name = "scoreStatus4";
+            this.scoreStatus4.RightArmColor = System.Drawing.Color.Gray;
+            this.scoreStatus4.Size = new System.Drawing.Size(99, 97);
+            this.scoreStatus4.TabIndex = 1;
             // 
             // leverMainMenu
             // 
