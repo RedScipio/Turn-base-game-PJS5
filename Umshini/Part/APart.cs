@@ -21,8 +21,10 @@ namespace Part
         [JsonProperty("life_points")]
         protected int _iLifePoint;
         [JsonProperty("url_image")]
-        private string _sUrlImage;
+        protected string _sUrlImage;
+        [JsonProperty("max_armor")]
         private readonly int _iMaxArmor;
+        [JsonProperty("max_life_points")]
         private readonly int _iMaxLifePoint;
         
         /// <summary>
