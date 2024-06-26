@@ -89,37 +89,30 @@ namespace UGUI
             _trackName = "MusicMix";
             MusicSoundPlayer.Play(_fileName, _trackName);
             informationPanel.Hide();
+
         }
 
-        public async void Shake(int iRobotChoice = 1)//1=player 2=robot
+        public async void Shake(int iRobotChoice = 1) // 1 = player, 2 = robot
         {
-            var original = playerRobotPicturebox.Location;
-            var rnd = new Random(1337);
-            const int shake_amplitude = 5;
-            if (iRobotChoice == 1)
-            {
-                for (int i = 0; i < 10; i++)
-                {
-                    playerRobotPicturebox.Invalidate();
-                    playerRobotPicturebox.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));
-                    playerRobotPicturebox.Invalidate();
-                    await Task.Delay(20);
-                    playerRobotPicturebox.Invalidate();
-                }
-            }
-            else {
-                original = enemyRobot.Location;
-                for (int i = 0; i < 10; i++)
-                {
-                    enemyRobot.Invalidate();
-                    enemyRobot.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));
-                    enemyRobot.Invalidate();
-                    await Task.Delay(20);
-                    enemyRobot.Invalidate();
-                }
-            }
-
+            await ShakePictureBox(iRobotChoice == 1 ? playerRobotPicturebox : enemyRobot);
         }
+
+        private async Task ShakePictureBox(PictureBox pictureBox)
+        {
+            var original = pictureBox.Location;
+            var rnd = new Random(1337);
+            const int shakeAmplitude = 5;
+
+            for (int i = 0; i < 10; i++)
+            {
+                pictureBox.Invalidate();
+                pictureBox.Location = new Point(original.X + rnd.Next(-shakeAmplitude, shakeAmplitude), original.Y + rnd.Next(-shakeAmplitude, shakeAmplitude));
+                pictureBox.Invalidate();
+                await Task.Delay(20);
+                pictureBox.Invalidate();
+            }
+        }
+
 
         public void SetRoundedCorners(Panel panel, int borderRadius)
         {
