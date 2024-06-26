@@ -53,6 +53,7 @@
             this.DoubleBuffered = true;
             this.Name = "BasicBattleForm";
             this.Text = "Battle";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BasicBattleForm_FormClosing);
             this.Load += new System.EventHandler(this.BasicBattleForm_Load);
             this.ResumeLayout(false);
 

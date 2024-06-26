@@ -60,7 +60,7 @@ namespace WindowsFormTry
 
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
-            new UGUI.BasicBattleForm().Show();
+            new UGUI.StartingForm().Show();
             Application.Run();
         }
     }
