@@ -251,5 +251,10 @@ namespace UGUI
             }
             this.Parent.Controls.Remove(this);
         }
+
+        private void Lever_SizeChanged(object sender, EventArgs e)
+        {
+            //LeverPictureBox.Size = new Size();
+        }
     }
 }
