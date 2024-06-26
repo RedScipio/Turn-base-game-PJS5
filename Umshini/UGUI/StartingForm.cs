@@ -36,16 +36,35 @@ namespace UGUI
         {
             if (isFirstTime)
             {
-                button1.Text = "Restart game";
+                customButton1.Text = "Restart game";
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+ 
+        }
+        public void setIsFirstTime()
+        {
+            isFirstTime = true;
+        }
+
+        private void StartingForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            button2_Click(sender, e);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customButton1_Click(object sender, EventArgs e)
         {
             string filePath = "../../../NoFormApp/RobotComponents.json";
             ROBOT playerRobot;
@@ -71,7 +90,7 @@ namespace UGUI
             //IWEAPON botLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 1, "", 3, 15, 100, 0);
             //IWEAPON botRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 15, 80, 40);
 
-            if(pPlayerRobot != null)
+            if (pPlayerRobot != null)
             {
                 playerRobot = pPlayerRobot;
                 Console.WriteLine(playerRobot);
@@ -95,22 +114,17 @@ namespace UGUI
             bbf.Show();
             Visible = false;
         }
-        public void setIsFirstTime()
-        {
-            isFirstTime = true;
-        }
 
-        private void StartingForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            button2_Click(sender, e);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void customButton2_Click(object sender, EventArgs e)
         {
             RobotEditingForm ef = new RobotEditingForm();
             ef.Show();
             Visible = false;
         }
 
+        private void customButton3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

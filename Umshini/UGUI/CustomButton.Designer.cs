@@ -28,26 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.ButtonLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // ButtonLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(78, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.ButtonLabel.AutoSize = true;
+            this.ButtonLabel.Enabled = false;
+            this.ButtonLabel.Location = new System.Drawing.Point(78, 15);
+            this.ButtonLabel.Name = "ButtonLabel";
+            this.ButtonLabel.Size = new System.Drawing.Size(60, 13);
+            this.ButtonLabel.TabIndex = 0;
+            this.ButtonLabel.Text = "Buttonlabel";
             // 
             // CustomButton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ButtonLabel);
             this.Name = "CustomButton";
             this.Size = new System.Drawing.Size(183, 52);
             this.SizeChanged += new System.EventHandler(this.CustomButton_SizeChanged);
+            this.MouseEnter += new System.EventHandler(this.CustomButton_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.CustomButton_MouseLeave);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -55,6 +58,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ButtonLabel;
     }
 }
