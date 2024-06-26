@@ -25,6 +25,15 @@ namespace Weapon
         {
         }
 
+        public NORMAL_WEAPON(NORMAL_WEAPON normalWeapon) : base(normalWeapon._iId, normalWeapon._sName, normalWeapon._iArmor, normalWeapon._iLifePoint, normalWeapon._sUrlImage, normalWeapon._iDamage, normalWeapon._iPowerConsumption, normalWeapon._iAccuracy, normalWeapon._iMinAccuracy, WEAPONS_TYPES.NORMAL)
+        {
+        }
+
+        public override IPART Clone()
+        {
+            return new NORMAL_WEAPON(this);
+        }
+
         public override int GetAmmo()
         {
             throw new System.NotImplementedException();

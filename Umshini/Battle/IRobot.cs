@@ -12,6 +12,7 @@ namespace Battle
         bool AttackTargetIsValid(TARGET_TYPE eTargetChoice);
         void WeaponFired(int iWeaponChoice);
         bool WeaponIsUsable(int iWeaponChoice);
+        IROBOT Clone();
         void Refuel(int iFuel);
         bool RepairLifeTargetIsValid(TARGET_TYPE eTargetChoice);
         void RepairRobotArmor(int iRepairPoints, TARGET_TYPE eTargetChoice);
@@ -29,6 +30,7 @@ namespace Battle
         int GetFurnaceArmor();
         int GetFurnaceMaxArmor();
         int GetFurnaceMaxLife();
+        int GetFurnaceRestartLimit();
         int GetLegsArmor();
         int GetLegsMaxArmor();
         int GetLegsLife();

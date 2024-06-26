@@ -24,6 +24,27 @@ namespace Pilot
             _vRepairKitsReserve = vRepairKitsReserve;
         }
 
+        public APILOT(APILOT pPilot)
+        {
+            _pRobot = pPilot.GetRobot();
+
+            this._vFuelsReserve = new List<ICONSUMABLES>();
+
+            foreach (ICONSUMABLES fuel in pPilot.GetFuelsReserve())
+            {
+                this._vFuelsReserve.Add(fuel.Clone());
+            }
+
+            this._vRepairKitsReserve = new List<ICONSUMABLES>();
+
+            foreach (ICONSUMABLES kit in pPilot.GetRepairKitsReserve())
+            {
+                this._vRepairKitsReserve.Add(kit.Clone());
+            }
+        }
+
+        public abstract IPILOT Clone();
+
         public abstract void PlayTurn(IROBOT enemyRobot, MAIN_MENU iChoice = MAIN_MENU.Error, int iRes = -1, int iChoiceTarget = -1, int iHitRate = -1);
 
         public bool RobotIsDestroy()
@@ -53,7 +74,7 @@ namespace Pilot
 
         public abstract bool IsBotPilot();
 
-        public abstract List<int> PlayTurnAuto(IROBOT enemyRobot);
+        public abstract List<int> PlayTurnAuto(IROBOT enemyRobot, bool showIndications = true);
 
         /// <summary>
         /// False if the selected weapons is not 

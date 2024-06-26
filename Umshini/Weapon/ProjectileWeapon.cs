@@ -29,6 +29,16 @@ namespace Weapon
             _iAmmo = iAmmo;
         }
 
+        public PROJECTILE_WEAPON(PROJECTILE_WEAPON projectileWeapon) : base(projectileWeapon._iId, projectileWeapon._sName, projectileWeapon._iArmor, projectileWeapon._iLifePoint, projectileWeapon._sUrlImage, projectileWeapon._iDamage, projectileWeapon._iPowerConsumption, projectileWeapon._iAccuracy, projectileWeapon._iMinAccuracy, WEAPONS_TYPES.PROJECTILE)
+        {
+            _iAmmo = projectileWeapon._iAmmo;
+        }
+
+        public override IPART Clone()
+        {
+            return new PROJECTILE_WEAPON(this);
+        }
+
         /// <summary>
         /// Check the actual number of ammo 
         /// </summary>

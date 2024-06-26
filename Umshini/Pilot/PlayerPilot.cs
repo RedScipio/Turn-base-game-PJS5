@@ -16,7 +16,17 @@ namespace Pilot
             _vActionResults = new List<int> { };
         }
 
-        public override List<int> PlayTurnAuto(IROBOT enemyRobot)
+        public PLAYER_PILOT(PLAYER_PILOT playerPilot) : base(playerPilot._pRobot.Clone(), playerPilot._vFuelsReserve, playerPilot._vRepairKitsReserve)
+        {
+            _vActionResults = new List<int> { };
+        }
+
+        public override IPILOT Clone()
+        {
+            return new PLAYER_PILOT(this);
+        }
+
+        public override List<int> PlayTurnAuto(IROBOT enemyRobot, bool showIndications = true)
         {
             throw new NotImplementedException();
         }

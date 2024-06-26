@@ -11,6 +11,11 @@ namespace Consumable
     {
         public RepairKit(int iNumberItems, REPAIR? eRepair = null) : base(iNumberItems, eRepair, null) { }
 
+        public RepairKit(RepairKit repairKit) : base(repairKit) { }
 
+        public override ICONSUMABLES Clone()
+        {
+            return new RepairKit(this);
+        }
     }
 }
