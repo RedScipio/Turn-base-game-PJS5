@@ -16,22 +16,12 @@ namespace UGUI
         private Point _startPoint = new Point();
         private int _minY;
         private int _maxY;
-
         private static Lever _activeLever;
         private Lever _previousLever;
 
         public Lever()
         {
             InitializeComponent();
-            if (_activeLever == null)
-            {
-                _activeLever = this;
-            }
-
-            // Add event handlers for dragging the LeverPictureBox
-            LeverPictureBox.MouseDown += LeverPictureBox_MouseDown;
-            LeverPictureBox.MouseMove += LeverPictureBox_MouseMove;
-            LeverPictureBox.MouseUp += LeverPictureBox_MouseUp;
         }
 
         public Lever(List<string> labelTexts, Lever previousLever = null) : this()
@@ -82,14 +72,32 @@ namespace UGUI
                 this.LabelLayout.RowCount = iLabelCount;
                 this.LabelLayout.ColumnCount = 1;
 
-                if (iLabelCount > 0)
+                for (int iPosLabel = 0; iPosLabel < _lLabelStringList.Count; iPosLabel++)
                 {
-                    float rowHeightPercentage = 100f / iLabelCount;
-                    for (int iPosLabel = 0; iPosLabel < _lLabelStringList.Count; iPosLabel++)
+                    Label label = new System.Windows.Forms.Label();
+                    label.AutoSize = true;
+                    label.Dock = System.Windows.Forms.DockStyle.Bottom;
+                    label.Location = new System.Drawing.Point(3, 136);
+                    label.Name = "label" + iPosLabel;
+                    label.Size = new System.Drawing.Size(164, 13);
+                    label.TabIndex = iPosLabel;
+
+                    if (_lLabelStringList[iPosLabel] != " ")
                     {
-                        AddLabel(_lLabelStringList[iPosLabel], rowHeightPercentage);
+                        label.Text = "- " + _lLabelStringList[iPosLabel];
                     }
 
+                    // Add click event handler for the label
+                    label.Click += Label_Click;
+
+                    this.LabelLayout.Controls.Add(label, 0, iPosLabel);
+                    this.LabelLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100 / iLabelCount));
+
+                    _lLabelList.Add(label);
+                }
+
+                if (_lLabelList.Count > 0)
+                {
                     LeverPictureBox.Location = new Point(LeverPictureBox.Location.X, _lLabelList.First().Top);
 
                     // Set limits for Y movement
@@ -99,75 +107,23 @@ namespace UGUI
             }
         }
 
-        private void AddLabel(string labelText, float rowHeightPercentage = 100f)
-        {
-            Label label = new Label();
-            label.AutoSize = true;
-            label.Dock = DockStyle.Bottom;
-            label.Location = new Point(3, 136);
-            label.Name = "label" + _lLabelList.Count;
-            label.Size = new Size(164, 13);
-            label.TabIndex = _lLabelList.Count;
-
-            if (labelText != " ")
-            {
-                label.Text = "- " + labelText;
-            }
-
-            label.Click += Label_Click;
-
-            this.LabelLayout.Controls.Add(label, 0, _lLabelList.Count);
-            this.LabelLayout.RowStyles.Add(new RowStyle(SizeType.Percent, rowHeightPercentage));
-
-            _lLabelList.Add(label);
-        }
-
-        private void AddBackLabel()
-        {
-            Label backLabel = new Label();
-            backLabel.AutoSize = true;
-            backLabel.Dock = DockStyle.Bottom;
-            backLabel.Location = new Point(3, 136);
-            backLabel.Name = "backLabel";
-            backLabel.Size = new Size(164, 13);
-            backLabel.TabIndex = _lLabelList.Count;
-            backLabel.Text = "- Back";
-
-            backLabel.Click += BackLabel_Click;
-
-            this.LabelLayout.Controls.Add(backLabel, 0, _lLabelList.Count);
-            this.LabelLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100f / (_lLabelStringList.Count + 1)));
-
-            _lLabelList.Add(backLabel);
-        }
-
         private void Label_Click(object sender, EventArgs e)
         {
-            if (this != _activeLever) return;
+            if (_activeLever != this) return;
 
             Label clickedLabel = sender as Label;
+
             if (clickedLabel != null)
             {
                 LeverPictureBox.Top = clickedLabel.Top;
                 CreateNewLever(clickedLabel.Text);
-            }
-        }
 
-        private void BackLabel_Click(object sender, EventArgs e)
-        {
-            if (_activeLever != this) return;
-
-            if (_previousLever != null)
-            {
-                _previousLever.EnableLever();
-                _activeLever = _previousLever;
             }
-            this.Parent.Controls.Remove(this);
         }
 
         private void LeverPictureBox_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left && this == _activeLever)
+            if (e.Button == MouseButtons.Left)
             {
                 _isDragging = true;
                 _startPoint = e.Location;
@@ -177,7 +133,7 @@ namespace UGUI
 
         private void LeverPictureBox_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_isDragging && this == _activeLever)
+            if (_isDragging)
             {
                 int newY = LeverPictureBox.Top + (e.Y - _startPoint.Y);
 
@@ -191,14 +147,13 @@ namespace UGUI
                     newY = _maxY;
                 }
 
-                // Update the LeverPictureBox position
                 LeverPictureBox.Top = newY;
             }
         }
 
         private void LeverPictureBox_MouseUp(object sender, MouseEventArgs e)
         {
-            if (_isDragging && this == _activeLever)
+            if (_isDragging)
             {
                 _isDragging = false;
                 LeverPictureBox.Capture = false;
@@ -219,6 +174,17 @@ namespace UGUI
 
                 if (closestLabel != null)
                 {
+                    if (closestLabel.Text.Contains("Back"))
+                    {
+                        if (_previousLever != null)
+                        {
+                            _previousLever.EnableLever();
+                            _activeLever = _previousLever;
+                        }
+                        this.Parent.Controls.Remove(this);
+                        return;
+                    }
+
                     LeverPictureBox.Top = closestLabel.Top;
                     CreateNewLever(closestLabel.Text);
                 }
@@ -258,6 +224,62 @@ namespace UGUI
             {
                 label.Enabled = true;
             }
+        }
+
+        private void AddLabel(string labelText, float rowHeightPercentage = 100f)
+        {
+            Label label = new Label();
+            label.AutoSize = true;
+            label.Dock = DockStyle.Bottom;
+            label.Location = new Point(3, 136);
+            label.Name = "label" + _lLabelList.Count;
+            label.Size = new Size(164, 13);
+            label.TabIndex = _lLabelList.Count;
+
+            if (labelText != " ")
+            {
+                label.Text = "- " + labelText;
+            }
+
+            label.Click += Label_Click;
+
+            this.LabelLayout.Controls.Add(label, 0, _lLabelList.Count);
+            this.LabelLayout.RowStyles.Add(new RowStyle(SizeType.Percent, rowHeightPercentage));
+
+            _lLabelList.Add(label);
+        }
+
+
+        private void AddBackLabel()
+        {
+            Label backLabel = new Label();
+            backLabel.AutoSize = true;
+            backLabel.Dock = DockStyle.Bottom;
+            backLabel.Location = new Point(3, 136);
+            backLabel.Name = "backLabel";
+            backLabel.Size = new Size(164, 13);
+            backLabel.TabIndex = _lLabelList.Count;
+            backLabel.Text = "- Back";
+
+            backLabel.Click += BackLabel_Click;
+
+            this.LabelLayout.Controls.Add(backLabel, 0, _lLabelList.Count);
+            this.LabelLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100f / (_lLabelStringList.Count + 1)));
+
+            _lLabelList.Add(backLabel);
+        }
+
+
+        private void BackLabel_Click(object sender, EventArgs e)
+        {
+            if (_activeLever != this) return;
+
+            if (_previousLever != null)
+            {
+                _previousLever.EnableLever();
+                _activeLever = _previousLever;
+            }
+            this.Parent.Controls.Remove(this);
         }
     }
 }
