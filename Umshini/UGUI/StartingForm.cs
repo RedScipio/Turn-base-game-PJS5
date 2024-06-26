@@ -46,5 +46,12 @@ namespace UGUI
         {
             button2_Click(sender, e);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            RobotEditingForm ef = new RobotEditingForm();
+            ef.Show();
+            Visible = false;
+        }
     }
 }

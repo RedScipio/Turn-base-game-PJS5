@@ -49,6 +49,12 @@
     <Compile Include="BasicBattleForm.Designer.cs">
       <DependentUpon>BasicBattleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RobotEditingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RobotEditingForm.Designer.cs">
+      <DependentUpon>RobotEditingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
   <ItemGroup>
     <EmbeddedResource Include="BasicBattleForm.resx">
       <DependentUpon>BasicBattleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RobotEditingForm.resx">
+      <DependentUpon>RobotEditingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartingForm.resx">
       <DependentUpon>StartingForm.cs</DependentUpon>
