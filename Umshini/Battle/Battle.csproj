@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="RobotComponents.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

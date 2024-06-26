@@ -322,7 +322,7 @@ namespace UGUI
 
         private void BasicBattleForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            StartingForm sf = new StartingForm();
+            StartingForm sf = new StartingForm(null);
             sf.setIsFirstTime();
             sf.Visible = true;
         }
