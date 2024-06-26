@@ -49,6 +49,12 @@
     <Compile Include="BasicBattleForm.Designer.cs">
       <DependentUpon>BasicBattleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StartingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartingForm.Designer.cs">
+      <DependentUpon>StartingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lever.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -71,6 +77,9 @@
   <ItemGroup>
     <EmbeddedResource Include="BasicBattleForm.resx">
       <DependentUpon>BasicBattleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartingForm.resx">
+      <DependentUpon>StartingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lever.resx">
       <DependentUpon>Lever.cs</DependentUpon>
