@@ -31,6 +31,11 @@ namespace Robot
             _iFuel = this.GetMaxFuel();
         }
 
+        public IROBOT Clone()
+        {
+            return new ROBOT((IFURNACE) _pFurnace.Clone(), (ILEG) _pLeg.Clone(), (IWEAPON) _lWeapon[0].Clone(), (IWEAPON) _lWeapon[1].Clone());
+        }
+
         /// <summary>
         /// Check if the Furnace is destroyed
         /// </summary>

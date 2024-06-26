@@ -13,6 +13,7 @@ namespace Battle
         int TakeDamage(int iDamage);
         void RepairArmor(int iRepairPoints);
         void RepairLife(int iRepairPoints);
+        IPART Clone();
     }
 
     public enum PARTS_TYPES

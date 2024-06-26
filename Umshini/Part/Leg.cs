@@ -22,5 +22,15 @@ namespace Part
         {
             
         }
+
+        public LEG(LEG legs) : base(legs._iId, legs._sName, legs._iArmor, legs._iLifePoint, legs._sUrlImage)
+        {
+            
+        }
+
+        public override IPART Clone()
+        {
+            return new LEG(this);
+        }
     }
 }

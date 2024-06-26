@@ -9,6 +9,7 @@ namespace Battle
         int GetNumberItems();
         void DecrNumberItems();
         void IncrNumberItems();
+        ICONSUMABLES Clone();
     }
 
     public enum ENERGY

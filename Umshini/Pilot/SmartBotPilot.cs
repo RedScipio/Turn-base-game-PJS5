@@ -16,6 +16,15 @@ namespace Pilot
 
         }
 
+        public SmartBotPilot(SmartBotPilot smartBotPilot) : base(smartBotPilot._pRobot.Clone(), smartBotPilot._vFuelsReserve, smartBotPilot._vRepairKitsReserve)
+        {
+        }
+
+        public override IPILOT Clone()
+        {
+            return new SmartBotPilot(this);
+        }
+
         public override List<int> PlayTurnAuto(IROBOT enemy, bool showIndications = true)
         {
             if (this.ShouldIRepairMyFurnace(enemy))

@@ -31,6 +31,16 @@ namespace Weapon
             _iFuelBurn = iFuelBurn;
         }
 
+        public THERMAL_WEAPON(THERMAL_WEAPON thermalWeapon) : base(thermalWeapon._iId, thermalWeapon._sName, thermalWeapon._iArmor, thermalWeapon._iLifePoint, thermalWeapon._sUrlImage, thermalWeapon._iDamage, thermalWeapon._iPowerConsumption, thermalWeapon._iAccuracy, thermalWeapon._iMinAccuracy, WEAPONS_TYPES.THERMAL)
+        {
+            _iFuelBurn = thermalWeapon._iFuelBurn;
+        }
+
+        public override IPART Clone()
+        {
+            return new THERMAL_WEAPON(this);
+        }
+
         public override int GetAmmo()
         {
             throw new System.NotImplementedException();

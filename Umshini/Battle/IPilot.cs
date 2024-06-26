@@ -19,5 +19,6 @@ namespace Battle
         bool IsWeaponBroken(int iChoice);
         bool IsAllKitsEmpty(List<ICONSUMABLES> list);
         IROBOT GetRobot();
+        IPILOT Clone();
     }
 }

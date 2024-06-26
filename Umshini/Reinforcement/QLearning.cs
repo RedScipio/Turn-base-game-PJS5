@@ -23,28 +23,31 @@ namespace Reinforcement
 
         private protected IState _typeState;
 
+        private protected int nbVictories;
+        private protected int nbDefeats;
+
         public QLearning(IROBOT r1, IROBOT r2, IState state, double gamma)
         {
-            this._qTable = GenerateQTable();
-
             this._IARobot = r1;
             this._robotToKill = r2;
 
             this._typeState = state;
             this._gamma = gamma;
+
+            GenerateQTable();
         }
 
         /// <summary>
         /// Generates Q table
         /// </summary>
         /// <developer>CME</developer>
-        /// <returns>Q table</returns>
-        private double[][] GenerateQTable()
+        private void GenerateQTable()
         {
             int nbActions = Enum.GetValues(typeof(Action)).Length;
-            double[][] Qtable = new double[nbActions][];
+            int nbStates = ((int)this._typeState.GetMaxValue()) + 1;
+            this._qTable = new double[nbStates][];
 
-            for (int i = 0; i < nbActions; i++)
+            for (int i = 0; i < this._typeState.GetMaxValue() + 1; i++)
             {
                 this._qTable[i] = new double[nbActions];
                 for (int j = 0; j < nbActions; j++)
@@ -52,8 +55,6 @@ namespace Reinforcement
                     this._qTable[i][j] = 0;
                 }
             }
-
-            return Qtable;
         }
 
 
@@ -83,20 +84,16 @@ namespace Reinforcement
                 double initialState = this._typeState.ConvertNumber(robots[0], robots[1]);
                 double currentState = this._typeState.ConvertNumber(robots[0], robots[1]);
 
+                int x = 0;
+
                 while (!IsSimulationOver(robots[0], robots[1]))
                 {
-
-                    // List Actions
-                    Action[] legalActions = GetLegalActions(robots[0], robots[1]);
-
-                    Action action = legalActions[0];
-
-                    currentState = NextState(robots[0], robots[1], action);
+                    this.TakeAction(this._IARobot, this._robotToKill, currentState);
                 }
             }
         }
 
-        private int TakeAction(IROBOT agent, IROBOT opposent, double currentState)
+        private void TakeAction(IROBOT agent, IROBOT opposent, double currentState)
         {
             Action[] validActions = this.GetLegalActions(agent, opposent);
             int randomIndexAction = _random.Next(0, validActions.Length);
@@ -106,8 +103,6 @@ namespace Reinforcement
             double nsReward = _qTable[action].Max();
             double qCurrentState = saReward + (_gamma * nsReward);
             _qTable[(int) currentState][action] = qCurrentState;
-            int newState = action;
-            return newState;
         }
 
         /// <summary>

@@ -1,14 +1,9 @@
 ﻿using Battle;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using Consumable;
 using Part;
 using Pilot;
 using Robot;
 using Weapon;
-using Reinforcement;
-using System.ComponentModel;
 
 namespace Reinforcement
 {
@@ -22,10 +17,11 @@ namespace Reinforcement
             ILEG agentLegs = new LEG("1", "Basic Legs", 2, 2, "");
             ILEG opponentLegs = new LEG("1", "Basic Legs", 3, 2, "");
 
-            IWEAPON opponentLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 3, "", 1, 15, 100, 15);
-            IWEAPON opponentRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 15, 80, 40);
-            IWEAPON agentLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 3, "", 1, 15, 100, 15);
-            IWEAPON agentRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 15, 80, 40);
+            IWEAPON opponentLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 3, "", 1, 5, 100, 15);
+            IWEAPON opponentRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 5, 80, 40);
+
+            IWEAPON agentLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 3, "", 1, 5, 100, 15);
+            IWEAPON agentRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 5, 80, 40);
 
 
             IROBOT agent = new ROBOT(agentFurnace, agentLegs, agentLeftWeap, agentRightWeap);
@@ -34,12 +30,12 @@ namespace Reinforcement
             List<ICONSUMABLES> vFuelsReserve = new List<ICONSUMABLES>();
             List<ICONSUMABLES> vRepairKitsReserve = new List<ICONSUMABLES>();
 
-            IPILOT pBotPilot = new Pilot.SmartBotPilot(opponent, vFuelsReserve, vRepairKitsReserve);
+            //IPILOT pBotPilot = new SmartBotPilot(opponent, vFuelsReserve, vRepairKitsReserve);
 
 
 
             IState state = FactoryState.GetState(FactoryState.Type_State.State3);
-
+            double i = state.GetMaxValue();
             QLearning qLearning = new QLearning(agent, opponent, state, 0.8);
 
             Console.WriteLine("Training Agent...");

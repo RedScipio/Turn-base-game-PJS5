@@ -12,13 +12,12 @@ namespace Battle
         bool AttackTargetIsValid(TARGET_TYPE eTargetChoice);
         void WeaponFired(int iWeaponChoice);
         bool WeaponIsUsable(int iWeaponChoice);
+        IROBOT Clone();
         void Refuel(int iFuel);
         bool RepairLifeTargetIsValid(TARGET_TYPE eTargetChoice);
         void RepairRobotArmor(int iRepairPoints, TARGET_TYPE eTargetChoice);
         bool RepairArmorTargetIsValid(TARGET_TYPE eTargetChoice);
         void RemoveFuel(int iFuel);
-        IFURNACE GetCloneFurnace();
-        ILEG GetCloneLegs();
         List<IWEAPON> GetWeapons();
         int GetFurnaceLife();
         int GetFuel();

@@ -13,17 +13,17 @@ namespace Part
     public abstract class APART : IPART
     {
         [JsonProperty("id")]
-        private readonly string _iId;
+        protected readonly string _iId;
         [JsonProperty("name")]
-        private readonly string _sName;
+        protected readonly string _sName;
         [JsonProperty("armor")]
-        private int _iArmor;
+        protected int _iArmor;
         [JsonProperty("life_points")]
-        private int _iLifePoint;
+        protected int _iLifePoint;
         [JsonProperty("url_image")]
-        private string _sUrlImage;
-        private readonly int _iMaxArmor;
-        private readonly int _iMaxLifePoint;
+        protected string _sUrlImage;
+        private protected readonly int _iMaxArmor;
+        private protected readonly int _iMaxLifePoint;
         
         /// <summary>
         /// Represents an interchangeable part of a robot
@@ -45,6 +45,18 @@ namespace Part
             _iMaxLifePoint = iLifePoint;
             _sUrlImage = sUrlImage;
         }
+
+        public APART(APART apart)
+        {
+            _iId = apart._iId;
+            _sName = apart._sName;
+            _iArmor = apart._iArmor;
+            _iLifePoint = apart._iLifePoint;
+            _iMaxArmor = apart._iArmor;
+            _iMaxLifePoint = apart._iLifePoint;
+            _sUrlImage = apart._sUrlImage;
+        }
+
 
         /// <summary>
         /// Checking if the part of a robot is broken
@@ -159,5 +171,7 @@ namespace Part
             return "Id de l'arme : " + _iId + "\nNom de l'arme : " + _sName 
                 + "\nPV : " + _iLifePoint + "\nArmure : " + _iArmor;
         }
+
+        public abstract IPART Clone();
     }
 }
