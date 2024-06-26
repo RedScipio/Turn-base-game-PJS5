@@ -32,9 +32,9 @@
             this.generalLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.leverMainMenu = new UGUI.Lever();
             this.scoreStatus2 = new Battle.ScoreStatus();
             this.scoreStatus4 = new Battle.ScoreStatus();
+            this.leverMainMenu = new UGUI.Lever();
             this.generalLayout.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -43,6 +43,8 @@
             // generalLayout
             // 
             this.generalLayout.BackColor = System.Drawing.Color.Transparent;
+            this.generalLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("generalLayout.BackgroundImage")));
+            this.generalLayout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.generalLayout.ColumnCount = 3;
             this.generalLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.generalLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -98,19 +100,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(337, 207);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // leverMainMenu
-            // 
-            this.leverMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(170)))), ((int)(((byte)(173)))));
-            this.leverMainMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.leverMainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leverMainMenu.LabelList = ((System.Collections.Generic.List<string>)(resources.GetObject("leverMainMenu.LabelList")));
-            this.leverMainMenu.Location = new System.Drawing.Point(25, 385);
-            this.leverMainMenu.Margin = new System.Windows.Forms.Padding(25, 0, 25, 20);
-            this.leverMainMenu.Name = "leverMainMenu";
-            this.leverMainMenu.SelectedAction = null;
-            this.leverMainMenu.Size = new System.Drawing.Size(313, 146);
-            this.leverMainMenu.TabIndex = 2;
-            // 
             // scoreStatus2
             // 
             this.scoreStatus2.BackColor = System.Drawing.Color.Transparent;
@@ -136,6 +125,19 @@
             this.scoreStatus4.RightArmColor = System.Drawing.Color.Gray;
             this.scoreStatus4.Size = new System.Drawing.Size(99, 97);
             this.scoreStatus4.TabIndex = 1;
+            // 
+            // leverMainMenu
+            // 
+            this.leverMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(170)))), ((int)(((byte)(173)))));
+            this.leverMainMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.leverMainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.leverMainMenu.LabelList = ((System.Collections.Generic.List<string>)(resources.GetObject("leverMainMenu.LabelList")));
+            this.leverMainMenu.Location = new System.Drawing.Point(25, 385);
+            this.leverMainMenu.Margin = new System.Windows.Forms.Padding(25, 0, 25, 20);
+            this.leverMainMenu.Name = "leverMainMenu";
+            this.leverMainMenu.SelectedAction = null;
+            this.leverMainMenu.Size = new System.Drawing.Size(313, 146);
+            this.leverMainMenu.TabIndex = 2;
             // 
             // BasicBattleForm
             // 

@@ -5,9 +5,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace UGUI
 {
@@ -21,6 +25,11 @@ namespace UGUI
 
     public partial class BasicBattleForm : Form
     {
+        private string FileName;
+        private string TrackName;
+        private int volume = 10; //volume entre 0 et 1000
+        [DllImport("winmm.dll")]
+        static extern Int32 mciSendString(string command, StringBuilder buffer, int bufferSize, IntPtr hwndCallback);
         private List<Lever> _lLever = new List<Lever> { };
 
         #region .. Double Buffered function ..
@@ -56,10 +65,21 @@ namespace UGUI
             leverMainMenu.LabelClick += new EventHandler(lever_LabelClick);
 
             _lLever.Add(leverMainMenu);
-
+            FileName = "D:\\Umshini\\Ressources\\MusicMix.wav";
+            TrackName = "MusicMix";
+            MusicSoundPlayer.Play(FileName, TrackName);
         }
+
+
+
+
+
+
         protected void lever_LabelClick(object sender, EventArgs eventLever)
         {
+            FileName = "D:\\Umshini\\Ressources\\SoundEffect\\Collect\\collect-2.wav";
+            TrackName = "collect-2";
+            MusicSoundPlayer.Play(FileName,TrackName);     
             Lever lever = (Lever)sender;
             string sAction = lever.SelectedAction.Replace("- ", "");
 
