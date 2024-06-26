@@ -32,12 +32,15 @@
             this.generalLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.informationPanel = new System.Windows.Forms.Panel();
+            this.infoLabel = new System.Windows.Forms.Label();
             this.scoreStatus2 = new Battle.ScoreStatus();
             this.scoreStatus4 = new Battle.ScoreStatus();
             this.leverMainMenu = new UGUI.Lever();
             this.generalLayout.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.informationPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // generalLayout
@@ -67,6 +70,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.informationPanel, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(366, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -99,6 +103,31 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(337, 207);
             this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // informationPanel
+            // 
+            this.informationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.informationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.informationPanel.Controls.Add(this.infoLabel);
+            this.informationPanel.Location = new System.Drawing.Point(3, 267);
+            this.informationPanel.Name = "informationPanel";
+            this.informationPanel.Size = new System.Drawing.Size(351, 84);
+            this.informationPanel.TabIndex = 3;
+            this.informationPanel.Click += new System.EventHandler(this.informationPanel_Click);
+            // 
+            // infoLabel
+            // 
+            this.infoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoLabel.AutoSize = true;
+            this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.infoLabel.ForeColor = System.Drawing.Color.White;
+            this.infoLabel.Location = new System.Drawing.Point(129, 26);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(94, 17);
+            this.infoLabel.TabIndex = 0;
+            this.infoLabel.Text = "Sample Label";
             // 
             // scoreStatus2
             // 
@@ -149,12 +178,15 @@
             this.Controls.Add(this.generalLayout);
             this.DoubleBuffered = true;
             this.Name = "BasicBattleForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Battle";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BasicBattleForm_FormClosing);
             this.Load += new System.EventHandler(this.BasicBattleForm_Load);
             this.generalLayout.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.informationPanel.ResumeLayout(false);
+            this.informationPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -169,5 +201,7 @@
         private Lever leverMainMenu;
         private Battle.ScoreStatus scoreStatus2;
         private Battle.ScoreStatus scoreStatus4;
+        private System.Windows.Forms.Panel informationPanel;
+        private System.Windows.Forms.Label infoLabel;
     }
 }

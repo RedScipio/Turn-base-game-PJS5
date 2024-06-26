@@ -17,7 +17,7 @@ namespace UGUI
 
         public static void Play(string FileName, string TrackName)
         {
-            try
+/*            try
             {
                 StringBuilder sb = new StringBuilder();
 
@@ -29,12 +29,12 @@ namespace UGUI
 
                 // Play the audio file, with optional looping
 
-                    mciSendString("play " + TrackName, sb, 0, IntPtr.Zero);
+                mciSendString("play " + TrackName, sb, 0, IntPtr.Zero);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred while playing the sound: " + ex.Message);
-            }
+            }*/
         }
     }
 }
