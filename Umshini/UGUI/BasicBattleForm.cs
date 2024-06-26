@@ -78,8 +78,8 @@ namespace UGUI
             SetDoubleBuffered(tableLayoutPanel1);
             SetDoubleBuffered(tableLayoutPanel2);
             leverMainMenu.LabelClick += new EventHandler(lever_LabelClick);
-
             _lLever.Add(leverMainMenu);
+
             _basicBattle = basicBattle;
 
             string relativePath = "..\\..\\..\\..\\Ressources\\MusicMix.wav";
@@ -87,8 +87,6 @@ namespace UGUI
             _trackName = "MusicMix";
             MusicSoundPlayer.Play(_fileName, _trackName);
             informationPanel.Hide();
-            
-
         }
 
         public async void Shake(int iRobotChoice = 1)//1=player 2=robot
@@ -136,6 +134,22 @@ namespace UGUI
             informationPanel.Hide();
         }
 
+        protected void PlayRound()
+        {
+            ShowStatus();
+            PlayTurnBot();
+            ShowStatus();
+        }
+
+        protected void ShowStatus()
+        {
+            return;
+        }
+
+        protected void PlayTurnBot()
+        {
+            return;
+        }
 
         protected void lever_LabelClick(object sender, EventArgs eventLever)
         {
@@ -254,7 +268,7 @@ namespace UGUI
                             }
 
                             _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], iSecondChoice);
-
+                            PlayRound();
                             return;
                         }
 
@@ -352,7 +366,7 @@ namespace UGUI
                         }
 
                         _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], _lActions[1], iThirdChoice);
-
+                        PlayRound();
                         return;
                     }
             }
@@ -391,14 +405,6 @@ namespace UGUI
             _lLever.Last().Enabled = false;
             _lLever.Add(newLever);
         }
-
-
-
-        private void BasicBattleForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void BasicBattleForm_FormClosing(object sender, FormClosingEventArgs e)
         {

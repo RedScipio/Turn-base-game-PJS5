@@ -30,25 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasicBattleForm));
             this.generalLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.informationPanel = new System.Windows.Forms.Panel();
-            this.infoLabel = new System.Windows.Forms.Label();
-            this.scoreStatus2 = new Battle.ScoreStatus();
-            this.scoreStatus4 = new Battle.ScoreStatus();
-            this.leverMainMenu = new UGUI.Lever();
-            this.playerRobotPicturebox = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.enemyRobot = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.scoreStatus2 = new Battle.ScoreStatus();
+            this.scoreStatus4 = new Battle.ScoreStatus();
+            this.informationPanel = new System.Windows.Forms.Panel();
+            this.infoLabel = new System.Windows.Forms.Label();
+            this.leverMainMenu = new UGUI.Lever();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.playerRobotPicturebox = new System.Windows.Forms.PictureBox();
             this.generalLayout.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.enemyRobot)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.informationPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.playerRobotPicturebox)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.enemyRobot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerRobotPicturebox)).BeginInit();
             this.SuspendLayout();
             // 
             // generalLayout
@@ -72,6 +72,29 @@
             this.generalLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.generalLayout.Size = new System.Drawing.Size(1090, 551);
             this.generalLayout.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.enemyRobot);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(729, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(358, 379);
+            this.panel2.TabIndex = 4;
+            // 
+            // enemyRobot
+            // 
+            this.enemyRobot.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.enemyRobot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("enemyRobot.BackgroundImage")));
+            this.enemyRobot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.enemyRobot.Location = new System.Drawing.Point(81, 182);
+            this.enemyRobot.Margin = new System.Windows.Forms.Padding(50);
+            this.enemyRobot.Name = "enemyRobot";
+            this.enemyRobot.Size = new System.Drawing.Size(151, 150);
+            this.enemyRobot.TabIndex = 0;
+            this.enemyRobot.TabStop = false;
             // 
             // tableLayoutPanel2
             // 
@@ -114,6 +137,32 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(337, 207);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
+            // scoreStatus2
+            // 
+            this.scoreStatus2.BackColor = System.Drawing.Color.Transparent;
+            this.scoreStatus2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scoreStatus2.FurnaceColor = System.Drawing.Color.Gray;
+            this.scoreStatus2.LeftArmColor = System.Drawing.Color.Gray;
+            this.scoreStatus2.LegsColor = System.Drawing.Color.Gray;
+            this.scoreStatus2.Location = new System.Drawing.Point(38, 23);
+            this.scoreStatus2.Name = "scoreStatus2";
+            this.scoreStatus2.RightArmColor = System.Drawing.Color.Gray;
+            this.scoreStatus2.Size = new System.Drawing.Size(99, 97);
+            this.scoreStatus2.TabIndex = 0;
+            // 
+            // scoreStatus4
+            // 
+            this.scoreStatus4.BackColor = System.Drawing.Color.Transparent;
+            this.scoreStatus4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scoreStatus4.FurnaceColor = System.Drawing.Color.Gray;
+            this.scoreStatus4.LeftArmColor = System.Drawing.Color.Gray;
+            this.scoreStatus4.LegsColor = System.Drawing.Color.Gray;
+            this.scoreStatus4.Location = new System.Drawing.Point(199, 23);
+            this.scoreStatus4.Name = "scoreStatus4";
+            this.scoreStatus4.RightArmColor = System.Drawing.Color.Gray;
+            this.scoreStatus4.Size = new System.Drawing.Size(99, 97);
+            this.scoreStatus4.TabIndex = 1;
+            // 
             // informationPanel
             // 
             this.informationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -144,32 +193,6 @@
             this.infoLabel.Text = "Sample Label";
             this.infoLabel.TextChanged += new System.EventHandler(this.infoLabel_TextChanged);
             // 
-            // scoreStatus2
-            // 
-            this.scoreStatus2.BackColor = System.Drawing.Color.Transparent;
-            this.scoreStatus2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scoreStatus2.FurnaceColor = System.Drawing.Color.Gray;
-            this.scoreStatus2.LeftArmColor = System.Drawing.Color.Gray;
-            this.scoreStatus2.LegsColor = System.Drawing.Color.Gray;
-            this.scoreStatus2.Location = new System.Drawing.Point(38, 23);
-            this.scoreStatus2.Name = "scoreStatus2";
-            this.scoreStatus2.RightArmColor = System.Drawing.Color.Gray;
-            this.scoreStatus2.Size = new System.Drawing.Size(99, 97);
-            this.scoreStatus2.TabIndex = 0;
-            // 
-            // scoreStatus4
-            // 
-            this.scoreStatus4.BackColor = System.Drawing.Color.Transparent;
-            this.scoreStatus4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scoreStatus4.FurnaceColor = System.Drawing.Color.Gray;
-            this.scoreStatus4.LeftArmColor = System.Drawing.Color.Gray;
-            this.scoreStatus4.LegsColor = System.Drawing.Color.Gray;
-            this.scoreStatus4.Location = new System.Drawing.Point(199, 23);
-            this.scoreStatus4.Name = "scoreStatus4";
-            this.scoreStatus4.RightArmColor = System.Drawing.Color.Gray;
-            this.scoreStatus4.Size = new System.Drawing.Size(99, 97);
-            this.scoreStatus4.TabIndex = 1;
-            // 
             // leverMainMenu
             // 
             this.leverMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(170)))), ((int)(((byte)(173)))));
@@ -182,6 +205,15 @@
             this.leverMainMenu.SelectedAction = null;
             this.leverMainMenu.Size = new System.Drawing.Size(313, 146);
             this.leverMainMenu.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.playerRobotPicturebox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(357, 379);
+            this.panel1.TabIndex = 3;
             // 
             // playerRobotPicturebox
             // 
@@ -197,38 +229,6 @@
             this.playerRobotPicturebox.TabIndex = 0;
             this.playerRobotPicturebox.TabStop = false;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.playerRobotPicturebox);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(357, 379);
-            this.panel1.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.enemyRobot);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(729, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(358, 379);
-            this.panel2.TabIndex = 4;
-            // 
-            // enemyRobot
-            // 
-            this.enemyRobot.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.enemyRobot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("enemyRobot.BackgroundImage")));
-            this.enemyRobot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.enemyRobot.Location = new System.Drawing.Point(81, 182);
-            this.enemyRobot.Margin = new System.Windows.Forms.Padding(50);
-            this.enemyRobot.Name = "enemyRobot";
-            this.enemyRobot.Size = new System.Drawing.Size(151, 150);
-            this.enemyRobot.TabIndex = 0;
-            this.enemyRobot.TabStop = false;
-            // 
             // BasicBattleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,16 +242,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Battle";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BasicBattleForm_FormClosing);
-            this.Load += new System.EventHandler(this.BasicBattleForm_Load);
             this.generalLayout.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.enemyRobot)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.informationPanel.ResumeLayout(false);
             this.informationPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.playerRobotPicturebox)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.enemyRobot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerRobotPicturebox)).EndInit();
             this.ResumeLayout(false);
 
         }

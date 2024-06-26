@@ -15,13 +15,18 @@ namespace Battle
             _currentPilot = this._lPilots[0];
         }
 
+        public override bool IsOver()
+        {
+            return _lPilots[0].IsFurnaceBroken() && _lPilots[1].IsFurnaceBroken();
+        }
+
         public void PlayBattle()
         {
 
             List<int> lResult = new List<int>();
 
             // As long as neither robot is destroyed
-            while (!_lPilots[0].IsFurnaceBroken() && !_lPilots[1].IsFurnaceBroken())
+            while (IsOver() == false)
             {
                 lResult.AddRange(PlayRound());
             }
