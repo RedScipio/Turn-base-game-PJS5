@@ -14,7 +14,6 @@ namespace Battle
 
         // Property to access _lPilots
         public List<IPILOT> Pilots => _lPilots;
-
         public IPILOT CurrentPilot
         {
             get

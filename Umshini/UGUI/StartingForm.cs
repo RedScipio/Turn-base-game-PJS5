@@ -126,5 +126,10 @@ namespace UGUI
         {
             Application.Exit();
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
