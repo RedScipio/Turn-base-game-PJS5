@@ -20,7 +20,7 @@ namespace Reinforcement
 
         private protected double _gamma;
 
-        private protected IQLearningProblem _qLearningProblem;
+        //private protected IQLearningProblem _qLearningProblem;
 
         internal QLearning(IROBOT r1, IROBOT r2, double gamma)
         {
@@ -82,7 +82,7 @@ namespace Reinforcement
 
         private State TakeAction(IROBOT agent, IROBOT opposent, State currentState)
         {
-            var validActions = _qLearningProblem.GetValidActions(currentState);
+            /*var validActions = _qLearningProblem.GetValidActions(currentState);
             int randomIndexAction = _random.Next(0, validActions.Length);
             int action = validActions[randomIndexAction];
 
@@ -90,8 +90,9 @@ namespace Reinforcement
             double nsReward = _qTable[action].Max();
             double qCurrentState = saReward + (_gamma * nsReward);
             _qTable[currentState][action] = qCurrentState;
-            int newState = action;
-            return newState;
+            int newState = action;*/
+            //return newState;
+            return new State(agent, opposent);
         }
 
         /// <summary>
