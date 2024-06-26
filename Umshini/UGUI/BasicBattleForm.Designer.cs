@@ -37,10 +37,18 @@
             this.scoreStatus2 = new Battle.ScoreStatus();
             this.scoreStatus4 = new Battle.ScoreStatus();
             this.leverMainMenu = new UGUI.Lever();
+            this.playerRobotPicturebox = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.enemyRobot = new System.Windows.Forms.PictureBox();
             this.generalLayout.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.informationPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playerRobotPicturebox)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.enemyRobot)).BeginInit();
             this.SuspendLayout();
             // 
             // generalLayout
@@ -52,8 +60,10 @@
             this.generalLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.generalLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.generalLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.generalLayout.Controls.Add(this.panel2, 2, 0);
             this.generalLayout.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.generalLayout.Controls.Add(this.leverMainMenu, 0, 1);
+            this.generalLayout.Controls.Add(this.panel1, 0, 0);
             this.generalLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.generalLayout.Location = new System.Drawing.Point(0, 0);
             this.generalLayout.Name = "generalLayout";
@@ -114,6 +124,7 @@
             this.informationPanel.Name = "informationPanel";
             this.informationPanel.Size = new System.Drawing.Size(351, 84);
             this.informationPanel.TabIndex = 3;
+            this.informationPanel.Visible = false;
             this.informationPanel.SizeChanged += new System.EventHandler(this.informationPanel_SizeChanged);
             this.informationPanel.Click += new System.EventHandler(this.informationPanel_Click);
             // 
@@ -172,6 +183,52 @@
             this.leverMainMenu.Size = new System.Drawing.Size(313, 146);
             this.leverMainMenu.TabIndex = 2;
             // 
+            // playerRobotPicturebox
+            // 
+            this.playerRobotPicturebox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.playerRobotPicturebox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("playerRobotPicturebox.BackgroundImage")));
+            this.playerRobotPicturebox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.playerRobotPicturebox.Location = new System.Drawing.Point(81, 182);
+            this.playerRobotPicturebox.Margin = new System.Windows.Forms.Padding(50);
+            this.playerRobotPicturebox.Name = "playerRobotPicturebox";
+            this.playerRobotPicturebox.Size = new System.Drawing.Size(150, 150);
+            this.playerRobotPicturebox.TabIndex = 0;
+            this.playerRobotPicturebox.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.playerRobotPicturebox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(357, 379);
+            this.panel1.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.enemyRobot);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(729, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(358, 379);
+            this.panel2.TabIndex = 4;
+            // 
+            // enemyRobot
+            // 
+            this.enemyRobot.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.enemyRobot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("enemyRobot.BackgroundImage")));
+            this.enemyRobot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.enemyRobot.Location = new System.Drawing.Point(81, 182);
+            this.enemyRobot.Margin = new System.Windows.Forms.Padding(50);
+            this.enemyRobot.Name = "enemyRobot";
+            this.enemyRobot.Size = new System.Drawing.Size(151, 150);
+            this.enemyRobot.TabIndex = 0;
+            this.enemyRobot.TabStop = false;
+            // 
             // BasicBattleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +248,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.informationPanel.ResumeLayout(false);
             this.informationPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playerRobotPicturebox)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.enemyRobot)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -207,5 +268,9 @@
         private Battle.ScoreStatus scoreStatus4;
         private System.Windows.Forms.Panel informationPanel;
         private System.Windows.Forms.Label infoLabel;
+        private System.Windows.Forms.PictureBox playerRobotPicturebox;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox enemyRobot;
     }
 }

@@ -87,6 +87,38 @@ namespace UGUI
             _trackName = "MusicMix";
             MusicSoundPlayer.Play(_fileName, _trackName);
             informationPanel.Hide();
+            
+
+        }
+
+        public async void Shake(int iRobotChoice = 1)//1=player 2=robot
+        {
+            var original = playerRobotPicturebox.Location;
+            var rnd = new Random(1337);
+            const int shake_amplitude = 5;
+            if (iRobotChoice == 1)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    playerRobotPicturebox.Invalidate();
+                    playerRobotPicturebox.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));
+                    playerRobotPicturebox.Invalidate();
+                    await Task.Delay(20);
+                    playerRobotPicturebox.Invalidate();
+                }
+            }
+            else {
+                original = enemyRobot.Location;
+                for (int i = 0; i < 10; i++)
+                {
+                    enemyRobot.Invalidate();
+                    enemyRobot.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));
+                    enemyRobot.Invalidate();
+                    await Task.Delay(20);
+                    enemyRobot.Invalidate();
+                }
+            }
+
         }
 
         public void SetRoundedCorners(Panel panel, int borderRadius)
