@@ -32,10 +32,10 @@
             this.generalLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.informationPanel = new System.Windows.Forms.Panel();
-            this.infoLabel = new System.Windows.Forms.Label();
             this.scoreStatus2 = new Battle.ScoreStatus();
             this.scoreStatus4 = new Battle.ScoreStatus();
+            this.informationPanel = new System.Windows.Forms.Panel();
+            this.infoLabel = new System.Windows.Forms.Label();
             this.leverMainMenu = new UGUI.Lever();
             this.generalLayout.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -104,31 +104,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(337, 207);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // informationPanel
-            // 
-            this.informationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.informationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.informationPanel.Controls.Add(this.infoLabel);
-            this.informationPanel.Location = new System.Drawing.Point(3, 267);
-            this.informationPanel.Name = "informationPanel";
-            this.informationPanel.Size = new System.Drawing.Size(351, 84);
-            this.informationPanel.TabIndex = 3;
-            this.informationPanel.Click += new System.EventHandler(this.informationPanel_Click);
-            // 
-            // infoLabel
-            // 
-            this.infoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.infoLabel.AutoSize = true;
-            this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.infoLabel.ForeColor = System.Drawing.Color.White;
-            this.infoLabel.Location = new System.Drawing.Point(129, 26);
-            this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(94, 17);
-            this.infoLabel.TabIndex = 0;
-            this.infoLabel.Text = "Sample Label";
-            // 
             // scoreStatus2
             // 
             this.scoreStatus2.BackColor = System.Drawing.Color.Transparent;
@@ -154,6 +129,33 @@
             this.scoreStatus4.RightArmColor = System.Drawing.Color.Gray;
             this.scoreStatus4.Size = new System.Drawing.Size(99, 97);
             this.scoreStatus4.TabIndex = 1;
+            // 
+            // informationPanel
+            // 
+            this.informationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.informationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.informationPanel.Controls.Add(this.infoLabel);
+            this.informationPanel.Location = new System.Drawing.Point(3, 267);
+            this.informationPanel.Name = "informationPanel";
+            this.informationPanel.Size = new System.Drawing.Size(351, 84);
+            this.informationPanel.TabIndex = 3;
+            this.informationPanel.SizeChanged += new System.EventHandler(this.informationPanel_SizeChanged);
+            this.informationPanel.Click += new System.EventHandler(this.informationPanel_Click);
+            // 
+            // infoLabel
+            // 
+            this.infoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoLabel.AutoSize = true;
+            this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.infoLabel.ForeColor = System.Drawing.Color.White;
+            this.infoLabel.Location = new System.Drawing.Point(238, 27);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(94, 17);
+            this.infoLabel.TabIndex = 0;
+            this.infoLabel.Text = "Sample Label";
             // 
             // leverMainMenu
             // 
