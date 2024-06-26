@@ -37,6 +37,7 @@ namespace UGUI
             int nWidthEllipse, // width of ellipse
             int nHeightEllipse // height of ellipse
         );
+
         private string _fileName;
         private string _trackName;
         [DllImport("winmm.dll")]
@@ -85,7 +86,7 @@ namespace UGUI
             _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
             _trackName = "MusicMix";
             MusicSoundPlayer.Play(_fileName, _trackName);
-
+            informationPanel.Hide();
         }
 
         public void SetRoundedCorners(Panel panel, int borderRadius)
