@@ -24,7 +24,6 @@ namespace UGUI
     /// <authors> MBL, DTR</authors>
     /// <date> 25-06-2024 </date>
     /// 
-
     public partial class BasicBattleForm : Form
     {
         private string _fileName;
@@ -76,11 +75,6 @@ namespace UGUI
             _trackName = "MusicMix";
             MusicSoundPlayer.Play(_fileName, _trackName);
         }
-
-
-
-
-
 
         protected void lever_LabelClick(object sender, EventArgs eventLever)
         {
