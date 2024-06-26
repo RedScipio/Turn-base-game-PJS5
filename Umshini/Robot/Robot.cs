@@ -425,6 +425,11 @@ namespace Robot
             return _pFurnace.GetMaxLife();
         }
 
+        public int GetFurnaceRestartLimit()
+        {
+           return _pFurnace.GetRestartLimit();
+        }
+
         public int GetLegsArmor()
         {
             return _pLeg.GetArmor();

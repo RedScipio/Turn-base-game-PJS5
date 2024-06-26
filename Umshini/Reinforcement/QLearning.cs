@@ -1,10 +1,13 @@
 ﻿using Battle;
+using Part;
+using Robot;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Weapon;
 
 namespace Reinforcement
 {
@@ -58,6 +61,18 @@ namespace Reinforcement
         {
             throw new NotImplementedException();
         }
+
+        private protected IROBOT GetClone(IROBOT robot)
+        {
+            IFURNACE cloneFurnace = new FURNACE("1", "Normal Furnace", robot.GetFurnaceMaxArmor(), robot.GetFurnaceMaxLife(), "", robot.GetFurnaceRestartLimit());
+            ILEG cloneLegs = new LEG("1", "Basic Legs", robot.GetLegsMaxArmor(), robot.GetLegsMaxLife(), "");
+            IWEAPON cloneLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 3, "", 1, 15, 100, 15);
+            IWEAPON cloneRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 15, 80, 40);
+
+            return new ROBOT(cloneFurnace, cloneLegs, cloneLeftWeap, cloneRightWeap);
+        }
+
+
 
         public void TrainingAgent(int nbTrains)
         {

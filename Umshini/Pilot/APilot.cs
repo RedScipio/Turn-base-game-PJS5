@@ -53,7 +53,7 @@ namespace Pilot
 
         public abstract bool IsBotPilot();
 
-        public abstract List<int> PlayTurnAuto(IROBOT enemyRobot);
+        public abstract List<int> PlayTurnAuto(IROBOT enemyRobot, bool showIndications = true);
 
         /// <summary>
         /// False if the selected weapons is not 
