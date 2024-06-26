@@ -22,8 +22,8 @@ namespace UGUI
     public partial class StartingForm : Form
     {
         private bool isFirstTime = false;
-        private ROBOT pPlayerRobot = null;
-        public StartingForm(ROBOT robot)
+        private IROBOT pPlayerRobot = null;
+        public StartingForm(IROBOT robot)
         {
             InitializeComponent();
             if(robot != null) 
@@ -67,7 +67,7 @@ namespace UGUI
         private void customButton1_Click(object sender, EventArgs e)
         {
             string filePath = "../../../NoFormApp/RobotComponents.json";
-            ROBOT playerRobot;
+            IROBOT playerRobot;
 
             List<ICONSUMABLES> _vPlayerRepairKitsReserve = new List<ICONSUMABLES>();
             List<ICONSUMABLES> _vBotRepairKitsReserve = new List<ICONSUMABLES>();
@@ -103,6 +103,7 @@ namespace UGUI
                 IWEAPON playerRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 15, 80, 40);
                 playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, playerRightWeap);
             }
+
             IROBOT botRobot = Utils.GetProceduralRobot(filePath);
 
             IPILOT pPlayerPilot = new PLAYER_PILOT(playerRobot, _vPlayerFuelsReserve, _vPlayerRepairKitsReserve);

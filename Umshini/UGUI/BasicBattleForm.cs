@@ -145,16 +145,28 @@ namespace UGUI
             _lLever.Add(leverMainMenu);
             _lLever.Last().Enabled = true;
 
-            ShowStatus();
+            BetweenTurn();
 
             GUI.ShowStatus(_basicBattle.Pilots[0], _basicBattle.Pilots[1]);
 
             PlayTurnBot();
-            ShowStatus();
+            BetweenTurn();
 
             foreach (Lever lever in _lLever)
             {
                 lever.Show();
+            }
+        }
+
+        protected void BetweenTurn()
+        {
+            ShowStatus();
+
+            if(_basicBattle.IsOver())
+            {
+                StartingForm sf = new StartingForm(_basicBattle.Pilots[0].GetRobot());
+                Visible = false;
+                sf.Visible = true;
             }
         }
 

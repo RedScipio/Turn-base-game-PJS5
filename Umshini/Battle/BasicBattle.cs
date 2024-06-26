@@ -17,7 +17,7 @@ namespace Battle
 
         public override bool IsOver()
         {
-            return _lPilots[0].IsFurnaceBroken() && _lPilots[1].IsFurnaceBroken();
+            return _lPilots[0].IsFurnaceBroken() || _lPilots[1].IsFurnaceBroken();
         }
 
         public void PlayBattle()
