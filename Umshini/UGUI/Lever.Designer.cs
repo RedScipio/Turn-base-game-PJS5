@@ -67,7 +67,7 @@
             this.LabelLayout.Location = new System.Drawing.Point(139, 0);
             this.LabelLayout.Margin = new System.Windows.Forms.Padding(0);
             this.LabelLayout.Name = "LabelLayout";
-            this.LabelLayout.Size = new System.Drawing.Size(139, 139);
+            this.LabelLayout.Size = new System.Drawing.Size(139, 111);
             this.LabelLayout.TabIndex = 1;
             // 
             // tableLayoutPanel1
