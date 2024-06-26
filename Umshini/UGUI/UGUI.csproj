@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -48,6 +51,12 @@
     </Compile>
     <Compile Include="BasicBattleForm.Designer.cs">
       <DependentUpon>BasicBattleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RobotEditingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RobotEditingForm.Designer.cs">
+      <DependentUpon>RobotEditingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StartingForm.cs">
       <SubType>Form</SubType>
@@ -78,6 +87,9 @@
     <EmbeddedResource Include="BasicBattleForm.resx">
       <DependentUpon>BasicBattleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RobotEditingForm.resx">
+      <DependentUpon>RobotEditingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StartingForm.resx">
       <DependentUpon>StartingForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +109,9 @@
       <Project>{3ba5891c-f6c3-4ef3-9c78-6d79e7974396}</Project>
       <Name>Battle</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
