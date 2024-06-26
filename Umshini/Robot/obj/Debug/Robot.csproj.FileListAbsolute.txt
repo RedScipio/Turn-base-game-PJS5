@@ -84,3 +84,14 @@ D:\Umshini\Umshini\Robot\obj\Debug\Robot.csproj.CoreCompileInputs.cache
 D:\Umshini\Umshini\Robot\obj\Debug\Robot.csproj.CopyComplete
 D:\Umshini\Umshini\Robot\obj\Debug\Robot.dll
 D:\Umshini\Umshini\Robot\obj\Debug\Robot.pdb
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Robot.dll
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Robot.pdb
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Battle.dll
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Newtonsoft.Json.dll
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Battle.pdb
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Robot\bin\Debug\Newtonsoft.Json.xml
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.AssemblyReference.cache
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.CoreCompileInputs.cache
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.csproj.Up2Date
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.dll
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Robot\obj\Debug\Robot.pdb
