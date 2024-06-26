@@ -62,6 +62,17 @@ C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.cs
 C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.csproj.Up2Date
 C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.dll
 C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.pdb
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Pilot\bin\Debug\Pilot.dll
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Pilot\bin\Debug\Pilot.pdb
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Pilot\bin\Debug\Battle.dll
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Pilot\bin\Debug\Newtonsoft.Json.dll
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Pilot\bin\Debug\Battle.pdb
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Pilot\bin\Debug\Newtonsoft.Json.xml
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.csproj.AssemblyReference.cache
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.csproj.CoreCompileInputs.cache
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.csproj.Up2Date
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.dll
+C:\Users\bilbo\Documents\Turn-base-game-PJS5\Umshini\Pilot\obj\Debug\Pilot.pdb
 D:\Umshini\Umshini\Pilot\bin\Debug\Pilot.dll
 D:\Umshini\Umshini\Pilot\bin\Debug\Pilot.pdb
 D:\Umshini\Umshini\Pilot\bin\Debug\Battle.dll
