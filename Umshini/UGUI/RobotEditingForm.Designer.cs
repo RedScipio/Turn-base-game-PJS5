@@ -138,6 +138,7 @@
             this.Controls.Add(this.label1);
             this.Name = "RobotEditingForm";
             this.Text = "Robot editing";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RobotEditingForm_FormClosing);
             this.Load += new System.EventHandler(this.RobotEditingForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
