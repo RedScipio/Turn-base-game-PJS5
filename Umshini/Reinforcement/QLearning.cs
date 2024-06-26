@@ -1,13 +1,4 @@
 ﻿using Battle;
-using Part;
-using Robot;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Weapon;
 
 namespace Reinforcement
 {
@@ -18,13 +9,10 @@ namespace Reinforcement
 
         private double[][] _qTable;
 
-        private readonly Random _random = new Random();
-        private readonly  double _gamma;
+        private readonly Random _random;
+        private readonly double _gamma;
 
         private readonly IState _typeState;
-
-        private int nbVictories;
-        private int nbDefeats;
 
         public QLearning(IROBOT r1, IPILOT r2, IState state, double gamma)
         {
@@ -32,6 +20,7 @@ namespace Reinforcement
             this._robotToKill = r2;
 
             this._typeState = state;
+            this._random = new Random();
             this._gamma = gamma;
 
             GenerateQTable();
@@ -70,13 +59,20 @@ namespace Reinforcement
                 IROBOT agent = this._IARobot.Clone();
                 IPILOT opponent = this._robotToKill.Clone();
 
-                double initialState = this._typeState.ConvertNumber(agent, opponent.GetRobot());
+                //double initialState = this._typeState.ConvertNumber(agent, opponent.GetRobot());
                 double currentState = this._typeState.ConvertNumber(agent, opponent.GetRobot());
 
                 int x = 0;
 
                 while (!IsSimulationOver(agent, opponent.GetRobot()))
                 {
+                    x += 1;
+
+                    if (x > 100)
+                    {
+                        break;
+                    }
+
                     this.TakeAction(this._IARobot, this._robotToKill, currentState);
                 }
             }
@@ -84,11 +80,12 @@ namespace Reinforcement
 
         private void TakeAction(IROBOT agent, IPILOT opposent, double currentState)
         {
-            Action[] validActions = this.GetLegalActions(agent, opposent.GetRobot());
+            Action[] validActions = QLearning.GetLegalActions(agent, opposent.GetRobot());
             int randomIndexAction = _random.Next(0, validActions.Length);
             int action = (int) validActions[randomIndexAction];
+            NextState(agent, opposent, (Action) action);
 
-            double saReward = this.GetReward(agent, opposent.GetRobot());
+            double saReward = QLearning.GetReward(agent, opposent.GetRobot());
             double nsReward = _qTable[action].Max();
             double qCurrentState = saReward + (_gamma * nsReward);
             _qTable[(int) currentState][action] = qCurrentState;
@@ -102,50 +99,53 @@ namespace Reinforcement
         /// <param name="action">Type of action performed by the agent robot</param>
         /// <developer>CME</developer>
         /// <returns>State following agent robot action</returns>
-        private double NextState(IROBOT agent, IROBOT opponent, Action action)
+        private double NextState(IROBOT agent, IPILOT opponent, Action action)
         {
 
             if (action == Action.LEFT_WEAPON_ATTACK_LEGS)
             {
-                agent.DealDamage(opponent, 0, TARGET_TYPE.LEG);
+                agent.DealDamage(opponent.GetRobot(), 0, TARGET_TYPE.LEG);
             }
 
             else if (action == Action.LEFT_WEAPON_ATTACK_LEFT_WEAPON)
             {
-                agent.DealDamage(opponent, 0, TARGET_TYPE.LEFT_WEAPON);
+                agent.DealDamage(opponent.GetRobot(), 0, TARGET_TYPE.LEFT_WEAPON);
             }
 
             else if (action == Action.LEFT_WEAPON_ATTACK_RIGHT_WEAPON)
             {
-                agent.DealDamage(opponent, 0, TARGET_TYPE.RIGHT_WEAPON);
+                agent.DealDamage(opponent.GetRobot(), 0, TARGET_TYPE.RIGHT_WEAPON);
             }
 
             else if (action == Action.LEFT_WEAPON_ATTACK_FURNACE)
             {
-                agent.DealDamage(opponent, 0, TARGET_TYPE.FURNACE);
+                agent.DealDamage(opponent.GetRobot(), 0, TARGET_TYPE.FURNACE);
             }
 
             else if (action == Action.RIGHT_WEAPON_ATTACK_LEGS)
             {
-                agent.DealDamage(opponent, 1, TARGET_TYPE.LEG);
+                agent.DealDamage(opponent.GetRobot(), 1, TARGET_TYPE.LEG);
             }
 
             else if (action == Action.RIGHT_WEAPON_ATTACK_LEFT_WEAPON)
             {
-                agent.DealDamage(opponent, 1, TARGET_TYPE.LEFT_WEAPON);
+                agent.DealDamage(opponent.GetRobot(), 1, TARGET_TYPE.LEFT_WEAPON);
             }
 
             else if (action == Action.RIGHT_WEAPON_ATTACK_RIGHT_WEAPON)
             {
-                agent.DealDamage(opponent, 1, TARGET_TYPE.RIGHT_WEAPON);
+                agent.DealDamage(opponent.GetRobot(), 1, TARGET_TYPE.RIGHT_WEAPON);
             }
 
             else if (action == Action.RIGHT_WEAPON_ATTACK_FURNACE)
             {
-                agent.DealDamage(opponent, 1, TARGET_TYPE.FURNACE);
+                agent.DealDamage(opponent.GetRobot(), 1, TARGET_TYPE.FURNACE);
             }
 
-            return this._typeState.ConvertNumber(agent, opponent);
+            if (!opponent.GetRobot().IsDestroy())
+                opponent.PlayTurnAuto(agent);
+
+            return this._typeState.ConvertNumber(agent, opponent.GetRobot());
         }
 
         /// <summary>
@@ -153,8 +153,14 @@ namespace Reinforcement
         /// </summary>
         /// <developer>CME</developer>
         /// <returns>True if the simulation is complete, false otherwise</returns>
-        private bool IsSimulationOver(IROBOT agent, IROBOT opponent)
+        private static bool IsSimulationOver(IROBOT agent, IROBOT opponent)
         {
+            bool a = agent.IsDestroy();
+            bool b = opponent.IsDestroy();
+
+            int t = agent.GetFurnaceLife();
+            int u = opponent.GetFurnaceLife();
+
             return agent.IsDestroy() || opponent.IsDestroy();
         }
 
@@ -166,7 +172,7 @@ namespace Reinforcement
         /// <param name="action">Type of action performed by the agent robot</param>
         /// <developer>CME</developer>
         /// <returns>True if the action is legal, false otherwise</returns>
-        private bool IsLegalAction(IROBOT agent, IROBOT opponent, Action action)
+        private static bool IsLegalAction(IROBOT agent, IROBOT opponent, Action action)
         {
             if (action == Action.LEFT_WEAPON_ATTACK_LEGS)
             {
@@ -218,7 +224,7 @@ namespace Reinforcement
         /// <param name="opponent">Robot opponent</param>
         /// <developer>CME</developer>
         /// <returns>Possible actions in the current state of the simulation</returns>
-        private Action[] GetLegalActions(IROBOT agent, IROBOT opponent)
+        private static Action[] GetLegalActions(IROBOT agent, IROBOT opponent)
         {
             List<Action> legalActions = new List<Action>();
 
@@ -233,7 +239,7 @@ namespace Reinforcement
             return legalActions.ToArray();
         }
 
-        private double GetReward(IROBOT agent, IROBOT opponent)
+        private static double GetReward(IROBOT agent, IROBOT opponent)
         {
             if (agent.IsDestroy())
             {

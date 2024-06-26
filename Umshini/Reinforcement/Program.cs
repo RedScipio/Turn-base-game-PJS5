@@ -23,7 +23,6 @@ namespace Reinforcement
             IWEAPON agentLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 3, "", 1, 5, 100, 15);
             IWEAPON agentRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 5, 80, 40);
 
-
             IROBOT agent = new ROBOT(agentFurnace, agentLegs, agentLeftWeap, agentRightWeap);
             IROBOT opponent = new ROBOT(opponentFurn, opponentLegs, opponentLeftWeap, opponentRightWeap);
 
@@ -34,10 +33,13 @@ namespace Reinforcement
 
             IState state = FactoryState.GetState(FactoryState.Type_State.State3);
 
+            int nbIterationTraining = 10_000;
+
+
             QLearning qLearning = new QLearning(agent, opponentPilot, state, 0.8);
 
             Console.WriteLine("Training Agent...");
-            qLearning.TrainingAgent(10_000);
+            qLearning.TrainingAgent(nbIterationTraining);
 
             Console.WriteLine("Training is Done!");
             Console.WriteLine("Press any key to continue...");
