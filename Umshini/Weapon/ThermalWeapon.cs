@@ -26,6 +26,7 @@ namespace Weapon
         /// <param name="iAccuracy"></param>
         /// <param name="iMinAccuracy"></param>
         /// <param name="iFuelBurn"></param>
+        [JsonConstructor]
         public THERMAL_WEAPON(string iId, string sName, int iArmor, int iLifePoint, string sUrlImage, int iDamage, int iPowerConsumption, int iAccuracy, int iMinAccuracy, int iFuelBurn) : base(iId, sName, iArmor, iLifePoint, sUrlImage, iDamage, iPowerConsumption, iAccuracy, iMinAccuracy, WEAPONS_TYPES.THERMAL)
         {
             _iFuelBurn = iFuelBurn;

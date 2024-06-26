@@ -12,14 +12,16 @@ namespace Part
     {
         
         private int _iRestartLimit = -1;
-        public FURNACE(string iId, string sName, int iArmor, int iLifePoint, string sUrlImage, int iRestartLimit) : base(iId, sName, iArmor, iLifePoint, sUrlImage)
-        {
-            _iRestartLimit = iRestartLimit;
-        }
 
         public FURNACE(FURNACE furnace) : base(furnace._iId, furnace._sName, furnace._iArmor, furnace._iLifePoint, furnace._sUrlImage)
         {
             _iRestartLimit = furnace._iRestartLimit;
+        }
+
+        [JsonConstructor]
+        public FURNACE(string iId, string sName, int iArmor, int iLifePoint, string sUrlImage, int iRestartLimit = -1) : base(iId, sName, iArmor, iLifePoint, sUrlImage)
+        {
+            _iRestartLimit = iRestartLimit;
         }
 
         /// <summary>

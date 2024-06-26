@@ -26,7 +26,7 @@ namespace Part
         private readonly int _iMaxArmor;
         [JsonProperty("max_life_points")]
         private readonly int _iMaxLifePoint;
-        
+
         /// <summary>
         /// Represents an interchangeable part of a robot
         /// </summary>
@@ -37,6 +37,7 @@ namespace Part
         /// <param name="iMaxArmor"></param>
         /// <param name="iMaxLifePoint"></param>
         /// <param name="sUrlImage"></param>
+        [JsonConstructor]
         public APART(string iId, string sName, int iArmor, int iLifePoint, string sUrlImage)
         {
             _iId = iId;

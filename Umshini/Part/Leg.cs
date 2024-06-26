@@ -1,6 +1,7 @@
 ﻿
 
 using Battle;
+using Newtonsoft.Json;
 
 namespace Part
 {
@@ -18,6 +19,7 @@ namespace Part
         /// <param name="sName"></param>
         /// <param name="iArmor"></param>
         /// <param name="iLegsNumber"></param>
+        [JsonConstructor]
         public LEG(string iId, string sName, int iArmor, int iLegsNumber, string sUrlImage) : base(iId, sName, iArmor, iLegsNumber, sUrlImage)
         {
             
