@@ -67,7 +67,7 @@
     <Compile Include="ScoreStatus.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ScoreStatus.Designer.cs">
+    <Compile Include="ScoreStatus.designer.cs">
       <DependentUpon>ScoreStatus.cs</DependentUpon>
     </Compile>
   </ItemGroup>

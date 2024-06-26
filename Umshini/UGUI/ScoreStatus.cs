@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UGUI
+namespace Battle
 {
     public partial class ScoreStatus : UserControl
     {
@@ -51,5 +51,9 @@ namespace UGUI
             }
         }
 
+        private void ScoreStatus_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
