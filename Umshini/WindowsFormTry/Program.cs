@@ -24,7 +24,7 @@ namespace WindowsFormTry
         {
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
-            new UGUI.StartingForm().Show();
+            new UGUI.StartingForm(null).Show();
             Application.Run();
         }
     }

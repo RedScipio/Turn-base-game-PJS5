@@ -104,7 +104,7 @@ namespace NoFormApp
         /// <returns>A normal / melee / 
         /// projectile / thermal weapon</returns>
         /// <exception cref="Exception"></exception>
-        private static IWEAPON GetWeapon(JObject jWeaponsList, int iWeaponChoice)
+        public static IWEAPON GetWeapon(JObject jWeaponsList, int iWeaponChoice)
         {
             int iWeaponTypeChoice = jWeaponsList["Weapons"][iWeaponChoice]["weapon_type"].Value<int>();
 

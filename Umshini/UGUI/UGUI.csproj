@@ -113,6 +113,10 @@
       <Project>{68d1093b-6db4-4f96-8d99-4d618c5449fb}</Project>
       <Name>Consumable</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NoFormApp\NoFormApp.csproj">
+      <Project>{3693C9BF-692C-4EFC-B2A5-C68C70D67D6D}</Project>
+      <Name>NoFormApp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Part\Part.csproj">
       <Project>{461bdc44-5cc4-4cc0-8cf2-45ac1cdb361c}</Project>
       <Name>Part</Name>

@@ -1,5 +1,8 @@
 ﻿using Battle;
 using Newtonsoft.Json.Linq;
+using NoFormApp;
+using Part;
+using Robot;
 using System;
 using System.IO;
 using System.Linq;
@@ -9,34 +12,15 @@ namespace UGUI
 {
     public partial class RobotEditingForm : Form
     {
+        
         public RobotEditingForm()
         {
             InitializeComponent();
         }
 
-        private void furnace_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void weapon_1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void weapon_2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void legs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            StartingForm sf = new StartingForm();
+            StartingForm sf = new StartingForm(null);
             Close();
             sf.Visible = true;
         }
@@ -63,9 +47,31 @@ namespace UGUI
             }
         }
 
-        private void RobotEditingForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            StartingForm sf = new StartingForm(GetRobot());
+            Visible = false;
+            sf.Visible = true;
+        }
+
+        public ROBOT GetRobot()
+        {
+            int iWeapon_1 = weapon_1.SelectedIndex;
+            int iWeapon_2 = weapon_2.SelectedIndex;
+            int iFurnace = furnace.SelectedIndex;
+            int iLegs = legs.SelectedIndex;
+
+            string sJsonString = File.ReadAllText("../../../NoFormApp/RobotComponents.json");
+
+            JObject parts = JObject.Parse(sJsonString);
+
+            IFURNACE furnaceRobot = parts["Furnaces"][iFurnace].ToObject<FURNACE>();
+            ILEG legsRobot = parts["Legs"][iLegs].ToObject<LEG>();
+
+            IWEAPON pWeapon_1 = Utils.GetWeapon(parts, iWeapon_1);
+            IWEAPON pWeapon_2 = Utils.GetWeapon(parts, iWeapon_2);
+
+            return new ROBOT(furnaceRobot, legsRobot, pWeapon_1, pWeapon_2);
         }
     }
 }
