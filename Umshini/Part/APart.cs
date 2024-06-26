@@ -106,7 +106,7 @@ namespace Part
         {
             if (_iArmor < _iMaxArmor)
             {
-                _iArmor = _iArmor + iRepair;
+                _iArmor += iRepair;
                 if (_iArmor > _iMaxArmor)
                 {
                     _iArmor = _iMaxArmor;
@@ -122,7 +122,7 @@ namespace Part
         {
             if (_iLifePoint < _iMaxLifePoint)
             {
-                _iLifePoint = _iLifePoint + iRepair;
+                _iLifePoint += iRepair;
                 if (_iLifePoint > _iMaxLifePoint)
                 {
                     _iLifePoint = _iMaxLifePoint;
