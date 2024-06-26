@@ -20,9 +20,7 @@ namespace UGUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            StartingForm sf = new StartingForm(null);
-            Close();
-            sf.Visible = true;
+
         }
 
         private void RobotEditingForm_Load(object sender, EventArgs e)
@@ -33,6 +31,7 @@ namespace UGUI
             for(int i = 0; i < parts["Legs"].ToList().Count; i++) 
             {
                 legs.Items.Add(parts["Legs"][i]["name"]);
+                
             }
 
             for (int i = 0; i < parts["Weapons"].ToList().Count; i++)
@@ -49,9 +48,7 @@ namespace UGUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StartingForm sf = new StartingForm(GetRobot());
-            Visible = false;
-            sf.Visible = true;
+
         }
 
         public ROBOT GetRobot()
@@ -72,6 +69,20 @@ namespace UGUI
             IWEAPON pWeapon_2 = Utils.GetWeapon(parts, iWeapon_2);
 
             return new ROBOT(furnaceRobot, legsRobot, pWeapon_1, pWeapon_2);
+        }
+
+        private void customButton1_Click(object sender, EventArgs e)
+        {
+            StartingForm sf = new StartingForm(GetRobot());
+            Visible = false;
+            sf.Visible = true;
+        }
+
+        private void customButton2_Click(object sender, EventArgs e)
+        {
+            StartingForm sf = new StartingForm(null);
+            Close();
+            sf.Visible = true;
         }
     }
 }
