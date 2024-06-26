@@ -34,13 +34,15 @@
             this.enemyRobot = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.scoreStatus2 = new Battle.ScoreStatus();
-            this.scoreStatus4 = new Battle.ScoreStatus();
             this.informationPanel = new System.Windows.Forms.Panel();
             this.infoLabel = new System.Windows.Forms.Label();
-            this.leverMainMenu = new UGUI.Lever();
             this.panel1 = new System.Windows.Forms.Panel();
             this.playerRobotPicturebox = new System.Windows.Forms.PictureBox();
+            this.scoreStatus2 = new Battle.ScoreStatus();
+            this.scoreStatus4 = new Battle.ScoreStatus();
+            this.fuelBar1 = new UGUI.FuelBar();
+            this.fuelBar2 = new UGUI.FuelBar();
+            this.leverMainMenu = new UGUI.Lever();
             this.generalLayout.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.enemyRobot)).BeginInit();
@@ -126,42 +128,19 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.41667F));
             this.tableLayoutPanel1.Controls.Add(this.scoreStatus2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.scoreStatus4, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.fuelBar1, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.fuelBar2, 3, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 47);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.57692F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.23077F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.615385F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.57692F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(337, 207);
             this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // scoreStatus2
-            // 
-            this.scoreStatus2.BackColor = System.Drawing.Color.Transparent;
-            this.scoreStatus2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scoreStatus2.FurnaceColor = System.Drawing.Color.Gray;
-            this.scoreStatus2.LeftArmColor = System.Drawing.Color.Gray;
-            this.scoreStatus2.LegsColor = System.Drawing.Color.Gray;
-            this.scoreStatus2.Location = new System.Drawing.Point(38, 23);
-            this.scoreStatus2.Name = "scoreStatus2";
-            this.scoreStatus2.RightArmColor = System.Drawing.Color.Gray;
-            this.scoreStatus2.Size = new System.Drawing.Size(99, 97);
-            this.scoreStatus2.TabIndex = 0;
-            // 
-            // scoreStatus4
-            // 
-            this.scoreStatus4.BackColor = System.Drawing.Color.Transparent;
-            this.scoreStatus4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scoreStatus4.FurnaceColor = System.Drawing.Color.Gray;
-            this.scoreStatus4.LeftArmColor = System.Drawing.Color.Gray;
-            this.scoreStatus4.LegsColor = System.Drawing.Color.Gray;
-            this.scoreStatus4.Location = new System.Drawing.Point(199, 23);
-            this.scoreStatus4.Name = "scoreStatus4";
-            this.scoreStatus4.RightArmColor = System.Drawing.Color.Gray;
-            this.scoreStatus4.Size = new System.Drawing.Size(99, 97);
-            this.scoreStatus4.TabIndex = 1;
             // 
             // informationPanel
             // 
@@ -193,19 +172,6 @@
             this.infoLabel.Text = "Sample Label";
             this.infoLabel.TextChanged += new System.EventHandler(this.infoLabel_TextChanged);
             // 
-            // leverMainMenu
-            // 
-            this.leverMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(170)))), ((int)(((byte)(173)))));
-            this.leverMainMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.leverMainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leverMainMenu.LabelList = ((System.Collections.Generic.List<string>)(resources.GetObject("leverMainMenu.LabelList")));
-            this.leverMainMenu.Location = new System.Drawing.Point(25, 385);
-            this.leverMainMenu.Margin = new System.Windows.Forms.Padding(25, 0, 25, 20);
-            this.leverMainMenu.Name = "leverMainMenu";
-            this.leverMainMenu.SelectedAction = null;
-            this.leverMainMenu.Size = new System.Drawing.Size(313, 146);
-            this.leverMainMenu.TabIndex = 2;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.playerRobotPicturebox);
@@ -228,6 +194,65 @@
             this.playerRobotPicturebox.Size = new System.Drawing.Size(150, 150);
             this.playerRobotPicturebox.TabIndex = 0;
             this.playerRobotPicturebox.TabStop = false;
+            // 
+            // scoreStatus2
+            // 
+            this.scoreStatus2.BackColor = System.Drawing.Color.Transparent;
+            this.scoreStatus2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scoreStatus2.FurnaceColor = System.Drawing.Color.Gray;
+            this.scoreStatus2.LeftArmColor = System.Drawing.Color.Gray;
+            this.scoreStatus2.LegsColor = System.Drawing.Color.Gray;
+            this.scoreStatus2.Location = new System.Drawing.Point(38, 24);
+            this.scoreStatus2.Name = "scoreStatus2";
+            this.scoreStatus2.RightArmColor = System.Drawing.Color.Gray;
+            this.scoreStatus2.Size = new System.Drawing.Size(99, 85);
+            this.scoreStatus2.TabIndex = 0;
+            // 
+            // scoreStatus4
+            // 
+            this.scoreStatus4.BackColor = System.Drawing.Color.Transparent;
+            this.scoreStatus4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scoreStatus4.FurnaceColor = System.Drawing.Color.Gray;
+            this.scoreStatus4.LeftArmColor = System.Drawing.Color.Gray;
+            this.scoreStatus4.LegsColor = System.Drawing.Color.Gray;
+            this.scoreStatus4.Location = new System.Drawing.Point(199, 24);
+            this.scoreStatus4.Name = "scoreStatus4";
+            this.scoreStatus4.RightArmColor = System.Drawing.Color.Gray;
+            this.scoreStatus4.Size = new System.Drawing.Size(99, 85);
+            this.scoreStatus4.TabIndex = 1;
+            // 
+            // fuelBar1
+            // 
+            this.fuelBar1.BackColor = System.Drawing.Color.Gray;
+            this.fuelBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fuelBar1.Location = new System.Drawing.Point(38, 115);
+            this.fuelBar1.Name = "fuelBar1";
+            this.fuelBar1.Percentage = 100;
+            this.fuelBar1.Size = new System.Drawing.Size(99, 13);
+            this.fuelBar1.TabIndex = 2;
+            // 
+            // fuelBar2
+            // 
+            this.fuelBar2.BackColor = System.Drawing.Color.Gray;
+            this.fuelBar2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fuelBar2.Location = new System.Drawing.Point(199, 115);
+            this.fuelBar2.Name = "fuelBar2";
+            this.fuelBar2.Percentage = 100;
+            this.fuelBar2.Size = new System.Drawing.Size(99, 13);
+            this.fuelBar2.TabIndex = 3;
+            // 
+            // leverMainMenu
+            // 
+            this.leverMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(170)))), ((int)(((byte)(173)))));
+            this.leverMainMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.leverMainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.leverMainMenu.LabelList = ((System.Collections.Generic.List<string>)(resources.GetObject("leverMainMenu.LabelList")));
+            this.leverMainMenu.Location = new System.Drawing.Point(25, 385);
+            this.leverMainMenu.Margin = new System.Windows.Forms.Padding(25, 0, 25, 20);
+            this.leverMainMenu.Name = "leverMainMenu";
+            this.leverMainMenu.SelectedAction = null;
+            this.leverMainMenu.Size = new System.Drawing.Size(313, 146);
+            this.leverMainMenu.TabIndex = 2;
             // 
             // BasicBattleForm
             // 
@@ -269,5 +294,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox enemyRobot;
+        private FuelBar fuelBar1;
+        private FuelBar fuelBar2;
     }
 }

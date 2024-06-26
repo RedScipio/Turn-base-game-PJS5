@@ -59,6 +59,12 @@
     <Compile Include="CustomButton.Designer.cs">
       <DependentUpon>CustomButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="FuelBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuelBar.Designer.cs">
+      <DependentUpon>FuelBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="MusicSoundPlayer.cs" />
     <Compile Include="RobotEditingForm.cs">
       <SubType>Form</SubType>
@@ -97,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomButton.resx">
       <DependentUpon>CustomButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuelBar.resx">
+      <DependentUpon>FuelBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RobotEditingForm.resx">
       <DependentUpon>RobotEditingForm.cs</DependentUpon>
