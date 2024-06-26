@@ -21,6 +21,8 @@ namespace UGUI
 
     public partial class BasicBattleForm : Form
     {
+        private List<Lever> _lLever = new List<Lever> { };
+
         #region .. Double Buffered function ..
         public static void SetDoubleBuffered(Control c)
         {
@@ -51,31 +53,135 @@ namespace UGUI
             SetDoubleBuffered(generalLayout);
             SetDoubleBuffered(tableLayoutPanel1);
             SetDoubleBuffered(tableLayoutPanel2);
-            lever1.LabelClick += new EventHandler(lever1_LabelClick);
+            leverMainMenu.LabelClick += new EventHandler(lever_LabelClick);
+
+            _lLever.Add(leverMainMenu);
 
         }
-        protected void lever1_LabelClick(object sender, EventArgs e)
+        protected void lever_LabelClick(object sender, EventArgs eventLever)
         {
-            MessageBox.Show("eez");
-        }
+            Lever lever = (Lever)sender;
+            string sAction = lever.SelectedAction.Replace("- ", "");
 
-/*        private void CreateNewLever(string labelText, Lever lever)
-        {
-            Lever newLever = new Lever(new StringCollection { labelText }, Lever)
-            {
-                Location = new Point(lever.Location.X + lever.Width + 10, lever.Location.Y),
-                Size = lever.Size
-            };
+            List<string> lStringLabels = new List<string> { };
+            lStringLabels.Clear();
 
-            if (this.Parent != null)
+            int iColumnLever = generalLayout.GetCellPosition(_lLever.Last()).Column;
+
+            switch (iColumnLever)
             {
-                this.Parent.Controls.Add(newLever);
+                case 0:
+                    {
+                        switch (sAction)
+                        {
+                            case "Attack":
+                                {
+
+                                    lStringLabels.Add("Left Weapon");
+                                    lStringLabels.Add("Right Weapon");
+
+                                    break;
+                                }
+
+                            case "Repair":
+                                {
+                                    lStringLabels.Add("Light Armor");
+                                    lStringLabels.Add("Heavy Armor");
+                                    lStringLabels.Add("Repair Kits");
+                                    lStringLabels.Add("Full Kits");
+
+                                    break;
+                                }
+                            case "Refuel":
+                                {
+                                    lStringLabels.Add("Wood");
+                                    lStringLabels.Add("Charcoal");
+                                    lStringLabels.Add("Coal");
+                                    lStringLabels.Add("Compact Coal");
+
+                                    break;
+                                }
+                        }
+
+                        break;
+                    }
+
+                case 1:
+                    {
+                        switch (sAction)
+                        {
+                            case "Left Weapon":
+                            case "Right Weapon":
+                            case "Light Armor":
+                            case "Heavy Armor":
+                            case "Repair Kits":
+                            case "Full Kits":
+                                {
+                                    lStringLabels.Add("Left Weapon");
+                                    lStringLabels.Add("Right Weapon");
+                                    lStringLabels.Add("Legs");
+                                    lStringLabels.Add("Furnace");
+
+                                    break;
+                                }
+                            case "Wood":
+                            case "Charcoal":
+                            case "Coal":
+                            case "Compact Coal":
+                                {
+                                    return;
+                                }
+                        }
+
+                        break;
+                    }
+
+                case 2:
+                    {
+                        switch (sAction)
+                        {
+                            case "Left Weapon":
+                            case "Right Weapon":
+                            case "Legs":
+                            case "Furnace":
+                                {
+                                    return;
+                                }
+                        }
+
+                        break;
+                    }
             }
 
-            lever.Enabled = false;
-            _activeLever = newLever;
+            CreateNewLever(lStringLabels);
         }
-*/
+
+        protected void lever_BackClick(object sender, EventArgs eventLever)
+        {
+            if (this.generalLayout != null)
+            {
+                _lLever.RemoveAt(_lLever.Count - 1);
+                _lLever.Last().Enabled = true;
+            }
+        }
+
+        private void CreateNewLever(List<string> lLabelsText)
+        {
+            Lever newLever = new Lever(lLabelsText);
+
+            if (this.generalLayout != null)
+            {
+                TableLayoutPanelCellPosition posLayoutLever = generalLayout.GetCellPosition(_lLever.Last());
+                this.generalLayout.Controls.Add(newLever, posLayoutLever.Column + 1, posLayoutLever.Row);
+            }
+
+            newLever.LabelClick += new EventHandler(lever_LabelClick);
+            newLever.BackClick += new EventHandler(lever_BackClick);
+
+            _lLever.Last().Enabled = false;
+            _lLever.Add(newLever);
+        }
+
 
 
         private void BasicBattleForm_Load(object sender, EventArgs e)

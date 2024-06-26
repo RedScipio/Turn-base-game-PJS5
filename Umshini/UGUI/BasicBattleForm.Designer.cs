@@ -34,7 +34,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.scoreStatus1 = new Battle.ScoreStatus();
             this.scoreStatus3 = new Battle.ScoreStatus();
-            this.lever1 = new UGUI.Lever();
+            this.leverMainMenu = new UGUI.Lever();
             this.generalLayout.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -48,7 +48,7 @@
             this.generalLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.generalLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.generalLayout.Controls.Add(this.tableLayoutPanel2, 1, 0);
-            this.generalLayout.Controls.Add(this.lever1, 0, 1);
+            this.generalLayout.Controls.Add(this.leverMainMenu, 0, 1);
             this.generalLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.generalLayout.Location = new System.Drawing.Point(0, 0);
             this.generalLayout.Name = "generalLayout";
@@ -126,16 +126,16 @@
             this.scoreStatus3.Size = new System.Drawing.Size(85, 83);
             this.scoreStatus3.TabIndex = 1;
             // 
-            // lever1
+            // leverMainMenu
             // 
-            this.lever1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lever1.BackgroundImage")));
-            this.lever1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.lever1.LabelList = ((System.Collections.Specialized.StringCollection)(resources.GetObject("lever1.LabelList")));
-            this.lever1.Location = new System.Drawing.Point(3, 388);
-            this.lever1.Name = "lever1";
-            this.lever1.SelectedAction = null;
-            this.lever1.Size = new System.Drawing.Size(356, 160);
-            this.lever1.TabIndex = 2;
+            this.leverMainMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("leverMainMenu.BackgroundImage")));
+            this.leverMainMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.leverMainMenu.LabelList = ((System.Collections.Generic.List<string>)(resources.GetObject("leverMainMenu.LabelList")));
+            this.leverMainMenu.Location = new System.Drawing.Point(3, 388);
+            this.leverMainMenu.Name = "leverMainMenu";
+            this.leverMainMenu.SelectedAction = null;
+            this.leverMainMenu.Size = new System.Drawing.Size(356, 160);
+            this.leverMainMenu.TabIndex = 2;
             // 
             // BasicBattleForm
             // 
@@ -164,6 +164,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Battle.ScoreStatus scoreStatus1;
         private Battle.ScoreStatus scoreStatus3;
-        private Lever lever1;
+        private Lever leverMainMenu;
     }
 }

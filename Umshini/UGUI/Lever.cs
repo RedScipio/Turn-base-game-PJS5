@@ -10,28 +10,23 @@ namespace UGUI
 {
     public partial class Lever : UserControl
     {
-        private StringCollection _lLabelStringList = new StringCollection();
+        private List<string> _lLabelStringList = new List<string>();
         private List<Label> _lLabelList = new List<Label>();
         private bool _isDragging = false;
         private Point _startPoint = new Point();
         private int _minY;
         private int _maxY;
-        private static Lever _activeLever;
-        private Lever _previousLever;
         private string _selectedAction;
 
         public Lever()
         {
             InitializeComponent();
-            _activeLever = this;
 
         }
 
-        public Lever(StringCollection labelTexts, Lever previousLever = null) : this()
+        public Lever(List<string> labelTexts, Lever previousLever = null) : this()
         {
             LabelList = labelTexts;
-            _previousLever = previousLever;
-            _activeLever = this;
 
              AddBackLabel();
 
@@ -60,7 +55,7 @@ namespace UGUI
 
         [Editor("System.Windows.Forms.Design.StringCollectionEditor, System.Design, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
             typeof(System.Drawing.Design.UITypeEditor))]
-        public StringCollection LabelList
+        public List<string> LabelList
         {
             get { return _lLabelStringList; }
             set
@@ -121,18 +116,21 @@ namespace UGUI
         [Category("Action")]
         [Description("Invoked when user clicks label")]
         public event EventHandler LabelClick;
-        private void Label_Click(object sender, EventArgs e)
+        private void Label_Click(object sender, EventArgs eventClick)
         {
-            if (_activeLever != this) return;
-
             Label clickedLabel = sender as Label;
 
-            if (clickedLabel != null)
+            if (clickedLabel != null && clickedLabel != _lLabelList[0])
             {
                 LeverPictureBox.Top = clickedLabel.Top;
-                CreateNewLever(clickedLabel.Text);
+
+                _selectedAction = clickedLabel.Text;
+
                 if (this.LabelClick != null)
-                    this.LabelClick(this, e);
+                {
+                    this.LabelClick(this, eventClick);
+                }
+                
             }
         }
 
@@ -191,54 +189,27 @@ namespace UGUI
                 {
                     if (closestLabel.Text.Contains("Back"))
                     {
-                        if (_previousLever != null)
+                        _selectedAction = closestLabel.Text;
+
+                        if (this.BackClick != null)
                         {
-                            _previousLever.EnableLever();
-                            _activeLever = _previousLever;
+                            this.BackClick(this, e);
                         }
+
                         this.Parent.Controls.Remove(this);
+                        
                         return;
                     }
 
                     LeverPictureBox.Top = closestLabel.Top;
+                    _selectedAction = closestLabel.Text;
+
                     if (this.LabelClick != null)
+                    {
                         this.LabelClick(this, e);
+                    }
+                    
                 }
-            }
-        }
-
-        private void CreateNewLever(string labelText)
-        {
-            Lever newLever = new Lever(new StringCollection { labelText }, this)
-            {
-                Location = new Point(this.Location.X + this.Width + 10, this.Location.Y),
-                Size = this.Size
-            };
-
-            if (this.Parent != null)
-            {
-                this.Parent.Controls.Add(newLever);
-            }
-
-            DisableLever();
-            _activeLever = newLever;
-        }
-
-        private void DisableLever()
-        {
-            LeverPictureBox.Enabled = false;
-            foreach (var label in _lLabelList)
-            {
-                label.Enabled = false;
-            }
-        }
-
-        private void EnableLever()
-        {
-            LeverPictureBox.Enabled = true;
-            foreach (var label in _lLabelList)
-            {
-                label.Enabled = true;
             }
         }
 
@@ -261,22 +232,18 @@ namespace UGUI
             _lLabelList.Add(backLabel);
         }
 
-
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks label")]
+        public event EventHandler BackClick;
         private void BackLabel_Click(object sender, EventArgs e)
         {
-            if (_activeLever != this) return;
 
-            if (_previousLever != null)
+            if (this.BackClick != null)
             {
-                _previousLever.EnableLever();
-                _activeLever = _previousLever;
+                this.BackClick(this, e);
             }
             this.Parent.Controls.Remove(this);
-        }
-
-        private void Lever_SizeChanged(object sender, EventArgs e)
-        {
-            //LeverPictureBox.Size = new Size();
         }
     }
 }
