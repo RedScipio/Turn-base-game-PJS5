@@ -87,7 +87,6 @@ namespace UGUI
             _trackName = "MusicMix";
             MusicSoundPlayer.Play(_fileName, _trackName);
 
-            AlignInfoLabel();
         }
 
         public void SetRoundedCorners(Panel panel, int borderRadius)
@@ -100,6 +99,7 @@ namespace UGUI
             informationPanel.Show();
             infoLabel.Text = "";
             infoLabel.Text = content;
+            AlignInfoLabel();
             await Task.Delay(3000);
             informationPanel.Hide();
         }

@@ -53,6 +53,12 @@
     <Compile Include="BasicBattleForm.Designer.cs">
       <DependentUpon>BasicBattleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomButton.Designer.cs">
+      <DependentUpon>CustomButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="MusicSoundPlayer.cs" />
     <Compile Include="RobotEditingForm.cs">
       <SubType>Form</SubType>
@@ -88,6 +94,9 @@
   <ItemGroup>
     <EmbeddedResource Include="BasicBattleForm.resx">
       <DependentUpon>BasicBattleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomButton.resx">
+      <DependentUpon>CustomButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RobotEditingForm.resx">
       <DependentUpon>RobotEditingForm.cs</DependentUpon>
