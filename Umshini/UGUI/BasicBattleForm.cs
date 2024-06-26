@@ -150,6 +150,14 @@ namespace UGUI
 
                             case "Repair":
                                 {
+                                    if (_basicBattle.CurrentPilot.IsWeaponBroken(0) == false && _basicBattle.CurrentPilot.IsWeaponBroken(1) == false && _basicBattle.CurrentPilot.IsFurnaceBroken() == false && _basicBattle.CurrentPilot.IsLegsBroken() == false)
+                                    {
+                                        bCreateLever = false;
+                                        WriteInformation("Already in a perfect state");
+
+                                        break;
+                                    }
+
                                     lStringLabels.Add("Light Armor");
                                     lStringLabels.Add("Heavy Armor");
                                     lStringLabels.Add("Repair Kits");
@@ -233,11 +241,27 @@ namespace UGUI
                             {
                                 case "Use Left Weapon":
                                     {
+                                        if (_basicBattle.CurrentPilot.IsWeaponUsable(0) == false)
+                                        {
+                                            bCreateLever = false;
+                                            WriteInformation("The left weapon cannot be used");
+
+                                            break;
+                                        }
+
                                         _lActions.Add((int)WEAPON_MENU.Left_Weapon);
                                         break;
                                     }
                                 case "Use Right Weapon":
                                     {
+                                        if (_basicBattle.CurrentPilot.IsWeaponUsable(1) == false)
+                                        {
+                                            bCreateLever = false;
+                                            WriteInformation("The right weapon cannot be used");
+
+                                            break;
+                                        }
+
                                         _lActions.Add((int)WEAPON_MENU.Right_Weapon);
                                         break;
                                     }
@@ -304,6 +328,7 @@ namespace UGUI
             if (bCreateLever)
             {
                 CreateNewLever(lStringLabels);
+                informationPanel.Hide();
             }
         }
 
@@ -313,6 +338,7 @@ namespace UGUI
             {
                 _lLever.RemoveAt(_lLever.Count - 1);
                 _lLever.Last().Enabled = true;
+                informationPanel.Hide();
             }
         }
 
