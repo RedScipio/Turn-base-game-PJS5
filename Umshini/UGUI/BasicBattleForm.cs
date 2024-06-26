@@ -5,10 +5,15 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Media;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace UGUI
 {
@@ -22,10 +27,15 @@ namespace UGUI
 
     public partial class BasicBattleForm : Form
     {
+        private string _fileName;
+        private string _trackName;
+        [DllImport("winmm.dll")]
+        static extern Int32 mciSendString(string command, StringBuilder buffer, int bufferSize, IntPtr hwndCallback);
         private BASIC_BATTLE _basicBattle;
+
         private List<Lever> _lLever = new List<Lever> { };
         private List<int> _lActions = new List<int> { };
-
+        private string _baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
         #region .. Double Buffered function ..
         public static void SetDoubleBuffered(Control c)
         {
@@ -60,9 +70,25 @@ namespace UGUI
 
             _lLever.Add(leverMainMenu);
             _basicBattle = basicBattle;
+
+            string relativePath = "..\\..\\..\\..\\Ressources\\MusicMix.wav";
+            _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
+            _trackName = "MusicMix";
+            MusicSoundPlayer.Play(_fileName, _trackName);
         }
+
+
+
+
+
+
         protected void lever_LabelClick(object sender, EventArgs eventLever)
         {
+            string relativePath = "..\\..\\..\\..\\Ressources\\SoundEffect\\Collect\\collect-2.wav";
+            _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
+            _trackName = "collect-2";
+            MusicSoundPlayer.Play(_fileName, _trackName);
+
             Lever lever = (Lever)sender;
             string sAction = lever.SelectedAction.Replace("- ", "");
 
