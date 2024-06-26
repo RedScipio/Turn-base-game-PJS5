@@ -22,22 +22,16 @@ namespace UGUI
         public Lever()
         {
             InitializeComponent();
+            _activeLever = this;
         }
 
-        public Lever(List<string> labelTexts, Lever previousLever = null) : this()
+        public Lever(StringCollection labelTexts, Lever previousLever = null) : this()
         {
-            foreach (var text in labelTexts)
-            {
-                AddLabel(text);
-            }
-
+            LabelList = labelTexts;
             _previousLever = previousLever;
+            _activeLever = this;
 
-            // Add a "Back" label if this is a new lever
-            if (labelTexts.Count == 1)
-            {
-                AddBackLabel();
-            }
+             AddBackLabel();
 
             if (_lLabelList.Count > 0)
             {
@@ -172,7 +166,7 @@ namespace UGUI
                     }
                 }
 
-                if (closestLabel != null)
+                if (closestLabel != null && closestLabel != _lLabelList[0])
                 {
                     if (closestLabel.Text.Contains("Back"))
                     {
@@ -193,7 +187,7 @@ namespace UGUI
 
         private void CreateNewLever(string labelText)
         {
-            Lever newLever = new Lever(new List<string> { labelText }, this)
+            Lever newLever = new Lever(new StringCollection { labelText }, this)
             {
                 Location = new Point(this.Location.X + this.Width + 10, this.Location.Y),
                 Size = this.Size
@@ -225,30 +219,6 @@ namespace UGUI
                 label.Enabled = true;
             }
         }
-
-        private void AddLabel(string labelText, float rowHeightPercentage = 100f)
-        {
-            Label label = new Label();
-            label.AutoSize = true;
-            label.Dock = DockStyle.Bottom;
-            label.Location = new Point(3, 136);
-            label.Name = "label" + _lLabelList.Count;
-            label.Size = new Size(164, 13);
-            label.TabIndex = _lLabelList.Count;
-
-            if (labelText != " ")
-            {
-                label.Text = "- " + labelText;
-            }
-
-            label.Click += Label_Click;
-
-            this.LabelLayout.Controls.Add(label, 0, _lLabelList.Count);
-            this.LabelLayout.RowStyles.Add(new RowStyle(SizeType.Percent, rowHeightPercentage));
-
-            _lLabelList.Add(label);
-        }
-
 
         private void AddBackLabel()
         {
