@@ -26,6 +26,16 @@ namespace UGUI
     /// 
     public partial class BasicBattleForm : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // width of ellipse
+            int nHeightEllipse // height of ellipse
+        );
         private string _fileName;
         private string _trackName;
         [DllImport("winmm.dll")]
@@ -74,7 +84,23 @@ namespace UGUI
             _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
             _trackName = "MusicMix";
             MusicSoundPlayer.Play(_fileName, _trackName);
+            SetRoundedCorners(informationPanel, 5);
         }
+
+        public void SetRoundedCorners(Panel panel, int borderRadius)
+        {
+            panel.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel.Width, panel.Height, borderRadius, borderRadius));
+        }
+
+        public async void WriteInformation(string content)
+        {
+            informationPanel.Show();
+            infoLabel.Text = "";
+            infoLabel.Text = content;
+            await Task.Delay(3000);
+            informationPanel.Hide();
+        }
+
 
         protected void lever_LabelClick(object sender, EventArgs eventLever)
         {
@@ -298,6 +324,12 @@ namespace UGUI
             StartingForm sf = new StartingForm(null);
             sf.setIsFirstTime();
             sf.Visible = true;
+        }
+
+
+        private void informationPanel_Click(object sender, EventArgs e)
+        {
+            informationPanel.Hide();
         }
     }
 }
