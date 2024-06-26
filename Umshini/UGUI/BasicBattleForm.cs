@@ -117,6 +117,8 @@ namespace UGUI
 
             int iColumnLever = generalLayout.GetCellPosition(_lLever.Last()).Column;
 
+            bool bCreateLever = true;
+
             switch (iColumnLever)
             {
                 case 0:
@@ -127,6 +129,13 @@ namespace UGUI
                         {
                             case "Attack":
                                 {
+                                    if (_basicBattle.CurrentPilot.IsWeaponUsable(0) == false && _basicBattle.CurrentPilot.IsWeaponUsable(1) == false )
+                                    {
+                                        bCreateLever = false;
+                                        WriteInformation("No usable weapons");
+
+                                        break;
+                                    }
 
                                     lStringLabels.Add("Use Left Weapon");
                                     lStringLabels.Add("Use Right Weapon");
@@ -149,6 +158,14 @@ namespace UGUI
                                 }
                             case "Refuel":
                                 {
+                                    if (_basicBattle.CurrentPilot.GetRobot().GetFuel() == _basicBattle.CurrentPilot.GetRobot().GetMaxFuel())
+                                    {
+                                        bCreateLever = false;
+                                        WriteInformation("Already full of fuel");
+
+                                        break;
+                                    }
+
                                     lStringLabels.Add("Wood");
                                     lStringLabels.Add("Charcoal");
                                     lStringLabels.Add("Coal");
@@ -281,7 +298,10 @@ namespace UGUI
                     }
             }
 
-            CreateNewLever(lStringLabels);
+            if (bCreateLever)
+            {
+                CreateNewLever(lStringLabels);
+            }
         }
 
         protected void lever_BackClick(object sender, EventArgs eventLever)

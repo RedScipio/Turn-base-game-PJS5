@@ -12,6 +12,7 @@ namespace Battle
     {
         public BASIC_BATTLE(IPILOT pilot1, IPILOT pilot2) : base(pilot1, pilot2)
         {
+            _currentPilot = this._lPilots[0];
         }
 
         public void PlayBattle()
