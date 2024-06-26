@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Runtime.InteropServices;
@@ -26,16 +27,15 @@ namespace UGUI
 
     public partial class BasicBattleForm : Form
     {
-        private string FileName;
-        private string TrackName;
-        private int volume = 10; //volume entre 0 et 1000
+        private string _fileName;
+        private string _trackName;
         [DllImport("winmm.dll")]
         static extern Int32 mciSendString(string command, StringBuilder buffer, int bufferSize, IntPtr hwndCallback);
         private BASIC_BATTLE _basicBattle;
 
         private List<Lever> _lLever = new List<Lever> { };
         private List<int> _lActions = new List<int> { };
-
+        private string _baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
         #region .. Double Buffered function ..
         public static void SetDoubleBuffered(Control c)
         {
@@ -69,10 +69,12 @@ namespace UGUI
             leverMainMenu.LabelClick += new EventHandler(lever_LabelClick);
 
             _lLever.Add(leverMainMenu);
-            _basicBattle = basicBattle;        
-            FileName = "D:\\Umshini\\Ressources\\MusicMix.wav";
-            TrackName = "MusicMix";
-            MusicSoundPlayer.Play(FileName, TrackName);
+            _basicBattle = basicBattle;
+
+            string relativePath = "..\\..\\..\\..\\Ressources\\MusicMix.wav";
+            _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
+            _trackName = "MusicMix";
+            MusicSoundPlayer.Play(_fileName, _trackName);
         }
 
 
@@ -82,9 +84,11 @@ namespace UGUI
 
         protected void lever_LabelClick(object sender, EventArgs eventLever)
         {
-            FileName = "D:\\Umshini\\Ressources\\SoundEffect\\Collect\\collect-2.wav";
-            TrackName = "collect-2";
-            MusicSoundPlayer.Play(FileName,TrackName);     
+            string relativePath = "..\\..\\..\\..\\Ressources\\SoundEffect\\Collect\\collect-2.wav";
+            _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
+            _trackName = "collect-2";
+            MusicSoundPlayer.Play(_fileName, _trackName);
+
             Lever lever = (Lever)sender;
             string sAction = lever.SelectedAction.Replace("- ", "");
 
