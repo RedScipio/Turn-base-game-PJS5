@@ -478,8 +478,6 @@ namespace UGUI
 
                 case 2:
                     {
-                        int iThirdChoice = -1;
-
                         switch (sAction)
                         {
                             case "Left Weapon":
@@ -500,7 +498,7 @@ namespace UGUI
                                         break;
                                     }
 
-                                    _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], _lActions[1], (int)TARGET_MENU.Furnace);
+                                    _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], _lActions[1], (int)TARGET_MENU.Left_Weapon);
                                     if (_lActions[0] == (int)MAIN_MENU.Attack)//Player attacker
                                     {
                                         Shake(2);
@@ -531,7 +529,7 @@ namespace UGUI
                                         break;
                                     }
 
-                                    _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], _lActions[1], (int)TARGET_MENU.Furnace);
+                                    _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], _lActions[1], (int)TARGET_MENU.Right_Weapon);
                                     if (_lActions[0] == (int)MAIN_MENU.Attack)//Player attacker
                                     {
                                         Shake(2);
@@ -562,7 +560,7 @@ namespace UGUI
                                         break;
                                     }
 
-                                    _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], _lActions[1], (int)TARGET_MENU.Furnace);
+                                    _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], _lActions[1], (int)TARGET_MENU.Legs);
                                     if (_lActions[0] == (int)MAIN_MENU.Attack)//Player attacker
                                     {
                                         Shake(2);
