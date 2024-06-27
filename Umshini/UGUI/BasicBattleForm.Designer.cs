@@ -34,15 +34,15 @@
             this.enemyRobot = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.informationPanel = new System.Windows.Forms.Panel();
-            this.infoLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.playerRobotPicturebox = new System.Windows.Forms.PictureBox();
             this.scoreStatus2 = new Battle.ScoreStatus();
             this.scoreStatus4 = new Battle.ScoreStatus();
             this.fuelBar1 = new UGUI.FuelBar();
             this.fuelBar2 = new UGUI.FuelBar();
+            this.informationPanel = new System.Windows.Forms.Panel();
+            this.infoLabel = new System.Windows.Forms.Label();
             this.leverMainMenu = new UGUI.Lever();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.playerRobotPicturebox = new System.Windows.Forms.PictureBox();
             this.generalLayout.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.enemyRobot)).BeginInit();
@@ -142,59 +142,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(337, 207);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // informationPanel
-            // 
-            this.informationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.informationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.informationPanel.Controls.Add(this.infoLabel);
-            this.informationPanel.Location = new System.Drawing.Point(3, 267);
-            this.informationPanel.Name = "informationPanel";
-            this.informationPanel.Size = new System.Drawing.Size(351, 84);
-            this.informationPanel.TabIndex = 3;
-            this.informationPanel.Visible = false;
-            this.informationPanel.SizeChanged += new System.EventHandler(this.informationPanel_SizeChanged);
-            this.informationPanel.Click += new System.EventHandler(this.informationPanel_Click);
-            // 
-            // infoLabel
-            // 
-            this.infoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.infoLabel.AutoSize = true;
-            this.infoLabel.BackColor = System.Drawing.Color.Transparent;
-            this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.infoLabel.ForeColor = System.Drawing.Color.White;
-            this.infoLabel.Location = new System.Drawing.Point(124, 28);
-            this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(94, 17);
-            this.infoLabel.TabIndex = 0;
-            this.infoLabel.Text = "Sample Label";
-            this.infoLabel.TextChanged += new System.EventHandler(this.infoLabel_TextChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.playerRobotPicturebox);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(357, 379);
-            this.panel1.TabIndex = 3;
-            // 
-            // playerRobotPicturebox
-            // 
-            this.playerRobotPicturebox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.playerRobotPicturebox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("playerRobotPicturebox.BackgroundImage")));
-            this.playerRobotPicturebox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.playerRobotPicturebox.Location = new System.Drawing.Point(81, 182);
-            this.playerRobotPicturebox.Margin = new System.Windows.Forms.Padding(50);
-            this.playerRobotPicturebox.Name = "playerRobotPicturebox";
-            this.playerRobotPicturebox.Size = new System.Drawing.Size(150, 150);
-            this.playerRobotPicturebox.TabIndex = 0;
-            this.playerRobotPicturebox.TabStop = false;
-            // 
             // scoreStatus2
             // 
             this.scoreStatus2.BackColor = System.Drawing.Color.Transparent;
@@ -241,6 +188,36 @@
             this.fuelBar2.Size = new System.Drawing.Size(99, 13);
             this.fuelBar2.TabIndex = 3;
             // 
+            // informationPanel
+            // 
+            this.informationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.informationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.informationPanel.Controls.Add(this.infoLabel);
+            this.informationPanel.Location = new System.Drawing.Point(3, 267);
+            this.informationPanel.Name = "informationPanel";
+            this.informationPanel.Size = new System.Drawing.Size(351, 84);
+            this.informationPanel.TabIndex = 3;
+            this.informationPanel.Visible = false;
+            this.informationPanel.SizeChanged += new System.EventHandler(this.informationPanel_SizeChanged);
+            this.informationPanel.Click += new System.EventHandler(this.informationPanel_Click);
+            // 
+            // infoLabel
+            // 
+            this.infoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoLabel.AutoSize = true;
+            this.infoLabel.BackColor = System.Drawing.Color.Transparent;
+            this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.infoLabel.ForeColor = System.Drawing.Color.White;
+            this.infoLabel.Location = new System.Drawing.Point(124, 28);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(94, 17);
+            this.infoLabel.TabIndex = 0;
+            this.infoLabel.Text = "Sample Label";
+            this.infoLabel.TextChanged += new System.EventHandler(this.infoLabel_TextChanged);
+            // 
             // leverMainMenu
             // 
             this.leverMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(170)))), ((int)(((byte)(173)))));
@@ -254,6 +231,29 @@
             this.leverMainMenu.Size = new System.Drawing.Size(313, 146);
             this.leverMainMenu.TabIndex = 2;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.playerRobotPicturebox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(357, 379);
+            this.panel1.TabIndex = 3;
+            // 
+            // playerRobotPicturebox
+            // 
+            this.playerRobotPicturebox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.playerRobotPicturebox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("playerRobotPicturebox.BackgroundImage")));
+            this.playerRobotPicturebox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.playerRobotPicturebox.Location = new System.Drawing.Point(81, 182);
+            this.playerRobotPicturebox.Margin = new System.Windows.Forms.Padding(50);
+            this.playerRobotPicturebox.Name = "playerRobotPicturebox";
+            this.playerRobotPicturebox.Size = new System.Drawing.Size(150, 150);
+            this.playerRobotPicturebox.TabIndex = 0;
+            this.playerRobotPicturebox.TabStop = false;
+            // 
             // BasicBattleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,6 +264,7 @@
             this.Controls.Add(this.generalLayout);
             this.DoubleBuffered = true;
             this.Name = "BasicBattleForm";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Battle";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BasicBattleForm_FormClosing);
