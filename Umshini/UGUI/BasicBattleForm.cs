@@ -158,13 +158,20 @@ namespace UGUI
 
             if(_basicBattle.IsOver())
             {
+                string relativePath = "..\\..\\..\\..\\Ressources\\SoundEffect\\Lose\\lose-3.wav";
                 if (_basicBattle.Pilots[0].GetRobot().IsFurnaceBroken())
                 {
+                    _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
+                    _trackName = "lose-3";
+                    MusicSoundPlayer.Play(_fileName, _trackName);
                     WriteInformation("You Lose");
                     await Task.Delay(3000);
                     Close();
                 }
-
+                relativePath = "..\\..\\..\\..\\Ressources\\SoundEffect\\Win\\win-8.wav";
+                _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
+                _trackName = "win-8";
+                MusicSoundPlayer.Play(_fileName, _trackName);
                 WriteInformation("You Win");
                 await Task.Delay(3000);
                 Close();
@@ -223,6 +230,11 @@ namespace UGUI
                 case (int)MAIN_MENU.Attack:
                     {
                         WriteInformation("The bot attack you");
+                        Shake(1);
+                        string relativePath = "..\\..\\..\\..\\Ressources\\SoundEffect\\Shoot\\gun-4.wav";
+                        _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
+                        _trackName = "gun-4";
+                        MusicSoundPlayer.Play(_fileName, _trackName);
                         break;
                     }
                 case (int)MAIN_MENU.Repairs:
