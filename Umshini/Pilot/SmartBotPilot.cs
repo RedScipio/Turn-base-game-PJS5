@@ -269,7 +269,7 @@ namespace Pilot
 
             // Getting the best non-thermal weapon
             int iBestWeapon = this.GetBestWeapon();
-
+             
             // If no non-thermal weapon is selected, only one thermal weapon can be used
             if (iBestWeapon < 0) return true;
 
