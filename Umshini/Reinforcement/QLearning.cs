@@ -14,6 +14,12 @@ namespace Reinforcement
 
         private readonly IState _typeState;
 
+        private int _nbVictories;
+        private int _nbDefeats;
+
+        public int NbVictories { get => _nbVictories; }
+        public int NbDefeats { get => _nbDefeats; }
+
         public QLearning(IROBOT r1, IPILOT r2, IState state, double gamma)
         {
             this._IARobot = r1;
@@ -22,6 +28,9 @@ namespace Reinforcement
             this._typeState = state;
             this._random = new Random();
             this._gamma = gamma;
+
+            this._nbVictories = 0;
+            this._nbDefeats = 0;
 
             GenerateQTable();
         }
@@ -46,14 +55,15 @@ namespace Reinforcement
             }
         }
 
-
         public void Run()
         {
             Console.WriteLine("Resultats : rien");
         }
 
-        public void TrainingAgent(int nbTrains)
+        public void TrainingAgent(int nbTrains, float exploration, float decrementationExploration, float minExploration)
         {
+            int nbVictories = 0;
+            int nbDefeats = 0;
             for (int i = 0; i < nbTrains; i++)
             {
                 IROBOT agent = this._IARobot.Clone();
@@ -62,27 +72,37 @@ namespace Reinforcement
                 //double initialState = this._typeState.ConvertNumber(agent, opponent.GetRobot());
                 double currentState = this._typeState.ConvertNumber(agent, opponent.GetRobot());
 
-                int x = 0;
-
                 while (!IsSimulationOver(agent, opponent.GetRobot()))
                 {
-                    x += 1;
-
-                    if (x > 100)
-                    {
-                        break;
-                    }
-
-                    this.TakeAction(this._IARobot, this._robotToKill, currentState);
+                    this.TakeAction(agent, opponent, currentState, exploration);
                 }
+
+                if (agent.IsDestroy())
+                {
+                    nbDefeats++;
+                }
+                else
+                {
+                    nbVictories++;
+                }
+
+                exploration = Math.Max(exploration - decrementationExploration, minExploration);
             }
+
+            Console.WriteLine("Victories : " + nbVictories);
+            Console.WriteLine("Defeats : " + nbDefeats);
         }
 
-        private void TakeAction(IROBOT agent, IPILOT opposent, double currentState)
+        private void TakeAction(IROBOT agent, IPILOT opposent, double currentState, float exploration)
         {
             Action[] validActions = QLearning.GetLegalActions(agent, opposent.GetRobot());
-            int randomIndexAction = _random.Next(0, validActions.Length);
-            int action = (int)validActions[randomIndexAction];
+            int indexAction;
+            if (_random.Next(0, 100)/100 <= exploration)
+                indexAction = _random.Next(0, validActions.Length);
+            else
+                indexAction = _qTable[(int)currentState].ToList().IndexOf(_qTable[(int)currentState].Max());
+
+            int action = (int)validActions[indexAction];
             NextState(agent, opposent, (Action)action);
 
             double saReward = QLearning.GetReward(agent, opposent.GetRobot());
@@ -143,7 +163,7 @@ namespace Reinforcement
             }
 
             if (!opponent.GetRobot().IsDestroy())
-                opponent.PlayTurnAuto(agent);
+                opponent.PlayTurnAuto(agent, false);
 
             return this._typeState.ConvertNumber(agent, opponent.GetRobot());
         }
