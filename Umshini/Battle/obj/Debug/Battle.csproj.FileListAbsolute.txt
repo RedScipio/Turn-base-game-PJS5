@@ -113,3 +113,12 @@ C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.
 C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.Up2Date
 C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.dll
 C:\Users\bilbo\Source\Repos\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.pdb
+C:\Users\sackm\Downloads\Save Projet\cypri\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Battle.dll
+C:\Users\sackm\Downloads\Save Projet\cypri\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Battle.pdb
+C:\Users\sackm\Downloads\Save Projet\cypri\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sackm\Downloads\Save Projet\cypri\Turn-base-game-PJS5\Umshini\Battle\bin\Debug\Newtonsoft.Json.xml
+C:\Users\sackm\Downloads\Save Projet\cypri\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.AssemblyReference.cache
+C:\Users\sackm\Downloads\Save Projet\cypri\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.CoreCompileInputs.cache
+C:\Users\sackm\Downloads\Save Projet\cypri\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.csproj.Up2Date
+C:\Users\sackm\Downloads\Save Projet\cypri\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.dll
+C:\Users\sackm\Downloads\Save Projet\cypri\Turn-base-game-PJS5\Umshini\Battle\obj\Debug\Battle.pdb
