@@ -466,7 +466,7 @@ namespace UGUI
                                 }
                             case "Legs":
                                 {
-                                    if (_lActions[1] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsWeaponBroken((int)TARGET_MENU.Legs))
+                                    if (_lActions[1] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsLegsBroken())
                                     {
                                         bCreateLever = false;
                                         WriteInformation("Legs already destroy");
@@ -479,7 +479,7 @@ namespace UGUI
                                 }
                             case "Furnace":
                                 {
-                                    if (_lActions[1] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsWeaponBroken((int)TARGET_MENU.Furnace))
+                                    if (_lActions[1] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsFurnaceBroken())
                                     {
                                         bCreateLever = false;
                                         WriteInformation("Furnace already destroy");
