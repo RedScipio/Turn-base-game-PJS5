@@ -6,6 +6,9 @@ namespace Battle
     public interface IPART
     {
         bool IsBroken();
+        bool IsDamage();
+        bool IsLifeDamage();
+        bool IsArmorDamage();
         int GetLife();
         int GetMaxLife();
         int GetArmor();

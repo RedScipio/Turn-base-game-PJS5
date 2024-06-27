@@ -71,6 +71,33 @@ namespace Part
         }
 
         /// <summary>
+        /// Checking if the part of a robot is damage
+        /// </summary>
+        /// <returns>True if the robot's is inferior to 1, else false</returns>
+        public bool IsDamage()
+        {
+            return IsLifeDamage() || IsArmorDamage();
+        }
+
+        /// <summary>
+        /// Checking if the part of a robot is damage
+        /// </summary>
+        /// <returns>True if the robot's is inferior to 1, else false</returns>
+        public bool IsLifeDamage()
+        {
+            return _iLifePoint != _iMaxLifePoint;
+        }
+
+        /// <summary>
+        /// Checking if the part of a robot is damage
+        /// </summary>
+        /// <returns>True if the robot's is inferior to 1, else false</returns>
+        public bool IsArmorDamage()
+        {
+            return _iArmor != _iMaxArmor;
+        }
+
+        /// <summary>
         /// Inflict an amount of damage on the targeted robot part
         /// </summary>
         /// <param name="iDamage"></param>

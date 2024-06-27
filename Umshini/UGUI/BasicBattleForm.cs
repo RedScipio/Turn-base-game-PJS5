@@ -303,7 +303,7 @@ namespace UGUI
 
                             case "Repair":
                                 {
-                                    if (_basicBattle.CurrentPilot.IsWeaponBroken(0) == false && _basicBattle.CurrentPilot.IsWeaponBroken(1) == false && _basicBattle.CurrentPilot.IsFurnaceBroken() == false && _basicBattle.CurrentPilot.IsLegsBroken() == false)
+                                    if (_basicBattle.CurrentPilot.IsWeaponDamage(0) == false && _basicBattle.CurrentPilot.IsWeaponDamage(1) == false && _basicBattle.CurrentPilot.IsFurnaceDamage() == false && _basicBattle.CurrentPilot.IsLegsDamage() == false)
                                     {
                                         bCreateLever = false;
                                         WriteInformation("Already in a perfect state");
@@ -420,21 +420,53 @@ namespace UGUI
                                     }
                                 case "Light Armor":
                                     {
+                                        if (_lActions[0] == (int)MAIN_MENU.Repairs && _basicBattle.Pilots[0].IsWeaponArmorDamage((int)TARGET_MENU.Left_Weapon) == false && _basicBattle.Pilots[0].IsWeaponArmorDamage((int)TARGET_MENU.Right_Weapon) == false && _basicBattle.CurrentPilot.IsFurnaceArmorDamage() == false && _basicBattle.CurrentPilot.IsLegsArmorDamage() == false)
+                                        {
+                                            bCreateLever = false;
+                                            WriteInformation("No armor to repair");
+
+                                            break;
+                                        }
+
                                         _lActions.Add((int)REPAIRS_MENU.Light_Armor);
                                         break;
                                     }
                                 case "Heavy Armor":
                                     {
+                                        if (_lActions[0] == (int)MAIN_MENU.Repairs && _basicBattle.Pilots[0].IsWeaponArmorDamage((int)TARGET_MENU.Left_Weapon) == false && _basicBattle.Pilots[0].IsWeaponArmorDamage((int)TARGET_MENU.Right_Weapon) == false && _basicBattle.CurrentPilot.IsFurnaceArmorDamage() == false && _basicBattle.CurrentPilot.IsLegsArmorDamage() == false)
+                                        {
+                                            bCreateLever = false;
+                                            WriteInformation("No armor to repair");
+
+                                            break;
+                                        }
+
                                         _lActions.Add((int)REPAIRS_MENU.Heavy_Armor);
                                         break;
                                     }
                                 case "Repair Kits":
                                     {
+                                        if (_lActions[0] == (int)MAIN_MENU.Repairs && _basicBattle.Pilots[0].IsWeaponLifeDamage((int)TARGET_MENU.Left_Weapon) == false && _basicBattle.Pilots[0].IsWeaponLifeDamage((int)TARGET_MENU.Right_Weapon) == false && _basicBattle.CurrentPilot.IsFurnaceLifeDamage() == false && _basicBattle.CurrentPilot.IsLegsLifeDamage() == false)
+                                        {
+                                            bCreateLever = false;
+                                            WriteInformation("No parts completely destroyed");
+
+                                            break;
+                                        }
+
                                         _lActions.Add((int)REPAIRS_MENU.Repair_Kits);
                                         break;
                                     }
                                 case "Full Kits":
                                     {
+                                        if (_lActions[0] == (int)MAIN_MENU.Repairs && _basicBattle.Pilots[0].IsWeaponLifeDamage((int)TARGET_MENU.Left_Weapon) == false && _basicBattle.Pilots[0].IsWeaponLifeDamage((int)TARGET_MENU.Right_Weapon) == false && _basicBattle.CurrentPilot.IsFurnaceLifeDamage() == false && _basicBattle.CurrentPilot.IsLegsLifeDamage() == false)
+                                        {
+                                            bCreateLever = false;
+                                            WriteInformation("No parts completely destroyed");
+
+                                            break;
+                                        }
+
                                         _lActions.Add((int)REPAIRS_MENU.Full_Kits);
                                         break;
                                     }
@@ -452,7 +484,7 @@ namespace UGUI
                         {
                             case "Left Weapon":
                                 {
-                                    if (_lActions[1] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsWeaponBroken((int)TARGET_MENU.Left_Weapon))
+                                    if (_lActions[0] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsWeaponBroken((int)TARGET_MENU.Left_Weapon))
                                     {
                                         bCreateLever = false;
                                         WriteInformation("Left Weapon already destroy");
@@ -460,12 +492,30 @@ namespace UGUI
                                         break;
                                     }
 
-                                    iThirdChoice = (int)TARGET_MENU.Left_Weapon;
-                                    break;
+                                    if (_lActions[0] == (int)MAIN_MENU.Repairs &&  _basicBattle.Pilots[0].IsWeaponDamage((int)TARGET_MENU.Left_Weapon) == false)
+                                    {
+                                        bCreateLever = false;
+                                        WriteInformation("Your left Weapon is in perfect condition");
+
+                                        break;
+                                    }
+
+                                    _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], _lActions[1], (int)TARGET_MENU.Furnace);
+                                    if (_lActions[0] == (int)MAIN_MENU.Attack)//Player attacker
+                                    {
+                                        Shake(2);
+                                        relativePath = "..\\..\\..\\..\\Ressources\\SoundEffect\\Shoot\\gun-4.wav";
+                                        _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
+                                        _trackName = "gun-4";
+                                        MusicSoundPlayer.Play(_fileName, _trackName);
+                                    }
+
+                                    PlayRound();
+                                    return;
                                 }
                             case "Right Weapon":
                                 {
-                                    if (_lActions[1] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsWeaponBroken((int)TARGET_MENU.Right_Weapon))
+                                    if (_lActions[0] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsWeaponBroken((int)TARGET_MENU.Right_Weapon))
                                     {
                                         bCreateLever = false;
                                         WriteInformation("Right Weapon already destroy");
@@ -473,12 +523,30 @@ namespace UGUI
                                         break;
                                     }
 
-                                    iThirdChoice = (int)TARGET_MENU.Right_Weapon;
-                                    break;
+                                    if (_lActions[0] == (int)MAIN_MENU.Repairs && _basicBattle.Pilots[0].IsWeaponDamage((int)TARGET_MENU.Right_Weapon) == false)
+                                    {
+                                        bCreateLever = false;
+                                        WriteInformation("Your right Weapon is in perfect condition");
+
+                                        break;
+                                    }
+
+                                    _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], _lActions[1], (int)TARGET_MENU.Furnace);
+                                    if (_lActions[0] == (int)MAIN_MENU.Attack)//Player attacker
+                                    {
+                                        Shake(2);
+                                        relativePath = "..\\..\\..\\..\\Ressources\\SoundEffect\\Shoot\\gun-4.wav";
+                                        _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
+                                        _trackName = "gun-4";
+                                        MusicSoundPlayer.Play(_fileName, _trackName);
+                                    }
+
+                                    PlayRound();
+                                    return;
                                 }
                             case "Legs":
                                 {
-                                    if (_lActions[1] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsLegsBroken())
+                                    if (_lActions[0] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsLegsBroken())
                                     {
                                         bCreateLever = false;
                                         WriteInformation("Legs already destroy");
@@ -486,12 +554,30 @@ namespace UGUI
                                         break;
                                     }
 
-                                    iThirdChoice = (int)TARGET_MENU.Legs;
-                                    break;
+                                    if (_lActions[0] == (int)MAIN_MENU.Repairs && _basicBattle.Pilots[0].IsLegsDamage() == false)
+                                     {
+                                        bCreateLever = false;
+                                        WriteInformation("Your legs are in perfect condition");
+
+                                        break;
+                                    }
+
+                                    _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], _lActions[1], (int)TARGET_MENU.Furnace);
+                                    if (_lActions[0] == (int)MAIN_MENU.Attack)//Player attacker
+                                    {
+                                        Shake(2);
+                                        relativePath = "..\\..\\..\\..\\Ressources\\SoundEffect\\Shoot\\gun-4.wav";
+                                        _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
+                                        _trackName = "gun-4";
+                                        MusicSoundPlayer.Play(_fileName, _trackName);
+                                    }
+
+                                    PlayRound();
+                                    return;
                                 }
                             case "Furnace":
                                 {
-                                    if (_lActions[1] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsFurnaceBroken())
+                                    if (_lActions[0] == (int)MAIN_MENU.Attack && _basicBattle.Pilots[1].IsFurnaceBroken())
                                     {
                                         bCreateLever = false;
                                         WriteInformation("Furnace already destroy");
@@ -499,23 +585,34 @@ namespace UGUI
                                         break;
                                     }
 
-                                    iThirdChoice = (int)TARGET_MENU.Furnace;
-                                    break;
+                                    if (_lActions[0] == (int)MAIN_MENU.Repairs && _basicBattle.Pilots[0].IsFurnaceDamage() == false)
+                                    {
+                                        bCreateLever = false;
+                                        WriteInformation("Your furnace is in perfect condition");
+
+                                        break;
+                                    }
+
+                                    _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], _lActions[1], (int)TARGET_MENU.Furnace);
+                                    if (_lActions[0] == (int)MAIN_MENU.Attack)//Player attacker
+                                    {
+                                        Shake(2);
+                                        relativePath = "..\\..\\..\\..\\Ressources\\SoundEffect\\Shoot\\gun-4.wav";
+                                        _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
+                                        _trackName = "gun-4";
+                                        MusicSoundPlayer.Play(_fileName, _trackName);
+                                    }
+
+                                    PlayRound();
+                                    return;
                                 }
+                            default:
+                                {
+                                    break;
+                                }  
                         }
 
-                        _basicBattle.PlayTurn(0, (MAIN_MENU)_lActions[0], _lActions[1], iThirdChoice);
-                        if (_lActions[0] == (int)MAIN_MENU.Attack)//Player attacker
-                        {
-                            Shake(2);
-                            relativePath = "..\\..\\..\\..\\Ressources\\SoundEffect\\Shoot\\gun-4.wav";
-                            _fileName = Path.GetFullPath(Path.Combine(_baseDirectory, relativePath));
-                            _trackName = "gun-4";
-                            MusicSoundPlayer.Play(_fileName, _trackName);
-                        }
-                        
-                        PlayRound();
-                        return;
+                        break;
                     }
             }
 

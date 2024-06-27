@@ -25,8 +25,17 @@ namespace Battle
         int GetWeaponDamage(int iWeapon);
         int GetWeaponHitChance(int iWeapon);
         bool IsFurnaceBroken();
+        bool IsFurnaceDamage();
+        bool IsFurnaceLifeDamage();
+        bool IsFurnaceArmorDamage();
         bool IsLegsBroken();
+        bool IsLegsDamage();
+        bool IsLegsLifeDamage();
+        bool IsLegsArmorDamage();
         bool IsWeaponBroken(int iWeapon);
+        bool IsWeaponDamage(int iWeapon);
+        bool IsWeaponLifeDamage(int iWeapon);
+        bool IsWeaponArmorDamage(int iWeapon);
         int GetFurnaceArmor();
         int GetFurnaceMaxArmor();
         int GetFurnaceMaxLife();

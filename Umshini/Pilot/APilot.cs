@@ -236,6 +236,30 @@ namespace Pilot
         }
 
         /// <summary>
+        /// return true if the leg is damage
+        /// </summary>
+        public bool IsLegsDamage()
+        {
+            return _pRobot.IsLegsDamage();
+        }
+
+        /// <summary>
+        /// return true if the leg life is damage
+        /// </summary>
+        public bool IsLegsLifeDamage()
+        {
+            return _pRobot.IsLegsLifeDamage();
+        }
+
+        /// <summary>
+        /// return true if the leg armmor is damage
+        /// </summary>
+        public bool IsLegsArmorDamage()
+        {
+            return _pRobot.IsLegsArmorDamage();
+        }
+
+        /// <summary>
         /// return true if the furnace is broken
         /// </summary>
         public bool IsFurnaceBroken()
@@ -244,11 +268,59 @@ namespace Pilot
         }
 
         /// <summary>
+        /// return true if the furnace is damage
+        /// </summary>
+        public bool IsFurnaceDamage()
+        {
+            return _pRobot.IsFurnaceDamage();
+        }
+
+        /// <summary>
+        /// return true if the furnace life is damage
+        /// </summary>
+        public bool IsFurnaceLifeDamage()
+        {
+            return _pRobot.IsFurnaceLifeDamage();
+        }
+
+        /// <summary>
+        /// return true if the furnace armmor is damage
+        /// </summary>
+        public bool IsFurnaceArmorDamage()
+        {
+            return _pRobot.IsFurnaceArmorDamage();
+        }
+
+        /// <summary>
         /// return true if the weapon is broken
         /// </summary>
         public bool IsWeaponBroken(int iChoice)
         {
             return _pRobot.IsWeaponBroken(iChoice);
+        }
+
+        /// <summary>
+        /// return true if the weapon is damage
+        /// </summary>
+        public bool IsWeaponDamage(int iChoice)
+        {
+            return _pRobot.IsWeaponDamage(iChoice);
+        }
+
+        /// <summary>
+        /// return true if the weapon life is damage
+        /// </summary>
+        public bool IsWeaponLifeDamage(int iChoice)
+        {
+            return _pRobot.IsWeaponLifeDamage(iChoice);
+        }
+
+        /// <summary>
+        /// return true if the weapon armmor is damage
+        /// </summary>
+        public bool IsWeaponArmorDamage(int iChoice)
+        {
+            return _pRobot.IsWeaponArmorDamage(iChoice);
         }
 
         public int GetLeftWeaponType()

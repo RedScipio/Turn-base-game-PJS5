@@ -274,11 +274,23 @@ namespace Pilot
             if (iBestWeapon < 0) return true;
 
             // Calculate the damage ratio
+            float damageRatio;
             IWEAPON bestWeapon = this.GetRobot().GetWeapons()[iBestWeapon];
-            float rapportDegats = enemy.GetFurnaceLife() / (bestWeapon.GetDamage()/bestWeapon.GetAccuracy());
+
+            try
+            {
+                if (bestWeapon.GetAccuracy() == 0 || bestWeapon.GetDamage() == 0)
+                    damageRatio = 0;
+                else
+                    damageRatio = enemy.GetFurnaceLife() / (bestWeapon.GetDamage() / bestWeapon.GetAccuracy());
+            }
+            catch
+            {
+                damageRatio = 0;
+            }
 
             // Return the ratio
-            return rapportConsommation > rapportDegats;
+            return rapportConsommation > damageRatio;
         }
 
         /// <summary>

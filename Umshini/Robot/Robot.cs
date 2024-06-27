@@ -390,14 +390,59 @@ namespace Robot
             return this._pFurnace.IsBroken();
         }
 
+        public bool IsFurnaceDamage()
+        {
+            return this._pFurnace.IsDamage();
+        }
+
+        public bool IsFurnaceLifeDamage()
+        {
+            return this._pFurnace.IsLifeDamage();
+        }
+
+        public bool IsFurnaceArmorDamage()
+        {
+            return this._pFurnace.IsArmorDamage();
+        }
+
         public bool IsLegsBroken()
         {
             return this._pLeg.IsBroken();
         }
 
+        public bool IsLegsDamage()
+        {
+            return this._pLeg.IsDamage();
+        }
+
+        public bool IsLegsLifeDamage()
+        {
+            return this._pLeg.IsLifeDamage();
+        }
+
+        public bool IsLegsArmorDamage()
+        {
+            return this._pLeg.IsArmorDamage();
+        }
+
         public bool IsWeaponBroken(int iWeapon)
         {
             return _lWeapon[iWeapon].IsBroken();
+        }
+
+        public bool IsWeaponDamage(int iWeapon)
+        {
+            return _lWeapon[iWeapon].IsBroken();
+        }
+
+        public bool IsWeaponLifeDamage(int iWeapon)
+        {
+            return this._lWeapon[iWeapon].IsLifeDamage();
+        }
+
+        public bool IsWeaponArmorDamage(int iWeapon)
+        {
+            return this._lWeapon[iWeapon].IsArmorDamage();
         }
 
         public IWEAPON GetWeapon(int iWeapon)

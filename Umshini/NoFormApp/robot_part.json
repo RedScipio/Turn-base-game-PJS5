@@ -27,7 +27,7 @@
       "damage": 3,
       "power_consumption": 15,
       "accuracy": 100,
-      "min_accuracy": 0,
+      "min_accuracy": 10,
       "weapon_type": 1
     },
     {
@@ -50,7 +50,7 @@
       "damage": 3,
       "power_consumption": 15,
       "accuracy": 100,
-      "min_accuracy": 0,
+      "min_accuracy": 10,
       "weapon_type": 3,
       "fuel_burn": 20
     }

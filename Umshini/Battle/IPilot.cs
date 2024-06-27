@@ -15,8 +15,17 @@ namespace Battle
         bool Attack(int iChoice, IROBOT enemy, TARGET_TYPE eTarget, List<int> lInputActions = null);
         bool IsWeaponUsable(int iChoice);
         bool IsLegsBroken();
+        bool IsLegsDamage();
+        bool IsLegsLifeDamage();
+        bool IsLegsArmorDamage();
         bool IsFurnaceBroken();
+        bool IsFurnaceDamage();
+        bool IsFurnaceLifeDamage();
+        bool IsFurnaceArmorDamage();
         bool IsWeaponBroken(int iChoice);
+        bool IsWeaponDamage(int iChoice);
+        bool IsWeaponLifeDamage(int iChoice);
+        bool IsWeaponArmorDamage(int iChoice);
         bool IsAllKitsEmpty(List<ICONSUMABLES> list);
         IROBOT GetRobot();
         IPILOT Clone();

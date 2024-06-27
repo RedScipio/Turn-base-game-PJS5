@@ -99,8 +99,8 @@ namespace UGUI
             {
                 IFURNACE playerFurn = new FURNACE("1", "Normal Furnace", 1, 2, "", 50);
                 ILEG playerLegs = new LEG("1", "Basic Legs", 2, 2, "");
-                IWEAPON playerLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 1, "", 3, 15, 100, 0);
-                IWEAPON playerRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 3, 1, "", 1, 15, 80, 40);
+                IWEAPON playerLeftWeap = new MELEE_WEAPON("1", "Melee Weapon", 3, 1, "", 1, 15, 100, 0);
+                IWEAPON playerRightWeap = new NORMAL_WEAPON("1", "Basic Normal Weapon", 1, 1, "", 1, 15, 80, 40);
                 playerRobot = new ROBOT(playerFurn, playerLegs, playerLeftWeap, playerRightWeap);
             }
 
