@@ -42,10 +42,10 @@ namespace Reinforcement
         private void GenerateQTable()
         {
             int nbActions = Enum.GetValues(typeof(Action)).Length;
-            int nbStates = ((int)this._typeState.GetMaxValue()) + 1;
+            int nbStates = this._typeState.GetMaxValue() + 1;
             this._qTable = new double[nbStates][];
 
-            for (int i = 0; i < this._typeState.GetMaxValue() + 1; i++)
+            for (int i = 0; i < nbStates; i++)
             {
                 this._qTable[i] = new double[nbActions];
                 for (int j = 0; j < nbActions; j++)
