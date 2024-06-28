@@ -11,7 +11,7 @@ namespace Reinforcement
     {
         static void Main(string[] args)
         {
-            FactoryState.Type_State typeState = FactoryState.Type_State.State3;
+            FactoryState.Type_State typeState = FactoryState.Type_State.State_Death_Bot;
             float gamma = 0.9f;
 
             int nbIterationTraining = 100_000;
