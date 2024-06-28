@@ -93,8 +93,8 @@ namespace Pilot
 
         private protected List<int> IRepairMe()
         {
-            IROBOT r = this.GetRobot();
-            int pvToRepair = r.GetFurnaceMaxLife() + r.GetFurnaceMaxArmor() - r.GetFurnaceLife() - r.GetFurnaceArmor();
+            //IROBOT r = this.GetRobot();
+            //int pvToRepair = r.GetFurnaceMaxLife() + r.GetFurnaceMaxArmor() - r.GetFurnaceLife() - r.GetFurnaceArmor();
 
             for (int i = 0; i < this.GetRepairKitsReserve().Count(); i++)
             {
@@ -346,7 +346,7 @@ namespace Pilot
                 return new List<int> { (int)MAIN_MENU.Attack, iWeapon, (int) TARGET_TYPE.FURNACE };
             }
             
-            return new List<int>(-1);
+            return new List<int> { -1 };
         }
 
         /// <summary>
