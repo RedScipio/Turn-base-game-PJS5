@@ -55,7 +55,7 @@ namespace Reinforcement
             }
         }
 
-        public void Run()
+        public void Run(int nbBattles)
         {
             Console.WriteLine("Resultats : rien");
         }
@@ -175,12 +175,6 @@ namespace Reinforcement
         /// <returns>True if the simulation is complete, false otherwise</returns>
         private static bool IsSimulationOver(IROBOT agent, IROBOT opponent)
         {
-            bool a = agent.IsDestroy();
-            bool b = opponent.IsDestroy();
-
-            int t = agent.GetFurnaceLife();
-            int u = opponent.GetFurnaceLife();
-
             return agent.IsDestroy() || opponent.IsDestroy();
         }
 
