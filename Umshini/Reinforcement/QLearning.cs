@@ -57,19 +57,19 @@ namespace Reinforcement
 
         public void Run(int nbBattles)
         {
-            Console.WriteLine("Resultats : rien");
+            this.TrainingAgent(nbBattles, 0, 0, 0);
         }
 
         public void TrainingAgent(int nbTrains, float exploration, float decrementationExploration, float minExploration)
         {
-            int nbVictories = 0;
-            int nbDefeats = 0;
+            this._nbVictories = 0;
+            this._nbDefeats = 0;
+
             for (int i = 0; i < nbTrains; i++)
             {
                 IROBOT agent = this._IARobot.Clone();
                 IPILOT opponent = this._robotToKill.Clone();
 
-                //double initialState = this._typeState.ConvertNumber(agent, opponent.GetRobot());
                 double currentState = this._typeState.ConvertNumber(agent, opponent.GetRobot());
 
                 while (!IsSimulationOver(agent, opponent.GetRobot()))
@@ -79,18 +79,15 @@ namespace Reinforcement
 
                 if (agent.IsDestroy())
                 {
-                    nbDefeats++;
+                    this._nbDefeats++;
                 }
                 else
                 {
-                    nbVictories++;
+                    this._nbVictories++;
                 }
 
                 exploration = Math.Max(exploration - decrementationExploration, minExploration);
             }
-
-            Console.WriteLine("Victories : " + nbVictories);
-            Console.WriteLine("Defeats : " + nbDefeats);
         }
 
         private void TakeAction(IROBOT agent, IPILOT opposent, double currentState, float exploration)
@@ -175,7 +172,7 @@ namespace Reinforcement
         /// <returns>True if the simulation is complete, false otherwise</returns>
         private static bool IsSimulationOver(IROBOT agent, IROBOT opponent)
         {
-            return agent.IsDestroy() || opponent.IsDestroy();
+            return agent.IsDestroy() || opponent.IsDestroy() || agent.GetFuel() == 0;
         }
 
         /// <summary>
@@ -255,7 +252,7 @@ namespace Reinforcement
 
         private static double GetReward(IROBOT agent, IROBOT opponent)
         {
-            if (agent.IsDestroy())
+            if (agent.IsDestroy() || agent.GetFuel() == 0)
             {
                 return (double)Rewards.LOSE;
             }

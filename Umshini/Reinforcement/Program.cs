@@ -21,8 +21,8 @@ namespace Reinforcement
 
 
 
-            IFURNACE agentFurnace = new FURNACE("1", "Normal Furnace", 3, 2, "", 50);
-            IFURNACE opponentFurn = new FURNACE("1", "Normal Furnace", 3, 2, "", 50);
+            IFURNACE agentFurnace = new FURNACE("1", "Normal Furnace", 5, 5, "", 50);
+            IFURNACE opponentFurn = new FURNACE("1", "Normal Furnace", 5, 5, "", 50);
 
             ILEG agentLegs = new LEG("1", "Basic Legs", 2, 2, "");
             ILEG opponentLegs = new LEG("1", "Basic Legs", 3, 2, "");
@@ -50,7 +50,15 @@ namespace Reinforcement
             qLearning.TrainingAgent(nbIterationTraining, explorationPourcentage, decrementationExploration, minExploration);
 
             Console.WriteLine("Training is Done!");
-            Console.WriteLine("Press any key to continue...");
+            Console.WriteLine("");
+            Console.WriteLine("Ready for run, please wait...");
+
+            qLearning.Run(nbIterationTraining);
+
+            Console.WriteLine("Victories : " + qLearning.NbVictories);
+            Console.WriteLine("Defeats : " + qLearning.NbDefeats);
+            Console.WriteLine("Agent win rate : " + ((float) qLearning.NbVictories/((float) qLearning.NbVictories + (float) qLearning.NbDefeats)*100).ToString("F2") + "%");
+
             Console.ReadLine();
         }
     }
